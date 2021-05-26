@@ -1,24 +1,56 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { loadBoard } from '../store/action/board.action.js'
+import { ActivitiesFilter } from './ActivitiesFilter.jsx'
+class _BoradNav extends Component {
 
-export function BoradNav() {
+  state = {
+
+  }
+
+  componentDidMount() {
+    this.props.loadBoard()
+  }
+
+
+  onSetFilter = (filterBy) => {
+    this.props.loadBoard(filterBy)
+  }
+
+  onSearch = (searchTxt) => {
+    this.props.setFilter(this.props.filterBy, searchTxt)
+  }
+
+
+
+
+
+  render() {
+    if (!this.props.board) return <div>Loading...</div>
     return (
-        <header className="main-header">
-            <nav> 
-                <div className="main-header-left">
-                <NavLink exact to="/"><button className="more-apps main-nav-btn"></button></NavLink>
-                <NavLink exact to="/"><button className="home main-nav-btn"></button></NavLink>
-                <NavLink className="boards main-nav-btn" to="/board"><span>Boards</span></NavLink>
-                
-                </div>
-                
-                <NavLink to="/about"><button className="create-board main-nav-btn"></button></NavLink>
-                <NavLink to="/about"><button className="about main-nav-btn"></button></NavLink>
-                <NavLink to="/about"><button className="notifications main-nav-btn"></button></NavLink>
-                <div className="user-img">G</div>
-            </nav>
-
-        </header>
+      <div className="borad-nav">
+        <div className="borad-nav-left">
+        <h1>{this.props.board.title}</h1>
+        <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} />
+        </div>
+        <button className="show-menu">Show menu</button>
+      </div>
     )
-
+  }
 }
+
+
+
+function mapStateToProps(state) {
+  return {
+    board: state.boardModule.board,
+  }
+}
+const mapDispatchToProps = {
+  loadBoard
+}
+
+
+
+export const BoradNav = connect(mapStateToProps, mapDispatchToProps)(_BoradNav)
+
