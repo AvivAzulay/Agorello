@@ -4,11 +4,22 @@ export function loadBoard() {
     return async dispatch => {
         try {
             const board = await boardService.query()
-            console.log(board);
             dispatch({ type: 'SET_BOARD', board })
 
         } catch (err) {
             console.log('BoardActions: err in loadBoards', err)
+        }
+    }
+
+}
+
+export function saveCard(card, groupId) {
+    return async dispatch => {
+        try {
+            const board = await boardService.saveCard({ ...card }, groupId)
+            dispatch({ type: card.id ? 'UPDATE_CARD' : 'ADD_CARD', board })
+        } catch (err) {
+            console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
         }
     }
 }
@@ -24,16 +35,6 @@ export function loadBoard() {
 //     }
 // }
 
-// export function saveToy(board) {
-//     return async dispatch => {
-//         try {
-//             const savedToy = await toyService.save(board)
-//             dispatch({ type: board._id ? 'UPDATE_TOY' : 'ADD_TOY', board: savedToy })
-//         } catch (err) {
-//             console.log(`ToysActions: err in ${board._id ? 'update board' : 'add board'}${err}`)
-//         }
-//     }
-// }
 
 // export function setFilter(filterBy) {
 //     return dispatch => {

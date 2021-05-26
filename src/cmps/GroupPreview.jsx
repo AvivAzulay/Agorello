@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
-
 import { CardList } from './CardList'
+import { CardAdd } from './CardAdd'
+
 
 export class GroupPreview extends Component {
     state = {
-        group: null
     }
 
     componentDidMount() {
-     
+
     }
 
     render() {
-        const { group:{title, cards} } = this.props
+        const { group, group: { title, cards } } = this.props
         return (
-            <article className="group-preview" >
-                <p>{title}</p>
-                <CardList cards={cards}/>
-                {/* <AddCard /> */}
-            </article>
+            <div className="group-preview" >
+                <h3>{title}</h3>
+                <CardList cards={cards} />
+                <CardAdd groupId={group.id} />
+            </div>
         )
     }
 }

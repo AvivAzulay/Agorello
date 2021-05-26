@@ -1,17 +1,18 @@
 const initialState = {
-    boards: []
+    board: null
 }
 
 export function boardReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_BOARD':
-            return { ...state, board: action.board }
+            return { board: { ...action.board } }
+        case 'ADD_CARD':
+            return { board: { ...action.board } }
         // case 'REMOVE_TOY':
         //     return { ...state, toys: state.toys.filter(toy => toy._id !== action.toyId) }
         // case 'CAR_ERR':
         //     return { ...state, err: action.err, isLoading: false }
-        // case 'ADD_CAR':
-        //     return { ...state, cars: [...state.cars, action.car] }
+        // return { ...state, groups: [...state.group, state.groups[]action.card] }
         // case 'LOADING_CARS':
         //     return { ...state, isLoading: action.isLoading, err: null }
         // case 'ADD_TO_CART':

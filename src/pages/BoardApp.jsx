@@ -12,17 +12,16 @@ class _BoardApp extends Component {
 
     componentDidMount() {
         this.props.loadBoard()
-        console.log(this.props.board);
     }
 
 
     render() {
         if (!this.props.board) return <div>Loading...</div>
         return (
-            <section>
-            <h1>Board</h1>
-            <GroupList groups={this.props.board.groups} />
-            </section>
+            <div>
+                <h1>Board</h1>
+                <GroupList groups={this.props.board.groups} />
+            </div>
         )
     }
 }
@@ -41,4 +40,3 @@ const mapDispatchToProps = {
 
 
 export const BoardApp = connect(mapStateToProps, mapDispatchToProps)(_BoardApp)
-
