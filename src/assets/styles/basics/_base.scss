@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: $clr1;
+    color: #fff;
+}
+
+html {
+    font-family: montserrat, sans-serif;
+    font-size: rem(18px);
+    color: $clr2;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    background-image: url(../../images/cats-pattern-background_1425-90.jpg);
+    background-size: 116px;
+}
+
+img {
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: caveat, sans-serif;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 0 0.6em;
+}
+
+h1 {
+    font-size: rem(65px);
+}
+
+p {
+}
