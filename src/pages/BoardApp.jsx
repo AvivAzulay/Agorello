@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { loadBoard } from '../store/action/board.action.js'
 
 
 class _BoardApp extends Component {
@@ -9,7 +10,8 @@ class _BoardApp extends Component {
     }
 
     componentDidMount() {
-
+        this.props.loadBoard()
+        console.log(this.state);
     }
 
 
@@ -23,13 +25,13 @@ class _BoardApp extends Component {
 
 
 
-function mapStateToProps() {
+function mapStateToProps(state) {
     return {
-
+        board: state.boardModule.board,
     }
 }
 const mapDispatchToProps = {
-
+    loadBoard
 }
 
 
