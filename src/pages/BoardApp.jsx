@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
-<<<<<<< HEAD
-import { BoradNav } from '../cmps/BoradNav.jsx'
-import { loadBoard } from '../store/action/board.action.js'
-=======
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
 import { loadBoard, removeGroup, saveCard, removeCard, saveGroup } from '../store/action/board.action.js'
->>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
 import { GroupList } from '../cmps/GroupList'
 
 
