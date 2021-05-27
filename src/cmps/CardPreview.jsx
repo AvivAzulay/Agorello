@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -46,9 +47,19 @@ export class _CardPreview extends Component {
 function mapStateToProps() {
     return {
     }
-}
-const mapDispatchToProps = {
-    removeCard
-}
+=======
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const CardPreview = connect(mapStateToProps, mapDispatchToProps)(_CardPreview)
+export function CardPreview({ onRemoveCard, card }) {
+    return (
+        <div className="card-preview" >
+            <Link to={`/board/${card.id}`} >
+                <div className="test-white-space">{card.title}</div>
+            </Link >
+            <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
+            <p>{card.desription}</p>
+        </div>
+    )
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
+}

@@ -6,7 +6,12 @@ export const boardService = {
     saveCard,
     removeCard,
     removeGroup,
+<<<<<<< HEAD
     getCardById
+=======
+    getCardById,
+    getCardTitleById,
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
 }
 
 let gBoard = getGboard()
@@ -40,7 +45,10 @@ function saveCard(card, groupId) {
         card.id = utilService.makeId()
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
+<<<<<<< HEAD
         console.log(card)
+=======
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
         gBoard.groups[groupIdx].cards.push(card)
         return Promise.resolve(gBoard)
     }
@@ -48,7 +56,11 @@ function saveCard(card, groupId) {
 
 function removeCard(cardId, groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+<<<<<<< HEAD
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+=======
+    const cardIdx = gBoard.groups[groupIdx].cards.find(card => card.id === cardId)
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(gBoard)
 }
@@ -59,15 +71,40 @@ function removeGroup(groupId) {
 }
 
 function getCardById(cardId) {
+<<<<<<< HEAD
     const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
     return group.cards.find(card => card.id === cardId)
 }
 
+=======
+    console.log(cardId);
+    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
+    console.log(group);
+    return group.cards.find(card => card.id === cardId)
+}
+
+function getCardTitleById(cardId, board) {
+    let cardTitle;
+    board.groups.forEach(group => group.cards.forEach(card => {
+        if (card.id === cardId) {
+            cardTitle = card.title
+        }
+    }))
+    return cardTitle
+}
+
+
+
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
 
 function getGboard() {
     return {
         "_id": "5f72ea5a1ab1fc0017450368",
+<<<<<<< HEAD
         "title": "Groceries",
+=======
+        "title": "Trello Dev!!!",
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
         "isArchived": false,
         "labels": [
             {
@@ -317,4 +354,8 @@ function getGboard() {
             }
         ]
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61

@@ -1,11 +1,11 @@
 // Setup
 // @import "setup/variables.scss";
 // @import "setup/functions.scss";
-// @import "setup/mixins.scss";
+@import "setup/mixins.scss";
 @import "setup/typography.scss";
 
 // Basics
-// @import "basics/helpers.scss";
+@import "basics/helpers.scss";
 // @import "basics/layout.scss";
  @import "basics/base.scss";
 // @import "basics/buttons.scss";
@@ -16,6 +16,8 @@
 @import "views/Board.scss";
 @import "components/BoardNav.scss";
 @import "components/groupPreview.scss";
+@import "components/Card.scss";
+
 
 
 

@@ -1,0 +1,152 @@
+.card-preview{
+  flex: 0 0 27rem;
+  display: flex;
+  flex-direction: row;
+  background-color: #fbfdff;
+  max-height: calc(100vh - 11.8rem);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+  padding: 6px 10px 8px;
+  margin: 6px 8px 6px;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
+  white-space: normal;
+
+  
+}
+  
+
+.card-add-edit {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #838c91;
+  text-align: left;
+  cursor: pointer;
+  textarea{
+    outline: none;
+    border: none;
+    border:0;
+    background-color: #fafbfc;
+    height: 100px;
+    resize: none;
+    width: 94%;
+    margin: 8px 10px;
+    font-size:16px ;
+    padding: 10px;
+    border: none;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: 0, 1px ,0 rgb(9, 30, 66 / 25%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',;
+  box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
+
+  }
+  .card-add-menu-btn:before{
+    font-family: icomoon;
+    content: '\e951';
+    font-size: 25px;
+    color: #69788d;
+  }
+  
+  .card-add-txt{
+    color: #5e6c84;
+    font-size:16px ;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    font-size:14px;
+    line-height: 17px; 
+  }
+
+  .card-add-txt:before{
+    font-family: icomoon;
+    content: '\e901';
+    margin-right: 5px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 10px;
+
+  }
+
+}
+.card-preview-remove-btn{
+border: none;
+background-color: #fafbfc;
+display: flex;
+padding: 5px 5px;
+cursor: pointer;
+align-items: center;
+justify-content: center;
+border-radius: 5px;
+width: 30px;
+height: 30px;
+}
+
+.card-preview:hover {
+  .card-preview-remove-btn:before{
+    font-family: icomoon;
+    content: '\e971';
+    font-size: 20px;
+    color: #5e6c84;
+  }
+  .card-preview-remove-btn:hover{
+    background-color: rgba(211, 208, 208, 0.364);
+    
+  }
+}
+
+
+.card-add-edit-btn{
+  background-color: #0079bf;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  height: 30px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',;
+margin-right: 5px;
+font-size: 14px;
+}
+
+
+
+.card-add-exit-btn{
+  border: none;
+  background-color: #e2e4e600;
+  cursor: pointer;
+
+
+}
+
+.card-add-exit-btn:before{
+  font-family: icomoon;
+  content: '\e91b';
+  font-size: 26px;
+  text-align: center;
+  color: #69788d;
+}
+
+.card-add-btn{
+display: flex;
+justify-content: space-between;
+margin: 10px 10px;
+.left-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+}
+
+.test-white-space{
+  width: 240px;
+  word-wrap: break-word;
+}
+
+

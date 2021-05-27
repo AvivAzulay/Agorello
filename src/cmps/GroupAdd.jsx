@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { connect } from 'react-redux'
 
 import { saveGroup } from '../store/action/board.action.js'
 
 class _GroupAdd extends Component {
+=======
+
+
+export class GroupAdd extends Component {
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
     state = {
         isEditing: false,
         group: {
@@ -15,10 +21,17 @@ class _GroupAdd extends Component {
     componentDidUpdate() {
         this.state.isEditing && this.inputRef.current.focus()
     }
+<<<<<<< HEAD
     onToggleMode = () => {
         const { isEditing } = this.state
         this.setState({ ...this.state, isEditing: !isEditing })
 
+=======
+
+    onToggleMode = () => {
+        const { isEditing } = this.state
+        this.setState({ ...this.state, isEditing: !isEditing })
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
     }
 
     handleChange = ({ target }) => {
@@ -30,7 +43,11 @@ class _GroupAdd extends Component {
     onSubmit = (ev) => {
         ev.preventDefault()
         if (!this.state.group.title) return
+<<<<<<< HEAD
         this.props.saveGroup(this.state.group)
+=======
+        this.props.onSaveGroup(this.state.group)
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
         this.setState({ ...this.state, group: { title: '' } })
     }
 
@@ -56,6 +73,7 @@ class _GroupAdd extends Component {
         )
     }
 }
+<<<<<<< HEAD
 function mapStateToProps() {
     return {
     }
@@ -65,3 +83,5 @@ const mapDispatchToProps = {
 }
 
 export const GroupAdd = connect(mapStateToProps, mapDispatchToProps)(_GroupAdd)
+=======
+>>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
