@@ -8,8 +8,9 @@ export function boardReducer(state = initialState, action) {
             return { board: { ...action.board } }
         case 'ADD_CARD':
             return { board: { ...action.board } }
-        // case 'REMOVE_TOY':
-        //     return { ...state, toys: state.toys.filter(toy => toy._id !== action.toyId) }
+        case 'REMOVE_CARD':
+            return { board: { ...action.board } }
+            // return { ...state, toys: state.toys.filter(toy => toy._id !== action.toyId) }
         // case 'CAR_ERR':
         //     return { ...state, err: action.err, isLoading: false }
         // return { ...state, groups: [...state.group, state.groups[]action.card] }
