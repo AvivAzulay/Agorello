@@ -34,7 +34,7 @@ class _CardAdd extends Component {
         ev.preventDefault()
         this.props.saveCard(this.state.card, this.props.groupId)
         this.setState({ ...this.state, card: { title: '' } })
-
+        
     }
 
     render() {
@@ -43,16 +43,21 @@ class _CardAdd extends Component {
 
             { !editMode &&
                 <div className="card-add-edit" >
-                    <p className="add-txt" onClick={this.onToggleMode}>Add another card</p>
+                    <p className="card-add-txt" onClick={this.onToggleMode}>Add another card</p>
                 </div>}
 
             {editMode &&
                 <div className="card-add-edit" >
                     <form action="">
-                        <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} />
-                        <button onClick={this.onSubmit}>Add card</button>
-                        <button onClick={this.onToggleMode}>&times;</button>
-                        <button onClick={() => { }}>...menu</button>
+                     <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title for this card...' onChange={this.handleChange} />
+                    <div className="card-add-btn" >
+                    <span className="left-btn"> 
+                      <button className="card-add-edit-btn"  onClick={this.onSubmit}>Add card</button>
+                        <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
+                      </span>
+                        <button className="card-add-menu-btn" onClick={() => { }}></button>
+                    </div>
+                    
                     </form>
                 </div>}
 

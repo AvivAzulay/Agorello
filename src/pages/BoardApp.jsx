@@ -21,7 +21,6 @@ class _BoardApp extends Component {
         return (
             <div className="board">
                 <BoradNav />
-                <h1>Board</h1>
                 <GroupList groups={this.props.board.groups} />
                 
                 

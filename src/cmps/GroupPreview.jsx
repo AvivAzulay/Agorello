@@ -14,11 +14,18 @@ export class GroupPreview extends Component {
     render() {
         const { group, group: { title, cards } } = this.props
         return (
-            <div className="group-preview" >
-                <h3>{title}</h3>
-                <button>...menu</button>
+           
+
+           
+           <div className="group-preview" >
+                <div className="group-preview-header">
+                <h3  className="card-title">{title}</h3>
+                <button className="group-preview-header-btn"></button>
+                </div>
+                <div className="card-list-and-add ">
                 <CardList cards={cards} />
                 <CardAdd groupId={group.id} />
+                </div>
             </div>
         )
     }

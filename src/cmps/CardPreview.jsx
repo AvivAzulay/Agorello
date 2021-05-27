@@ -26,8 +26,8 @@ export class _CardPreview extends Component {
          
           
             <div className="card-preview">
-                <div>{card.title}</div>
-                <button onClick={this.onRemoveCard}>&times;</button>
+                <div className="test-white-space">{card.title}</div>
+                <button className="card-preview-remove-btn" onClick={this.onRemoveCard}></button>
          
           
             <Route component={CardEdit} path="/board/:CardId" />
