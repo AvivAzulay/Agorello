@@ -150,7 +150,7 @@ let gBoard = {
                     "dueDate": null,
                     "attachments": null,
                     "currGroup": {
-                        "groupId": "2D5FR",
+                        "groupId": "2D5FD",
                         "createdAt": 1601366751048
                     },
                     "byMember": {
@@ -179,7 +179,7 @@ let gBoard = {
                     "dueDate": null,
                     "attachments": null,
                     "currGroup": {
-                        "groupId": "2D5FR",
+                        "groupId": "2D5FD",
                         "createdAt": 1601366751050
                     },
                     "byMember": {
@@ -253,12 +253,11 @@ let gBoard = {
     ]
 }
 
-
-
-
 export const boardService = {
     query,
-    saveCard
+    saveCard,
+    removeCard,
+    getCardById
 }
 
 function query() {
@@ -272,13 +271,26 @@ function saveCard(card, groupId) {
     else {
         card.id = utilService.makeId()
         //// ASK MATAN Y FIND NOT WORKING!!!!
-
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+        card.currGroup = {groupId: gBoard.groups[groupIdx].id, createdAt: new Date()}
         gBoard.groups[groupIdx].cards.push(card)
-
         return Promise.resolve(gBoard)
     }
 }
 
+function removeCard(cardId, groupId) {
+    const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    console.log(gBoard.groups[groupIdx].cards)
+    gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
+    console.log(gBoard.groups[groupIdx].cards)
+    return Promise.resolve(gBoard)
+}
 
-
+function getCardById(cardId) {
+    console.log('service', cardId)
+    const card = gBoard.groups.find(group => {
+        return group.cards.find(card => card.id === cardId)
+    })
+    console.log('getting..', card)
+}

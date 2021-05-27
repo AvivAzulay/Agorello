@@ -1,0 +1,71 @@
+.group-preview{
+  flex: 0 0 19rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #e2e4e6;
+  max-height: calc(100vh - 11.8rem);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+}
+
+.group-list {
+  display: flex;
+  align-items: start;
+  padding: 0 0.8rem 0.8rem;
+  overflow-x: auto;
+  height: calc(100vh - 8.6rem);
+}
+
+.card-preview{
+  flex: 0 0 27rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fbfdff;
+  max-height: calc(100vh - 11.8rem);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+  padding: 6px 8px 10px;
+  margin: 6px 8px 6px;
+  box-shadow: inset 0 0 0 2px #dfe1e6;
+  cursor: pointer;
+}
+
+.card-add-edit {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #838c91;
+  padding-left: 15px;
+  text-align: left;
+  cursor: pointer;
+  input{
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0 2px #dfe1e6;
+    background-color: #fafbfc;
+    display: block;
+    line-height: 70px;
+  }
+  .add-txt{
+    font-size:16px ;
+  }
+
+  .add-txt:before{
+    font-family: icomoon;
+    content: '\e901';
+  }
+
+}
+
+.card-add-edit:hover {
+  background-color: #cdd2d4;
+  color: #4d4d4d;
+  text-decoration: underline;
+}
+
+.card-title{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  padding: 1rem ;
+}

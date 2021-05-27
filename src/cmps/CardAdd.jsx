@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveCard } from '../store/action/board.action.js'
 
-
 class _CardAdd extends Component {
 
     state = {
@@ -43,8 +42,8 @@ class _CardAdd extends Component {
         return (<React.Fragment>
 
             { !editMode &&
-                <div className="card-add" >
-                    <button onClick={this.onToggleMode}>Add another card</button>
+                <div className="card-add-edit" >
+                    <p className="add-txt" onClick={this.onToggleMode}>Add another card</p>
                 </div>}
 
             {editMode &&
@@ -69,7 +68,5 @@ function mapStateToProps() {
 const mapDispatchToProps = {
     saveCard
 }
-
-
 
 export const CardAdd = connect(mapStateToProps, mapDispatchToProps)(_CardAdd)
