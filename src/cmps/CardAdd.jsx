@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveCard } from '../store/action/board.action.js'
 
-
 class _CardAdd extends Component {
 
     state = {
@@ -68,7 +67,5 @@ function mapStateToProps() {
 const mapDispatchToProps = {
     saveCard
 }
-
-
 
 export const CardAdd = connect(mapStateToProps, mapDispatchToProps)(_CardAdd)

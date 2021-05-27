@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import { BoradNav } from '../cmps/BoradNav.jsx'
 import { loadBoard } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
+
 
 class _BoardApp extends Component {
 
@@ -14,8 +16,6 @@ class _BoardApp extends Component {
         this.props.loadBoard()
     }
 
-
-
     render() {
         if (!this.props.board) return <div>Loading...</div>
         return (
@@ -23,6 +23,9 @@ class _BoardApp extends Component {
                 <BoradNav />
                 <h1>Board</h1>
                 <GroupList groups={this.props.board.groups} />
+                
+                
+                
             </div>
         )
     }

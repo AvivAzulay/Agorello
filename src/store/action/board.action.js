@@ -24,6 +24,17 @@ export function saveCard(card, groupId) {
     }
 }
 
+export function removeCard(cardId, groupId) { // Action Creator
+    return async dispatch => {
+        try {
+            const board = await boardService.removeCard(cardId, groupId)
+            dispatch({ type: 'REMOVE_CARD', board })
+        } catch (err) {
+            console.log('BoardActions: err in removeCard', err)
+        }
+    }
+}
+
 // export function removeBoard(boardId) { // Action Creator
 //     return async dispatch => {
 //         try {
