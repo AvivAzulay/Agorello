@@ -12,7 +12,7 @@ export class CardPreview extends Component {
     render() {
         return (
             <div className="card-preview" >
-                <p>{this.props.card.title}</p>
+                <div>{this.props.card.title}</div>
             </div>
         )
     }

@@ -43,8 +43,8 @@ class _CardAdd extends Component {
         return (<React.Fragment>
 
             { !editMode &&
-                <div className="card-add" >
-                    <button onClick={this.onToggleMode}>Add another card</button>
+                <div className="card-add-edit" >
+                    <p className="add-txt" onClick={this.onToggleMode}>Add another card</p>
                 </div>}
 
             {editMode &&

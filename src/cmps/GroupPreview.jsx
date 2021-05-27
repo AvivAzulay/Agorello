@@ -15,7 +15,7 @@ export class GroupPreview extends Component {
         const { group, group: { title, cards } } = this.props
         return (
             <div className="group-preview" >
-                <h3>{title}</h3>
+                <h3 className="card-title" >{title}</h3>
                 <CardList cards={cards} />
                 <CardAdd groupId={group.id} />
             </div>
