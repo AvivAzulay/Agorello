@@ -9,12 +9,11 @@ function App() {
   return (
     <Router>
       <Header />
-      
       <main>
         {routes.map(route => <Route key={route.path} exact component={route.component} path={route.path} />)}
       </main>
     </Router>
-  );
+  )
 }
 
 export default App;

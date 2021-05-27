@@ -24,6 +24,18 @@ export function saveCard(card, groupId) {
     }
 }
 
+export function saveGroup(group) {
+    console.log('action:', group);
+    return async dispatch => {
+        try {
+            const board = await boardService.saveGroup({ ...group })
+            dispatch({ type: group.id ? 'UPDATE_GROUP' : 'ADD_GROUP', board })
+        } catch (err) {
+            console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
+        }
+    }
+}
+
 export function removeCard(cardId, groupId) { // Action Creator
     return async dispatch => {
         try {
@@ -31,6 +43,17 @@ export function removeCard(cardId, groupId) { // Action Creator
             dispatch({ type: 'REMOVE_CARD', board })
         } catch (err) {
             console.log('BoardActions: err in removeCard', err)
+        }
+    }
+}
+
+export function removeGroup(groupId) { // Action Creator
+    return async dispatch => {
+        try {
+            const board = await boardService.removeGroup(groupId)
+            dispatch({ type: 'REMOVE_GROUP', board })
+        } catch (err) {
+            console.log('BoardActions: err in removeGroup', err)
         }
     }
 }
