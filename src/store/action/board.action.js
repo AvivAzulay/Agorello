@@ -1,6 +1,6 @@
 import { boardService } from '../../services/board-service'
 
-export function loadBoard() {
+export function loadBoard(filter = '') {
     return async dispatch => {
         try {
             const board = await boardService.query()
@@ -17,7 +17,7 @@ export function saveCard(card, groupId) {
     return async dispatch => {
         try {
             const board = await boardService.saveCard({ ...card }, groupId)
-            dispatch({ type: card.id ? 'UPDATE_CARD' : 'ADD_CARD', board })
+            dispatch({ type: card.id ? 'SET_BOARD' : 'SET_BOARD', board })
         } catch (err) {
             console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
         }
@@ -25,11 +25,10 @@ export function saveCard(card, groupId) {
 }
 
 export function saveGroup(group) {
-    console.log('action:', group);
     return async dispatch => {
         try {
             const board = await boardService.saveGroup({ ...group })
-            dispatch({ type: group.id ? 'UPDATE_GROUP' : 'ADD_GROUP', board })
+            dispatch({ type: group.id ? 'SET_BOARD' : 'ADD_GROUP', board })
         } catch (err) {
             console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
         }
@@ -40,7 +39,7 @@ export function removeCard(cardId, groupId) { // Action Creator
     return async dispatch => {
         try {
             const board = await boardService.removeCard(cardId, groupId)
-            dispatch({ type: 'REMOVE_CARD', board })
+            dispatch({ type: 'SET_BOARD', board })
         } catch (err) {
             console.log('BoardActions: err in removeCard', err)
         }
@@ -51,7 +50,7 @@ export function removeGroup(groupId) { // Action Creator
     return async dispatch => {
         try {
             const board = await boardService.removeGroup(groupId)
-            dispatch({ type: 'REMOVE_GROUP', board })
+            dispatch({ type: 'SET_BOARD', board })
         } catch (err) {
             console.log('BoardActions: err in removeGroup', err)
         }

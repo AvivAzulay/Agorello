@@ -6,7 +6,8 @@ export const boardService = {
     saveCard,
     removeCard,
     removeGroup,
-    getCardById
+    getCardById,
+    getCardTitleById,
 }
 
 let gBoard = getGboard()
@@ -46,7 +47,7 @@ function saveCard(card, groupId) {
 
 function removeCard(cardId, groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    const cardIdx = gBoard.groups[groupIdx].cards.find(card => card.id === cardId)
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(gBoard)
 }
@@ -57,15 +58,29 @@ function removeGroup(groupId) {
 }
 
 function getCardById(cardId) {
+    console.log(cardId);
     const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
+    console.log(group);
     return group.cards.find(card => card.id === cardId)
 }
+
+function getCardTitleById(cardId, board) {
+    let cardTitle;
+    board.groups.forEach(group => group.cards.forEach(card => {
+        if (card.id === cardId) {
+            cardTitle = card.title
+        }
+    }))
+    return cardTitle
+}
+
+
 
 
 function getGboard() {
     return {
         "_id": "5f72ea5a1ab1fc0017450368",
-        "title": "Groceries",
+        "title": "Trello Dev!!!",
         "isArchived": false,
         "labels": [
             {

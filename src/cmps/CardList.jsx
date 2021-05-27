@@ -1,10 +1,9 @@
 import { CardPreview } from './CardPreview.jsx'
 
-export function CardList({ cards }) {
-  console.log(cards)
+export function CardList({ cards, onRemoveCard }) {
   return (
-    <a className="aa">
-      { cards.map(card => <CardPreview card={card} key={card.id} />)}
-    </a>
+    <div className="card-list">
+      { cards.map(card => <CardPreview card={card} key={card.id} onRemoveCard={onRemoveCard} />)}
+    </div>
   )
 }

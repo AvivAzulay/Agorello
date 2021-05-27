@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { saveCard } from '../store/action/board.action.js'
 
-class _CardAdd extends Component {
+export class CardAdd extends Component {
 
     state = {
         isEditing: false,
@@ -10,6 +8,7 @@ class _CardAdd extends Component {
             title: ''
         }
     }
+
     inputRef = React.createRef()
 
     componentDidMount() {
@@ -32,7 +31,7 @@ class _CardAdd extends Component {
 
     onSubmit = (ev) => {
         ev.preventDefault()
-        this.props.saveCard(this.state.card, this.props.groupId)
+        this.props.onSaveCard(this.state.card, this.props.groupId)
         this.setState({ ...this.state, card: { title: '' } })
     }
 
@@ -42,16 +41,21 @@ class _CardAdd extends Component {
 
             { !isEditing &&
                 <div className="card-add-edit" >
-                    <p className="add-txt" onClick={this.onToggleMode}>Add another card</p>
+                    <p className="card-add-txt" onClick={this.onToggleMode}>Add another card</p>
                 </div>}
 
             {isEditing &&
                 <div className="card-add-edit" >
                     <form action="">
-                        <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} placeholder="Enter a title for this card..." />
-                        <button onClick={this.onSubmit}>Add card</button>
-                        <button onClick={this.onToggleMode}>&times;</button>
-                        <button onClick={() => { }}>...menu</button>
+                        <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title for this card...' onChange={this.handleChange} />
+                        <div className="card-add-btn" >
+                            <span className="left-btn">
+                                <button className="card-add-edit-btn" onClick={this.onSubmit}>Add card</button>
+                                <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
+                            </span>
+                            <button className="card-add-menu-btn" onClick={() => { }}></button>
+                        </div>
+
                     </form>
                 </div>}
 
@@ -59,13 +63,3 @@ class _CardAdd extends Component {
         )
     }
 }
-
-function mapStateToProps() {
-    return {
-    }
-}
-const mapDispatchToProps = {
-    saveCard
-}
-
-export const CardAdd = connect(mapStateToProps, mapDispatchToProps)(_CardAdd)

@@ -25,7 +25,7 @@ export class ActivitiesFilter extends React.Component {
         const { searchTxt } = this.state
         return (
             <section className="borad-filter-container">
-                <input type="search" id="standard-basic" name="searchTxt" value={searchTxt} placeholder="Search Activities Here..." onChange={this.handleChange}  />
+                <input type="search" id="standard-basic" name="searchTxt" value={searchTxt} placeholder="Search Activities..." onChange={this.handleChange}  />
               
             </section>
         )

@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-import { saveGroup } from '../store/action/board.action.js'
 
-class _GroupAdd extends Component {
+export class GroupAdd extends Component {
     state = {
         isEditing: false,
         group: {
@@ -15,10 +13,10 @@ class _GroupAdd extends Component {
     componentDidUpdate() {
         this.state.isEditing && this.inputRef.current.focus()
     }
+
     onToggleMode = () => {
         const { isEditing } = this.state
         this.setState({ ...this.state, isEditing: !isEditing })
-
     }
 
     handleChange = ({ target }) => {
@@ -30,7 +28,7 @@ class _GroupAdd extends Component {
     onSubmit = (ev) => {
         ev.preventDefault()
         if (!this.state.group.title) return
-        this.props.saveGroup(this.state.group)
+        this.props.onSaveGroup(this.state.group)
         this.setState({ ...this.state, group: { title: '' } })
     }
 
@@ -56,12 +54,3 @@ class _GroupAdd extends Component {
         )
     }
 }
-function mapStateToProps() {
-    return {
-    }
-}
-const mapDispatchToProps = {
-    saveGroup
-}
-
-export const GroupAdd = connect(mapStateToProps, mapDispatchToProps)(_GroupAdd)
