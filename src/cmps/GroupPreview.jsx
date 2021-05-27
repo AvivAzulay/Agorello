@@ -16,6 +16,7 @@ export class GroupPreview extends Component {
         return (
             <div className="group-preview" >
                 <h3>{title}</h3>
+                <button>...menu</button>
                 <CardList cards={cards} />
                 <CardAdd groupId={group.id} />
             </div>

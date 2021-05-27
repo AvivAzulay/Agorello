@@ -53,6 +53,7 @@ class _CardAdd extends Component {
                         <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} />
                         <button onClick={this.onSubmit}>Add card</button>
                         <button onClick={this.onToggleMode}>&times;</button>
+                        <button onClick={() => { }}>...menu</button>
                     </form>
                 </div>}
 
