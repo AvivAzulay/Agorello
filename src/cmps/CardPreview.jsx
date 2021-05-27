@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { removeCard } from '../store/action/board.action.js'
 
-import { Route } from 'react-router-dom'
-import { CardEdit } from '../cmps/CardEdit'
 
 export class _CardPreview extends Component {
     state = {
-      
+
     }
 
     componentDidMount() {
@@ -20,18 +18,27 @@ export class _CardPreview extends Component {
         this.props.removeCard(card.id, card.currGroup.groupId)
     }
 
+
+    onOpenCardDetails = () => {
+        // to later be switched to using history
+        let url = window.location.href
+        if (url.charAt(url.length - 1) !== '/') url += ''
+        url += `${this.props.card.id}`
+        window.location.assign(url)
+        // onClick = { this.onOpenCardDetails }
+    }
+
     render() {
         const { card } = this.props
         return (
-         
-          
-            <div className="card-preview">
-                <div>{card.title}</div>
-                <button onClick={this.onRemoveCard}>&times;</button>
-         
-          
-            <Route component={CardEdit} path="/board/:CardId" />
-            </div>
+            // <Link to={`/board?cardId=${card.id}`} >
+            <Link to={`/board/${card.id}`} >
+                <div className="card-preview" >
+                    <p>{card.title}</p>
+                    <button onClick={this.onRemoveCard}>&times;</button>
+                    <p>{card.desription}</p>
+                </div>
+            </Link >
         )
     }
 }
