@@ -4,25 +4,43 @@ import { boardService } from '../services/board-service'
 import { saveCard } from '../store/action/board.action'
 import { GroupTitleEdit } from './GroupTitleEdit'
 import { CardDescription } from './CardDescription'
+<<<<<<< HEAD
 // import { CardMemberList } from './CardMemberList'
 
+=======
+import { CardMemberList } from './CardMemberList'
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
 
 export class _CardDetails extends Component {
   state = {
     card: null,
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
   componentDidMount() {
     const id = this.props.cardId
     const card = boardService.getCardById(id)
     this.setState({ card })
   }
+<<<<<<< HEAD
   onUpdateCardProps = (key, value) => {
     console.log(key, value)
 
+=======
+
+  onUpdateCardProps = (key, value) => {
+    console.log(key, value)
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
     const { card } = this.state
     card[key] = value
     this.onSaveCard(card)
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
   onSaveCard = () => {
     const { card } = this.state
     this.props.saveCard(card, card.currGroup.groupId)
@@ -57,10 +75,10 @@ export class _CardDetails extends Component {
               </div>
               <div className="edit-activity-description">
                 <div className='user-img-chat-add'>G</div>
-                <textarea className="edit-activity-description-textarea" type="text" />
-                {/* <textarea className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' /> */}
+                <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
               </div>
             </div>
+
           </div >
           <div className="edit-add-to-card">
             <h1> ADD TO CARD </h1>
@@ -76,6 +94,10 @@ export class _CardDetails extends Component {
     )
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
 function mapStateToProps(state) {
   return {
     board: state.boardModule.board,
@@ -84,4 +106,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   saveCard,
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fb9543e1cef74fd6db93699db0c49346fb45660
 export const CardDetails = connect(mapStateToProps, mapDispatchToProps)(_CardDetails)

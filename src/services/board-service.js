@@ -35,9 +35,11 @@ function saveCard(card, groupId) {
         const group = gBoard.groups.find(group => group.id === groupId)
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         gBoard.groups[groupIdx] = group
+        console.log(gBoard)
         return Promise.resolve(gBoard)
     }
     else {
+        
         card.id = utilService.makeId()
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
@@ -197,17 +199,17 @@ function getGboard() {
         "members": [
             {
                 "_id": "5f6a2528973d861c5d78c355",
-                "fullName": "puki ben david",
+                "fullname": "puki ben david",
                 "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
             },
             {
                 "_id": "5f6a2532173d861c5d78c332",
-                "fullName": "mike awsome",
+                "fullname": "mike awsome",
                 "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
             },
             {
                 "_id": "5f6a2532173d861c5d78c321",
-                "fullName": "tuki taka",
+                "fullname": "tuki taka",
                 "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
             }
         ],

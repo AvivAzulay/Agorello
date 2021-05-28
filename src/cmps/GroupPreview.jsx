@@ -1,6 +1,9 @@
 import React from 'react'
 import { CardList } from './CardList'
 import { CardAdd } from './CardAdd'
+import { GroupTitleEdit } from './GroupTitleEdit'
+import { removeGroup, saveGroup } from '../store/action/board.action.js'
+import { connect } from 'react-redux'
 
 
 export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, groupIdx }) {
