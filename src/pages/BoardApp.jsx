@@ -41,14 +41,6 @@ class _BoardApp extends Component {
         return (<>
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
             <div className="board">
-<<<<<<< HEAD
-                <BoradNav />
-                <h1>Board</h1>
-                <GroupList groups={this.props.board.groups} />
-                {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} boardId={this.props.match.params.id} history={this.props.history} /> : <div></div>}
-                
-                
-=======
                 <BoardHeader
                     board={this.props.board}
                 />
@@ -59,7 +51,6 @@ class _BoardApp extends Component {
                     onSaveCard={this.onSaveCard}
                     onRemoveCard={this.onRemoveCard}
                 />
->>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
             </div>
         </>
         )

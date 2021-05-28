@@ -39,11 +39,11 @@ export class CardDescription extends Component {
 
     descriptionContainer = () => {
         if (!this.state.isEditing) return (
-            <div onClick={this.toggleEditMode}>{this.descriptionText()}</div>
+            <div onClick={this.toggleEditMode}><textarea className="adit-details-description-textarea" value={this.state.description} placeholder="Enter a more details description here..." /></div>
         )
         return (
             <div>
-                <textarea value={this.state.description} autoFocus onChange={this.onChange} onBlur={this.onSave} placeholder="Enter a more details description here..." />
+                <textarea className="adit-details-description-textarea" value={this.state.description} autoFocus onChange={this.onChange} onBlur={this.onSave} placeholder="Enter a more details description here..." />
                 <button onClick={this.onSave} className="save-btn">Save</button>
             </div>
         )
@@ -53,7 +53,6 @@ export class CardDescription extends Component {
         return (
             <div className="item-details-description">
                 <div>
-                    <h3 contentEditable>Description</h3>
                     {this.descriptionContainer()}
                 </div>
             </div>

@@ -111,19 +111,12 @@ function onDragEnd(result) {
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
-      <Header />
-      <main>
-        {routes.map(route => <Route key={route.path} exact component={route.component} path={route.path} />)}
-      </main>
-=======
       <DragDropContext>
         <Header />
         <main>
           {routes.map(route => <Route key={route.path} exact component={route.component} path={route.path} />)}
         </main>
       </DragDropContext>
->>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
     </Router>
   )
 }

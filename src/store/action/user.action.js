@@ -1,5 +1,16 @@
 import { userService } from '../../services/user-service.js'
 
+export function loadUsers() {
+    return async dispatch=>{
+        try {
+            const users = await userService.getUsers()
+            dispatch({ type: 'SET_USERS', users })
+        } catch (err) {
+            console.log('UserActions: err in getUsers', err)
+        }
+    }
+}
+
 export function onLogin(credentials) {
     return async dispatch => {
         try {
@@ -9,7 +20,6 @@ export function onLogin(credentials) {
             console.log('UserActions: err in login', err)
         }
     }
-
 }
 
 export function onSignup(userInfo) {

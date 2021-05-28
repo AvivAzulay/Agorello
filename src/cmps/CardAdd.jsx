@@ -47,12 +47,6 @@ export class CardAdd extends Component {
             {isEditing &&
                 <div className="card-add-edit" >
                     <form action="">
-<<<<<<< HEAD
-                        <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} placeholder="Enter a title for this card..." />
-                        <button onClick={this.onSubmit}>Add card</button>
-                        <button onClick={this.onToggleMode}>&times;</button>
-                        <button onClick={() => { }}>...menu</button>
-=======
                         <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title for this card...' onChange={this.handleChange} />
                         <div className="card-add-btn" >
                             <span className="left-btn">
@@ -62,7 +56,6 @@ export class CardAdd extends Component {
                             <button className="card-add-menu-btn" onClick={() => { }}></button>
                         </div>
 
->>>>>>> 771a6a035d9dfdf92ca91c372d732e4f28301e61
                     </form>
                 </div>}
 

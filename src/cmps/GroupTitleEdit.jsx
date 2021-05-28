@@ -7,7 +7,7 @@ export class GroupTitleEdit extends Component {
         prevTitle: ''
     }
 
-    inputRef = React.createRef()
+    // inputRef = React.createRef()
 
     componentDidMount() {
         const { group } = this.props
@@ -15,7 +15,7 @@ export class GroupTitleEdit extends Component {
     }
 
     componentDidUpdate() {
-        this.state.isEditing && this.inputRef.current.focus()
+        // this.state.isEditing && this.inputRef.current.focus()
     }
 
     onToggleMode = () => {
@@ -46,17 +46,9 @@ export class GroupTitleEdit extends Component {
 
     render() {
         const { isEditing, group } = this.state
-        const { title } = this.props
+        if (!group) return <div>Downloding...</div>
         return (
-            <>
-                {!isEditing && <h3 onClick={this.onToggleMode}>{title}</h3>}
-                {isEditing &&
-                    <form onSubmit={this.onSubmit} >
-                        <input type="text" ref={this.inputRef} value={group.title} onChange={this.handleChange} ></input>
-                    </form>
-                }
-            </>
-
+                <textarea className="edit-details-textarea-header" type="text" value={group.title} onChange={this.handleChange} />
         )
     }
 }
