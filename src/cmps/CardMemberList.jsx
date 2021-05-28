@@ -15,7 +15,7 @@ export class CardMemberList extends Component {
     onClickBoardMember = (member, isChecked) => {
         let txt = '' // for actions
         const members = this.props.card.members
-        if (!members) members = []
+        // if (!members) members = []
         if (!isChecked) {
             console.log(member, members)
             members.push(member)
@@ -30,8 +30,9 @@ export class CardMemberList extends Component {
     render() {
         const {  boardMembers } = this.state
         if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
+        
         return (
-            <div>
+            <div className="card-member-list">
                 <h3>Members</h3>
                 <input type="search" placeholder="Search members" name="searchMember" onChange={this.handleChange}/> 
                 <h4>BOARD MEMBERS</h4>

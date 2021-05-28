@@ -6,6 +6,7 @@ import { GroupTitleEdit } from './GroupTitleEdit'
 import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
 
+
 export class _CardDetails extends Component {
   state = {
     card: null,
@@ -16,19 +17,17 @@ export class _CardDetails extends Component {
     const card = boardService.getCardById(id)
     this.setState({ card })
   }
-
   onUpdateCardProps = (key, value) => {
     console.log(key, value)
+
     const { card } = this.state
     card[key] = value
     this.onSaveCard(card)
   }
-
   onSaveCard = () => {
     const { card } = this.state
     this.props.saveCard(card, card.currGroup.groupId)
   }
-
   render() {
     const { card } = this.state
     if (!card) return <h1>Loading...</h1>
@@ -38,21 +37,17 @@ export class _CardDetails extends Component {
           <p className="edit-details-header-logo"></p>
           <GroupTitleEdit title={card.title} group={card} />
           <button className="close-save-edit"></button>
-          </div>
+        </div>
         <div className="edit-body">
           <div className="edit-details">
-
             <span className="list-pages">In list pages</span>
             <div className="edit-details-description">
-
               <div className="edit-details-description-header">
                 <p className="edit-details-description-logo"></p>
                 <h1>Description</h1>
               </div>
               <CardDescription description={card.description} onUpdateCardProps={this.onUpdateCardProps} onSaveCard={this.onSaveCard} />
-              
             </div>
-
             <div>
               <div className="edit-details-activity-header">
                 <span>
@@ -63,10 +58,10 @@ export class _CardDetails extends Component {
               </div>
               <div className="edit-activity-description">
                 <div className='user-img-chat-add'>G</div>
-                <textarea className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
+                <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
               </div>
             </div>
-
+              <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />
           </div >
           <div className="edit-add-to-card">
             <h1> ADD TO CARD </h1>
@@ -82,7 +77,6 @@ export class _CardDetails extends Component {
     )
   }
 }
-
 function mapStateToProps(state) {
   return {
     board: state.boardModule.board,
@@ -91,5 +85,4 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   saveCard,
 }
-
 export const CardDetails = connect(mapStateToProps, mapDispatchToProps)(_CardDetails)

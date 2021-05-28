@@ -5,6 +5,7 @@ export function loadBoard(filter = '') {
         try {
             const board = await boardService.query()
             dispatch({ type: 'SET_BOARD', board })
+            return board
 
         } catch (err) {
             console.log('BoardActions: err in loadBoards', err)
@@ -16,7 +17,7 @@ export function loadBoard(filter = '') {
 export function saveCard(card, groupId) {
     return async dispatch => {
         try {
-            const board = await boardService.saveCard({ ...card }, groupId)
+            const board = await boardService.saveCard(card, groupId)
             dispatch({ type: card.id ? 'SET_BOARD' : 'SET_BOARD', board })
         } catch (err) {
             console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
@@ -27,7 +28,7 @@ export function saveCard(card, groupId) {
 export function saveGroup(group) {
     return async dispatch => {
         try {
-            const board = await boardService.saveGroup({ ...group })
+            const board = await boardService.saveGroup(group)
             dispatch({ type: group.id ? 'SET_BOARD' : 'ADD_GROUP', board })
         } catch (err) {
             console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)

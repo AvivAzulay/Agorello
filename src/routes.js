@@ -1,8 +1,6 @@
 import { Home } from './pages/Home'
 import { About } from './pages/About'
 import { BoardApp } from './pages/BoardApp'
-// import { Dashboard } from './pages/Dashboard'
-// import { LoginSignUp } from './pages/LoginSignUp'
 
 
 export const routes = [
@@ -19,16 +17,4 @@ export const routes = [
         // ---> path: '/board/:boardId',
         component: BoardApp,
     },
-    // {
-    //     path: '/board/:cardId',
-    //     component: BoardApp,
-    // },
-    // {
-    //     path: '/signUp',
-    //     component: LoginSignUp,
-    // },
-    // {
-    //     path: '/dashboard',
-    //     component: Dashboard,
-    // },
 ]

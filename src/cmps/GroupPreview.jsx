@@ -5,7 +5,8 @@ import { GroupTitleEdit } from './GroupTitleEdit'
 import { removeGroup, saveGroup } from '../store/action/board.action.js'
 import { connect } from 'react-redux'
 
-export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard }) {
+
+export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, groupIdx }) {
     return (
         <div className="group-preview" >
             <div className="group-preview-header">
@@ -14,7 +15,7 @@ export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard })
                 <button onClick={() => onRemoveGroup(group.id)} className="group-preview-header-btn"></button>
             </div>
             <div className="card-list-and-add ">
-                <CardList cards={group.cards} onRemoveCard={onRemoveCard} />
+                <CardList cards={group.cards} onRemoveCard={onRemoveCard} groupIdx={groupIdx} />
                 <CardAdd groupId={group.id} onSaveCard={onSaveCard} />
             </div>
         </div>

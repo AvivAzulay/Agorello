@@ -20,15 +20,18 @@ function saveGroup(group) {
     if (group.id) {
         const groupIdx = gBoard.groups.findIndex(currGroup => currGroup.id === group.id)
         gBoard.groups[groupIdx] = group
-        return Promise.resolve(gBoard)
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
     else {
         group.id = utilService.makeId()
         group.cards = []
         gBoard.groups.push(group)
-        return Promise.resolve(gBoard)
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
 }
+
 function saveCard(card, groupId) {
     if (card.id) {
         const group = gBoard.groups.find(group => group.id === groupId)
@@ -38,31 +41,34 @@ function saveCard(card, groupId) {
         return Promise.resolve(gBoard)
     }
     else {
-        
         card.id = utilService.makeId()
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
+        card.members = []
         gBoard.groups[groupIdx].cards.push(card)
-        return Promise.resolve(gBoard)
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
 }
 
 function removeCard(cardId, groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    const cardIdx = gBoard.groups[groupIdx].cards.find(card => card.id === cardId)
+    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
-    return Promise.resolve(gBoard)
+    const newBoard = JSON.parse(JSON.stringify(gBoard))   
+    return Promise.resolve(newBoard)
 }
+
 function removeGroup(groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    console.log(gBoard.groups)
     gBoard.groups.splice(groupIdx, 1)
-    return Promise.resolve(gBoard)
+    const newBoard = JSON.parse(JSON.stringify(gBoard))
+    return Promise.resolve(newBoard)
 }
 
 function getCardById(cardId) {
-    console.log(cardId);
     const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
-    console.log(group);
     return group.cards.find(card => card.id === cardId)
 }
 
@@ -77,6 +83,10 @@ function getCardTitleById(cardId, board) {
 }
 
 
+
+
+
+/* <h3 contentEditable>Description</h3> */
 
 
 function getGboard() {
@@ -333,3 +343,6 @@ function getGboard() {
         ]
     }
 }
+
+
+
