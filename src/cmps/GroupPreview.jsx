@@ -6,7 +6,8 @@ import { Droppable } from 'react-beautiful-dnd'
 import { CardPreview } from './CardPreview.jsx'
 
 
-export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard }) {
+
+export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, groupIdx }) {
     return (
         <div className="group-preview" >
             <div className="group-preview-header">

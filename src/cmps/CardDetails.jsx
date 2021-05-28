@@ -7,6 +7,7 @@ import { CardDescription } from './CardDescription'
 // import { CardMemberList } from './CardMemberList'
 
 
+
 export class _CardDetails extends Component {
   state = {
     card: null,
@@ -61,7 +62,7 @@ export class _CardDetails extends Component {
                 <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
               </div>
             </div>
-
+              <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />
           </div >
           <div className="edit-add-to-card">
             <h1> ADD TO CARD </h1>

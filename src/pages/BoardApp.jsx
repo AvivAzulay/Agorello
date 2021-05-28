@@ -27,8 +27,8 @@ class _BoardApp extends Component {
         this.props.saveGroup(group)
     }
 
-    onRemoveGroup = (group) => {
-        this.props.removeGroup(group.id)
+    onRemoveGroup = (groupId) => {
+        this.props.removeGroup(groupId)
     }
 
     onSaveCard = (card, groupId) => {

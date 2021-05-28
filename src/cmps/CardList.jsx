@@ -23,7 +23,6 @@ export function CardList({ cards, onRemoveCard, group }) {
         </div>
       )}
     </Droppable>
-
   )
 }
 
