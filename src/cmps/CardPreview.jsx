@@ -1,47 +1,31 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import { removeCard } from '../store/action/board.action.js'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Draggable } from 'react-beautiful-dnd'
 
-import { Route } from 'react-router-dom'
-import { CardEdit } from '../cmps/CardEdit'
 
-export class _CardPreview extends Component {
-    state = {
-      
-    }
 
-    componentDidMount() {
+export function CardPreview({ onRemoveCard, card, index }) {
+    return (
+        <Draggable
+            draggableId={card.id}
+            index={index}
+        >
+            {(provided) => (
+                <span
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                >
+                    <div className="card-preview">
+                        <Link to={`/board/${card.id}`} >
+                            <div className="test-white-space">{card.title}</div>
+                        </Link >
+                        <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
+                        <p>{card.desription}</p>
+                    </div>
+                </span>
+            )}
 
-    }
-
-    onRemoveCard = () => {
-        const { card } = this.props
-        this.props.removeCard(card.id, card.currGroup.groupId)
-    }
-
-    render() {
-        const { card } = this.props
-        return (
-         
-          
-            <div className="card-preview">
-                <div className="test-white-space">{card.title}</div>
-                <button className="card-preview-remove-btn" onClick={this.onRemoveCard}></button>
-         
-          
-            <Route component={CardEdit} path="/board/:CardId" />
-            </div>
-        )
-    }
+        </Draggable>
+    )
 }
-
-function mapStateToProps() {
-    return {
-    }
-}
-const mapDispatchToProps = {
-    removeCard
-}
-
-export const CardPreview = connect(mapStateToProps, mapDispatchToProps)(_CardPreview)
