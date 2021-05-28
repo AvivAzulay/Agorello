@@ -18,10 +18,11 @@ export function GroupList({ onRemoveGroup, groups, onSaveCard, onRemoveCard, onS
               onRemoveCard={onRemoveCard}
               group={group}
             />)}
+            <GroupAdd onSaveGroup={onSaveGroup} />
           </div>
         )}
       </Droppable>
-      <GroupAdd onSaveGroup={onSaveGroup} />
+      
       {/* </> */}
     </div>
 
