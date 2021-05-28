@@ -16,7 +16,7 @@ export class GroupPreview extends Component {
         return (
            
 
-           
+        
            <div className="group-preview" >
                 <div className="group-preview-header">
                 <h3  className="card-title">{title}</h3>
