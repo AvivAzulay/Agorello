@@ -29,6 +29,7 @@ function saveGroup(group) {
         return Promise.resolve(gBoard)
     }
 }
+
 function saveCard(card, groupId) {
     if (card.id) {
         const group = gBoard.groups.find(group => group.id === groupId)
@@ -41,7 +42,8 @@ function saveCard(card, groupId) {
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
         gBoard.groups[groupIdx].cards.push(card)
-        return Promise.resolve(gBoard)
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
 }
 
@@ -58,9 +60,7 @@ function removeGroup(groupId) {
 }
 
 function getCardById(cardId) {
-    console.log(cardId);
     const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
-    console.log(group);
     return group.cards.find(card => card.id === cardId)
 }
 
@@ -75,6 +75,10 @@ function getCardTitleById(cardId, board) {
 }
 
 
+
+
+
+/* <h3 contentEditable>Description</h3> */
 
 
 function getGboard() {
@@ -331,3 +335,6 @@ function getGboard() {
         ]
     }
 }
+
+
+
