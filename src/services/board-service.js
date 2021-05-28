@@ -8,6 +8,7 @@ export const boardService = {
     removeGroup,
     getCardById,
     getCardTitleById,
+    updateBoard,
 }
 
 let gBoard = getGboard()
@@ -41,13 +42,12 @@ function saveCard(card, groupId) {
         return Promise.resolve(newBoard)
     }
     else {
-        
+
         card.id = utilService.makeId()
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
         gBoard.groups[groupIdx].cards.push(card)
-        const newBoard = JSON.parse(JSON.stringify(gBoard))
-        return Promise.resolve(newBoard)
+        return Promise.resolve(deepCloneBoard(gBoard))
     }
 }
 
@@ -58,6 +58,7 @@ function removeCard(cardId, groupId) {
     const newBoard = JSON.parse(JSON.stringify(gBoard))
     return Promise.resolve(newBoard)
 }
+
 function removeGroup(groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
     gBoard.groups.splice(groupIdx, 1)
@@ -80,12 +81,18 @@ function getCardTitleById(cardId, board) {
     return cardTitle
 }
 
+function updateBoard(board) {
+    console.log(gBoard.groups)
+    gBoard = board
+}
 
-
+function deepCloneBoard(board) {
+    const newBoard = JSON.parse(JSON.stringify(board))
+    return newBoard
+}
 
 
 /* <h3 contentEditable>Description</h3> */
-
 
 function getGboard() {
     return {

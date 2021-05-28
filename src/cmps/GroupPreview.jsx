@@ -2,11 +2,11 @@ import React from 'react'
 import { CardList } from './CardList'
 import { CardAdd } from './CardAdd'
 import { GroupTitleEdit } from './GroupTitleEdit'
-import { removeGroup, saveGroup } from '../store/action/board.action.js'
-import { connect } from 'react-redux'
+import { Droppable } from 'react-beautiful-dnd'
+import { CardPreview } from './CardPreview.jsx'
 
 
-export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, groupIdx }) {
+export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard }) {
     return (
         <div className="group-preview" >
             <div className="group-preview-header">
@@ -15,7 +15,7 @@ export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, g
                 <button onClick={() => onRemoveGroup(group.id)} className="group-preview-header-btn"></button>
             </div>
             <div className="card-list-and-add ">
-                <CardList cards={group.cards} onRemoveCard={onRemoveCard} groupIdx={groupIdx} />
+                <CardList cards={group.cards} group={group} onRemoveCard={onRemoveCard} />
                 <CardAdd groupId={group.id} onSaveCard={onSaveCard} />
             </div>
         </div>

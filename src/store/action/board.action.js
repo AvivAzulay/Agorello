@@ -58,6 +58,35 @@ export function removeGroup(groupId) { // Action Creator
     }
 }
 
+export function updatePosition(newBoardPositioning, cardId) {
+
+    return async dispatch => {
+        try {
+            let newBoard = JSON.parse(JSON.stringify(newBoardPositioning))
+            dispatch({ type: 'SET_BOARD', board: newBoardPositioning })
+            await boardService.updateBoard(newBoard)
+        } catch (err) {
+            console.log('error updating board', err)
+        }
+    }
+}
+
+export function updateBoard(board) {
+    return async dispatch => {
+        try {
+            const newBoard = JSON.parse(JSON.stringify(board))
+            dispatch({ type: 'SET_BOARD', board: newBoard })
+            console.log(newBoard.groups);
+            await boardService.updateBoard(newBoard) // updating the DB
+        } catch (err) {
+            console.log('error updating board', err)
+        }
+    }
+}
+
+
+
+
 // export function removeBoard(boardId) { // Action Creator
 //     return async dispatch => {
 //         try {

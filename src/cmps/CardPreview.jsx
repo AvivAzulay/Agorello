@@ -11,10 +11,10 @@ export function CardPreview({ onRemoveCard, card, index }) {
             index={index}
         >
             {(provided) => (
-                <span
-                    ref={provided.innerRef}
+                <div
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
+                    ref={provided.innerRef}
                 >
                     <div className="card-preview">
                         <Link to={`/board/${card.id}`} >
@@ -23,7 +23,7 @@ export function CardPreview({ onRemoveCard, card, index }) {
                         <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
                         <p>{card.desription}</p>
                     </div>
-                </span>
+                </div>
             )}
 
         </Draggable>
