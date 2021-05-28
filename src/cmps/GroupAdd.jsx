@@ -37,17 +37,19 @@ export class GroupAdd extends Component {
         return (<React.Fragment>
 
             { !isEditing &&
-                <div className="group-add-edit" >
-                    <p className="add-txt" onClick={this.onToggleMode}>+ Add another list</p>
+                <div className="group-add" >
+                    <p className="add-txt" onClick={this.onToggleMode}>Add another list</p>
                 </div>}
 
             {isEditing &&
                 <div className="group-add-edit" >
                     <form action="">
                         <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} placeholder="Enter list title..." />
-                        <button onClick={this.onSubmit}>Add list</button>
-                        <button onClick={this.onToggleMode}>&times;</button>
-                    </form>
+                        <div className="group-add-edit-btn">
+                        <button className="add-list-btn" onClick={this.onSubmit}>Add list</button>
+                        <button className="censel-add-list-btn" onClick={this.onToggleMode}></button>
+                        </div>
+                       </form>
                 </div>}
 
         </React.Fragment>

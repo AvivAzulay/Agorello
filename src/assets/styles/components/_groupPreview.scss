@@ -8,11 +8,17 @@
   margin-right: 1rem;
 }
 
-.group-list {
+.group-list-container {
+  display: flex ;
+  overflow-x: auto;
+  
+}
+
+.group-list{
   display: flex;
   align-items: start;
   padding: 0 0.8rem 0.8rem;
-  overflow-x: auto;
+  
   height: calc(100vh - 8.6rem);
   
 }
