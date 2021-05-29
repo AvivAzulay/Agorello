@@ -21,14 +21,15 @@ function saveGroup(group) {
     if (group.id) {
         const groupIdx = gBoard.groups.findIndex(currGroup => currGroup.id === group.id)
         gBoard.groups[groupIdx] = group
-
-        return Promise.resolve(deepCloneBoard(gBoard))
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
     else {
         group.id = utilService.makeId()
         group.cards = []
         gBoard.groups.push(group)
-        return Promise.resolve(deepCloneBoard(gBoard))
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
 }
 
@@ -37,29 +38,34 @@ function saveCard(card, groupId) {
         const group = gBoard.groups.find(group => group.id === groupId)
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         gBoard.groups[groupIdx] = group
-        return Promise.resolve(deepCloneBoard(gBoard))
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
     else {
-
         card.id = utilService.makeId()
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
+        card.members = []
         gBoard.groups[groupIdx].cards.push(card)
-        return Promise.resolve(deepCloneBoard(gBoard))
+        const newBoard = JSON.parse(JSON.stringify(gBoard))
+        return Promise.resolve(newBoard)
     }
 }
 
 function removeCard(cardId, groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    const cardIdx = gBoard.groups[groupIdx].cards.find(card => card.id === cardId)
+    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
-    return Promise.resolve(deepCloneBoard(gBoard))
+    const newBoard = JSON.parse(JSON.stringify(gBoard))
+    return Promise.resolve(newBoard)
 }
 
 function removeGroup(groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    console.log(gBoard.groups)
     gBoard.groups.splice(groupIdx, 1)
-    return Promise.resolve(deepCloneBoard(gBoard))
+    const newBoard = JSON.parse(JSON.stringify(gBoard))
+    return Promise.resolve(newBoard)
 }
 
 function getCardById(cardId) {
@@ -88,6 +94,10 @@ function deepCloneBoard(board) {
 
 
 /* <h3 contentEditable>Description</h3> */
+
+
+/* <h3 contentEditable>Description</h3> */
+
 
 function getGboard() {
     return {
@@ -134,7 +144,7 @@ function getGboard() {
                 "createdAt": 1601367036803,
                 "byMember": {
                     "_id": "5f6a2528973d861c5d78c355",
-                    "fullName": "puki ben david",
+                    "fullname": "puki ben david",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
@@ -150,7 +160,7 @@ function getGboard() {
                 "createdAt": 1601367032102,
                 "byMember": {
                     "_id": "5f6a2528973d861c5d78c355",
-                    "fullName": "puki ben david",
+                    "fullname": "puki ben david",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {},
@@ -166,7 +176,7 @@ function getGboard() {
                 "createdAt": 1601366968534,
                 "byMember": {
                     "_id": "5f6a2532173d861c5d78c332",
-                    "fullName": "mike awsome",
+                    "fullname": "mike awsome",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
@@ -182,7 +192,7 @@ function getGboard() {
                 "createdAt": 1601367016951,
                 "byMember": {
                     "_id": "5f6a2532173d861c5d78c332",
-                    "fullName": "mike awsome",
+                    "fullname": "mike awsome",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {},
@@ -194,13 +204,13 @@ function getGboard() {
         ],
         "createdBy": {
             "_id": "5f6a2532173d861c5d78c332",
-            "fullName": "mike awsome",
+            "fullname": "mike awsome",
             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
         },
         "style": {
             "id": "LD2D5",
             "fontClr": "#f9f9f9",
-            "bgImg": "url()"
+            "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
         },
         "members": [
             {
@@ -245,7 +255,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c321",
-                            "fullName": "tuki taka",
+                            "fullname": "tuki taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     },
@@ -274,7 +284,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c332",
-                            "fullName": "mike awsome",
+                            "fullname": "mike awsome",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     }
@@ -305,7 +315,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c321",
-                            "fullName": "tuki taka",
+                            "fullname": "tuki taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     },
@@ -334,7 +344,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c332",
-                            "fullName": "mike awsome",
+                            "fullname": "mike awsome",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     }

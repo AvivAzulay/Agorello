@@ -4,18 +4,21 @@ import { CardMember } from './CardMember'
 
 export class CardMemberList extends Component {
     state = {
-        filterBy: '',
+        memberName: '',
         boardMembers: []
     }
 
+    inputRef = React.createRef()
+
     componentDidMount() {
         this.setState({ boardMembers: this.props.boardMembers })
+        this.inputRef.current.focus()
     }
 
     onClickBoardMember = (member, isChecked) => {
         let txt = '' // for actions
-        const members = this.props.card.members
-        if (!members) members = []
+        let members = this.props.card.members
+        // if (!members) members = []
         if (!isChecked) {
             members.push(member)
             txt = `added ${member.fullName}`
@@ -26,13 +29,20 @@ export class CardMemberList extends Component {
         this.props.onUpdateCardProps('members', members)
     }
 
+    handleChange = (ev) => {
+        this.setState({ memberName: ev.target.value })
+    }
+
     render() {
-        const { boardMembers } = this.state
-        if (!boardMembers || boardMembers.length === 0) return <h1>Loading...</h1>
+        let { boardMembers } = this.state
+        // if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
+        boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
-            <div>
+            <div className="card-member-list">
                 <h3>Members</h3>
-                <input type="search" placeholder="Search members" name="searchMember" onChange={this.handleChange} />
+                <button className="close-save-edit"></button>
+                <input type="search" ref={this.inputRef} placeholder="Search members" name="memberName"
+                    value={this.state.memberName} onChange={this.handleChange} />
                 <h4>BOARD MEMBERS</h4>
                 {boardMembers.map(member => {
                     return <CardMember key={member._id} boardMember={member}

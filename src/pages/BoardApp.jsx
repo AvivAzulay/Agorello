@@ -27,8 +27,8 @@ class _BoardApp extends Component {
         this.props.saveGroup(group)
     }
 
-    onRemoveGroup = (group) => {
-        this.props.removeGroup(group.id)
+    onRemoveGroup = (groupId) => {
+        this.props.removeGroup(groupId)
     }
 
     onSaveCard = (card, groupId) => {
@@ -46,13 +46,12 @@ class _BoardApp extends Component {
     render() {
         if (!this.props.board) return <div>Loading...</div>
 
-
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
-            <div className="board">
+            <div className="board" style={{ backgroundImage: `url(${this.props.board.style.bgImg})` }}>
                 <BoardHeader
-                    board={this.props.board}
+                    board={this.props.board} onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
                     <GroupList
