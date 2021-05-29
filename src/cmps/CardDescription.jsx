@@ -29,11 +29,15 @@ export class CardDescription extends Component {
     }
     descriptionContainer = () => {
         if (!this.state.isEditing) return (
-            <div onClick={this.toggleEditMode}><textarea className="adit-details-description-textarea" value={this.state.description} placeholder="Enter a more details description here..." /></div>
+            <div onClick={this.toggleEditMode}><textarea className="adit-details-description-textarea" value={this.state.description} placeholder="Enter a more details description here..." onChange={this.onChange} /></div>
         )
         return (
             <div>
-                <textarea className="adit-details-description-textarea" value={this.state.description} autoFocus onChange={this.onChange} onBlur={this.onSave} placeholder="Enter a more details description here..." />
+                <textarea className="adit-details-description-textarea"
+                    value={this.state.description}
+                    autoFocus onChange={this.onChange}
+                    onBlur={this.onSave}
+                    placeholder="Enter a more details description here..." />
                 <button onClick={this.onSave} className="save-btn">Save</button>
                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
             </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
 
 
@@ -41,6 +41,11 @@ class _BoardApp extends Component {
 
     onSetGroupIdx = (idx) => {
         this.setState(...this.state, { currGroupIdx: idx })
+    }
+
+    onSetBackground = (background) => {
+        const newBoard = { ...this.props.board, style: { ...this.props.board.style, bgImg: background } }
+        this.props.updateBoard(newBoard)
     }
 
     render() {
@@ -83,6 +88,7 @@ const mapDispatchToProps = {
     removeGroup,
     saveCard,
     removeCard,
+    updateBoard
 }
 
 
