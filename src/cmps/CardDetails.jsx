@@ -4,7 +4,7 @@ import { boardService } from '../services/board-service'
 import { saveCard } from '../store/action/board.action'
 import { GroupTitleEdit } from './GroupTitleEdit'
 import { CardDescription } from './CardDescription'
-// import { CardMemberList } from './CardMemberList'
+import { CardMemberList } from './CardMemberList'
 
 
 

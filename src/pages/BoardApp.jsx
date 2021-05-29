@@ -74,7 +74,10 @@ class _BoardApp extends Component {
     //     this.setState(newState)
 
     // }
-
+    onSetBackground = (background) => {
+        const newBoard = { ...this.props.board, style:{...this.props.board.style, bgImg:background}  }
+        this.props.updateBoard(newBoard)
+    }
     onDragEnd = (result) => {
         const { destination, source, draggableId, type } = result
         console.log(type);
@@ -147,13 +150,12 @@ class _BoardApp extends Component {
     render() {
         if (!this.props.board) return <div>Loading...</div>
 
-
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
-            <div className="board">
+            <div className="board" style={{ backgroundImage: `url(${this.props.board.style.bgImg})` }}>
                 <BoardHeader
-                    board={this.props.board}
+                    board={this.props.board} onSetBackground={this.onSetBackground}
                 />
                 <DragDropContext
                     onDragEnd={this.onDragEnd}

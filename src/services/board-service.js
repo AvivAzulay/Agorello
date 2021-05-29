@@ -56,7 +56,7 @@ function removeCard(cardId, groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
-    const newBoard = JSON.parse(JSON.stringify(gBoard))   
+    const newBoard = JSON.parse(JSON.stringify(gBoard))
     return Promise.resolve(newBoard)
 }
 
@@ -211,7 +211,7 @@ function getGboard() {
         "style": {
             "id": "LD2D5",
             "fontClr": "#f9f9f9",
-            "bgImg": "url()"
+            "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
         },
         "members": [
             {

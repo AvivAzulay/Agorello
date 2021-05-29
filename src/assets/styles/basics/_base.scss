@@ -36,6 +36,10 @@
 // }
 a:link{
     text-decoration:none ;
+    color: #172b4d;
+}
+a:visited{
+  color: #172b4d;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -58,4 +62,7 @@ border-radius: 10px;
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #c0c4cf; 
+  }
+  button{
+  cursor: pointer;
   }
