@@ -145,7 +145,7 @@ function getGboard() {
                 "createdAt": 1601367036803,
                 "byMember": {
                     "_id": "5f6a2528973d861c5d78c355",
-                    "fullName": "puki ben david",
+                    "fullname": "puki ben david",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
@@ -161,7 +161,7 @@ function getGboard() {
                 "createdAt": 1601367032102,
                 "byMember": {
                     "_id": "5f6a2528973d861c5d78c355",
-                    "fullName": "puki ben david",
+                    "fullname": "puki ben david",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {},
@@ -177,7 +177,7 @@ function getGboard() {
                 "createdAt": 1601366968534,
                 "byMember": {
                     "_id": "5f6a2532173d861c5d78c332",
-                    "fullName": "mike awsome",
+                    "fullname": "mike awsome",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
@@ -193,7 +193,7 @@ function getGboard() {
                 "createdAt": 1601367016951,
                 "byMember": {
                     "_id": "5f6a2532173d861c5d78c332",
-                    "fullName": "mike awsome",
+                    "fullname": "mike awsome",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {},
@@ -205,7 +205,7 @@ function getGboard() {
         ],
         "createdBy": {
             "_id": "5f6a2532173d861c5d78c332",
-            "fullName": "mike awsome",
+            "fullname": "mike awsome",
             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
         },
         "style": {
@@ -256,7 +256,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c321",
-                            "fullName": "tuki taka",
+                            "fullname": "tuki taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     },
@@ -285,7 +285,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c332",
-                            "fullName": "mike awsome",
+                            "fullname": "mike awsome",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     }
@@ -316,7 +316,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c321",
-                            "fullName": "tuki taka",
+                            "fullname": "tuki taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     },
@@ -345,7 +345,7 @@ function getGboard() {
                         },
                         "byMember": {
                             "_id": "5f6a2532173d861c5d78c332",
-                            "fullName": "mike awsome",
+                            "fullname": "mike awsome",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     }
