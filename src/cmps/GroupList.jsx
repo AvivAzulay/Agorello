@@ -1,5 +1,6 @@
 import { GroupPreview } from './GroupPreview.jsx'
 import { GroupAdd } from './GroupAdd.jsx'
+import { Droppable } from 'react-beautiful-dnd'
 
 export function GroupList({ onRemoveGroup, groups, onSaveCard, onRemoveCard, onSaveGroup }) {
   return (
@@ -17,10 +18,10 @@ export function GroupList({ onRemoveGroup, groups, onSaveCard, onRemoveCard, onS
               onRemoveCard={onRemoveCard}
               group={group}
             />)}
+      <GroupAdd onSaveGroup={onSaveGroup} />
           </div>
         )}
       </Droppable>
-      <GroupAdd onSaveGroup={onSaveGroup} />
       {/* </> */}
     </div>
 
