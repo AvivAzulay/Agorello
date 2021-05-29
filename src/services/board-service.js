@@ -78,7 +78,6 @@ function getCardTitleById(cardId, board) {
 }
 
 function updateBoard(board) {
-    console.log(gBoard.groups)
     gBoard = board
 }
 
@@ -222,7 +221,7 @@ function getGboard() {
         ],
         "groups": [
             {
-                "id": "2D5FD",
+                "id": "5H6D9",
                 "title": "Cmps",
                 "archivedAt": false,
                 "cards": [
@@ -339,6 +338,13 @@ function getGboard() {
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }
                     }
+                ]
+            },
+            {
+                "id": "K2D5f",
+                "title": "Dev",
+                "archivedAt": false,
+                "cards": [
                 ]
             }
         ]

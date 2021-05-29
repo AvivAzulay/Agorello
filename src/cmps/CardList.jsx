@@ -1,41 +1,27 @@
 import { CardPreview } from './CardPreview.jsx'
 import { Droppable } from 'react-beautiful-dnd'
 
-export function CardList({ cards, onRemoveCard, group }) {
+export function CardList({ onRemoveCard, group }) {
   return (
-
     <Droppable droppableId={group.id} type="card">
-      {(provided) => (
-        <div className="card-container"
+      {provided => (
+        <div
           ref={provided.innerRef}
-          {...provided.droppableProps}>
-          {group.cards.map((card, index) => {
-            if (!card.archivedAt) {
+          {...provided.droppableProps}
+        >
+          <div className="card-container">
+            {group.cards.map((card, index) => {
               return <CardPreview
                 key={card.id}
                 card={card}
                 index={index}
                 onRemoveCard={onRemoveCard}
               />
-            }
-          })}
+            })}
+          </div>
           {provided.placeholder}
         </div>
       )}
     </Droppable>
-
   )
 }
-
-// <Droppable
-//       droppableId={group.id}>
-//       {(provided) => (
-//         <div className="card-list"
-//           ref={provided.innerRef}
-//           {...provided.droppableProps}
-//         >
-//           {cards.map((card, index) => <CardPreview card={card} key={card.id} onRemoveCard={onRemoveCard} index={index} />)}
-//           {provided.placeholder}
-//         </div>
-//       )}
-//     </Droppable>

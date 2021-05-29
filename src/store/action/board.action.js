@@ -76,7 +76,6 @@ export function updateBoard(board) {
         try {
             const newBoard = JSON.parse(JSON.stringify(board))
             dispatch({ type: 'SET_BOARD', board: newBoard })
-            console.log(newBoard.groups);
             await boardService.updateBoard(newBoard) // updating the DB
         } catch (err) {
             console.log('error updating board', err)

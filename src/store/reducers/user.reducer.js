@@ -5,8 +5,7 @@ const initialState = {
 export function userReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_USERS':
-            console.log(action.users)  
-        return { ...state, users: action.users }
+            return { ...state, users: action.users }
         case 'SET_USER':
             return { ...state, loggedinUser: action.user }
         case 'SIGN_UP':

@@ -9,7 +9,7 @@ export class CardMemberList extends Component {
     }
 
     componentDidMount() {
-       this.setState({ boardMembers: this.props.boardMembers})
+        this.setState({ boardMembers: this.props.boardMembers })
     }
 
     onClickBoardMember = (member, isChecked) => {
@@ -17,7 +17,6 @@ export class CardMemberList extends Component {
         const members = this.props.card.members
         if (!members) members = []
         if (!isChecked) {
-            console.log(member, members)
             members.push(member)
             txt = `added ${member.fullName}`
         } else {
@@ -28,16 +27,16 @@ export class CardMemberList extends Component {
     }
 
     render() {
-        const {  boardMembers } = this.state
-        if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
+        const { boardMembers } = this.state
+        if (!boardMembers || boardMembers.length === 0) return <h1>Loading...</h1>
         return (
             <div>
                 <h3>Members</h3>
-                <input type="search" placeholder="Search members" name="searchMember" onChange={this.handleChange}/> 
+                <input type="search" placeholder="Search members" name="searchMember" onChange={this.handleChange} />
                 <h4>BOARD MEMBERS</h4>
                 {boardMembers.map(member => {
-                    return <CardMember key={member._id} boardMember={member} 
-                    cardMembers={this.props.card.members} toggleMember={this.onClickBoardMember}/>
+                    return <CardMember key={member._id} boardMember={member}
+                        cardMembers={this.props.card.members} toggleMember={this.onClickBoardMember} />
                 })}
             </div>
         )
