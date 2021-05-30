@@ -264,7 +264,9 @@ function getGboard() {
                         "members": [],
                         "labels": [
                             {
-                                "id": "l102"
+                                "id": "l101",
+                                "name": "Teamwork",
+                                "color": "green"
                             },
                             {
                                 "id": "l105"

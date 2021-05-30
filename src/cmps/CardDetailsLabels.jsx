@@ -1,6 +1,6 @@
 export function CardDetailsLabels(props) {
     let lables = props.labels.map((label, index) => {
-        return <span key={index} className="user-img-chat-add">{label.name}</span>
+        return <span key={index} className={`label-name ${label.color}`}>{label.name}</span>
     })
 
     return (
@@ -10,6 +10,5 @@ export function CardDetailsLabels(props) {
                 <div className="card-details-labels-open clickable" onClick={() => props.onToggle()}></div>
             </div>
         </div>
-
     )
 }

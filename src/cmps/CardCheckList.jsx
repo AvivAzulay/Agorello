@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@material-ui/core'
-import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+// import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import { CardChecklistTodo } from './CardChecklistTodo'
 import React, { Component } from 'react'
 // import { boardAction } from '../store/action/board.action'
@@ -111,7 +111,7 @@ export class CardCheckList extends Component {
 
                 {/* Check list + input + delete btn! */}
                 <div className="checklist-title-container flex">
-                    <CheckBoxOutlinedIcon />
+                    {/* <CheckBoxOutlinedIcon /> */}
                     <div className="checklist-title">title: {list.title}</div>
                     <div className="checklist-title-btns">
                         {this.getDisplayCheckedBtn()}
