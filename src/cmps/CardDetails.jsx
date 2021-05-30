@@ -7,11 +7,8 @@ import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
 import { CardDetailsMembers } from './CardDetailsMembers'
-<<<<<<< HEAD
 import { CardDetailsLabels } from './CardDetailsLabels'
-=======
 import { CardCheckListContainer } from './CardCheckListContainer'
->>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
 
 export class _CardDetails extends Component {
   state = {
@@ -132,52 +129,52 @@ export class _CardDetails extends Component {
                 </div>
               </div>
 <<<<<<< HEAD
-            </div >
-            <div className="edit-add-to-card">
-              <h1> ADD TO CARD </h1>
-              <button className="edit-add-to-card-members"
-                onClick={this.onToggleCardMemberRight}> Members</button>
-              <div className="card-member-pos">
-                {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
-                  onToggle={this.onToggleCardMemberRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-                />}
-              </div>
-              <button className="edit-add-to-card-labels"
-                onClick={this.onToggleCardLabalRight}> Labels</button>
-              <div className="card-label-pos">
-                {this.state.isCardLabelListShowenRight && <CardLabelList boardLabels={this.props.board.labels}
-                  onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-                />}
-              </div>
-              <button className="edit-add-to-card-checklist"> Checklist</button>
+          </div >
+          <div className="edit-add-to-card">
+            <h1> ADD TO CARD </h1>
+            <button className="edit-add-to-card-members"
+              onClick={this.onToggleCardMemberRight}> Members</button>
+            <div className="card-member-pos">
+              {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
+                onToggle={this.onToggleCardMemberRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+              />}
+            </div>
+            <button className="edit-add-to-card-labels"
+              onClick={this.onToggleCardLabalRight}> Labels</button>
+            <div className="card-label-pos">
+              {this.state.isCardLabelListShowenRight && <CardLabelList boardLabels={this.props.board.labels}
+                onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+              />}
+            </div>
+            <button className="edit-add-to-card-checklist"> Checklist</button>
 =======
 
               {this.state.isCardMemberListShowen && <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
-            </div >
+          </div >
 
-            <div className="edit-add-to-card">
-              <h1> ADD TO CARD </h1>
-              <button className="edit-add-to-card-members"
-                onClick={this.onToggleCardMemebersRight}> Members</button>
-              <div className="card-member-pos">
-                {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
-                  onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-                />}
-              </div>
-              <button className="edit-add-to-card-labels"> Labels</button>
-              <button className="edit-add-to-card-checklist">Checklist</button>
->>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
-              <button className="edit-add-to-card-dates"> Dates</button>
-              <button className="edit-add-to-card-attachment"> Attachment</button>
-              <button className="edit-add-to-card-cover"> Cover</button>
+          <div className="edit-add-to-card">
+            <h1> ADD TO CARD </h1>
+            <button className="edit-add-to-card-members"
+              onClick={this.onToggleCardMemebersRight}> Members</button>
+            <div className="card-member-pos">
+              {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
+                onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+              />}
             </div>
+            <button className="edit-add-to-card-labels"> Labels</button>
+            <button className="edit-add-to-card-checklist">Checklist</button>
+>>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
+            <button className="edit-add-to-card-dates"> Dates</button>
+            <button className="edit-add-to-card-attachment"> Attachment</button>
+            <button className="edit-add-to-card-cover"> Cover</button>
+          </div>
 <<<<<<< HEAD
 =======
 
 >>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
-          </div>
-        </div>
       </div>
+        </div >
+      </div >
     )
   }
 }
