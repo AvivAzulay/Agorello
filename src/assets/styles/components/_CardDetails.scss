@@ -22,7 +22,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   color: #42516e;
 }
 
-  .card-details-members-open:after {
+.card-details-members-open:after {
     font-family: icomoon;
     content: '\e901';
     margin-right: 5px;
@@ -43,7 +43,11 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     // .card-details-members-open:hover {
     //   background-color: RGB(222, 225, 233);
     // }
-  }
+}
+
+.card-details-members-open:after:hover {
+  background-color: RGB(222, 225, 233);
+}
 
 .edit {
   background-color: #f4f5f7;
@@ -388,3 +392,18 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   }
 }
 
+.card-details-labels {
+  padding-left: 40px;
+ 
+  h1 {
+    color: #5e6c84;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  .user-img-chat-add {
+    margin-right: 3px;
+  }
+}

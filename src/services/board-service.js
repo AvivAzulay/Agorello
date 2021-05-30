@@ -100,22 +100,22 @@ function getGboard() {
         "labels": [
             {
                 "id": "l101",
-                "name": "Default",
+                "name": "Teamwork",
                 "color": "green"
             },
             {
                 "id": "l102",
-                "name": "Default",
+                "name": "Urgent",
                 "color": "yellow"
             },
             {
                 "id": "l103",
-                "name": "Default",
+                "name": "Pay attention",
                 "color": "orange"
             },
             {
                 "id": "l104",
-                "name": "Default",
+                "name": "Important",
                 "color": "red"
             },
             {
@@ -300,7 +300,9 @@ function getGboard() {
                         }],
                         "labels": [
                             {
-                                "id": "l101"
+                                "id": "l101",
+                                "name": "Default",
+                                "color": "green"
                             }
                         ],
                         "createdAt": 1601366751048,

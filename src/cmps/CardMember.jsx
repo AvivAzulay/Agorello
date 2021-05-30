@@ -7,7 +7,8 @@ export function CardMember(props) {
         isChecked = Boolean(props.cardMembers.find(member => member._id === props.boardMember._id))
     }
 
-    function onToggleState() {
+    function onToggleState(ev) {
+        ev.stopPropagation()
         props.toggleMember(props.boardMember, isChecked)
         isChecked = !isChecked
     }
