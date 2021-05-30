@@ -23,14 +23,30 @@ export class CardAdd extends Component {
 
     }
 
-    handleChange = ({ target }) => {
-        const { value } = target
+    handleChange = (ev) => {
+        const { value } = ev.target
         this.setState({ ...this.state, card: { title: value } })
+    }
+
+    onEnter = (ev) => {
+        if (ev.key === 'Enter') {
+            const { card } = this.state
+            // No title check
+            if (!card.title || card.title.charAt(0) === ' ' || card.title.charAt(0) === '\n') {
+                this.setState({ ...this.state, card: { title: '' } })
+                return
+            }
+            ev.preventDefault()
+            this.props.onSaveCard(this.state.card, this.props.groupId)
+            this.setState({ ...this.state, card: { title: '' } })
+        }
     }
 
     onSubmit = (ev) => {
         ev.preventDefault()
-        this.props.onSaveCard(this.state.card, this.props.groupId)
+        const { card } = this.state
+        if (!card.title || card.title.charAt(0) === ' ') return
+        this.props.onSaveCard(card, this.props.groupId)
         this.setState({ ...this.state, card: { title: '' } })
     }
 
@@ -46,7 +62,7 @@ export class CardAdd extends Component {
             {isEditing &&
                 <div className="card-add-edit" >
                     <form action="">
-                        <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title for this card...' onChange={this.handleChange} />
+                        <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title for this card...' onKeyPress={this.onEnter} onChange={this.handleChange} />
                         <div className="card-add-btn" >
                             <span className="left-btn">
                                 <button className="card-add-edit-btn" onClick={this.onSubmit}>Add card</button>

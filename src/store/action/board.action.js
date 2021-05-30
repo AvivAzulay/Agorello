@@ -59,8 +59,7 @@ export function removeGroup(groupId) { // Action Creator
     }
 }
 
-export function updatePosition(newBoardPositioning, cardId) {
-
+export function updatePosition(newBoardPositioning) {
     return async dispatch => {
         try {
             let newBoard = JSON.parse(JSON.stringify(newBoardPositioning))

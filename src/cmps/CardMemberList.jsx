@@ -42,7 +42,7 @@ export class CardMemberList extends Component {
             <div className="card-member-list-header">
                    <p></p>
                    <h3>Members</h3>
-                <button  onClick={this.props.onToggle}  className="close-save-edit "></button>
+                <button onClick={this.props.onToggle} className="close-save-edit "></button>
                 </div>
                 
                 <input type="search" ref={this.inputRef} placeholder="Search members" name="memberName"

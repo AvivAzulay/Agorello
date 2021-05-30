@@ -1,7 +1,8 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@material-ui/core'
-import React, { Component } from 'react'
-import { CardChecklistTodo } from './CardChecklistTodo'
 // import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import { CardChecklistTodo } from './CardChecklistTodo'
+import React, { Component } from 'react'
+// import { boardAction } from '../store/action/board.action'
 
 export class CardCheckList extends Component {
 
@@ -9,14 +10,16 @@ export class CardCheckList extends Component {
         tasksCompleted: 0,
         totalTasks: 0,
         displayCompleted: true,
-        showDialog: false
-
+        showDialog: false,
+        checklist: null
     }
+
 
     componentDidMount() {
         this.setTasksStatus()
-
+        this.setState({ checklist: this.props.checklist })
     }
+
     // componentDidUpdate(prevProps, prevState) {
     //     if (this.props.list !== prevProps.checklist) this.setTasksStatus()
     // }
@@ -46,21 +49,10 @@ export class CardCheckList extends Component {
         } else {
             btnContent = `Show Checked Items (${this.state.tasksCompleted})`
         }
-
         return (
             <Button onClick={this.toggleDisplayCompleted}>{btnContent}</Button>
         )
     }
-
-    onRemoveChecklist = async () => {
-        const checklist = { ...this.props.list }
-        checklist.title = ''
-        let activityTxt = `removed ${this.props.list.title}`
-        this.props.onUpdate(checklist, activityTxt)
-        this.closeDialog()
-
-    }
-
 
     openDialog = () => {
         this.setState({ showDialog: true })
@@ -70,12 +62,12 @@ export class CardCheckList extends Component {
         this.setState({ showDialog: false })
     }
 
-    getPercentCompleted = () => {
+    getPrecentegesCompleted = () => {
         const percent = Math.round((this.state.tasksCompleted / this.state.totalTasks) * 100)
         return percent
     }
 
-    onUpdateChecklist = (newTodo, activityTxt) => {
+    onUpdateChecklist = (newTodo) => {
         // take the updated todo and insert it into the list
         let todos = [...this.props.list.todos]
         // find the todo index
@@ -84,38 +76,56 @@ export class CardCheckList extends Component {
         if (!newTodo.title) {
             todos.splice(todoIdx, 1)
         } else if (todoIdx < 0) { //if the index is less than 0 - this is a new item
-            todos.push(newTodo)
+            todos.unshift(newTodo)
         } else {
             todos[todoIdx] = newTodo
         }
         const checklist = { ...this.props.list }
         checklist.todos = todos
-        this.props.onUpdate(checklist, activityTxt)
+        this.props.onUpdateCardProps('checklist', checklist)
+    }
+
+    onRemoveChecklist = () => {
+        const { checklist } = this.state
+        const { list } = this.props
+        const checklistIdx = checklist.findIndex(currList => currList.id === list.id)
+        checklist.splice(checklistIdx, 1)
+        this.props.onUpdateCardProps('checklist', checklist)
+        this.closeDialog()
+        // let activityTxt = `removed ${this.props.list.title}`
     }
 
     render() {
-        console.log('here  check ehcek');
+        const { list } = this.props
         return (
             <div className="checklist">
-                <div className="checklist-title-container">
-                    {/* <CheckBoxOutlinedIcon /> */}
-                    <div className="checklist-title">{this.props.list.title}</div>
-                    <div className="checklist-title-btns">
-                        {this.getDisplayCheckedBtn()}
-                        <button onClick={this.openDialog}>sRemove</button>
-                    </div>
-                </div>
+
+                {/* Adding liner bar brogress! */}
                 {((this.state.totalTasks) ? (
                     <div className="checklist-progress">
-                        <div className="checklist-progress-numbers">%{this.getPercentCompleted()}</div>
-                        <LinearProgress value={this.getPercentCompleted()} variant="determinate" />
+                        <div className="checklist-progress-numbers">%{this.getPrecentegesCompleted()}</div>
+                        <LinearProgress value={this.getPrecentegesCompleted()} variant="determinate" />
                     </div>
                 ) : <React.Fragment />)
                 }
+
+                {/* Check list + input + delete btn! */}
+                <div className="checklist-title-container flex">
+                    {/* <CheckBoxOutlinedIcon /> */}
+                    <div className="checklist-title">title: {list.title}</div>
+                    <div className="checklist-title-btns">
+                        {this.getDisplayCheckedBtn()}
+                        <button style={{ border: "1px black solid" }} onClick={this.openDialog}>Remove</button>
+                    </div>
+                </div>
+
                 <main className="checklist-main">
-                    {this.props.list.todos.map(todo => <CardChecklistTodo key={todo.id} displayCompleted={this.state.displayCompleted} todo={todo} onUpdate={this.onUpdateChecklist} />)}
-                    <CardChecklistTodo isNew={true} onUpdate={this.onUpdateChecklist} />
+                    {this.props.list.todos.map(todo => <CardChecklistTodo key={todo.id} displayCompleted={this.state.displayCompleted} todo={todo} onUpdateChecklist={this.onUpdateChecklist} />)}
+                    {/* <CardChecklistTodo isNew={true} onUpdate={this.onUpdateChecklist} /> */}
                 </main>
+
+
+
                 <Dialog onClose={this.closeDialog} open={this.state.showDialog}>
                     <DialogTitle id="alert-dialog-title">{"Remove this checklist?"}</DialogTitle>
                     <DialogContent>
@@ -132,6 +142,8 @@ export class CardCheckList extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+                {/*
+               */}
             </div>
         )
     }

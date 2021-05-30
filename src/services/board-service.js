@@ -49,8 +49,12 @@ function saveCard(card, groupId) {
 }
 
 function removeCard(cardId, groupId) {
+    console.log('groupId to find', groupId);
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    console.log(gBoard.groups);
+    console.log('groupIdx', groupIdx);
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    console.log('cardIdx', cardIdx);
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(deepCloneBoard(gBoard))
 }
@@ -100,22 +104,22 @@ function getGboard() {
         "labels": [
             {
                 "id": "l101",
-                "name": "Default",
+                "name": "Teamwork",
                 "color": "green"
             },
             {
                 "id": "l102",
-                "name": "Default",
+                "name": "Urgent",
                 "color": "yellow"
             },
             {
                 "id": "l103",
-                "name": "Default",
+                "name": "Pay attention",
                 "color": "orange"
             },
             {
                 "id": "l104",
-                "name": "Default",
+                "name": "Important",
                 "color": "red"
             },
             {
@@ -245,7 +249,7 @@ function getGboard() {
                         "attachments": null,
                         
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751048
                         },
                         "byMember": {
@@ -262,7 +266,9 @@ function getGboard() {
                         "members": [],
                         "labels": [
                             {
-                                "id": "l102"
+                                "id": "l101",
+                                "name": "Teamwork",
+                                "color": "green"
                             },
                             {
                                 "id": "l105"
@@ -275,7 +281,7 @@ function getGboard() {
                         "dueDate": 1601365561048,
                         "attachments": null,
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751050
                         },
                         "byMember": {
@@ -297,14 +303,37 @@ function getGboard() {
                         "description": "",
                         "checklist": [
                             {
+                                "id": "M6B0S",
                                 "title": "hello",
                                 "todos": [
-                                    "to this",
-                                    "to that"
-                                ]
+                                    {
+                                        "id": "KD23G",
+                                        "title": "to this",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "to that"
+                                    },
+                                ],
+
 
                             },
+                            {
+                                "id": "8DKJ3",
+                                "title": "YOOOO",
+                                "todos": [
+                                    {
+                                        "id": "KD23G",
+                                        "title": "dont this!",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "dont that!"
+                                    },
+                                ],
+                            },
                         ],
+
                         "archivedAt": null,
                         "members": [{
                             "_id": "5f6a2532173d861c5d78c321",
@@ -313,7 +342,9 @@ function getGboard() {
                         }],
                         "labels": [
                             {
-                                "id": "l101"
+                                "id": "l101",
+                                "name": "Default",
+                                "color": "green"
                             }
                         ],
                         "createdAt": 1601366751048,

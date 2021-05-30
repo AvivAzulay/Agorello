@@ -48,6 +48,7 @@ class _App extends Component {
         const formerCardIndex = formerGroup.cards.findIndex(card => card.id === draggableId)
         const newCardsArray = Array.from(destinationGroup.cards)
 
+        currCard.currGroup.groupId = destinationGroup.id
         newCardsArray.splice(destination.index, 0, currCard)
         formerGroup.cards.splice(formerCardIndex, 1)
 
@@ -56,11 +57,10 @@ class _App extends Component {
         newGroups[endGroupIndex].cards = newCardsArray
 
         const newBoard = { ...this.props.board, groups: newGroups }
-        this.props.updatePosition(newBoard, draggableId)
 
+
+        this.props.updatePosition(newBoard)
         this.props.updateBoard(newBoard)
-
-
       }
 
 
