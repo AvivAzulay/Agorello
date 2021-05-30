@@ -8,8 +8,10 @@ export function CardDetailsMembers(props) {
 
     return (
         <div>
-            <h1>MEMBERS</h1>
-            <div className="flex">{props.members.length > 0 && initials}</div>
+            <h4>MEMBERS</h4>
+            <div  className="card-details-members-initials flex">
+                {props.members.length > 0 && initials}
+            <div className="card-details-members-open clickable" onClick={() => props.onToggle()}></div></div>
         </div>
     )
 }

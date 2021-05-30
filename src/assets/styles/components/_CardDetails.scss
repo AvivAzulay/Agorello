@@ -22,6 +22,28 @@ flex-grow: 40;
     color: #42516e;
   }
 
+  .card-details-members-open:after {
+    font-family: icomoon;
+    content: '\e901';
+    margin-right: 5px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: RGB(235, 235, 235);
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #42516e;
+    // .card-details-members-open:hover {
+    //   background-color: RGB(222, 225, 233);
+    // }
+  }
+
 .edit {
   background-color: #f4f5f7;
   width: 800px;
@@ -265,6 +287,10 @@ flex-grow: 40;
   font-family: icomoon;
   content: "\e945";
   font-size: 16px;
+}
+
+.card-member-pos {
+  position: relative;
 }
 
 
