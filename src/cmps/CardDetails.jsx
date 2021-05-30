@@ -72,7 +72,7 @@ export class _CardDetails extends Component {
                   <p className="edit-details-description-logo"></p>
                   <h1>Description</h1>
                 </div>
-                {/* <CardDescription description={card.description} onUpdateCardProps={this.onUpdateCardProps} onSaveCard={this.onSaveCard} /> */}
+                <CardDescription description={card.description} onUpdateCardProps={this.onUpdateCardProps} onSaveCard={this.onSaveCard} />
               </div>
 
               <div>
