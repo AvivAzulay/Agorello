@@ -42,15 +42,9 @@ export class _CardDetails extends Component {
     this.setState({ isCardMemberListShowenLeft: false })
   }
 
-<<<<<<< HEAD
-  onToggleCardMemberLeft = () => {
-    this.setState({ isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
-    this.setState({ isCardMemberListShowenRight: false })
-=======
   onToggleCardMemebersLeft = () => {
     this.setState(...this.state, { isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
     this.setState(...this.state, { isCardMemberListShowenRight: false })
->>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
   }
 
   onToggleCardLabalRight = () => {
@@ -128,51 +122,26 @@ export class _CardDetails extends Component {
                   <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
                 </div>
               </div>
-<<<<<<< HEAD
-          </div >
-          <div className="edit-add-to-card">
-            <h1> ADD TO CARD </h1>
-            <button className="edit-add-to-card-members"
-              onClick={this.onToggleCardMemberRight}> Members</button>
-            <div className="card-member-pos">
-              {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
-                onToggle={this.onToggleCardMemberRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-              />}
-            </div>
-            <button className="edit-add-to-card-labels"
-              onClick={this.onToggleCardLabalRight}> Labels</button>
-            <div className="card-label-pos">
-              {this.state.isCardLabelListShowenRight && <CardLabelList boardLabels={this.props.board.labels}
-                onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-              />}
-            </div>
-            <button className="edit-add-to-card-checklist"> Checklist</button>
-=======
 
               {this.state.isCardMemberListShowen && <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
-          </div >
+            </div >
 
-          <div className="edit-add-to-card">
-            <h1> ADD TO CARD </h1>
-            <button className="edit-add-to-card-members"
-              onClick={this.onToggleCardMemebersRight}> Members</button>
-            <div className="card-member-pos">
-              {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
-                onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
-              />}
+            <div className="edit-add-to-card">
+              <h1> ADD TO CARD </h1>
+              <button className="edit-add-to-card-members"
+                onClick={this.onToggleCardMemebersRight}> Members</button>
+              <div className="card-member-pos">
+                {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
+                  onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+                />}
+              </div>
+              <button className="edit-add-to-card-labels"> Labels</button>
+              <button className="edit-add-to-card-checklist">Checklist</button>
+              <button className="edit-add-to-card-dates"> Dates</button>
+              <button className="edit-add-to-card-attachment"> Attachment</button>
+              <button className="edit-add-to-card-cover"> Cover</button>
             </div>
-            <button className="edit-add-to-card-labels"> Labels</button>
-            <button className="edit-add-to-card-checklist">Checklist</button>
->>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
-            <button className="edit-add-to-card-dates"> Dates</button>
-            <button className="edit-add-to-card-attachment"> Attachment</button>
-            <button className="edit-add-to-card-cover"> Cover</button>
           </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
-      </div>
         </div >
       </div >
     )
