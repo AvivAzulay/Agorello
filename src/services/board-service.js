@@ -299,14 +299,37 @@ function getGboard() {
                         "description": "",
                         "checklist": [
                             {
+                                "id": "M6B0S",
                                 "title": "hello",
                                 "todos": [
-                                    "to this",
-                                    "to that"
-                                ]
+                                    {
+                                        "id": "KD23G",
+                                        "title": "to this",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "to that"
+                                    },
+                                ],
+
 
                             },
+                            {
+                                "id": "8DKJ3",
+                                "title": "YOOOO",
+                                "todos": [
+                                    {
+                                        "id": "KD23G",
+                                        "title": "dont this!",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "dont that!"
+                                    },
+                                ],
+                            },
                         ],
+
                         "archivedAt": null,
                         "members": [{
                             "_id": "5f6a2532173d861c5d78c321",

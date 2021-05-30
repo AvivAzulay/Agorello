@@ -6,7 +6,7 @@ import { GroupTitleEdit } from './GroupTitleEdit'
 import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
 import { CardDetailsMembers } from './CardDetailsMembers'
-import { CardCheckListList } from './CardCheckListList'
+import { CardCheckListContainer } from './CardCheckListContainer'
 
 export class _CardDetails extends Component {
   state = {
@@ -23,9 +23,9 @@ export class _CardDetails extends Component {
 
   onUpdateCardProps = (key, value) => {
     const { card } = this.state
+    console.log('CARD: ', card);
     card[key] = value
-    this.setState({ card })
-    this.onSaveCard(card)
+    this.setState({ card }, () => this.onSaveCard(card))
   }
 
   onSaveCard = () => {
@@ -39,9 +39,8 @@ export class _CardDetails extends Component {
   }
 
   onToggleCardMemebersLeft = () => {
-    console.log('h')
-    this.setState({ isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
-    this.setState({ isCardMemberListShowenRight: false })
+    this.setState(...this.state, { isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
+    this.setState(...this.state, { isCardMemberListShowenRight: false })
   }
 
   render() {
@@ -76,7 +75,7 @@ export class _CardDetails extends Component {
               </div>
 
               <div>
-                <CardCheckListList checklist={card.checklist} />
+                <CardCheckListContainer checklist={card.checklist} onUpdateCardProps={this.onUpdateCardProps} />
                 {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
               </div>
 

@@ -31,6 +31,7 @@ export class CardAdd extends Component {
     onEnter = (ev) => {
         if (ev.key === 'Enter') {
             const { card } = this.state
+            // No title check
             if (!card.title || card.title.charAt(0) === ' ' || card.title.charAt(0) === '\n') {
                 this.setState({ ...this.state, card: { title: '' } })
                 return

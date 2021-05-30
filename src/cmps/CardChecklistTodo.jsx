@@ -2,7 +2,8 @@
 import { Button, Checkbox } from '@material-ui/core'
 import React, { Component } from 'react'
 import { utilService } from '../services/util-service'
-// import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+// import { DeleteOutlineOutlinedIcon } from '@material-ui/icons/DeleteOutlineOutlined';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 export class CardChecklistTodo extends Component {
 
@@ -13,9 +14,26 @@ export class CardChecklistTodo extends Component {
         isNew: false
     }
 
+
+    onCheck = (ev) => {
+
+        // let txt = ''
+        let checkStatus = ev.target.checked
+        // if (checkStatus) {
+        //     txt = `completed ${this.state.txtValue}`
+        // } else {
+        //     txt = `marked ${this.state.txtValue} incomplete`
+        // }
+
+        this.setState({ isDone: checkStatus }, () => {
+            this.updateChecklist()
+        })
+    }
+
     setEditing = () => {
         this.setState({ isEditing: true })
     }
+
     setNotEditing = () => {
         this.setState({ isEditing: false })
     }
@@ -54,6 +72,7 @@ export class CardChecklistTodo extends Component {
         const doneClass = (this.state.isDone) ? 'todo-done' : 'todo-not-done'
         return `checklist-todo-title ${doneClass}`
     }
+
     getTextBox = () => {
         if (this.state.isEditing) return (
             <React.Fragment>
@@ -71,6 +90,7 @@ export class CardChecklistTodo extends Component {
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
                         {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
+                        <DeleteOutlineOutlinedIcon />
                     </Button>
                 </div>
             </React.Fragment>
@@ -100,21 +120,6 @@ export class CardChecklistTodo extends Component {
         this.setState({ txtValue: ev.target.value })
     }
 
-    onCheck = (ev) => {
-
-        // let txt = ''
-        let checkStatus = ev.target.checked
-        // if (checkStatus) {
-        //     txt = `completed ${this.state.txtValue}`
-        // } else {
-        //     txt = `marked ${this.state.txtValue} incomplete`
-        // }
-
-        this.setState({ isDone: checkStatus }, () => {
-            this.updateChecklist()
-        })
-    }
-
     getActivityTxt = () => {
         let txt;
         if (this.state.isDone) {
@@ -124,9 +129,14 @@ export class CardChecklistTodo extends Component {
         }
         return txt
     }
+
     onRemove = (ev) => {
-        ev.stopPropagation()
-        this.setState({ txtValue: '' }, this.updateChecklist)
+        // ev.stopPropagation()
+        // console.log(this.props.todo);
+        // console.log(ev);
+        this.props.todo.title = ''
+        this.props.onUpdateChecklist(this.props.todo)
+        // this.setState({ txtValue: '' }, this.updateChecklist)
     }
 
     updateChecklist = () => {
@@ -155,11 +165,41 @@ export class CardChecklistTodo extends Component {
 
     render() {
         if (!this.props.displayCompleted && this.state.isDone) return <React.Fragment />
-        return (
-            <div className="checklist-todo">
 
-                {(this.state.isNew) ? this.getNewTodoDisplay() : this.getTextBox()}
+
+        if (this.state.isEditing) return (
+            <div className="checklist-todo flex">
+                <Checkbox checked={this.state.isDone} onChange={this.onCheck} className="checkbox-todo" />
+                <form onBlur={this.setNotEditing} onSubmit={this.onSubmit}>
+                    <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
+                    <button className="save-btn" type="submit">Save</button>
+                </form>
+                { this.getNewTodoDisplay()}
             </div>
         )
+        return (
+            <div className="checklist-todo flex">
+                <Checkbox checked={this.state.isDone} onChange={this.onCheck} className="checkbox-todo" />
+                <div className={this.getTodoClassName()} onClick={this.setEditing}>
+                    {this.state.txtValue}
+                    <Button onClick={this.onRemove}>
+                        <DeleteOutlineOutlinedIcon fontSize="inherit" />
+                    </Button>
+                </div>
+                {this.getNewTodoDisplay()}
+            </div>
+        )
+
+        // return (
+        //     <>
+        //         <div className="checklist-todo flex">
+        //             {this.getTextBox()}
+        //         </div>
+        //         {this.getNewTodoDisplay()}
+        //     </>
+        // <div className="checklist-todo flex">
+        //     {(this.state.isNew) ? this.getNewTodoDisplay() : this.getTextBox()}
+        // </div>
+        // )
     }
 }
