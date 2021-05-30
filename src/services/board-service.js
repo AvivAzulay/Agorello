@@ -49,8 +49,12 @@ function saveCard(card, groupId) {
 }
 
 function removeCard(cardId, groupId) {
+    console.log('groupId to find', groupId);
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    console.log(gBoard.groups);
+    console.log('groupIdx', groupIdx);
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    console.log('cardIdx', cardIdx);
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(deepCloneBoard(gBoard))
 }
@@ -230,8 +234,9 @@ function getGboard() {
                 "cards": [
                     {
                         "id": "5K24K",
-                        "title": "Header",
+                        "title": "EdidCard.jsx",
                         "description": "",
+                        "checklist": [],
                         "archivedAt": null,
                         "members": [],
                         "labels": [
@@ -243,7 +248,7 @@ function getGboard() {
                         "dueDate": null,
                         "attachments": null,
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751048
                         },
                         "byMember": {
@@ -254,7 +259,7 @@ function getGboard() {
                     },
                     {
                         "id": "7K2SD",
-                        "title": "Footer",
+                        "title": "Activities.jsx",
                         "archivedAt": null,
                         "members": [],
                         "labels": [
@@ -272,7 +277,7 @@ function getGboard() {
                         "dueDate": null,
                         "attachments": null,
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751050
                         },
                         "byMember": {
@@ -290,8 +295,41 @@ function getGboard() {
                 "cards": [
                     {
                         "id": "5KK3V",
-                        "title": "Rendering",
+                        "title": "EditCard.jsx",
                         "description": "",
+                        "checklist": [
+                            {
+                                "id": "M6B0S",
+                                "title": "hello",
+                                "todos": [
+                                    {
+                                        "id": "KD23G",
+                                        "title": "to this",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "to that"
+                                    },
+                                ],
+
+
+                            },
+                            {
+                                "id": "8DKJ3",
+                                "title": "YOOOO",
+                                "todos": [
+                                    {
+                                        "id": "KD23G",
+                                        "title": "dont this!",
+                                    },
+                                    {
+                                        "id": "KAHN3",
+                                        "title": "dont that!"
+                                    },
+                                ],
+                            },
+                        ],
+
                         "archivedAt": null,
                         "members": [{
                             "_id": "5f6a2532173d861c5d78c321",

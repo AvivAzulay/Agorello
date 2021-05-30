@@ -7,7 +7,11 @@ import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
 import { CardDetailsMembers } from './CardDetailsMembers'
+<<<<<<< HEAD
 import { CardDetailsLabels } from './CardDetailsLabels'
+=======
+import { CardCheckListContainer } from './CardCheckListContainer'
+>>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
 
 export class _CardDetails extends Component {
   state = {
@@ -26,9 +30,9 @@ export class _CardDetails extends Component {
 
   onUpdateCardProps = (key, value) => {
     const { card } = this.state
+    console.log('CARD: ', card);
     card[key] = value
-    this.setState({ card })
-    this.onSaveCard(card)
+    this.setState({ card }, () => this.onSaveCard(card))
   }
 
   onSaveCard = () => {
@@ -41,9 +45,15 @@ export class _CardDetails extends Component {
     this.setState({ isCardMemberListShowenLeft: false })
   }
 
+<<<<<<< HEAD
   onToggleCardMemberLeft = () => {
     this.setState({ isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
     this.setState({ isCardMemberListShowenRight: false })
+=======
+  onToggleCardMemebersLeft = () => {
+    this.setState(...this.state, { isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
+    this.setState(...this.state, { isCardMemberListShowenRight: false })
+>>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
   }
 
   onToggleCardLabalRight = () => {
@@ -102,6 +112,12 @@ export class _CardDetails extends Component {
                 </div>
                 <CardDescription description={card.description} onUpdateCardProps={this.onUpdateCardProps} onSaveCard={this.onSaveCard} />
               </div>
+
+              <div>
+                <CardCheckListContainer checklist={card.checklist} onUpdateCardProps={this.onUpdateCardProps} />
+                {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
+              </div>
+
               <div>
                 <div className="edit-details-activity-header">
                   <span>
@@ -115,6 +131,7 @@ export class _CardDetails extends Component {
                   <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
                 </div>
               </div>
+<<<<<<< HEAD
             </div >
             <div className="edit-add-to-card">
               <h1> ADD TO CARD </h1>
@@ -133,10 +150,31 @@ export class _CardDetails extends Component {
                 />}
               </div>
               <button className="edit-add-to-card-checklist"> Checklist</button>
+=======
+
+              {this.state.isCardMemberListShowen && <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
+            </div >
+
+            <div className="edit-add-to-card">
+              <h1> ADD TO CARD </h1>
+              <button className="edit-add-to-card-members"
+                onClick={this.onToggleCardMemebersRight}> Members</button>
+              <div className="card-member-pos">
+                {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
+                  onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+                />}
+              </div>
+              <button className="edit-add-to-card-labels"> Labels</button>
+              <button className="edit-add-to-card-checklist">Checklist</button>
+>>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
               <button className="edit-add-to-card-dates"> Dates</button>
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3478efe5fe24435b17455c6d0e00fe82130087c6
           </div>
         </div>
       </div>
