@@ -8,7 +8,7 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId }
             draggableId={card.id}
             index={index}
 
-        >
+        >  
             {(provided, snapshot) => (
                 <div
                     ref={provided.innerRef}
@@ -23,7 +23,7 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId }
                             <div className="test-white-space">{card.title} </div>
                             <div className="card-preview-bottom">
                                 {getActivitiesByCardId(card.id).length!==0&&
-                                <span className="card-preview-activities">{getActivitiesByCardId(card.id).length}</span>}
+                                <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                 {card.dueDate ? <span className="card-preview-date">
                                     <div className="card-preview-date-clock">
                                         {/* <Checkbox
