@@ -13,6 +13,7 @@
   justify-content: space-between;
   box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
   white-space: normal; 
+  position: relative;
 }
 // .card-preview-drag{
 //   transform: skewY(1deg);
@@ -76,7 +77,7 @@
   }
 
 }
-.card-preview-remove-btn{
+.card-preview-remove-btn,.card-preview-edit-icon{
 border: none;
 background-color: #fafbfc;
 display: flex;
@@ -87,6 +88,16 @@ justify-content: center;
 border-radius: 5px;
 width: 30px;
 height: 30px;
+position: absolute;
+background-color: transparent;
+}
+.card-preview-remove-btn{
+  top:2px;
+  right:2px;
+}
+.card-preview-edit-icon{
+  top:2px;
+  right:25px;
 }
 
 .card-preview:hover {
@@ -147,8 +158,80 @@ margin: 10px 10px;
 }
 
 .test-white-space{
-  width: 240px;
+  width: 250px;
   word-wrap: break-word;
 }
 
+.card-preview-members{
+  display: flex;
+  div{
+    width: 28px;
+    height: 28px;
+    background-color: RGB(222, 225, 233);
+    border-radius: 50%;
+    margin-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+    font-weight:700;
+    color: #42516e;
+    font-size: 12px;
+  }
+}
 
+
+.card-preview-date{
+font-size: 12px;
+background-color: #ec9488;
+border-radius: 3px;
+color: #fff;
+padding: 3px 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 5px;
+}
+
+.card-preview-date-clock:before{
+  font-family: icomoon;
+  content: '\e91a';
+  font-size: 18px;
+  color: #ffffff;
+margin-right: 2px;
+}
+.card-preview-bottom{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin-top: 10px;
+}
+.card-preview:hover{
+
+    .card-preview-edit-icon:before{
+      font-family: icomoon;
+      content: '\e927';
+      font-size: 20px;
+      color: #5e6c84;
+    }
+  
+}
+.icon-desription:before{
+  font-family: icomoon;
+      content: '\e921';
+      font-size: 20px;
+      color: #5e6c84;
+}
+.card-preview-activities:before{
+  font-family: icomoon;
+      content: '\e91d';
+      font-size: 20px;
+      color: #5e6c84;
+}
+.card-preview-activities{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-size: 14px;
+  margin-right: 5px;
+}

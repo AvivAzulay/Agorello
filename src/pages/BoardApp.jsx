@@ -47,7 +47,10 @@ class _BoardApp extends Component {
         const newBoard = { ...this.props.board, style: { ...this.props.board.style, bgImg: background } }
         this.props.updateBoard(newBoard)
     }
-
+    getActivitiesByCardId=(cardId)=>{
+            const cardActivities = this.props.board.activities.filter(activity => activity.card.id === cardId)
+            return cardActivities;
+    }
     render() {
         if (!this.props.board) return <div>Loading...</div>
 
@@ -66,6 +69,7 @@ class _BoardApp extends Component {
                         onSaveCard={this.onSaveCard}
                         onRemoveCard={this.onRemoveCard}
                         board={this.props.board}
+                        getActivitiesByCardId={this.getActivitiesByCardId}
                     />
                 </div>
             </div>

@@ -173,7 +173,7 @@ function getGboard() {
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
-                    "id": "sqLbqQkTgF",
+                    "id": "5KK3V",
                     "title": "Shaving cream"
                 },
                 "group": {}
@@ -241,8 +241,9 @@ function getGboard() {
                             }
                         ],
                         "createdAt": 1601366751048,
-                        "dueDate": null,
+                        "dueDate": 1701396951048,
                         "attachments": null,
+                        
                         "currGroup": {
                             "groupId": "2D5FD",
                             "createdAt": 1601366751048
@@ -257,6 +258,7 @@ function getGboard() {
                         "id": "7K2SD",
                         "title": "Activities.jsx",
                         "archivedAt": null,
+                        "description": "",
                         "members": [],
                         "labels": [
                             {
@@ -270,7 +272,7 @@ function getGboard() {
                             }
                         ],
                         "createdAt": 1601365551048,
-                        "dueDate": null,
+                        "dueDate": 1601365561048,
                         "attachments": null,
                         "currGroup": {
                             "groupId": "2D5FD",
@@ -331,6 +333,7 @@ function getGboard() {
                         "id": "7K7YD",
                         "title": "Everything",
                         "archivedAt": null,
+                        "description": "This is very important!",
                         "members": [],
                         "labels": [
                             {
