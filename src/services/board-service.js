@@ -49,8 +49,12 @@ function saveCard(card, groupId) {
 }
 
 function removeCard(cardId, groupId) {
+    console.log('groupId to find', groupId);
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    console.log(gBoard.groups);
+    console.log('groupIdx', groupIdx);
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    console.log('cardIdx', cardIdx);
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(deepCloneBoard(gBoard))
 }
@@ -244,7 +248,7 @@ function getGboard() {
                         "dueDate": null,
                         "attachments": null,
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751048
                         },
                         "byMember": {
@@ -273,7 +277,7 @@ function getGboard() {
                         "dueDate": null,
                         "attachments": null,
                         "currGroup": {
-                            "groupId": "2D5FD",
+                            "groupId": "5H6D9",
                             "createdAt": 1601366751050
                         },
                         "byMember": {
