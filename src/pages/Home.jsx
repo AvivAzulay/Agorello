@@ -2,8 +2,11 @@
 export function Home() {
 
   return (
-    <div>
-      <h1>Home!</h1>
+    <div className="home-page">
+      <section className="hero">
+        <div className="hero-image"></div>
+     {/* <div><h1>HELLO Taskit</h1></div> */}
+      </section>
     </div>
   )
 }
