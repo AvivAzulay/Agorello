@@ -22,6 +22,29 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   color: #42516e;
 }
 
+  .card-details-members-open:after {
+    font-family: icomoon;
+    content: '\e901';
+    margin-right: 5px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: RGB(235, 235, 235);
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #42516e;
+    display: flex;
+    // .card-details-members-open:hover {
+    //   background-color: RGB(222, 225, 233);
+    // }
+  }
+
 .edit {
   background-color: #f4f5f7;
   width: 800px;
@@ -237,10 +260,52 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   }
 }
 
-.edit-add-to-card {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+
+.edit-add-to-card{
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+ 
+  button{
+  background-color: rgba(9, 30, 66, 0.04);
+  box-shadow: none;
+  text-align: start;
+  cursor: pointer;
+  color: #42526e;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  border: none;
+  font-weight: 400;
+  padding: 2px 6px;
+  width: 168px;
+  height:32px;
+  font: $base-font;
+  margin-top: 10px;
+ }
+ 
+ .edit-add-to-card-members:before {
+  font-family: icomoon;
+  content: "\e945";
+  font-size: 16px;
+}
+
+.card-member-pos {
+  position: relative;
+}
+
+
+.edit-add-to-card-labels:before {
+  font-family: icomoon;
+  content: "\e93e";
+  font-size: 16px;
+}
+
+
+.edit-add-to-card-checklist:before {
+  font-family: icomoon;
+  content: "\e917";
+  font-size: 16px;
+}
 
   button {
     background-color: rgba(9, 30, 66, 0.04);
@@ -309,6 +374,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 
 .card-details-members {
   padding-left: 40px;
+ 
   h1 {
     color: #5e6c84;
     font-size: 12px;

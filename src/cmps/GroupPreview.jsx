@@ -24,7 +24,6 @@ export function GroupPreview({ onRemoveGroup, group, onRemoveCard, onSaveCard, i
                 >
                     <div className="group-preview-header">
                         <h3 className="card-title">{group.title}</h3>
-                        <button className="group-preview-header-btn"></button>
                         <button onClick={() => onRemoveGroup(group.id)} className="group-preview-header-btn"></button>
                     </div>
 

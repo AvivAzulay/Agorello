@@ -39,10 +39,10 @@ export class CardMemberList extends Component {
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
             <div className="card-member-list">
-               <div className="card-member-list-header">
+            <div className="card-member-list-header">
                    <p></p>
                    <h3>Members</h3>
-                <button className="close-save-edit"></button>
+                <button  onClick={this.props.onToggle}  className="close-save-edit "></button>
                 </div>
                 
                 <input type="search" ref={this.inputRef} placeholder="Search members" name="memberName"
