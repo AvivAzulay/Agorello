@@ -35,7 +35,8 @@ export class _CardDetails extends Component {
     const { card } = this.state
     if (!card) return <h1>Loading...</h1>
     return (
-      <div className="edit">
+     <div className="window-screen">
+     <div className="edit">
         <div className="edit-details-header">
           <p className="edit-details-header-logo"></p>
           <GroupTitleEdit title={card.title} group={card} />
@@ -78,6 +79,7 @@ export class _CardDetails extends Component {
             <button className="edit-add-to-card-cover"> Cover</button>
           </div>
         </div>
+      </div>
       </div>
     )
   }

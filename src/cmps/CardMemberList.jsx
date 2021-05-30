@@ -39,8 +39,12 @@ export class CardMemberList extends Component {
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
             <div className="card-member-list">
-                <h3>Members</h3>
+               <div className="card-member-list-header">
+                   <p></p>
+                   <h3>Members</h3>
                 <button className="close-save-edit"></button>
+                </div>
+                
                 <input type="search" ref={this.inputRef} placeholder="Search members" name="memberName"
                     value={this.state.memberName} onChange={this.handleChange} />
                 <h4>BOARD MEMBERS</h4>
