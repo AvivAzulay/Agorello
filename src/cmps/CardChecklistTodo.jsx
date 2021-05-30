@@ -2,7 +2,7 @@
 import { Button, Checkbox } from '@material-ui/core'
 import React, { Component } from 'react'
 import { utilService } from '../services/util-service'
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+// import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 export class CardChecklistTodo extends Component {
 
@@ -70,7 +70,7 @@ export class CardChecklistTodo extends Component {
                 <div className={this.getTodoClassName()} onClick={this.setEditing}>
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
-                        <DeleteOutlineOutlinedIcon fontSize="inherit" />
+                        {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
                     </Button>
                 </div>
             </React.Fragment>
