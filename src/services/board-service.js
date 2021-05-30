@@ -230,8 +230,9 @@ function getGboard() {
                 "cards": [
                     {
                         "id": "5K24K",
-                        "title": "Header",
+                        "title": "EdidCard.jsx",
                         "description": "",
+                        "checklist": [],
                         "archivedAt": null,
                         "members": [],
                         "labels": [
@@ -254,7 +255,7 @@ function getGboard() {
                     },
                     {
                         "id": "7K2SD",
-                        "title": "Footer",
+                        "title": "Activities.jsx",
                         "archivedAt": null,
                         "members": [],
                         "labels": [
@@ -290,8 +291,18 @@ function getGboard() {
                 "cards": [
                     {
                         "id": "5KK3V",
-                        "title": "Rendering",
+                        "title": "EditCard.jsx",
                         "description": "",
+                        "checklist": [
+                            {
+                                "title": "hello",
+                                "todos": [
+                                    "to this",
+                                    "to that"
+                                ]
+
+                            },
+                        ],
                         "archivedAt": null,
                         "members": [],
                         "labels": [

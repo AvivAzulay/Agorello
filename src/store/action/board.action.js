@@ -26,10 +26,11 @@ export function saveCard(card, groupId) {
 }
 
 export function saveGroup(group) {
+    console.log(group);
     return async dispatch => {
         try {
             const board = await boardService.saveGroup(group)
-            dispatch({ type: group.id ? 'SET_BOARD' : 'ADD_GROUP', board })
+            dispatch({ type: group.id ? 'SET_BOARD' : 'SET_BOARD', board })
         } catch (err) {
             console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
         }

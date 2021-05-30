@@ -6,6 +6,7 @@ export function CardList({ onRemoveCard, group }) {
     <Droppable droppableId={group.id} type="card">
       {provided => (
         <div
+          className="card-list-inner"
           ref={provided.innerRef}
           {...provided.droppableProps}
         >
