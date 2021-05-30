@@ -8,3 +8,15 @@ $nav-size: 20px;
   z-index: -1;
   background-size: cover;
 }
+
+
+.window-screen{
+background-color: rgba(0, 0, 0, 0.659);
+height: 100vh;
+width: 100vw;
+z-index: 1;
+position: absolute;
+top: 0;
+left: 0;
+
+}

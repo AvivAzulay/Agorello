@@ -7,9 +7,12 @@ export function CardDetailsMembers(props) {
     })
 
     return (
-        <div>
+        <div className="card-details-members">
             <h1>MEMBERS</h1>
-            <div className="flex">{props.members.length > 0 && initials}</div>
+            <div className="flex">{props.members.length > 0 && initials}
+                <div className="card-details-members-open clickable" onClick={() => props.onToggle()}></div>
+            </div>
         </div>
+
     )
 }

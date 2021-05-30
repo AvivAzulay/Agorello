@@ -14,9 +14,11 @@ export function CardMember(props) {
 
     return (
         <div className="board-member" onClick={onToggleState}>
+           <div>
             <span className="user-img-chat-add">{initials}</span>
-            {props.boardMember.fullname}
-            {isChecked ? '✔' : ''}
+            <span>{props.boardMember.fullname}</span>
+            </div>
+            {isChecked ? <p></p> : null}
         </div>
     )
 }
