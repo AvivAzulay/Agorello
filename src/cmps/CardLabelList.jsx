@@ -35,7 +35,7 @@ export class CardLabelList extends Component {
 
     render() {
         let { boardLabels } = this.state
-        if (! boardLabels ||  boardLabels.length === 0) return <h1>Loading...</h1>
+        if (!boardLabels || boardLabels.length === 0) return <h1>Loading...</h1>
         boardLabels = boardLabels.filter(label => label.name.toLowerCase().includes(this.state.labelName.toLowerCase()))
         return (
             <div className="card-label-list">
