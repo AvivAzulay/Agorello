@@ -11,11 +11,28 @@ export class CardDateSetter extends Component {
 
     state = {
         isDateOpen: false,
+        dueDate: ''
+    }
+
+
+    componentDidMount() {
+       
+      console.log( this.props.card)
+
     }
 
     toggleDateModal = () => {
         this.setState({ isDateOpen: !this.state.isDateOpen })
     }
+
+
+    handleChange = (ev) => {
+        const { value } = ev.target
+        this.setState({ ...this.state, dueDate: value} ,()=>this.props.onUpdateCardProps('dueDate',this.state.dueDate))
+    }
+
+
+
 
     render() {
         const { isDateOpen } = this.state
@@ -26,10 +43,12 @@ export class CardDateSetter extends Component {
 
                     < form noValidate>
                         <TextField
+                            onChange={this.handleChange}
+                            onBlur={this.handleChange}
                             id="datetime-local"
                             label="Due date"
                             type="datetime-local"
-                            defaultValue="2017-05-24T10:30"
+                            defaultValue="2021-06-01T10:30"
                             InputLabelProps={{
                                 shrink: true,
                             }}

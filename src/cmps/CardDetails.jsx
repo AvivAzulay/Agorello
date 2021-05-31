@@ -18,6 +18,9 @@ export class _CardDetails extends Component {
     isCardMemberListShowenLeft: false,
     isCardLabelListShowenRight: false,
     isCardLabelListShowenLeft: false,
+
+    // isCardDueDateShowenRight: false,
+    // isCardDueDateShowenLeft: false,
   }
 
   componentDidMount() {
@@ -58,6 +61,29 @@ export class _CardDetails extends Component {
     this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
     this.setState({ isCardLabelListShowenRight: false })
   }
+
+
+  onToggleCardLabelRight = () => {
+    this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
+    this.setState({ isCardLabelListShowenLeft: false })
+  }
+
+  onToggleCardLabelLeft = () => {
+    this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
+    this.setState({ isCardLabelListShowenRight: false })
+  }
+
+
+  // onToggleDueDateRight = () => {
+  //   this.setState({ isDueDateListShowenRight: !this.state.isDueDateListShowenRight })
+  //   this.setState({ isDueDateListShowenLeft: false })
+  // }
+
+  // onToggleDueDateLeft = () => {
+  //   this.setState({ isDueDateListShowenLeft: !this.state.isDueDateListShowenLeft })
+  //   this.setState({ isDueDateListShowenRight: false })
+  // }
+
 
   onCloseAllModals = (ev) => {
     ev.stopPropagation()
@@ -145,7 +171,7 @@ export class _CardDetails extends Component {
                 />}
               </div>
               <button className="edit-add-to-card-checklist"> Checklist</button>
-              <CardDateSetter />
+              <CardDateSetter onUpdateCardProps={this.onUpdateCardProps} card={card}/>
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>
             </div>

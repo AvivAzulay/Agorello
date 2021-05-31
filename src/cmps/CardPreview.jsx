@@ -21,9 +21,11 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                     className={snapshot.isDragging ? '' : 'card-preview'}>
                     <div className={snapshot.isDragging ? 'card-preview-drag' : 'drag-flex'}>
 
-                        <div className="card-preview-labels" >{
+                        <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
                             card.labels.map((label, index) =>
-                                <div className={`card-preview-label ${label.color}`} key={index}><span>{label.name}</span></div>
+                                <div className={`card-preview-label ${label.color}`} key={index}>
+                                 {isLebelOpen&&<span>{label.name}</span>}
+                                    </div>
                             )}
                         </div>
                         <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
