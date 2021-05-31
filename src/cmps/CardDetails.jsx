@@ -9,6 +9,7 @@ import { CardLabelList } from './CardLabelList'
 import { CardDetailsMembers } from './CardDetailsMembers'
 import { CardDetailsLabels } from './CardDetailsLabels'
 import { CardCheckListContainer } from './CardCheckListContainer'
+import { CardAddCheckList } from './CardAddCheckList'
 
 export class _CardDetails extends Component {
   state = {
@@ -17,6 +18,8 @@ export class _CardDetails extends Component {
     isCardMemberListShowenLeft: false,
     isCardLabelListShowenRight: false,
     isCardLabelListShowenLeft: false,
+    isCardCheckListShowen: false,
+    isNewTodoShown: false
   }
 
   componentDidMount() {
@@ -26,9 +29,8 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value) => {
-
     const { card } = this.state
-    // console.log('CARD: ', card);
+    console.log('CARD: ', value);
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card))
   }
@@ -58,12 +60,18 @@ export class _CardDetails extends Component {
     this.setState({ isCardLabelListShowenRight: false })
   }
 
+  onToggleCheckList = () => {
+    this.setState({ isCardCheckListShowen: !this.state.isCardCheckListShowen })
+  }
+
   onCloseAllModals = (ev) => {
     ev.stopPropagation()
     if (this.state.isCardMemberListShowenRight === true) this.setState({ isCardMemberListShowenRight: false })
     if (this.state.isCardMemberListShowenLeft === true) this.setState({ isCardMemberListShowenLeft: false })
     if (this.state.isCardLabelListShowenRight === true) this.setState({ isCardLabelListShowenRight: false })
     if (this.state.isCardLabelListShowenLeft === true) this.setState({ isCardLabelListShowenLeft: false })
+    if (this.state.isCardCheckListShowen === true) this.setState({ isCardCheckListShowen: false })
+    this.setState({isNewTodoShown: false})
   }
 
   render() {
@@ -107,12 +115,10 @@ export class _CardDetails extends Component {
                 </div>
                 <CardDescription description={card.description} onUpdateCardProps={this.onUpdateCardProps} onSaveCard={this.onSaveCard} />
               </div>
-
               <div>
-                <CardCheckListContainer checklist={card.checklist} onUpdateCardProps={this.onUpdateCardProps} />
-                {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
+                <CardCheckListContainer checklist={card.checklist} onUpdateCardProps={this.onUpdateCardProps} 
+                isNewTodoShownByFather={this.state.isNewTodoShown}/>
               </div>
-
               <div>
                 <div className="edit-details-activity-header">
                   <span>
@@ -131,19 +137,24 @@ export class _CardDetails extends Component {
               <h1> ADD TO CARD </h1>
               <button className="edit-add-to-card-members"
                 onClick={this.onToggleCardMemberRight}> Members</button>
-              <div className="card-member-pos">
+              <div className="card-modal-pos">
                 {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
                   onToggle={this.onToggleCardMemberRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
                 />}
               </div>
               <button className="edit-add-to-card-labels"
                 onClick={this.onToggleCardLabelRight}> Labels</button>
-              <div className="card-label-pos">
+              <div className="card-modal-pos">
                 {this.state.isCardLabelListShowenRight && <CardLabelList boardLabels={this.props.board.labels}
                   onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
                 />}
               </div>
-              <button className="edit-add-to-card-checklist"> Checklist</button>
+              <button className="edit-add-to-card-checklist"
+                onClick={this.onToggleCheckList}> Checklist</button>
+              <div className="card-modal-pos">
+                {this.state.isCardCheckListShowen && <CardAddCheckList
+                  onToggle={this.onToggleCheckList} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
+              </div>
               <button className="edit-add-to-card-dates"> Dates</button>
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>
