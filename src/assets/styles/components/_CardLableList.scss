@@ -12,6 +12,7 @@
     border: none;
     width: 300px;
     position: absolute;
+    z-index: 1;
     .close-save-edit {
         background-color: transparent;
         display: flex;

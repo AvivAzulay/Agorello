@@ -3,6 +3,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import { CardChecklistTodo } from './CardChecklistTodo'
 import React, { Component } from 'react'
 // import { boardAction } from '../store/action/board.action'
+import { utilService } from '../services/util-service'
 
 export class CardCheckList extends Component {
 
@@ -12,7 +13,9 @@ export class CardCheckList extends Component {
         displayCompleted: true,
         showDialog: false,
         isNew: false,
-        checklist: null
+        isEditing: false,
+        checklist: null,
+        todo: null
     }
 
 
@@ -36,6 +39,40 @@ export class CardCheckList extends Component {
 
         this.setState({ tasksCompleted, totalTasks })
     }
+
+    setEditing = () => {
+        this.setState({ isEditing: true })
+    }
+
+    setNotEditing = () => {
+        this.setState({ isEditing: false })
+    }
+
+    onSubmit = (ev) => {
+        ev.preventDefault()
+        // this.setNotEditing()
+        this.updateNewTodo()
+    }
+
+    // updateNewTodo = () => {
+
+    //     let id = utilService.makeId()
+        
+    //     const todo = {
+    //         id,
+    //         isDone: this.state.isDone,
+    //         title: this.state.txtValue
+    //     }
+
+    //     this.props.onUpdateChecklist(todo)
+    //     // const activityTxt = this.getActivityTxt()
+    //     // if (this.state.isNew) {
+    //     //     this.props.onUpdate(todo)
+    //     //     this.setState({ txtValue: '' })
+    //     // } else {
+    //     //     this.props.onUpdate(todo, activityTxt)
+    //     // }
+    // }
 
     toggleDisplayCompleted = () => {
         if (this.state.displayCompleted) return this.setState({ displayCompleted: false })
@@ -101,6 +138,7 @@ export class CardCheckList extends Component {
         let currList = checklist.find(list => list.id === this.props.list.id)
         currList.todos = todos
         this.props.onUpdateCardProps('checklist', checklist)
+        this.setTasksStatus()
     }
 
     onRemoveChecklist = () => {
