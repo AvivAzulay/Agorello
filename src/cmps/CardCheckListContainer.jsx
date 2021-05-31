@@ -7,11 +7,11 @@ export class CardCheckListContainer extends Component {
     }
 
     componentDidMount() {
-        this.setState({checklist: this.props.checklist})
+        this.setState({ checklist: this.props.checklist })
     }
 
     render() {
-        const { checklist, addActivity, onUpdateCardProps }   = this.props
+        const { checklist, addActivity, onUpdateCardProps } = this.props
         if (!checklist || !checklist.length) return <div>Loading...</div>
         return (
             <div className="checklists-container">
