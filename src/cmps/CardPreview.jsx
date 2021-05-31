@@ -24,11 +24,12 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                                 <a className={`card-preview-label ${label.color}`}><span>{label.name}</span></a>
                             )}
                         </div>
+                        <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
                         <Link to={`/board/${card.id}`} >
 
 
                             <button className="card-preview-edit-icon" ></button>
-                            <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
+                           
                             <div className="test-white-space">{card.title} </div>
                             
                             <div className="card-preview-attachments" >{
