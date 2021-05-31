@@ -6,7 +6,7 @@ import { utilService } from '../services/util-service'
 // import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 export class CardChecklistTodo extends Component {
-    
+
     state = {
         isDone: false,
         isEditing: false,
@@ -14,12 +14,12 @@ export class CardChecklistTodo extends Component {
         // isNew: false,
         todo: null
     }
-    
+
     componentDidMount() {
         // if (this.props.isNew) this.setState({ isNew: true })
         this.updateTodo()
     }
-    
+
     componentDidUpdate(prevProps, prevState) {
         if (prevState.txtValue !== this.state.txtValue || prevState.isDone !== this.state.isDone) this.updateChecklist(this.state.checklist)
     }
@@ -108,7 +108,7 @@ export class CardChecklistTodo extends Component {
     }
 
     updateChecklist = () => {
-   
+
         let id;
         if (this.props.todo) {
             id = this.props.todo.id

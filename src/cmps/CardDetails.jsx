@@ -20,7 +20,7 @@ export class _CardDetails extends Component {
     isCardLabelListShowenRight: false,
     isCardLabelListShowenLeft: false,
     isCardCheckListShowen: false,
-    // isNewTodoShown: false
+    isNewTodoShown: false
 
     // isCardDueDateShowenRight: false,
     // isCardDueDateShowenLeft: false,
@@ -69,15 +69,15 @@ export class _CardDetails extends Component {
   }
 
 
-  onToggleCardLabelRight = () => {
-    this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
-    this.setState({ isCardLabelListShowenLeft: false })
-  }
+  // onToggleCardLabelRight = () => {
+  //   this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
+  //   this.setState({ isCardLabelListShowenLeft: false })
+  // }
 
-  onToggleCardLabelLeft = () => {
-    this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
-    this.setState({ isCardLabelListShowenRight: false })
-  }
+  // onToggleCardLabelLeft = () => {
+  //   this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
+  //   this.setState({ isCardLabelListShowenRight: false })
+  // }
 
 
   // onToggleDueDateRight = () => {
