@@ -26,9 +26,9 @@ export class CardCheckList extends Component {
         this.setState({ checklist: this.props.checklist })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (document.querySelector('.checklist-text-edit')) document.querySelector('.checklist-text-edit').onBlur(console.log('g'))
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (document.querySelector('.checklist-text-edit')) document.querySelector('.checklist-text-edit').onBlur(console.log('g'))
+    // }
     //     if (prevProps.isNewTodoShownByFather !== this.props.isNewTodoShownByFather) {
     //         if (!this.props.isNewTodoShownByFather) {
     //             this.setState({isEditing: false})

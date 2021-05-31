@@ -8,6 +8,7 @@ import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
 import { CardDetailsMembers } from './CardDetailsMembers'
 import { CardDetailsLabels } from './CardDetailsLabels'
+import { CardDateSetter } from './CardDateSetter'
 import { CardCheckListContainer } from './CardCheckListContainer'
 import { CardAddCheckList } from './CardAddCheckList'
 
@@ -18,8 +19,14 @@ export class _CardDetails extends Component {
     isCardMemberListShowenLeft: false,
     isCardLabelListShowenRight: false,
     isCardLabelListShowenLeft: false,
+<<<<<<< HEAD
     isCardCheckListShowen: false,
     isNewTodoShown: false
+=======
+
+    // isCardDueDateShowenRight: false,
+    // isCardDueDateShowenLeft: false,
+>>>>>>> 584789525ba72baafeefe5b98e739e13da121170
   }
 
   componentDidMount() {
@@ -63,6 +70,29 @@ export class _CardDetails extends Component {
   onToggleCheckList = () => {
     this.setState({ isCardCheckListShowen: !this.state.isCardCheckListShowen })
   }
+
+
+  onToggleCardLabelRight = () => {
+    this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
+    this.setState({ isCardLabelListShowenLeft: false })
+  }
+
+  onToggleCardLabelLeft = () => {
+    this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
+    this.setState({ isCardLabelListShowenRight: false })
+  }
+
+
+  // onToggleDueDateRight = () => {
+  //   this.setState({ isDueDateListShowenRight: !this.state.isDueDateListShowenRight })
+  //   this.setState({ isDueDateListShowenLeft: false })
+  // }
+
+  // onToggleDueDateLeft = () => {
+  //   this.setState({ isDueDateListShowenLeft: !this.state.isDueDateListShowenLeft })
+  //   this.setState({ isDueDateListShowenRight: false })
+  // }
+
 
   onCloseAllModals = (ev) => {
     ev.stopPropagation()
@@ -149,6 +179,7 @@ export class _CardDetails extends Component {
                   onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
                 />}
               </div>
+<<<<<<< HEAD
               <button className="edit-add-to-card-checklist"
                 onClick={this.onToggleCheckList}> Checklist</button>
               <div className="card-modal-pos">
@@ -156,6 +187,10 @@ export class _CardDetails extends Component {
                   onToggle={this.onToggleCheckList} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
               </div>
               <button className="edit-add-to-card-dates"> Dates</button>
+=======
+              <button className="edit-add-to-card-checklist"> Checklist</button>
+              <CardDateSetter onUpdateCardProps={this.onUpdateCardProps} card={card}/>
+>>>>>>> 584789525ba72baafeefe5b98e739e13da121170
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>
             </div>

@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import { GroupTitleEdit } from './GroupTitleEdit'
 
 
-export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen}) {
+export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen,board}) {
     return (
         <Draggable
             draggableId={group.id}
@@ -26,7 +26,7 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
 
                     <div className="card-list-and-add">
                         <CardList group={group} onRemoveCard={onRemoveCard} getActivitiesByCardId={getActivitiesByCardId} onOpenPreviewLabels={onOpenPreviewLabels}
-                            isLebelOpen={isLebelOpen} />
+                            isLebelOpen={isLebelOpen} board={board}/>
                         <CardAdd groupId={group.id} onSaveCard={onSaveCard} />
                     </div>
                 </div>

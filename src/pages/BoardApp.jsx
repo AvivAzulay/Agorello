@@ -21,7 +21,7 @@ class _BoardApp extends Component {
     }
 
     onLoadBoard = () => {
-        this.props.loadBoard()
+        this.props.loadBoard(this.props.match.params.boardId)
     }
 
     onSaveGroup = (group) => {
@@ -45,8 +45,8 @@ class _BoardApp extends Component {
         this.setState(...this.state, { currGroupIdx: idx })
     }
     onOpenPreviewLabels = () => {
-        const { isLebelOpen } = this.state;
-        this.setState(...this.state, { isLebelOpen: !isLebelOpen })
+        // const { isLebelOpen } = this.state;
+        this.setState( { isLebelOpen: !this.state.isLebelOpen },()=>console.log(this.state))
     }
     onSetBackground = (background) => {
         const newBoard = { ...this.props.board, style: { ...this.props.board.style, bgImg: background } }
