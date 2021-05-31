@@ -21,7 +21,7 @@ class _BoardApp extends Component {
     }
 
     onLoadBoard = () => {
-        this.props.loadBoard()
+        this.props.loadBoard(this.props.match.params.boardId)
     }
 
     onSaveGroup = (group) => {
