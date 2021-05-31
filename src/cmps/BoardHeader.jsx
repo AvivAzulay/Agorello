@@ -80,8 +80,3 @@ export class BoardHeader extends Component {
     )
   }
 }
-
-{/* <div className="thumbnail">
-          { backgroundURLs.map((backgroundURL,index) =>
-          <button  key={index}  onClick={this.setCoverBackground( {backgroundURL})} style={{backgroundImage: `url(${backgroundURL})`}}></button>)}
-          </div> */}

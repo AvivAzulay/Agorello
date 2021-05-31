@@ -2,7 +2,7 @@ import { GroupPreview } from './GroupPreview.jsx'
 import { GroupAdd } from './GroupAdd.jsx'
 import { Droppable } from 'react-beautiful-dnd'
 
-export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCard, onSaveGroup,getActivitiesByCardId,onOpenPreviewLabels,isLebelOpen }) {
+export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCard, onSaveGroup, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen }) {
   return (
     <div className="group-list-container">
       <Droppable
