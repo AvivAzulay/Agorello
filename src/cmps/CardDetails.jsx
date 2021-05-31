@@ -8,6 +8,7 @@ import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
 import { CardDetailsMembers } from './CardDetailsMembers'
 import { CardDetailsLabels } from './CardDetailsLabels'
+import { CardDateSetter } from './CardDateSetter'
 import { CardCheckListContainer } from './CardCheckListContainer'
 
 export class _CardDetails extends Component {
@@ -144,7 +145,7 @@ export class _CardDetails extends Component {
                 />}
               </div>
               <button className="edit-add-to-card-checklist"> Checklist</button>
-              <button className="edit-add-to-card-dates"> Dates</button>
+              <CardDateSetter />
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>
             </div>
