@@ -43,6 +43,9 @@ function saveCard(card, groupId) {
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
         card.members = []
+        card.labels = []
+        card.attachments = []
+        card.members = []
         gBoard.groups[groupIdx].cards.push(card)
         return Promise.resolve(deepCloneBoard(gBoard))
     }
@@ -246,7 +249,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601366751048,
                         "dueDate": 1701396951048,
-                        "attachments": null,
+                        "attachments": [],
                         
                         "currGroup": {
                             "groupId": "5H6D9",
@@ -279,7 +282,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601365551048,
                         "dueDate": 1601365561048,
-                        "attachments": null,
+                        "attachments": [],
                         "currGroup": {
                             "groupId": "5H6D9",
                             "createdAt": 1601366751050
@@ -301,6 +304,7 @@ function getGboard() {
                         "id": "5KK3V",
                         "title": "EditCard.jsx",
                         "description": "",
+                        "members": [],
                         "checklist": [
                             {
                                 "id": "M6B0S",
@@ -349,7 +353,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601366751048,
                         "dueDate": null,
-                        "attachments": null,
+                        "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
                         "currGroup": {
                             "groupId": "2D5FR",
                             "createdAt": 1601366751048
@@ -379,7 +383,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601365551048,
                         "dueDate": null,
-                        "attachments": null,
+                        "attachments": [],
                         "currGroup": {
                             "groupId": "2D5FR",
                             "createdAt": 1601366751050

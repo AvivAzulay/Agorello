@@ -90,7 +90,7 @@ export class CardChecklistTodo extends Component {
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
                         {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
-                        <DeleteOutlineOutlinedIcon />
+                        {/* <DeleteOutlineOutlinedIcon /> */}
                     </Button>
                 </div>
             </React.Fragment>

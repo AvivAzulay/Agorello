@@ -7,7 +7,7 @@ export function CardDetailsLabels(props) {
         <div className="card-details-labels">
             <h1>LABELS</h1>
             <div className="flex">{props.labels.length > 0 && lables}
-                <div className="card-details-labels-open clickable" onClick={() => props.onToggle()}></div>
+                {props.labels.length > 0 && <div className="card-details-labels-open clickable" onClick={() => props.onToggle()}></div>}
             </div>
         </div>
     )

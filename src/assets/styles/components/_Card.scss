@@ -1,8 +1,8 @@
 .card-preview,
 .card-preview-drag{
-  flex: 0 0 27rem;
+  // flex: 0 0 27rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #fbfdff;
   max-height: calc(100vh - 11.8rem);
   border-radius: 0.3rem;
@@ -10,10 +10,15 @@
   padding: 6px 10px 8px;
   margin: 6px 8px 6px;
   cursor: pointer;
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
   white-space: normal; 
   position: relative;
+  
+}
+.drag-flex{
+  display: flex;
+  flex-direction: column;
 }
 // .card-preview-drag{
 //   transform: skewY(1deg);
@@ -234,4 +239,11 @@ margin-top: 10px;
   align-items:center;
   font-size: 14px;
   margin-right: 5px;
+}
+.card-preview-attachments-img{
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover ;
 }
