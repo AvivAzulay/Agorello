@@ -7,8 +7,7 @@ export function Home() {
         <div className="hero">
           <div className="hero-titel"><h1>Taskit</h1></div>
           <p className="hero-text">Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your team works is unique accomplish it all with Taskit.</p>
-
-          <NavLink to="/board">  <button className="hero-btn" > <p className="arrow-btn"></p>Start now</button>   </NavLink>
+          <NavLink to="/boards">  <button className="hero-btn" > <p className="arrow-btn"></p>Start now</button>   </NavLink>
         </div>
 
         <div className="hero-image"></div>

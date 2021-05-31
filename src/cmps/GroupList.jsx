@@ -25,6 +25,7 @@ export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCa
               getActivitiesByCardId={getActivitiesByCardId}
               onOpenPreviewLabels={onOpenPreviewLabels}
               isLebelOpen={isLebelOpen}
+              board={board}
             />)}
             {provided.placeholder}
             <GroupAdd onSaveGroup={onSaveGroup} />
