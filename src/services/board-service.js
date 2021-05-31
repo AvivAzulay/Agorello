@@ -43,6 +43,8 @@ function saveCard(card, groupId) {
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
         card.members = []
+        card.labels = []
+        card.checklist = []
         gBoard.groups[groupIdx].cards.push(card)
         return Promise.resolve(deepCloneBoard(gBoard))
     }
@@ -307,10 +309,12 @@ function getGboard() {
                                     {
                                         "id": "KD23G",
                                         "title": "to this",
+                                        "isDone": false
                                     },
                                     {
                                         "id": "KAHN3",
-                                        "title": "to that"
+                                        "title": "to that",
+                                        "isDone": true
                                     },
                                 ],
 
@@ -323,10 +327,12 @@ function getGboard() {
                                     {
                                         "id": "KD23G",
                                         "title": "dont this!",
+                                        "isDone": false
                                     },
                                     {
                                         "id": "KAHN3",
-                                        "title": "dont that!"
+                                        "title": "dont that!",
+                                        "isDone": false
                                     },
                                 ],
                             },

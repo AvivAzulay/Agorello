@@ -11,6 +11,7 @@ export class CardCheckList extends Component {
         totalTasks: 0,
         displayCompleted: true,
         showDialog: false,
+        isNew: false,
         checklist: null
     }
 
@@ -54,6 +55,22 @@ export class CardCheckList extends Component {
         )
     }
 
+    getNewTodoDisplay = () => {
+        if (this.state.isEditing) {
+            return (
+                <form onBlur={this.setNotEditing} onSubmit={this.onSubmit}>
+                    <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
+                    <button className="save-btn" type="submit">Save</button>
+                </form>
+            )
+        }
+        return (
+            <Button className="checklist-add-todo" onClick={this.setEditing}>
+                Add an item
+            </Button>
+        )
+    }
+
     openDialog = () => {
         this.setState({ showDialog: true })
     }
@@ -80,8 +97,9 @@ export class CardCheckList extends Component {
         } else {
             todos[todoIdx] = newTodo
         }
-        const checklist = { ...this.props.list }
-        checklist.todos = todos
+        const checklist = this.state.checklist
+        let currList = checklist.find(list => list.id === this.props.list.id)
+        currList.todos = todos
         this.props.onUpdateCardProps('checklist', checklist)
     }
 
@@ -100,7 +118,19 @@ export class CardCheckList extends Component {
         return (
             <div className="checklist">
 
-                {/* Adding liner bar brogress! */}
+                {/* Check list + input + delete btn! */}
+                <div className="checklist-title-container flex space-between">
+                    {/* <CheckBoxOutlinedIcon /> */}
+                    {/* TODO: Set here the icon of Checklist */}
+                    <h4 className="checklist-title">{list.title}</h4>
+                    <div className="checklist-title-btns">
+                        {this.getDisplayCheckedBtn()}
+                        <button style={{ border: "1px black solid" }} onClick={this.openDialog}>Delete</button>
+                    </div>
+                </div>
+
+
+                {/* Adding liner bar progress! */}
                 {((this.state.totalTasks) ? (
                     <div className="checklist-progress">
                         <div className="checklist-progress-numbers">%{this.getPrecentegesCompleted()}</div>
@@ -109,19 +139,11 @@ export class CardCheckList extends Component {
                 ) : <React.Fragment />)
                 }
 
-                {/* Check list + input + delete btn! */}
-                <div className="checklist-title-container flex">
-                    {/* <CheckBoxOutlinedIcon /> */}
-                    <div className="checklist-title">title: {list.title}</div>
-                    <div className="checklist-title-btns">
-                        {this.getDisplayCheckedBtn()}
-                        <button style={{ border: "1px black solid" }} onClick={this.openDialog}>Remove</button>
-                    </div>
-                </div>
 
                 <main className="checklist-main">
                     {this.props.list.todos.map(todo => <CardChecklistTodo key={todo.id} displayCompleted={this.state.displayCompleted} todo={todo} onUpdateChecklist={this.onUpdateChecklist} />)}
                     {/* <CardChecklistTodo isNew={true} onUpdate={this.onUpdateChecklist} /> */}
+                    {this.getNewTodoDisplay()}
                 </main>
 
 

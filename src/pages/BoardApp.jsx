@@ -20,7 +20,7 @@ class _BoardApp extends Component {
     }
 
     onLoadBoard = () => {
-        this.props.loadBoard().then(board => this.setState({ board }))
+        this.props.loadBoard().then(board => console.log({ board })) // TODO: not then
     }
 
     onSaveGroup = (group) => {
@@ -50,7 +50,6 @@ class _BoardApp extends Component {
 
     render() {
         if (!this.props.board) return <div>Loading...</div>
-
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
