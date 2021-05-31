@@ -24,14 +24,14 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                         <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
                             card.labels.map((label, index) =>
                                 <div className={`card-preview-label ${label.color}`} key={index}>
-                                 {isLebelOpen&&<span>{label.name}</span>}
-                                    </div>
+                                    {isLebelOpen && <span>{label.name}</span>}
+                                </div>
                             )}
                         </div>
                         <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
                         <Link to={`/board/${card.id}`} >
                             <button className="card-preview-edit-icon" ></button>
-                           
+
                             <div className="test-white-space">{card.title} </div>
 
                             <div className="card-preview-attachments" >{

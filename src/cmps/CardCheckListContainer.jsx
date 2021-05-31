@@ -7,12 +7,12 @@ export class CardCheckListContainer extends Component {
     }
 
     componentDidMount() {
-        this.setState({checklist: this.props.checklist})
+        this.setState({ checklist: this.props.checklist })
     }
 
     render() {
-        const { checklist, addActivity, onUpdateCardProps }   = this.props
-        if (!checklist || !checklist.length) return <div>Loading...</div>
+        const { checklist, addActivity, onUpdateCardProps } = this.props
+        if (!checklist || !checklist.length) return <></>
         return (
             <div className="checklists-container">
                 {checklist.map(list => <CardCheckList key={list.id} checklist={checklist} list={list} addActivity={addActivity} onUpdateCardProps={onUpdateCardProps} />)}

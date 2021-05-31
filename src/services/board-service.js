@@ -139,10 +139,9 @@ function getGboard() {
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
-                    "id": "2L8J2",
-                    "title": "Signup"
+                    "id": "7K7YD",
+                    "title": "EdidCard.jsx",
                 },
-                "group": {}
             },
             {
                 "id": "2LD34",
@@ -154,11 +153,10 @@ function getGboard() {
                     "fullname": "puki ben david",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
-                "card": {},
-                "group": {
-                    "id": "2L4G4",
-                    "title": "QA"
-                }
+                "card": {
+                    "id": "7K7YD",
+                    "title": "EdidCard.jsx",
+                },
             },
             {
                 "id": "2LG8E",
@@ -171,10 +169,13 @@ function getGboard() {
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
-                    "id": "5KK3V",
-                    "title": "Shaving cream"
+                    "id": "5K24K",
+                    "title": "EdidCard.jsx",
                 },
-                "group": {}
+                "group": {
+                    "id": "5H6D9",
+                    "title": "Cmps",
+                }
             },
             {
                 "id": "2D6J2",
@@ -186,10 +187,13 @@ function getGboard() {
                     "fullname": "mike awsome",
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
-                "card": {},
+                "card": {
+                    "id": "5K24K",
+                    "title": "EdidCard.jsx",
+                },
                 "group": {
-                    "id": "2KE43",
-                    "title": "Development"
+                    "id": "5H6D9",
+                    "title": "Cmps",
                 }
             }
         ],
