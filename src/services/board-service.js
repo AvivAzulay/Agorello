@@ -71,7 +71,13 @@ function removeGroup(groupId) {
 }
 
 function getCardById(cardId) {
-    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
+    const group = gBoard.groups.find(group => group.cards.find(card =>
+         {
+             console.log('Looking for this card: ',cardId)
+             console.log('option: ',card.id)
+             return card.id === cardId
+            }))
+
     return group.cards.find(card => card.id === cardId)
 }
 
