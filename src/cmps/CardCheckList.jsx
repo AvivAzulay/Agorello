@@ -57,7 +57,7 @@ export class CardCheckList extends Component {
     // updateNewTodo = () => {
 
     //     let id = utilService.makeId()
-        
+
     //     const todo = {
     //         id,
     //         isDone: this.state.isDone,
