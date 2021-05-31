@@ -26,29 +26,9 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value) => {
-    // if (key === 'checklist') {
-    //   const { checklist } = this.state.card
-    //   if (!checklist) return
-    //   let idx = checklist.findIndex(list => list.id === value.id) 
-    //   this.state.card.cheklist[idx] = value
-    //   this.setState({ card }, () => {
-    //     console.log(this.state.card.checklist)
-    //     this.onSaveCard(card)
-    //   })
-    //   // let currCheklist = this.state.card.cheklist.find(list => list.id === value.id)
-    //   // currCheklist = value
-    //   // let card = JSON.parse(JSON.stringify(this.state.card))
-    //   // this.setState({ card }, () => {
-    //   //   console.log(this.state.card.checklist)
-    //   //   this.onSaveCard(card)
-    //   // })
-    //   return
-    //   // let idx = card.cheklist.findIndex(list => list.id === value.id)
-    //   // card.cheklist.splice(idx, 1)
-    //   // card.cheklist.push(value)
-    // }
+
     const { card } = this.state
-    console.log('CARD: ', card);
+    // console.log('CARD: ', card);
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card))
   }

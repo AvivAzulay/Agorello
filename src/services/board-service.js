@@ -53,31 +53,20 @@ function saveCard(card, groupId) {
 }
 
 function removeCard(cardId, groupId) {
-    console.log('groupId to find', groupId);
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    console.log(gBoard.groups);
-    console.log('groupIdx', groupIdx);
     const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
-    console.log('cardIdx', cardIdx);
     gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
     return Promise.resolve(deepCloneBoard(gBoard))
 }
 
 function removeGroup(groupId) {
     const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    console.log(gBoard.groups)
     gBoard.groups.splice(groupIdx, 1)
     return Promise.resolve(deepCloneBoard(gBoard))
 }
 
 function getCardById(cardId) {
-    const group = gBoard.groups.find(group => group.cards.find(card =>
-         {
-             console.log('Looking for this card: ',cardId)
-             console.log('option: ',card.id)
-             return card.id === cardId
-            }))
-
+    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
     return group.cards.find(card => card.id === cardId)
 }
 
@@ -99,12 +88,7 @@ function deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
 }
 
-
 /* <h3 contentEditable>Description</h3> */
-
-
-/* <h3 contentEditable>Description</h3> */
-
 
 function getGboard() {
     return {
@@ -257,7 +241,7 @@ function getGboard() {
                         "createdAt": 1601366751048,
                         "dueDate": 1701396951048,
                         "attachments": [],
-                        
+
                         "currGroup": {
                             "groupId": "5H6D9",
                             "createdAt": 1601366751048
@@ -351,7 +335,7 @@ function getGboard() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d78c321",
+                            "_id": "5f6a2532173d861c5d7d02n8",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],

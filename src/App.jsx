@@ -12,7 +12,6 @@ class _App extends Component {
 
   onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result
-    console.log(destination);
 
     if (!destination) return
     if (destination.droppableId === source.droppableId && destination.index === source.index) return
