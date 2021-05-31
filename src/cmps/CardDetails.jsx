@@ -20,7 +20,7 @@ export class _CardDetails extends Component {
     isCardLabelListShowenRight: false,
     isCardLabelListShowenLeft: false,
     isCardCheckListShowen: false,
-    isNewTodoShown: false
+    // isNewTodoShown: false
 
     // isCardDueDateShowenRight: false,
     // isCardDueDateShowenLeft: false,
