@@ -26,6 +26,27 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value) => {
+    // if (key === 'checklist') {
+    //   const { checklist } = this.state.card
+    //   if (!checklist) return
+    //   let idx = checklist.findIndex(list => list.id === value.id) 
+    //   this.state.card.cheklist[idx] = value
+    //   this.setState({ card }, () => {
+    //     console.log(this.state.card.checklist)
+    //     this.onSaveCard(card)
+    //   })
+    //   // let currCheklist = this.state.card.cheklist.find(list => list.id === value.id)
+    //   // currCheklist = value
+    //   // let card = JSON.parse(JSON.stringify(this.state.card))
+    //   // this.setState({ card }, () => {
+    //   //   console.log(this.state.card.checklist)
+    //   //   this.onSaveCard(card)
+    //   // })
+    //   return
+    //   // let idx = card.cheklist.findIndex(list => list.id === value.id)
+    //   // card.cheklist.splice(idx, 1)
+    //   // card.cheklist.push(value)
+    // }
     const { card } = this.state
     console.log('CARD: ', card);
     card[key] = value
@@ -42,12 +63,12 @@ export class _CardDetails extends Component {
     this.setState({ isCardMemberListShowenLeft: false })
   }
 
-  onToggleCardMemebersLeft = () => {
-    this.setState(...this.state, { isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
-    this.setState(...this.state, { isCardMemberListShowenRight: false })
+  onToggleCardMemberLeft = () => {
+    this.setState({ isCardMemberListShowenLeft: !this.state.isCardMemberListShowenLeft })
+    this.setState({ isCardMemberListShowenRight: false })
   }
 
-  onToggleCardLabalRight = () => {
+  onToggleCardLabelRight = () => {
     this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
     this.setState({ isCardLabelListShowenLeft: false })
   }
@@ -57,16 +78,19 @@ export class _CardDetails extends Component {
     this.setState({ isCardLabelListShowenRight: false })
   }
 
-  onCloseAllModals = () => {
+  onCloseAllModals = (ev) => {
+    ev.stopPropagation()
     if (this.state.isCardMemberListShowenRight === true) this.setState({ isCardMemberListShowenRight: false })
     if (this.state.isCardMemberListShowenLeft === true) this.setState({ isCardMemberListShowenLeft: false })
+    if (this.state.isCardLabelListShowenRight === true) this.setState({ isCardLabelListShowenRight: false })
+    if (this.state.isCardLabelListShowenLeft === true) this.setState({ isCardLabelListShowenLeft: false })
   }
 
   render() {
     const { card } = this.state
     if (!card) return <h1>Loading...</h1>
     return (
-      <div className="window-screen" onClick={this.onCloseAllModals}>
+      <div className="window-screen" onClick={() => this.props.history.push('/board')}>
         <div className="edit" onClick={this.onCloseAllModals}>
           <div className="edit-details-header">
             <p className="edit-details-header-logo"></p>
@@ -75,7 +99,7 @@ export class _CardDetails extends Component {
           </div>
           <div className="edit-body">
             <div className="edit-details">
-              <span className="list-pages" onToggle={this.onToggleCardMemberLeft}>In list pages</span>
+              <span className="list-pages">In list pages</span>
               <div className="flex">
                 <div className="flex column">
                   {card.members.length > 0 && <div><CardDetailsMembers members={card.members}
@@ -88,9 +112,9 @@ export class _CardDetails extends Component {
                 </div>
                 <div className="flex column">
                   {card.labels.length > 0 && <div><CardDetailsLabels labels={card.labels}
-                    onToggle={this.onToggleCardLableLeft} /></div>}
+                    onToggle={this.onToggleCardLabelLeft} /></div>}
                   <div className="card-lable-pos">
-                    {this.state.isCardLableListShowenLeft && <CardLabelList boardLabels={this.props.board.Labels}
+                    {this.state.isCardLabelListShowenLeft && <CardLabelList boardLabels={this.props.board.labels}
                       onToggle={this.onToggleCardLabelLeft} onUpdateCardProps={this.onUpdateCardProps} card={card}
                     />}
                   </div>
@@ -122,21 +146,24 @@ export class _CardDetails extends Component {
                   <textarea readOnly className="edit-activity-description-textarea" type="text" value='Add a more detailed description...' />
                 </div>
               </div>
-
-              {this.state.isCardMemberListShowen && <CardMemberList boardMembers={this.props.board.members} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
             </div >
-
             <div className="edit-add-to-card">
               <h1> ADD TO CARD </h1>
               <button className="edit-add-to-card-members"
-                onClick={this.onToggleCardMemebersRight}> Members</button>
+                onClick={this.onToggleCardMemberRight}> Members</button>
               <div className="card-member-pos">
                 {this.state.isCardMemberListShowenRight && <CardMemberList boardMembers={this.props.board.members}
-                  onToggle={this.onToggleCardMemebersRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+                  onToggle={this.onToggleCardMemberRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
                 />}
               </div>
-              <button className="edit-add-to-card-labels"> Labels</button>
-              <button className="edit-add-to-card-checklist">Checklist</button>
+              <button className="edit-add-to-card-labels"
+                onClick={this.onToggleCardLabelRight}> Labels</button>
+              <div className="card-label-pos">
+                {this.state.isCardLabelListShowenRight && <CardLabelList boardLabels={this.props.board.labels}
+                  onToggle={this.onToggleCardLabelRight} onUpdateCardProps={this.onUpdateCardProps} card={card}
+                />}
+              </div>
+              <button className="edit-add-to-card-checklist"> Checklist</button>
               <button className="edit-add-to-card-dates"> Dates</button>
               <button className="edit-add-to-card-attachment"> Attachment</button>
               <button className="edit-add-to-card-cover"> Cover</button>

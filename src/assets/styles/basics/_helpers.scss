@@ -25,11 +25,40 @@
     &.align-center {
         align-items: center;
     }
+    &.space-between {
+        justify-content: space-between;
+    }
 }
 
 .clickable {
     cursor: pointer;
 }
+
+
+.green {
+    background-color: #61BD4F;
+}
+
+.yellow {
+    background-color: #F2D600;
+}
+
+.orange {
+    background-color: #FF9F1A;
+}
+
+.red {
+    background-color: #EB5A46;
+}
+
+.purple {
+    background-color: #C377E0;
+}
+
+.blue {
+    background-color: #0079BF;
+}
+
 
 // Media helpers
 

@@ -43,6 +43,10 @@ function saveCard(card, groupId) {
         const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
         card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
         card.members = []
+        card.labels = []
+        card.attachments = []
+        card.members = []
+        card.checklist = []
         gBoard.groups[groupIdx].cards.push(card)
         return Promise.resolve(deepCloneBoard(gBoard))
     }
@@ -67,7 +71,13 @@ function removeGroup(groupId) {
 }
 
 function getCardById(cardId) {
-    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
+    const group = gBoard.groups.find(group => group.cards.find(card =>
+         {
+             console.log('Looking for this card: ',cardId)
+             console.log('option: ',card.id)
+             return card.id === cardId
+            }))
+
     return group.cards.find(card => card.id === cardId)
 }
 
@@ -177,7 +187,7 @@ function getGboard() {
                     "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                 },
                 "card": {
-                    "id": "sqLbqQkTgF",
+                    "id": "5KK3V",
                     "title": "Shaving cream"
                 },
                 "group": {}
@@ -245,8 +255,9 @@ function getGboard() {
                             }
                         ],
                         "createdAt": 1601366751048,
-                        "dueDate": null,
-                        "attachments": null,
+                        "dueDate": 1701396951048,
+                        "attachments": [],
+                        
                         "currGroup": {
                             "groupId": "5H6D9",
                             "createdAt": 1601366751048
@@ -261,10 +272,13 @@ function getGboard() {
                         "id": "7K2SD",
                         "title": "Activities.jsx",
                         "archivedAt": null,
+                        "description": "",
                         "members": [],
                         "labels": [
                             {
-                                "id": "l102"
+                                "id": "l101",
+                                "name": "Teamwork",
+                                "color": "green"
                             },
                             {
                                 "id": "l105"
@@ -274,8 +288,8 @@ function getGboard() {
                             }
                         ],
                         "createdAt": 1601365551048,
-                        "dueDate": null,
-                        "attachments": null,
+                        "dueDate": 1601365561048,
+                        "attachments": [],
                         "currGroup": {
                             "groupId": "5H6D9",
                             "createdAt": 1601366751050
@@ -297,6 +311,7 @@ function getGboard() {
                         "id": "5KK3V",
                         "title": "EditCard.jsx",
                         "description": "",
+                        "members": [],
                         "checklist": [
                             {
                                 "id": "M6B0S",
@@ -305,10 +320,12 @@ function getGboard() {
                                     {
                                         "id": "KD23G",
                                         "title": "to this",
+                                        "isDone": false
                                     },
                                     {
                                         "id": "KAHN3",
-                                        "title": "to that"
+                                        "title": "to that",
+                                        "isDone": true
                                     },
                                 ],
 
@@ -321,10 +338,12 @@ function getGboard() {
                                     {
                                         "id": "KD23G",
                                         "title": "dont this!",
+                                        "isDone": false
                                     },
                                     {
                                         "id": "KAHN3",
-                                        "title": "dont that!"
+                                        "title": "dont that!",
+                                        "isDone": false
                                     },
                                 ],
                             },
@@ -345,7 +364,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601366751048,
                         "dueDate": null,
-                        "attachments": null,
+                        "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
                         "currGroup": {
                             "groupId": "2D5FR",
                             "createdAt": 1601366751048
@@ -360,6 +379,7 @@ function getGboard() {
                         "id": "7K7YD",
                         "title": "Everything",
                         "archivedAt": null,
+                        "description": "This is very important!",
                         "members": [],
                         "labels": [
                             {
@@ -374,7 +394,7 @@ function getGboard() {
                         ],
                         "createdAt": 1601365551048,
                         "dueDate": null,
-                        "attachments": null,
+                        "attachments": [],
                         "currGroup": {
                             "groupId": "2D5FR",
                             "createdAt": 1601366751050

@@ -3,20 +3,29 @@ import { Button, Checkbox } from '@material-ui/core'
 import React, { Component } from 'react'
 import { utilService } from '../services/util-service'
 // import { DeleteOutlineOutlinedIcon } from '@material-ui/icons/DeleteOutlineOutlined';
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+// import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 export class CardChecklistTodo extends Component {
-
+    
     state = {
         isDone: false,
         isEditing: false,
         txtValue: '',
-        isNew: false
+        isNew: false,
+        todo: null
+    }
+    
+    componentDidMount() {
+        // if (this.props.isNew) this.setState({ isNew: true })
+        this.updateTodo()
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.txtValue !== this.state.txtValue || prevState.isDone !== this.state.isDone) this.updateChecklist(this.state.checklist)
     }
 
-
-    onCheck = (ev) => {
-
+    handleChange = (ev) => {
+        ev.stopPropagation()
         // let txt = ''
         let checkStatus = ev.target.checked
         // if (checkStatus) {
@@ -25,9 +34,10 @@ export class CardChecklistTodo extends Component {
         //     txt = `marked ${this.state.txtValue} incomplete`
         // }
 
-        this.setState({ isDone: checkStatus }, () => {
-            this.updateChecklist()
-        })
+        this.setState({ isDone: checkStatus })
+            // , () => {
+        //     this.updateChecklist()
+        // })
     }
 
     setEditing = () => {
@@ -42,31 +52,21 @@ export class CardChecklistTodo extends Component {
         this.setState({ txtValue: '' })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.title !== this.props.title || prevProps.isDone !== this.props.isDone) this.updateTodo()
-    }
-
-    componentDidMount() {
-
-        if (this.props.isNew) this.setState({ isNew: true })
-        this.updateTodo()
-    }
-
-    getNewTodoDisplay = () => {
-        if (this.state.isEditing) {
-            return (
-                <form onBlur={this.setNotEditing} onSubmit={this.onSubmit}>
-                    <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
-                    <button className="save-btn" type="submit">Save</button>
-                </form>
-            )
-        }
-        return (
-            <Button className="checklist-add-todo" onClick={this.setEditing}>
-                Add an item
-            </Button>
-        )
-    }
+    // getNewTodoDisplay = () => {
+    //     if (this.state.isEditing) {
+    //         return (
+    //             <form onBlur={this.setNotEditing} onSubmit={this.onSubmit}>
+    //                 <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
+    //                 <button className="save-btn" type="submit">Save</button>
+    //             </form>
+    //         )
+    //     }
+    //     return (
+    //         <Button className="checklist-add-todo" onClick={this.setEditing}>
+    //             Add an item
+    //         </Button>
+    //     )
+    // }
 
     getTodoClassName = () => {
         const doneClass = (this.state.isDone) ? 'todo-done' : 'todo-not-done'
@@ -90,7 +90,7 @@ export class CardChecklistTodo extends Component {
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
                         {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
-                        <DeleteOutlineOutlinedIcon />
+                        {/* <DeleteOutlineOutlinedIcon /> */}
                     </Button>
                 </div>
             </React.Fragment>
@@ -112,11 +112,11 @@ export class CardChecklistTodo extends Component {
         const txtValue = todo.title
         const isDone = todo.isDone
 
-        this.setState({ isDone, txtValue })
+        this.setState({ ...this.state, isDone, txtValue })
     }
 
     onChange = (ev) => {
-
+        ev.stopPropagation()
         this.setState({ txtValue: ev.target.value })
     }
 
@@ -153,13 +153,14 @@ export class CardChecklistTodo extends Component {
             title: this.state.txtValue
         }
 
-        const activityTxt = this.getActivityTxt()
-        if (this.state.isNew) {
-            this.props.onUpdate(todo)
-            this.setState({ txtValue: '' })
-        } else {
-            this.props.onUpdate(todo, activityTxt)
-        }
+        this.props.onUpdateChecklist(todo)
+        // const activityTxt = this.getActivityTxt()
+        // if (this.state.isNew) {
+        //     this.props.onUpdate(todo)
+        //     this.setState({ txtValue: '' })
+        // } else {
+        //     this.props.onUpdate(todo, activityTxt)
+        // }
     }
 
 
@@ -174,19 +175,19 @@ export class CardChecklistTodo extends Component {
                     <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
                     <button className="save-btn" type="submit">Save</button>
                 </form>
-                { this.getNewTodoDisplay()}
+                {/* { this.getNewTodoDisplay()} */}
             </div>
         )
         return (
             <div className="checklist-todo flex">
-                <Checkbox checked={this.state.isDone} onChange={this.onCheck} className="checkbox-todo" />
+                <Checkbox checked={this.state.isDone} onChange={this.handleChange} className="checkbox-todo" />
                 <div className={this.getTodoClassName()} onClick={this.setEditing}>
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
-                        <DeleteOutlineOutlinedIcon fontSize="inherit" />
+                        {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
                     </Button>
                 </div>
-                {this.getNewTodoDisplay()}
+                {/* {this.getNewTodoDisplay()} */}
             </div>
         )
 

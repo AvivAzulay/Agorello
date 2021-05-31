@@ -10,6 +10,7 @@ class _BoardApp extends Component {
 
     state = {
         currGroupIdx: null,
+        isLebelOpen: false
     }
 
     componentDidMount() {
@@ -20,7 +21,7 @@ class _BoardApp extends Component {
     }
 
     onLoadBoard = () => {
-        this.props.loadBoard().then(board => this.setState({ board }))
+        this.props.loadBoard().then(board => console.log({ board })) // TODO: not then
     }
 
     onSaveGroup = (group) => {
@@ -42,15 +43,20 @@ class _BoardApp extends Component {
     onSetGroupIdx = (idx) => {
         this.setState(...this.state, { currGroupIdx: idx })
     }
-
+    onOpenPreviewLabels = () => {
+       const { isLebelOpen }=this.state;
+       this.setState(...this.state, { isLebelOpen: !isLebelOpen })
+    }
     onSetBackground = (background) => {
         const newBoard = { ...this.props.board, style: { ...this.props.board.style, bgImg: background } }
         this.props.updateBoard(newBoard)
     }
-
+    getActivitiesByCardId = (cardId) => {
+        const cardActivities = this.props.board.activities.filter(activity => activity.card.id === cardId)
+        return cardActivities;
+    }
     render() {
         if (!this.props.board) return <div>Loading...</div>
-
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
@@ -66,6 +72,9 @@ class _BoardApp extends Component {
                         onSaveCard={this.onSaveCard}
                         onRemoveCard={this.onRemoveCard}
                         board={this.props.board}
+                        getActivitiesByCardId={this.getActivitiesByCardId}
+                        onOpenPreviewLabels={this.onOpenPreviewLabels}
+                        isLebelOpen={this.state.isLebelOpen}
                     />
                 </div>
             </div>
