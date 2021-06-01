@@ -82,22 +82,23 @@ export function updateBoard(board) {
         }
     }
 }
-export function addBoard() {
+
+export function addBoard(title, backgroundURL, bord = null) {
     return async dispatch => {
-        try { 
-            const newBoard =await boardService.addBoard() 
-            dispatch({ type: 'ADD_BOARD', board:newBoard })
+        try {
+            const newBoard = await boardService.addBoard(title, backgroundURL, bord)
+            dispatch({ type: 'ADD_BOARD', board: newBoard })
         } catch (err) {
             console.log('error adding board', err)
         }
     }
 }
 
-export function getboards(){
+export function getboards() {
     return async dispatch => {
         try {
             const boards = await boardService.getGboards()
-            dispatch({ type:'SET_BOARDS', boards })
+            dispatch({ type: 'SET_BOARDS', boards })
         } catch (err) {
             console.log(`BoardsActions: err in get board'}${err}`)
         }
