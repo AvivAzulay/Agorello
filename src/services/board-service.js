@@ -832,11 +832,7 @@ function getGboards() {
 
                         "archivedAt": null,
                         "members": [{
-<<<<<<< HEAD
-                            "_id": "5f6a2532173d861c5d7d09w1",
-=======
                             "_id": "5f6a2532173d861c5d7d02n8",
->>>>>>> 3c214541408b26f1c23229511350d59b07a0540d
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],
