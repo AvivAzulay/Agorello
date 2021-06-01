@@ -94,7 +94,7 @@ export class _CardDetails extends Component {
     if (!card) return <></>
     return (
       <div className="window-screen" onClick={() => this.props.history.push('/board')}>
-​
+
         <div className="edit" onClick={this.onCloseAllModals}>
           <>
             <>
@@ -110,9 +110,9 @@ export class _CardDetails extends Component {
           <div className="edit-body">
             <div className="edit-details">
               <span className="list-pages">In list pages</span>
-​
-​
-​
+
+
+
               {/* 
               #########################################
               ###########                 #############
@@ -131,7 +131,7 @@ export class _CardDetails extends Component {
                           {this.state.isCardMemberListShowenLeft &&
                             <CardMemberList
                               card={card}
-                              saveActivity={saveActivity}
+                              saveActivity={this.props.saveActivity}
                               boardMembers={this.props.board.members}
                               onToggle={this.onToggleCardMemberLeft}
                               onUpdateCardProps={this.onUpdateCardProps}
@@ -141,7 +141,7 @@ export class _CardDetails extends Component {
                     </>
                   </>
                 </>
-​
+
                 <>
                   <>
                     <>
@@ -185,8 +185,8 @@ export class _CardDetails extends Component {
                   </>
                 </>
               </div>
-​
-​
+
+
               {/* 
               #########################################
               ###########                 #############
@@ -194,7 +194,7 @@ export class _CardDetails extends Component {
               ###########                 #############
               #########################################
                */}
-​
+
               <div className="edit-details-description">
                 <div className="edit-details-description-header">
                   <p className="edit-details-description-logo"></p>
@@ -207,7 +207,9 @@ export class _CardDetails extends Component {
               </div>
               <div>
                 <CardCheckListContainer
-                  checklist={card.checklist}
+                  card={card}
+                  // checklist={card.checklist}
+                  saveActivity={this.props.saveActivity}
                   onUpdateCardProps={this.onUpdateCardProps} />
                 {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
               </div>
@@ -236,8 +238,8 @@ export class _CardDetails extends Component {
                 </>
               </>
             </div >
-​
-​
+
+
             <div className="edit-add-to-card">
               <h1> ADD TO CARD </h1>
               <>
@@ -249,7 +251,7 @@ export class _CardDetails extends Component {
                       {this.state.isCardMemberListShowenRight &&
                         <CardMemberList
                           card={card}
-                          saveActivity={saveActivity}
+                          saveActivity={this.props.saveActivity}
                           boardMembers={this.props.board.members}
                           onToggle={this.onToggleCardMemberRight}
                           onUpdateCardProps={this.onUpdateCardProps}
@@ -278,12 +280,17 @@ export class _CardDetails extends Component {
               <>
                 <>
                   <>
-                  <button className="edit-add-to-card-checklist"
-                onClick={this.onToggleCheckList}> Checklist</button>
-              <div className="card-modal-pos">
-                {this.state.isCardCheckListShowen && <CardAddCheckList
-                  onToggle={this.onToggleCheckList} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
-              </div>
+                    <button className="edit-add-to-card-checklist"
+                      onClick={this.onToggleCheckList}> Checklist</button>
+                    <div className="card-modal-pos">
+                      {this.state.isCardCheckListShowen &&
+                        <CardAddCheckList
+                          card={card}
+                          onToggle={this.onToggleCheckList}
+                          saveActivity={this.props.saveActivity}
+                          onUpdateCardProps={this.onUpdateCardProps}
+                        />}
+                    </div>
                   </>
                 </>
               </>

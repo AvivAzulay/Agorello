@@ -53,7 +53,8 @@ export class CardAdd extends Component {
     onAddCard = () => {
         const { card } = this.state
         this.props.onSaveCard(this.state.card, this.props.group.id)
-        this.props.onSaveActivity(card, `added this card to ${this.props.group.title}`, 'card')
+        // this.props.onSaveActivity(card, `added this card to ${this.props.group.title}`, 'card')
+        this.props.onSaveActivity(card, 'ADD_CARD')
     }
 
     render() {

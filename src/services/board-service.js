@@ -104,38 +104,86 @@ function _deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
 }
 
-function updateActivityList(value, txtActivity, type) {
-    // console.log(value, txtActivity, type);
+function _getGroupById(id) {
+    return gBoard.groups.find(group => group.id === id)
+}
+
+function updateActivityList(data, action) {
+    console.log('on service');
     let activity = {
         "id": utilService.makeId(),
-        "txt": txtActivity,
+        "txtCard": "",
+        "txtBoard": "",
         "commentTxt": "",
         "createdAt": Date.now(),
-        // Change it to current logged in user
         "byMember": {
+            // Change it to current logged in user
             "_id": "5f6a2528973d861c5d78c355",
             "fullname": "puki ben david",
             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
         }
     }
 
-    if (type === 'card') {
-        activity.card = {
-            "id": value.id,
-            "title": value.title,
-        }
-        // activity.byMember = currLoggedInMember
-    }
+    const group = _getGroupById(data.currGroup.groupId)
+    switch (action) {
+        case 'ADD_CARD':
+            activity.txtCard = `${activity.byMember.fullname} added this card to ${group.title}`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.title} to ${group.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break;
+        case 'ADD_MEMBER':
+            activity.txtCard = `${activity.byMember.fullname} added ${data.addedMember.fullname} to this card`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.addedMember.fullname} to ${group.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'REMOVE_MEMBER':
+            activity.txtCard = `${activity.byMember.fullname} added ${data.removedMember.fullname} to this card`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.removedMember.fullname} to ${group.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'ADD_CHECKLIST':
+            activity.txtCard = `${activity.byMember.fullname} added ${data.currList.title} to this card`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.currList.title} to ${group.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'REMOVE_CHECKLIST':
+            activity.txtCard = `${activity.byMember.fullname} removed ${data.currList.title} from this card`
+            activity.txtBoard = `${activity.byMember.fullname} removed ${data.currList.title} from ${group.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
 
-    if (type === 'group') {
-        activity.group = {
-            "id": value.id,
-            "title": value.title,
-        }
-        // activity.byMember = currLoggedInMember
+        default:
+            break;
     }
-    gBoard.activities.push(activity)
+    gBoard.activities.unshift(activity)
     return Promise.resolve(_deepCloneBoard(gBoard))
+
+
+    // activity.group = {
+    //     "id": value.id,
+    //     "title": value.title,
+    // }
+
 }
 
 /* <h3 contentEditable>Description</h3> */
@@ -385,7 +433,7 @@ function addBoard() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d7d02n8",
+                            "_id": "5f6a2532173d861c5d7d02n2",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],
@@ -699,7 +747,7 @@ function getGboards() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d7d5d25",
+                            "_id": "5f6a2532173d861c5d7d5a45",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],
@@ -1011,7 +1059,7 @@ function getGboards() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d7d08d2",
+                            "_id": "5f6a2532173d861c5d7d09w1",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],

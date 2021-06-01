@@ -28,8 +28,10 @@ export class GroupAdd extends Component {
     onSubmit = (ev) => {
         ev.preventDefault()
         if (!this.state.group.title) return
-        this.props.onSaveGroup(this.state.group)
+        const { onSaveGroup, onSaveActivity } = this.props
+        onSaveGroup(this.state.group)
         this.setState({ ...this.state, group: { title: '' } })
+        onSaveActivity(this.state.group, 'ADD_GROUP')
     }
 
     render() {
@@ -46,10 +48,10 @@ export class GroupAdd extends Component {
                     <form action="">
                         <input type="text" ref={this.inputRef} value={title} onChange={this.handleChange} placeholder="Enter list title..." />
                         <div className="group-add-edit-btn">
-                        <button className="add-list-btn" onClick={this.onSubmit}>Add list</button>
-                        <button className="censel-add-list-btn" onClick={this.onToggleMode}></button>
+                            <button className="add-list-btn" onClick={this.onSubmit}>Add list</button>
+                            <button className="censel-add-list-btn" onClick={this.onToggleMode}></button>
                         </div>
-                       </form>
+                    </form>
                 </div>}
 
         </React.Fragment>

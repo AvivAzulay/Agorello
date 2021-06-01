@@ -259,6 +259,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 .edit-activity-description {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
   .user-img-chat-add {
     width: 35px;

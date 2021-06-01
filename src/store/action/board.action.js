@@ -26,7 +26,6 @@ export function saveCard(card, groupId) {
 }
 
 export function saveGroup(group) {
-    console.log(group);
     return async dispatch => {
         try {
             const board = await boardService.saveGroup(group)
@@ -105,16 +104,13 @@ export function getboards() {
     }
 }
 
-export function saveActivity(value, txtActivity, type) {
-    console.log('value', value);
-    console.log('txtActivity', txtActivity);
-    console.log('type', type);
+export function saveActivity(data, action) {
     return async dispatch => {
         try {
-            const board = await boardService.updateActivityList(value, txtActivity, type)
+            const board = await boardService.updateActivityList(data, action)
             dispatch({ type: 'SET_BOARD', board })
         } catch (err) {
-            console.log(`BoardActions: err in ${txtActivity} - cant add activity`)
+            console.log(`BoardActions: err in ${action} - cant add activity`)
         }
     }
 }

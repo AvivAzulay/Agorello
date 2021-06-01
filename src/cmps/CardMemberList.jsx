@@ -18,15 +18,15 @@ export class CardMemberList extends Component {
     onClickBoardMember = (member, isChecked) => {
         let txt = '' // for actions
         let members = this.props.card.members
-
+        let card = { ...this.props.card }
         if (!isChecked) {
             members.push(member)
-            txt = `added ${member.fullName}`
-            this.props.saveActivity(this.props.card, txt, 'card')
+            card.addedMember = member
+            this.props.saveActivity(card, 'ADD_MEMBER')
         } else {
             members = members.filter(cardMember => cardMember._id !== member._id)
-            txt = `removed ${member.fullName}`
-            this.props.saveActivity(this.props.card, txt, 'card')
+            card.removedMember = member
+            this.props.saveActivity(card, 'REMOVE_MEMBER')
         }
 
         this.props.onUpdateCardProps('members', members)

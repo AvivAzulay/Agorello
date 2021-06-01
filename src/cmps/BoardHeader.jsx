@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ActivitiesFilter } from './ActivitiesFilter.jsx'
+import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 
 export class BoardHeader extends Component {
 
@@ -65,6 +66,14 @@ export class BoardHeader extends Component {
           <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
           <button className="board-analysis"> Board Analysis</button>
           <button className="labels"> Labels</button>
+          <div className="edit-details-activity-header">
+            <span>
+              <p className="edit-details-activity-logo">
+                <h1>Activity</h1>
+              </p>
+              <BoardActivitiesList activities={this.props.board.activities} />
+            </span>
+          </div>
         </div>}
 
 

@@ -60,9 +60,8 @@ class _BoardApp extends Component {
         return cardActivities;
     }
 
-    onSaveActivity = (value, txtActivity, type) => {
-        console.log('saving activity')
-        this.props.saveActivity(value, txtActivity, type)
+    onSaveActivity = (data, action) => {
+        this.props.saveActivity(data, action)
     }
 
     render() {
@@ -72,20 +71,21 @@ class _BoardApp extends Component {
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
             <div className="board" style={{ backgroundImage: `url(${this.props.board.style.bgImg})` }}>
                 <BoardHeader
-                    board={this.props.board} onSetBackground={this.onSetBackground}
+                    board={this.props.board}
+                    onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
                     <GroupList
-                        groups={this.props.board.groups}
-                        onSaveGroup={this.onSaveGroup}
-                        onRemoveGroup={this.onRemoveGroup}
-                        onSaveCard={this.onSaveCard}
-                        onRemoveCard={this.onRemoveCard}
                         board={this.props.board}
-                        getActivitiesByCardId={this.getActivitiesByCardId}
-                        onOpenPreviewLabels={this.onOpenPreviewLabels}
+                        onSaveCard={this.onSaveCard}
+                        onSaveGroup={this.onSaveGroup}
+                        groups={this.props.board.groups}
+                        onRemoveCard={this.onRemoveCard}
+                        onRemoveGroup={this.onRemoveGroup}
                         isLebelOpen={this.state.isLebelOpen}
                         onSaveActivity={this.onSaveActivity}
+                        onOpenPreviewLabels={this.onOpenPreviewLabels}
+                        getActivitiesByCardId={this.getActivitiesByCardId}
                     />
                 </div>
             </div>
