@@ -11,9 +11,8 @@ import { CardDetailsLabels } from './CardDetailsLabels'
 import { CardDetailsDate } from './CardDetailsDate'
 import { CardDateSetter } from './CardDateSetter'
 import { CardCheckListContainer } from './CardCheckListContainer'
+import { CardAddCheckList } from './CardAddCheckList'
 import { CardActivitiesList } from './CardActivitiesList'
-import Button from '@material-ui/core/Button';
-
 
 export class _CardDetails extends Component {
   state = {
@@ -24,6 +23,8 @@ export class _CardDetails extends Component {
     isCardLabelListShowenLeft: false,
     isCardDueDateShowenRight: false,
     isDueDateListShowenLeft: false,
+    isCardCheckListShowen: false,
+    isNewTodoShown: false
   }
 
   componentDidMount() {
@@ -68,18 +69,6 @@ export class _CardDetails extends Component {
     this.setState({ isCardCheckListShowen: !this.state.isCardCheckListShowen })
   }
 
-
-  onToggleCardLabelRight = () => {
-    this.setState({ isCardLabelListShowenRight: !this.state.isCardLabelListShowenRight })
-    this.setState({ isCardLabelListShowenLeft: false })
-  }
-
-  onToggleCardLabelLeft = () => {
-    this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
-    this.setState({ isCardLabelListShowenRight: false })
-  }
-
-
   onToggleDueDateRight = () => {
     this.setState({ isDueDateListShowenRight: !this.state.isDueDateListShowenRight })
     this.setState({ isDueDateListShowenLeft: false })
@@ -89,7 +78,6 @@ export class _CardDetails extends Component {
     this.setState({ isDueDateListShowenLeft: !this.state.isDueDateListShowenLeft })
     this.setState({ isDueDateListShowenRight: false })
   }
-
 
   onCloseAllModals = (ev) => {
     ev.stopPropagation()
@@ -103,12 +91,11 @@ export class _CardDetails extends Component {
     this.setState({ isNewTodoShown: false })
   }
   render() {
-
     const { card } = this.state
     if (!card) return <></>
     return (
       <div className="window-screen" onClick={() => this.props.history.push('/board')}>
-
+​
         <div className="edit" onClick={this.onCloseAllModals}>
           <>
             <>
@@ -124,9 +111,9 @@ export class _CardDetails extends Component {
           <div className="edit-body">
             <div className="edit-details">
               <span className="list-pages">In list pages</span>
-
-
-
+​
+​
+​
               {/* 
               #########################################
               ###########                 #############
@@ -150,7 +137,7 @@ export class _CardDetails extends Component {
                     </>
                   </>
                 </>
-
+​
                 <>
                   <>
                     <>
@@ -194,8 +181,8 @@ export class _CardDetails extends Component {
                   </>
                 </>
               </div>
-
-
+​
+​
               {/* 
               #########################################
               ###########                 #############
@@ -203,7 +190,7 @@ export class _CardDetails extends Component {
               ###########                 #############
               #########################################
                */}
-
+​
               <div className="edit-details-description">
                 <div className="edit-details-description-header">
                   <p className="edit-details-description-logo"></p>
@@ -245,8 +232,8 @@ export class _CardDetails extends Component {
                 </>
               </>
             </div >
-
-
+​
+​
             <div className="edit-add-to-card">
               <h1> ADD TO CARD </h1>
               <>
@@ -283,11 +270,15 @@ export class _CardDetails extends Component {
                   </>
                 </>
               </>
-
               <>
                 <>
                   <>
-                    <button className="edit-add-to-card-checklist"> Checklist</button>
+                  <button className="edit-add-to-card-checklist"
+                onClick={this.onToggleCheckList}> Checklist</button>
+              <div className="card-modal-pos">
+                {this.state.isCardCheckListShowen && <CardAddCheckList
+                  onToggle={this.onToggleCheckList} onUpdateCardProps={this.onUpdateCardProps} card={card} />}
+              </div>
                   </>
                 </>
               </>
@@ -315,7 +306,6 @@ export class _CardDetails extends Component {
                     {/* <label htmlFor="raised-button-file">
                       <button className="edit-add-to-card-attachment" variant="raised" component="span"> Attachment</button>
                     </label> */}
-
                     <input
                       accept="image/*"
                       style={{ display: 'none' }}
@@ -325,9 +315,9 @@ export class _CardDetails extends Component {
                       onSubmit={this.onAttachmentFile}
                     />
                     <label htmlFor="raised-button-file">
-                      <Button className="edit-add-to-card-attachment" variant="contained" component="span">
+                      <button className="edit-add-to-card-attachment" variant="contained" component="span">
                         Attachment
-                      </Button>
+                      </button>
                       {/* <button className="edit-add-to-card-attachment" variant="raised" component="span">
                         Attachment
                       </button> */}
