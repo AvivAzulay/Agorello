@@ -33,7 +33,7 @@ class _Boards extends Component {
         <div ><h1 className="borads-container-title">YOUR WORKSPACES</h1></div>
         <div className="borads-container">
           {this.props.boards.map((board, index) =>
-            <NavLink to={`board/${board._id}?`}>
+            <NavLink to={`board/${board._id}?`} key={index}>
               <div className="borad-preview" key={index} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade">{board.title}</span> </div>
             </NavLink>)}
           <button className="borads-container-add-btn" onClick={this.onNewBoard}>Add new borad </button>

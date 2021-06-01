@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { boardService } from '../services/board-service'
-import { saveCard } from '../store/action/board.action'
+import { saveCard, saveActivity } from '../store/action/board.action'
 import { GroupTitleEdit } from './GroupTitleEdit'
 import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
@@ -34,7 +34,6 @@ export class _CardDetails extends Component {
 
   onUpdateCardProps = (key, value) => {
     const { card } = this.state
-    console.log('CARD: ', value);
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card))
   }
@@ -142,9 +141,14 @@ export class _CardDetails extends Component {
                         {card.members.length > 0 && <div><CardDetailsMembers members={card.members}
                           onToggle={this.onToggleCardMemberLeft} /></div>}
                         <div className="card-member-pos">
-                          {this.state.isCardMemberListShowenLeft && <CardMemberList boardMembers={this.props.board.members}
-                            onToggle={this.onToggleCardMemberLeft} onUpdateCardProps={this.onUpdateCardProps} card={card}
-                          />}
+                          {this.state.isCardMemberListShowenLeft &&
+                            <CardMemberList
+                              card={card}
+                              saveActivity={saveActivity}
+                              boardMembers={this.props.board.members}
+                              onToggle={this.onToggleCardMemberLeft}
+                              onUpdateCardProps={this.onUpdateCardProps}
+                            />}
                         </div>
                       </div>
                     </>
@@ -258,6 +262,7 @@ export class _CardDetails extends Component {
                       {this.state.isCardMemberListShowenRight &&
                         <CardMemberList
                           card={card}
+                          saveActivity={saveActivity}
                           boardMembers={this.props.board.members}
                           onToggle={this.onToggleCardMemberRight}
                           onUpdateCardProps={this.onUpdateCardProps}
@@ -349,12 +354,17 @@ export class _CardDetails extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     board: state.boardModule.board,
   }
 }
+
 const mapDispatchToProps = {
   saveCard,
+  saveActivity,
+
 }
+
 export const CardDetails = connect(mapStateToProps, mapDispatchToProps)(_CardDetails)

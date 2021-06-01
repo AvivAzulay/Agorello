@@ -16,16 +16,19 @@ export class CardMemberList extends Component {
     }
 
     onClickBoardMember = (member, isChecked) => {
-        // let txt = '' // for actions
+        let txt = '' // for actions
         let members = this.props.card.members
-        // if (!members) members = []
+
         if (!isChecked) {
             members.push(member)
-            // txt = `added ${member.fullName}`
+            txt = `added ${member.fullName}`
+            this.props.saveActivity(this.props.card, txt, 'card')
         } else {
             members = members.filter(cardMember => cardMember._id !== member._id)
-            // txt = `removed ${member.fullName}`
+            txt = `removed ${member.fullName}`
+            this.props.saveActivity(this.props.card, txt, 'card')
         }
+
         this.props.onUpdateCardProps('members', members)
     }
 
@@ -38,13 +41,13 @@ export class CardMemberList extends Component {
         // if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
-            <div className="card-member-list" onClick={(ev) => {ev.stopPropagation()}}>
-            <div className="card-member-list-header">
-                   <p></p>
-                   <h3>Members</h3>
-                <button onClick={this.props.onToggle} className="close-save-edit "></button>
+            <div className="card-member-list" onClick={(ev) => { ev.stopPropagation() }}>
+                <div className="card-member-list-header">
+                    <p></p>
+                    <h3>Members</h3>
+                    <button onClick={this.props.onToggle} className="close-save-edit "></button>
                 </div>
-                
+
                 <input type="search" ref={this.inputRef} placeholder="Search members" name="memberName"
                     value={this.state.memberName} onChange={this.handleChange} />
                 <h4>BOARD MEMBERS</h4>

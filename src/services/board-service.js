@@ -10,22 +10,138 @@ export const boardService = {
     getCardTitleById,
     updateBoard,
     getGboards,
-    addBoard
+    addBoard,
+    updateActivityList
 }
 
 let gBoards = getGboards()
 let gBoard;
+
 function query(bordId) {
     gBoard = getBoardById(bordId)
     return Promise.resolve(gBoard)
 }
+
 function getBoardById(bordId) {
     const board = gBoards.find(board => board._id === bordId)
     return board
 }
 
-function addBoard(){
-    let newBoard={
+// function getBoardIdx(bord) {
+//     const idx = gBoards.find(board => board._id === bordId)
+//     return board
+// }
+
+function saveGroup(group) {
+    if (group.id) {
+        const groupIdx = gBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+        gBoard.groups[groupIdx] = group
+        return Promise.resolve(_deepCloneBoard(gBoard))
+    }
+    else {
+        group.id = utilService.makeId()
+        group.cards = []
+        gBoard.groups.push(group)
+        return Promise.resolve(_deepCloneBoard(gBoard))
+    }
+}
+
+function saveCard(card, groupId) {
+    if (card.id) {
+        const group = gBoard.groups.find(group => group.id === groupId)
+        const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+        gBoard.groups[groupIdx] = group
+        return Promise.resolve(_deepCloneBoard(gBoard))
+    }
+    else {
+        card.id = utilService.makeId()
+        const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+        card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
+        card.members = []
+        card.labels = []
+        card.attachments = []
+        card.members = []
+        card.checklist = []
+        gBoard.groups[groupIdx].cards.push(card)
+        return Promise.resolve(_deepCloneBoard(gBoard))
+    }
+}
+
+function removeCard(cardId, groupId) {
+    const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
+    gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
+    return Promise.resolve(_deepCloneBoard(gBoard))
+}
+
+function removeGroup(groupId) {
+    const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
+    gBoard.groups.splice(groupIdx, 1)
+    return Promise.resolve(_deepCloneBoard(gBoard))
+}
+
+function getCardById(cardId) {
+    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
+    return group.cards.find(card => card.id === cardId)
+}
+
+function getCardTitleById(cardId, board) {
+    let cardTitle;
+    board.groups.forEach(group => group.cards.forEach(card => {
+        if (card.id === cardId) {
+            cardTitle = card.title
+        }
+    }))
+    return cardTitle
+}
+
+function updateBoard(board) {
+    gBoard = board;
+
+}
+
+function _deepCloneBoard(board) {
+    return JSON.parse(JSON.stringify(board))
+}
+
+function updateActivityList(value, txtActivity, type) {
+    // console.log(value, txtActivity, type);
+    let activity = {
+        "id": utilService.makeId(),
+        "txt": txtActivity,
+        "commentTxt": "",
+        "createdAt": Date.now(),
+        // Change it to current logged in user
+        "byMember": {
+            "_id": "5f6a2528973d861c5d78c355",
+            "fullname": "puki ben david",
+            "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        }
+    }
+
+    if (type === 'card') {
+        activity.card = {
+            "id": value.id,
+            "title": value.title,
+        }
+        // activity.byMember = currLoggedInMember
+    }
+
+    if (type === 'group') {
+        activity.group = {
+            "id": value.id,
+            "title": value.title,
+        }
+        // activity.byMember = currLoggedInMember
+    }
+    gBoard.activities.push(activity)
+    return Promise.resolve(_deepCloneBoard(gBoard))
+}
+
+/* <h3 contentEditable>Description</h3> */
+
+function addBoard() {
+    let newBoard = {
         "_id": "1f72ea5a1ab1fc0017450368",
         "title": "Hello !!!",
         "isArchived": false,
@@ -80,7 +196,7 @@ function addBoard(){
             },
             {
                 "id": "2LD34",
-                "txt": "moved the group",
+                "txt": "added new checklist",
                 "commentTxt": "",
                 "createdAt": 1601367032102,
                 "byMember": {
@@ -175,7 +291,7 @@ function addBoard(){
                         "createdAt": 1601366751048,
                         "dueDate": 1701396951048,
                         "attachments": [],
-    
+
                         "currGroup": {
                             "groupId": "5H6D9",
                             "createdAt": 1601366751048
@@ -246,8 +362,8 @@ function addBoard(){
                                         "isDone": true
                                     },
                                 ],
-    
-    
+
+
                             },
                             {
                                 "id": "8DKJ3",
@@ -266,7 +382,7 @@ function addBoard(){
                                 ],
                             },
                         ],
-    
+
                         "archivedAt": null,
                         "members": [{
                             "_id": "5f6a2532173d861c5d7d02n8",
@@ -335,85 +451,8 @@ function addBoard(){
         ]
     }
     gBoards.push(newBoard)
-    return Promise.resolve((deepCloneBoard(newBoard)))
+    return Promise.resolve((_deepCloneBoard(newBoard)))
 }
-// function getBoardIdx(bord) {
-//     const idx = gBoards.find(board => board._id === bordId)
-//     return board
-// }
-function saveGroup(group) {
-    if (group.id) {
-        const groupIdx = gBoard.groups.findIndex(currGroup => currGroup.id === group.id)
-        gBoard.groups[groupIdx] = group
-        return Promise.resolve(deepCloneBoard(gBoard))
-    }
-    else {
-        group.id = utilService.makeId()
-        group.cards = []
-        gBoard.groups.push(group)
-        return Promise.resolve(deepCloneBoard(gBoard))
-    }
-}
-
-function saveCard(card, groupId) {
-    if (card.id) {
-        const group = gBoard.groups.find(group => group.id === groupId)
-        const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-        gBoard.groups[groupIdx] = group
-        return Promise.resolve(deepCloneBoard(gBoard))
-    }
-    else {
-        card.id = utilService.makeId()
-        const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-        card.currGroup = { groupId: gBoard.groups[groupIdx].id, createdAt: new Date() }
-        card.members = []
-        card.labels = []
-        card.attachments = []
-        card.members = []
-        card.checklist = []
-        gBoard.groups[groupIdx].cards.push(card)
-        return Promise.resolve(deepCloneBoard(gBoard))
-    }
-}
-
-function removeCard(cardId, groupId) {
-    const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    const cardIdx = gBoard.groups[groupIdx].cards.findIndex(card => card.id === cardId)
-    gBoard.groups[groupIdx].cards.splice(cardIdx, 1)
-    return Promise.resolve(deepCloneBoard(gBoard))
-}
-
-function removeGroup(groupId) {
-    const groupIdx = gBoard.groups.findIndex(group => group.id === groupId)
-    gBoard.groups.splice(groupIdx, 1)
-    return Promise.resolve(deepCloneBoard(gBoard))
-}
-
-function getCardById(cardId) {
-    const group = gBoard.groups.find(group => group.cards.find(card => card.id === cardId))
-    return group.cards.find(card => card.id === cardId)
-}
-
-function getCardTitleById(cardId, board) {
-    let cardTitle;
-    board.groups.forEach(group => group.cards.forEach(card => {
-        if (card.id === cardId) {
-            cardTitle = card.title
-        }
-    }))
-    return cardTitle
-}
-
-function updateBoard(board) {
-    gBoard = board;
-
-}
-
-function deepCloneBoard(board) {
-    return JSON.parse(JSON.stringify(board))
-}
-
-/* <h3 contentEditable>Description</h3> */
 
 function getGboards() {
     return [{
@@ -471,7 +510,7 @@ function getGboards() {
             },
             {
                 "id": "2LD34",
-                "txt": "moved the group",
+                "txt": "Added Gad to the card",
                 "commentTxt": "",
                 "createdAt": 1601367032102,
                 "byMember": {
@@ -660,7 +699,7 @@ function getGboards() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d7d02n8",
+                            "_id": "5f6a2532173d861c5d7d5d25",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],
@@ -763,7 +802,7 @@ function getGboards() {
         "activities": [
             {
                 "id": "2DVJ3",
-                "txt": "moved the card",
+                "txt": "Deleted checklist",
                 "commentTxt": "",
                 "createdAt": 1601367036803,
                 "byMember": {
@@ -778,7 +817,7 @@ function getGboards() {
             },
             {
                 "id": "2LD34",
-                "txt": "moved the group",
+                "txt": "Added new label",
                 "commentTxt": "",
                 "createdAt": 1601367032102,
                 "byMember": {
@@ -972,7 +1011,7 @@ function getGboards() {
 
                         "archivedAt": null,
                         "members": [{
-                            "_id": "5f6a2532173d861c5d7d02n8",
+                            "_id": "5f6a2532173d861c5d7d08d2",
                             "fullname": "Tuki Taka",
                             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
                         }],

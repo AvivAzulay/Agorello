@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 
 
-export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen,board
+export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board
 }) {
     return (
 
@@ -39,10 +39,12 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                                 card.attachments.map((attachment, index) =>
                                     <img className="card-preview-attachments-img" src={attachment} alt="" key={index} />)}
                             </div>
+
                             <div className="card-preview-bottom">
                                 {getActivitiesByCardId(card.id).length !== 0 &&
                                     <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                 {card.dueDate ? <span className="card-preview-date">
+
                                     <div className="card-preview-date-clock">
                                         {/* <Checkbox
                                             label={label}
