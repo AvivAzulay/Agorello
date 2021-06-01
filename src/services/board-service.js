@@ -148,7 +148,7 @@ function updateActivityList(value, txtActivity, type) {
 function addBoard(title, backgroundURL, board) {
     let newBoard;
     if (board) { //template duplication
-        newBoard = deepCloneBoard(board);
+        newBoard = _deepCloneBoard(board);
         newBoard._id = utilService.makeId(24);
         newBoard.isTemplate = false;
     }
@@ -222,7 +222,7 @@ function addBoard(title, backgroundURL, board) {
         }
     }
     gBoards.push(newBoard)
-    return Promise.resolve((deepCloneBoard(newBoard)))
+    return Promise.resolve((_deepCloneBoard(newBoard)))
 }
 
 function getGboards() {
