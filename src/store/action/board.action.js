@@ -82,10 +82,10 @@ export function updateBoard(board) {
     }
 }
 
-export function addBoard() {
+export function addBoard(title, backgroundURL, bord = null) {
     return async dispatch => {
         try {
-            const newBoard = await boardService.addBoard()
+            const newBoard = await boardService.addBoard(title, backgroundURL, bord)
             dispatch({ type: 'ADD_BOARD', board: newBoard })
         } catch (err) {
             console.log('error adding board', err)
