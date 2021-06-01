@@ -33,9 +33,8 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value) => {
-
     const { card } = this.state
-    // console.log('CARD: ', card);
+    console.log('CARD: ', value);
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card))
   }
@@ -63,6 +62,10 @@ export class _CardDetails extends Component {
   onToggleCardLabelLeft = () => {
     this.setState({ isCardLabelListShowenLeft: !this.state.isCardLabelListShowenLeft })
     this.setState({ isCardLabelListShowenRight: false })
+  }
+
+  onToggleCheckList = () => {
+    this.setState({ isCardCheckListShowen: !this.state.isCardCheckListShowen })
   }
 
 
@@ -96,6 +99,8 @@ export class _CardDetails extends Component {
     if (this.state.isCardLabelListShowenLeft === true) this.setState({ isCardLabelListShowenLeft: false })
     if (this.state.isCardDueDateShowenRight === true) this.setState({ isCardDueDateShowenRight: false })
     if (this.state.isCardDueDateShowenLeft === true) this.setState({ isCardDueDateShowenLeft: false })
+    if (this.state.isCardCheckListShowen === true) this.setState({ isCardCheckListShowen: false })
+    this.setState({ isNewTodoShown: false })
   }
   render() {
 
@@ -209,7 +214,6 @@ export class _CardDetails extends Component {
                   onUpdateCardProps={this.onUpdateCardProps}
                   onSaveCard={this.onSaveCard} />
               </div>
-
               <div>
                 <CardCheckListContainer
                   checklist={card.checklist}

@@ -15,8 +15,9 @@
     z-index: 1;
     .close-save-edit {
         background-color: transparent;
-        display: flex;
-        justify-content: space-between;
+        top: 5px;
+        right: 5px;
+        width: 40px;
       
     }
     .card-member-list-header {

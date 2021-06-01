@@ -38,7 +38,7 @@ export class CardMemberList extends Component {
         // if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
-            <div className="card-member-list">
+            <div className="card-member-list" onClick={(ev) => {ev.stopPropagation()}}>
             <div className="card-member-list-header">
                    <p></p>
                    <h3>Members</h3>

@@ -30,7 +30,7 @@ export class _CardDetails extends Component {
 
     render() {
         const { card } = this.state
-        if (!card) return <h1>Loading...</h1>
+        if (!card) return <h1>Loadi!!!ng...</h1>
         // if (!users || users.length === 0) return <h1>Loading...</h1>
         return (
             <div className="card-details-temp" >

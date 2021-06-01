@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 
 
-export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen
+export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen,board
 }) {
     return (
 
@@ -29,7 +29,7 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                             )}
                         </div>
                         <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
-                        <Link to={`/board/${card.id}`} >
+                        <Link to={`/board/${board._id}/${card.id}`} >
                             <button className="card-preview-edit-icon" ></button>
 
                             <div className="test-white-space">{card.title} </div>
