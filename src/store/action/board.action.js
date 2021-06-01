@@ -105,6 +105,21 @@ export function getboards() {
     }
 }
 
+export function saveActivity(value, txtActivity, type) {
+    console.log('value', value);
+    console.log('txtActivity', txtActivity);
+    console.log('type', type);
+    return async dispatch => {
+        try {
+            const board = await boardService.updateActivityList(value, txtActivity, type)
+            dispatch({ type: 'SET_BOARD', board })
+        } catch (err) {
+            console.log(`BoardActions: err in ${txtActivity} - cant add activity`)
+        }
+    }
+}
+
+
 // export function removeBoard(boardId) { // Action Creator
 //     return async dispatch => {
 //         try {

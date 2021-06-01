@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
+import { utilService } from '../services/util-service'
 
 
 class _BoardApp extends Component {
@@ -44,18 +45,26 @@ class _BoardApp extends Component {
     onSetGroupIdx = (idx) => {
         this.setState(...this.state, { currGroupIdx: idx })
     }
+
     onOpenPreviewLabels = () => {
-        // const { isLebelOpen } = this.state;
-        this.setState( { isLebelOpen: !this.state.isLebelOpen },()=>console.log(this.state))
+        this.setState({ isLebelOpen: !this.state.isLebelOpen })
     }
+
     onSetBackground = (background) => {
         const newBoard = { ...this.props.board, style: { ...this.props.board.style, bgImg: background } }
         this.props.updateBoard(newBoard)
     }
+
     getActivitiesByCardId = (cardId) => {
         const cardActivities = this.props.board.activities.filter(activity => activity.card.id === cardId)
         return cardActivities;
     }
+
+    onSaveActivity = (value, txtActivity, type) => {
+        console.log('saving activity')
+        this.props.saveActivity(value, txtActivity, type)
+    }
+
     render() {
         if (!this.props.board) return <div>Loading...</div>
         return (<>
@@ -76,6 +85,7 @@ class _BoardApp extends Component {
                         getActivitiesByCardId={this.getActivitiesByCardId}
                         onOpenPreviewLabels={this.onOpenPreviewLabels}
                         isLebelOpen={this.state.isLebelOpen}
+                        onSaveActivity={this.onSaveActivity}
                     />
                 </div>
             </div>
@@ -98,7 +108,8 @@ const mapDispatchToProps = {
     removeGroup,
     saveCard,
     removeCard,
-    updateBoard
+    updateBoard,
+    saveActivity
 }
 
 

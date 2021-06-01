@@ -37,7 +37,7 @@ export class CardAdd extends Component {
                 return
             }
             ev.preventDefault()
-            this.props.onSaveCard(this.state.card, this.props.groupId)
+            this.onAddCard()
             this.setState({ ...this.state, card: { title: '' } })
         }
     }
@@ -46,8 +46,14 @@ export class CardAdd extends Component {
         ev.preventDefault()
         const { card } = this.state
         if (!card.title || card.title.charAt(0) === ' ') return
-        this.props.onSaveCard(card, this.props.groupId)
+        this.onAddCard()
         this.setState({ ...this.state, card: { title: '' } })
+    }
+
+    onAddCard = () => {
+        const { card } = this.state
+        this.props.onSaveCard(this.state.card, this.props.group.id)
+        this.props.onSaveActivity(card, `added this card to ${this.props.group.title}`, 'card')
     }
 
     render() {

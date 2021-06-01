@@ -24,6 +24,7 @@ export class CardAddCheckList extends Component {
             title: this.state.title,
             todos: []
         }
+        console.log(this.props.card.checklist, list)
         this.props.card.checklist.push(list)
         this.props.onUpdateCardProps('checklist', this.props.card.checklist)
     }
