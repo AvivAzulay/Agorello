@@ -1,6 +1,6 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
-
+import {MemberIcon} from './MemberIcon'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>
@@ -9,6 +9,8 @@ export function BoardActivitiesList({ activities }) {
         <div className="flex column">
             {activities.map(activity => {
                 return <div key={activity.id}>
+                  <MemberIcon member={activity.byMember
+ }/>
                     <h5>{activity.txtBoard}
                         <span> </span>
                         <TimeAgo date={activity.createdAt} />

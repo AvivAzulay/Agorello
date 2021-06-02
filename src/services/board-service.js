@@ -130,8 +130,8 @@ function updateActivityList(data, action) {
         "byMember": {
             // Change it to current logged in user
             "_id": "5f6a2528973d861c5d78c355",
-            "fullname": "puki ben david",
-            "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            "fullname": "Gad Refaeli",
+            "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg`
         }
     }
     switch (action) {
@@ -680,14 +680,14 @@ function getGboards() {
             "activities": [
                 {
                     "id": "nsH78L",
-                    "txtCard": "puki ben david added this card to Dev",
-                    "txtBoard": "puki ben david added Full Backend to Dev",
+                    "txtCard": "Oded Alon added this card to Dev",
+                    "txtBoard": "Oded Alon added Full Backend to Dev",
                     "commentTxt": "",
                     "createdAt": 1622641729814,
                     "byMember": {
                         "_id": "5f6a2528973d861c5d78c355",
-                        "fullname": "puki ben david",
-                        "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
+                        "fullname": "Oded Alon",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
                     },
                     "card": {
                         "id": "YCAURs",
@@ -696,14 +696,14 @@ function getGboards() {
                 },
                 {
                     "id": "BEOzOa",
-                    "txtCard": "puki ben david marked the due date complete",
-                    "txtBoard": "puki ben david marked the due date on Cmps complete",
+                    "txtCard": "Aviv Azulay marked the due date complete",
+                    "txtBoard": "Aviv Azulay marked the due date on Cmps complete",
                     "commentTxt": "",
                     "createdAt": 1622641649424,
                     "byMember": {
                         "_id": "5f6a2528973d861c5d78c355",
-                        "fullname": "puki ben david",
-                        "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
+                        "fullname": "Aviv Azulay",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
                     },
                     "card": {
                         "id": "7K2SD",
@@ -819,13 +819,7 @@ function getGboards() {
                             "id": "5KK3V",
                             "title": "EditCard.jsx",
                             "description": "",
-                            "members": [
-                                {
-                                    "_id": "5f6a2532173d861c5d7d02n8",
-                                    "fullname": "Tuki Taka",
-                                    "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
-                                }
-                            ],
+                            "members": [],
                             "checklist": [
                                 {
                                     "id": "M6B0S",
@@ -1192,7 +1186,7 @@ function getGboards() {
                             "members": [{
                                 "_id": "5f6a2532173d861c5d7d02n8",
                                 "fullname": "Tuki Taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
                             }],
                             "labels": [
                                 {
@@ -1211,7 +1205,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c321",
                                 "fullname": "tuki taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
                             }
                         },
                         {
@@ -1241,7 +1235,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c332",
                                 "fullname": "mike awsome",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
                             }
                         }
                     ]

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TimeAgo from 'react-timeago'
-
+import {MemberIcon} from './MemberIcon'
 
 export class CardActivitiesList extends Component {
 
@@ -12,7 +12,10 @@ export class CardActivitiesList extends Component {
                 {activities.map((activity, index) => {
                     if (!activity.card) return <></>
                     if (activity.card.id === card.id) {
+
                         return <div key={index}>
+                           <MemberIcon member={activity.byMember
+ }/>
                             {activity.txtCard && <h5>{activity.txtCard}
                                 <span> </span>
                                 <TimeAgo date={activity.createdAt} />
