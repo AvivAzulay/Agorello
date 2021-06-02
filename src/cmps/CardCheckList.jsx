@@ -95,7 +95,7 @@ export class CardCheckList extends Component {
             btnContent = `Show Checked Items (${this.state.tasksCompleted})`
         }
         return (
-            <Button onClick={this.toggleDisplayCompleted}>{btnContent}</Button>
+            <button onClick={this.toggleDisplayCompleted}>{btnContent}</button>
         )
     }
 
@@ -176,10 +176,10 @@ export class CardCheckList extends Component {
                 <div className="checklist-title-container flex space-between">
                     {/* <CheckBoxOutlinedIcon /> */}
                     {/* TODO: Set here the icon of Checklist */}
-                    <h4 className="checklist-title">{list.title}</h4>
+                    <h1 className="checklist-title">{list.title}</h1>
                     <div className="checklist-title-btns">
                         {this.getDisplayCheckedBtn()}
-                        <button style={{ border: "1px black solid" }} onClick={this.openDialog}>Delete</button>
+                        <button  onClick={this.openDialog}>Delete</button>
                     </div>
                 </div>
 
