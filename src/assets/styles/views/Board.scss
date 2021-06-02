@@ -12,11 +12,16 @@ $nav-size: 20px;
 
 .window-screen{
 background-color: rgba(0, 0, 0, 0.659);
-height: 100vh;
-width: 100vw;
+height: 100%;
+width: 100%;
 z-index: 1;
-position: absolute;
+position: fixed;
 top: 0;
 left: 0;
-
+display: flex;
+overflow-y: auto;
+align-items: flex-start;
+justify-content: center;
+padding-top: 50px;
+padding-bottom: 50px;
 }

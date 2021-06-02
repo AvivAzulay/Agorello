@@ -13,6 +13,9 @@ import { CardDateSetter } from './CardDateSetter'
 import { CardCheckListContainer } from './CardCheckListContainer'
 import { CardAddCheckList } from './CardAddCheckList'
 import { CardActivitiesList } from './CardActivitiesList'
+import { AttachmentsList } from './AttachmentsList'
+
+import { UplodeImg } from './UplodeImg'
 
 export class _CardDetails extends Component {
   state = {
@@ -120,7 +123,7 @@ export class _CardDetails extends Component {
               ###########                 #############
               #########################################
                */}
-              <div className="flex">
+              <div className="flex members-labels-container">
                 <>
                   <>
                     <>
@@ -199,6 +202,7 @@ export class _CardDetails extends Component {
               #########################################
                */}
 
+
               <div className="edit-details-description">
                 <div className="edit-details-description-header">
                   <p className="edit-details-description-logo"></p>
@@ -209,6 +213,20 @@ export class _CardDetails extends Component {
                   onUpdateCardProps={this.onUpdateCardProps}
                   onSaveCard={this.onSaveCard} />
               </div>
+
+
+              <div className="edit-details-attachments">
+                <div className="edit-details-attachments-header">
+                  <p className="edit-details-attachments-logo"></p>
+                  <h1>Attachments</h1>
+                </div>
+                <AttachmentsList
+                  card={card}
+                />
+              </div>
+
+
+
               <div>
                 <CardCheckListContainer
                   card={card}
@@ -319,9 +337,7 @@ export class _CardDetails extends Component {
               <>
                 <>
                   <>
-                    {/* <label htmlFor="raised-button-file">
-                      <button className="edit-add-to-card-attachment" variant="raised" component="span"> Attachment</button>
-                    </label> */}
+               
                     <input
                       accept="image/*"
                       style={{ display: 'none' }}
@@ -331,19 +347,12 @@ export class _CardDetails extends Component {
                       onSubmit={this.onAttachmentFile}
                     />
                     <label htmlFor="raised-button-file">
-                      <button className="edit-add-to-card-attachment" variant="contained" component="span">
+                      <button className="edit-add-to-card-attachmen">
                         Attachment
-                      </button>
-                      {/* <button className="edit-add-to-card-attachment" variant="raised" component="span">
-                        Attachment
-                      </button> */}
+                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps}/></button>
                     </label>
-                  </>
-                </>
-              </>
-              <>
-                <>
-                  <>
+              
+               
                     <button className="edit-add-to-card-cover"> Cover</button>
                   </>
                 </>
