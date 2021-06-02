@@ -188,7 +188,6 @@ margin: 10px 10px;
 
 .card-preview-date{
 font-size: 12px;
-background-color: #ec9488;
 border-radius: 3px;
 color: #fff;
 padding: 3px 5px;
@@ -196,7 +195,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-right: 5px;
+& .checked{
+  background-color: #ec9488;
 }
+& .not-checked{
+  background-color: #61bd50;
+}
+}
+
 
 .card-preview-date-clock:before{
   font-family: icomoon;

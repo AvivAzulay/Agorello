@@ -20,10 +20,12 @@ export function CardDateSetter({ onUpdateCardProps }) {
                     id="datetime-local"
                     label="Due date"
                     type="datetime-local"
-                    defaultValue="2021-06-01T10:30"
                     InputLabelProps={{
-                        shrink: true,
+                        shrink: false,
+                        required:false,
+                        fullWidth:true
                     }}
+                    
                 />
             </form>
         </div >

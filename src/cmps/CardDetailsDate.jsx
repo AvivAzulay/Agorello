@@ -15,20 +15,25 @@ export class CardDetailsDate extends Component {
     }
 
     displayDueDate = () => {
-        return <h5>{this.props.dueDate}</h5>
+        return <span>{(new Date(this.props.dueDate)).toString().split(' ')[1]
+        + ' ' +
+        (new Date(this.props.dueDate)).getUTCDate()+' at '+
+        (new Date(this.props.dueDate)).toString().split(' ')[4].slice(0,5)
+    }</span>
     }
 
     render() {
         // console.log(this.props);
         const { isDone } = this.state
         return (
-            <div >
+            <div className="due-date-edit-preview">
                 <h6>DUE DATE</h6>
-                <div className="flex">
+                <div className="due-date-edit-preview-body">
+                  
                     <Checkbox checked={isDone} onChange={this.handleChange} className="checkbox-todo" />
                     {this.displayDueDate()}
-                    {isDone && <div>COMPLETED</div>}
-                    <button onClick={this.props.onToggle} style={{ border: " 1px solid black" }}>^</button>
+                    {isDone && <div className="completed">COMPLETED</div>}
+                    <button onClick={this.props.onToggle} ></button>
                 </div>
             </div>
         )
