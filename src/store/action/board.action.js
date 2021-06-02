@@ -14,6 +14,17 @@ export function loadBoard(bordId) {
 
 }
 
+export function saveBoard(board) {
+    return async dispatch => {
+        try {
+            const newBoard = await boardService.saveBoard(board)
+            dispatch({ type: 'SET_BOARD', newBoard })
+        } catch (err) {
+            console.log(`BoardActions: err in ${board._id} ::: ${err}`)
+        }
+    }
+}
+
 export function saveCard(card, groupId) {
     return async dispatch => {
         try {

@@ -6,7 +6,6 @@ export class CardActivitiesList extends Component {
 
     render() {
         const { activities, card } = this.props
-        console.log(activities);
         if (!activities) return <></>
         return (
             <>

@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, saveBoard } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
-import { utilService } from '../services/util-service'
 
 
 class _BoardApp extends Component {
@@ -23,6 +22,10 @@ class _BoardApp extends Component {
 
     onLoadBoard = () => {
         this.props.loadBoard(this.props.match.params.boardId)
+    }
+
+    onSaveBoard = (board) => {
+        this.props.saveBoard(board)
     }
 
     onSaveGroup = (group) => {
@@ -64,22 +67,24 @@ class _BoardApp extends Component {
     }
 
     render() {
-        if (!this.props.board) return <div>Loading...</div>
-        // console.log(this.props.board);
+        const { board } = this.props
+        if (!board) return <div>Loading...</div>
+        // console.log(board);
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
-            <div className="board" style={{ backgroundImage: `url(${this.props.board.style.bgImg})` }}>
+            <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
                 <BoardHeader
-                    board={this.props.board}
+                    board={board}
+                    onSaveBoard={this.onSaveBoard}
                     onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
                     <GroupList
-                        board={this.props.board}
+                        board={board}
                         onSaveCard={this.onSaveCard}
                         onSaveGroup={this.onSaveGroup}
-                        groups={this.props.board.groups}
+                        groups={board.groups}
                         onRemoveCard={this.onRemoveCard}
                         onRemoveGroup={this.onRemoveGroup}
                         isLebelOpen={this.state.isLebelOpen}
@@ -103,12 +108,13 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+    saveCard,
+    saveBoard,
     loadBoard,
     saveGroup,
-    removeGroup,
-    saveCard,
     removeCard,
     updateBoard,
+    removeGroup,
     saveActivity
 }
 

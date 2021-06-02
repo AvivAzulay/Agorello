@@ -16,7 +16,6 @@ export class CardMemberList extends Component {
     }
 
     onClickBoardMember = (member, isChecked) => {
-        let txt = '' // for actions
         let members = this.props.card.members
         let card = { ...this.props.card }
         if (!isChecked) {

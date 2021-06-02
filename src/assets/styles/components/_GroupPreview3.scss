@@ -1,0 +1,82 @@
+.group-preview{
+    flex: 0 0 19rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #e2e4e6;
+    max-height: calc(100vh - 11.8rem);
+    border-radius: 0.3rem;
+    margin-right: 0.7rem;
+  }
+  
+  .group-list-container {
+    overflow-x: auto;
+  }
+
+  
+  .group-list{
+    display: flex;/// THIS IS THE ProbMLEM!!!!
+    align-items: start;
+    padding: 0 0.8rem 0.8rem;
+    height: calc(100vh - 8.6rem);
+  }
+  
+  .card-list-inner{
+    min-height: 1px;
+  }
+  
+  
+  .group-preview-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 13px;
+  }
+  
+  .card-list-and-add {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 4px 4px;
+    z-index: 1;
+    min-height: 0;
+  
+  }
+  
+  
+  .group-preview-header-btn{
+  
+  border: none;
+  background-color: #e2e4e6;
+  cursor: pointer;
+  color: #69788d;
+  }
+  .card-title{
+    font-size: 14px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    color: #333;
+    font-weight: 600;
+  }
+  .group-preview-header-btn:before{
+    font-family: icomoon;
+    content: '\e951';
+    font-size: 17px;
+  
+  }
+  
+  
+  .card-add-menu-btn{
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: #e2e4e6;
+    cursor: pointer;
+  
+  }
+
+  
+  
+  
