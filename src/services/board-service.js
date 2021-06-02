@@ -11,7 +11,8 @@ export const boardService = {
     updateBoard,
     getGboards,
     addBoard,
-    updateActivityList
+    updateActivityList,
+    saveBoard
 }
 
 let gBoards = getGboards()
@@ -37,6 +38,11 @@ function updateBoards() {
 //     const idx = gBoards.find(board => board._id === bordId)
 //     return board
 // }
+
+function saveBoard(board) {
+    gBoard = board
+    return Promise.resolve(_deepCloneBoard(board))
+}
 
 function saveGroup(group) {
     if (group.id) {

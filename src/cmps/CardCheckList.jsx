@@ -156,7 +156,7 @@ export class CardCheckList extends Component {
                     <h1 className="checklist-title">{list.title}</h1>
                     <div className="checklist-title-btns">
                         {this.getDisplayCheckedBtn()}
-                        <button  onClick={this.openDialog}>Delete</button>
+                        <button onClick={this.openDialog}>Delete</button>
                     </div>
                 </div>
 
