@@ -1,4 +1,3 @@
-import { DialogContent } from '@material-ui/core'
 import React from 'react'
 import TimeAgo from 'react-timeago'
 

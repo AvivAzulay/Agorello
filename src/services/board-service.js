@@ -328,316 +328,316 @@ function addBoard(title, backgroundURL, board) {
 
 function getGboards() {
     return [
-        {
-            "_id": "5f72ea5a1ab1fc0017450368",
-            "title": "Hello !!!",
-            "isArchived": false,
-            "isTemplate": true,
-            "labels": [
-                {
-                    "id": "l101",
-                    "name": "Teamwork",
-                    "color": "green"
-                },
-                {
-                    "id": "l102",
-                    "name": "Urgent",
-                    "color": "yellow"
-                },
-                {
-                    "id": "l103",
-                    "name": "Pay attention",
-                    "color": "orange"
-                },
-                {
-                    "id": "l104",
-                    "name": "Important",
-                    "color": "red"
-                },
-                {
-                    "id": "l105",
-                    "name": "Default",
-                    "color": "purple"
-                },
-                {
-                    "id": "l106",
-                    "name": "Default",
-                    "color": "blue"
-                }
-            ],
-            "activities": [
-                // {
-                //     "id": "2DVJ3",
-                //     "txt": "moved the card",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367036803,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "2L8J2",
-                //         "title": "Signup"
-                //     },
-                //     "group": {}
-                // },
-                // {
-                //     "id": "2LD34",
-                //     "txt": "moved the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367032102,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {},
-                //     "group": {
-                //         "id": "2L4G4",
-                //         "title": "QA"
-                //     }
-                // },
-                // {
-                //     "id": "2LG8E",
-                //     "txt": "",
-                //     "commentTxt": "deleted card content",
-                //     "createdAt": 1601366968534,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "5KK3V",
-                //         "title": "Shaving cream"
-                //     },
-                //     "group": {}
-                // },
-                // {
-                //     "id": "2D6J2",
-                //     "txt": "edited the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367016951,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {},
-                //     "group": {
-                //         "id": "2KE43",
-                //         "title": "Development"
-                //     }
-                // }
-            ],
-            "createdBy": {
-                "_id": "5f6a2532173d861c5d78c332",
-                "fullname": "mike awsome",
-                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-            },
-            "style": {
-                "id": "LD2D5",
-                "fontClr": "#f9f9f9",
-                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
-            },
-            "members": [
-                {
-                    "_id": "5f6a2528973d861c5d78c355",
-                    "fullname": "Puki Ben David",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                {
-                    "_id": "5f6a2532173d861c5d78c332",
-                    "fullname": "Mike Awsome",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                {
-                    "_id": "5f6a2532173d861c5d78c321",
-                    "fullname": "Tuki Taka",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                }
-            ],
-            "groups": [
-                {
-                    "id": "5H6D9",
-                    "title": "Cmps",
-                    "archivedAt": false,
-                    "cards": [
-                        {
-                            "id": "5K24K",
-                            "title": "EdidCard.jsx",
-                            "description": "",
-                            "checklist": [],
-                            "archivedAt": null,
-                            "members": [],
-                            "labels": [
-                                {
-                                    "id": "l101"
-                                }
-                            ],
-                            "createdAt": 1601366751048,
-                            "dueDate": 1701396951048,
-                            "attachments": [],
+        // {
+        //     "_id": "5f72ea5a1ab1fc0017450368",
+        //     "title": "Hello !!!",
+        //     "isArchived": false,
+        //     "isTemplate": true,
+        //     "labels": [
+        //         {
+        //             "id": "l101",
+        //             "name": "Teamwork",
+        //             "color": "green"
+        //         },
+        //         {
+        //             "id": "l102",
+        //             "name": "Urgent",
+        //             "color": "yellow"
+        //         },
+        //         {
+        //             "id": "l103",
+        //             "name": "Pay attention",
+        //             "color": "orange"
+        //         },
+        //         {
+        //             "id": "l104",
+        //             "name": "Important",
+        //             "color": "red"
+        //         },
+        //         {
+        //             "id": "l105",
+        //             "name": "Default",
+        //             "color": "purple"
+        //         },
+        //         {
+        //             "id": "l106",
+        //             "name": "Default",
+        //             "color": "blue"
+        //         }
+        //     ],
+        //     "activities": [
+        //         // {
+        //         //     "id": "2DVJ3",
+        //         //     "txt": "moved the card",
+        //         //     "commentTxt": "",
+        //         //     "createdAt": 1601367036803,
+        //         //     "byMember": {
+        //         //         "_id": "5f6a2528973d861c5d78c355",
+        //         //         "fullname": "puki ben david",
+        //         //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         //     },
+        //         //     "card": {
+        //         //         "id": "2L8J2",
+        //         //         "title": "Signup"
+        //         //     },
+        //         //     "group": {}
+        //         // },
+        //         // {
+        //         //     "id": "2LD34",
+        //         //     "txt": "moved the group",
+        //         //     "commentTxt": "",
+        //         //     "createdAt": 1601367032102,
+        //         //     "byMember": {
+        //         //         "_id": "5f6a2528973d861c5d78c355",
+        //         //         "fullname": "puki ben david",
+        //         //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         //     },
+        //         //     "card": {},
+        //         //     "group": {
+        //         //         "id": "2L4G4",
+        //         //         "title": "QA"
+        //         //     }
+        //         // },
+        //         // {
+        //         //     "id": "2LG8E",
+        //         //     "txt": "",
+        //         //     "commentTxt": "deleted card content",
+        //         //     "createdAt": 1601366968534,
+        //         //     "byMember": {
+        //         //         "_id": "5f6a2532173d861c5d78c332",
+        //         //         "fullname": "mike awsome",
+        //         //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         //     },
+        //         //     "card": {
+        //         //         "id": "5KK3V",
+        //         //         "title": "Shaving cream"
+        //         //     },
+        //         //     "group": {}
+        //         // },
+        //         // {
+        //         //     "id": "2D6J2",
+        //         //     "txt": "edited the group",
+        //         //     "commentTxt": "",
+        //         //     "createdAt": 1601367016951,
+        //         //     "byMember": {
+        //         //         "_id": "5f6a2532173d861c5d78c332",
+        //         //         "fullname": "mike awsome",
+        //         //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         //     },
+        //         //     "card": {},
+        //         //     "group": {
+        //         //         "id": "2KE43",
+        //         //         "title": "Development"
+        //         //     }
+        //         // }
+        //     ],
+        //     "createdBy": {
+        //         "_id": "5f6a2532173d861c5d78c332",
+        //         "fullname": "mike awsome",
+        //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //     },
+        //     "style": {
+        //         "id": "LD2D5",
+        //         "fontClr": "#f9f9f9",
+        //         "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
+        //     },
+        //     "members": [
+        //         {
+        //             "_id": "5f6a2528973d861c5d78c355",
+        //             "fullname": "Puki Ben David",
+        //             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         },
+        //         {
+        //             "_id": "5f6a2532173d861c5d78c332",
+        //             "fullname": "Mike Awsome",
+        //             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         },
+        //         {
+        //             "_id": "5f6a2532173d861c5d78c321",
+        //             "fullname": "Tuki Taka",
+        //             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //         }
+        //     ],
+        //     "groups": [
+        //         {
+        //             "id": "5H6D9",
+        //             "title": "Cmps",
+        //             "archivedAt": false,
+        //             "cards": [
+        //                 {
+        //                     "id": "5K24K",
+        //                     "title": "EdidCard.jsx",
+        //                     "description": "",
+        //                     "checklist": [],
+        //                     "archivedAt": null,
+        //                     "members": [],
+        //                     "labels": [
+        //                         {
+        //                             "id": "l101"
+        //                         }
+        //                     ],
+        //                     "createdAt": 1601366751048,
+        //                     "dueDate": 1701396951048,
+        //                     "attachments": [],
 
-                            "currGroup": {
-                                "groupId": "5H6D9",
-                                "createdAt": 1601366751048
-                            },
-                            "byMember": {
-                                "_id": "5f6a2532173d861c5d78c321",
-                                "fullname": "tuki taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            }
-                        },
-                        {
-                            "id": "7K2SD",
-                            "title": "Activities.jsx",
-                            "archivedAt": null,
-                            "description": "",
-                            "members": [],
-                            "labels": [
-                                {
-                                    "id": "l101",
-                                    "name": "Teamwork",
-                                    "color": "green"
-                                },
-                                {
-                                    "id": "l105"
-                                },
-                                {
-                                    "id": "l103"
-                                }
-                            ],
-                            "createdAt": 1601365551048,
-                            "dueDate": 1601365561048,
-                            "attachments": [],
-                            "currGroup": {
-                                "groupId": "5H6D9",
-                                "createdAt": 1601366751050
-                            },
-                            "byMember": {
-                                "_id": "5f6a2532173d861c5d78c332",
-                                "fullname": "mike awsome",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "2D5FR",
-                    "title": "Dev",
-                    "archivedAt": false,
-                    "cards": [
-                        {
-                            "id": "5KK3V",
-                            "title": "EditCard.jsx",
-                            "description": "",
-                            "members": [],
-                            "checklist": [
-                                {
-                                    "id": "M6B0S",
-                                    "title": "hello",
-                                    "todos": [
-                                        {
-                                            "id": "KD23G",
-                                            "title": "to this",
-                                            "isDone": false
-                                        },
-                                        {
-                                            "id": "KAHN3",
-                                            "title": "to that",
-                                            "isDone": true
-                                        },
-                                    ],
+        //                     "currGroup": {
+        //                         "groupId": "5H6D9",
+        //                         "createdAt": 1601366751048
+        //                     },
+        //                     "byMember": {
+        //                         "_id": "5f6a2532173d861c5d78c321",
+        //                         "fullname": "tuki taka",
+        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //                     }
+        //                 },
+        //                 {
+        //                     "id": "7K2SD",
+        //                     "title": "Activities.jsx",
+        //                     "archivedAt": null,
+        //                     "description": "",
+        //                     "members": [],
+        //                     "labels": [
+        //                         {
+        //                             "id": "l101",
+        //                             "name": "Teamwork",
+        //                             "color": "green"
+        //                         },
+        //                         {
+        //                             "id": "l105"
+        //                         },
+        //                         {
+        //                             "id": "l103"
+        //                         }
+        //                     ],
+        //                     "createdAt": 1601365551048,
+        //                     "dueDate": 1601365561048,
+        //                     "attachments": [],
+        //                     "currGroup": {
+        //                         "groupId": "5H6D9",
+        //                         "createdAt": 1601366751050
+        //                     },
+        //                     "byMember": {
+        //                         "_id": "5f6a2532173d861c5d78c332",
+        //                         "fullname": "mike awsome",
+        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //                     }
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "id": "2D5FR",
+        //             "title": "Dev",
+        //             "archivedAt": false,
+        //             "cards": [
+        //                 {
+        //                     "id": "5KK3V",
+        //                     "title": "EditCard.jsx",
+        //                     "description": "",
+        //                     "members": [],
+        //                     "checklist": [
+        //                         {
+        //                             "id": "M6B0S",
+        //                             "title": "hello",
+        //                             "todos": [
+        //                                 {
+        //                                     "id": "KD23G",
+        //                                     "title": "to this",
+        //                                     "isDone": false
+        //                                 },
+        //                                 {
+        //                                     "id": "KAHN3",
+        //                                     "title": "to that",
+        //                                     "isDone": true
+        //                                 },
+        //                             ],
 
 
-                                },
-                                {
-                                    "id": "8DKJ3",
-                                    "title": "YOOOO",
-                                    "todos": [
-                                        {
-                                            "id": "KD23G",
-                                            "title": "dont this!",
-                                            "isDone": false
-                                        },
-                                        {
-                                            "id": "KAHN3",
-                                            "title": "dont that!",
-                                            "isDone": false
-                                        },
-                                    ],
-                                },
-                            ],
+        //                         },
+        //                         {
+        //                             "id": "8DKJ3",
+        //                             "title": "YOOOO",
+        //                             "todos": [
+        //                                 {
+        //                                     "id": "KD23G",
+        //                                     "title": "dont this!",
+        //                                     "isDone": false
+        //                                 },
+        //                                 {
+        //                                     "id": "KAHN3",
+        //                                     "title": "dont that!",
+        //                                     "isDone": false
+        //                                 },
+        //                             ],
+        //                         },
+        //                     ],
 
-                            "archivedAt": null,
-                            "members": [{
-                                "_id": "5f6a2532173d861c5d7d5a45",
-                                "fullname": "Tuki Taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            }],
-                            "labels": [
-                                {
-                                    "id": "l101",
-                                    "name": "Default",
-                                    "color": "green"
-                                }
-                            ],
-                            "createdAt": 1601366751048,
-                            "dueDate": null,
-                            "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
-                            "currGroup": {
-                                "groupId": "2D5FR",
-                                "createdAt": 1601366751048
-                            },
-                            "byMember": {
-                                "_id": "5f6a2532173d861c5d78c321",
-                                "fullname": "tuki taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            }
-                        },
-                        {
-                            "id": "7K7YD",
-                            "title": "Everything",
-                            "archivedAt": null,
-                            "description": "This is very important!",
-                            "members": [],
-                            "labels": [
-                                {
-                                    "id": "l102"
-                                },
-                                {
-                                    "id": "l105"
-                                },
-                                {
-                                    "id": "l103"
-                                }
-                            ],
-                            "createdAt": 1601365551048,
-                            "dueDate": null,
-                            "attachments": [],
-                            "currGroup": {
-                                "groupId": "2D5FR",
-                                "createdAt": 1601366751050
-                            },
-                            "byMember": {
-                                "_id": "5f6a2532173d861c5d78c332",
-                                "fullname": "mike awsome",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "K2D5f",
-                    "title": "Dev",
-                    "archivedAt": false,
-                    "cards": [
-                    ]
-                }
-            ]
-        },
+        //                     "archivedAt": null,
+        //                     "members": [{
+        //                         "_id": "5f6a2532173d861c5d7d5a45",
+        //                         "fullname": "Tuki Taka",
+        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //                     }],
+        //                     "labels": [
+        //                         {
+        //                             "id": "l101",
+        //                             "name": "Default",
+        //                             "color": "green"
+        //                         }
+        //                     ],
+        //                     "createdAt": 1601366751048,
+        //                     "dueDate": null,
+        //                     "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
+        //                     "currGroup": {
+        //                         "groupId": "2D5FR",
+        //                         "createdAt": 1601366751048
+        //                     },
+        //                     "byMember": {
+        //                         "_id": "5f6a2532173d861c5d78c321",
+        //                         "fullname": "tuki taka",
+        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //                     }
+        //                 },
+        //                 {
+        //                     "id": "7K7YD",
+        //                     "title": "Everything",
+        //                     "archivedAt": null,
+        //                     "description": "This is very important!",
+        //                     "members": [],
+        //                     "labels": [
+        //                         {
+        //                             "id": "l102"
+        //                         },
+        //                         {
+        //                             "id": "l105"
+        //                         },
+        //                         {
+        //                             "id": "l103"
+        //                         }
+        //                     ],
+        //                     "createdAt": 1601365551048,
+        //                     "dueDate": null,
+        //                     "attachments": [],
+        //                     "currGroup": {
+        //                         "groupId": "2D5FR",
+        //                         "createdAt": 1601366751050
+        //                     },
+        //                     "byMember": {
+        //                         "_id": "5f6a2532173d861c5d78c332",
+        //                         "fullname": "mike awsome",
+        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        //                     }
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "id": "K2D5f",
+        //             "title": "Dev",
+        //             "archivedAt": false,
+        //             "cards": [
+        //             ]
+        //         }
+        //     ]
+        // },
         {
             "_id": "XNuugp6UQjDNZIqKuP70vV7b",
             "title": "ToDo List!!!",
@@ -1139,7 +1139,6 @@ function getGboards() {
                             "id": "5KK3V",
                             "title": "EditCard.jsx",
                             "description": "",
-                            "members": [],
                             "checklist": [
                                 {
                                     "id": "M6B0S",

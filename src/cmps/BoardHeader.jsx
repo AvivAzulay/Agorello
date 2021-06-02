@@ -57,7 +57,10 @@ export class BoardHeader extends Component {
   onSubmit = () => {
     // ev.preventDefault()
     // const { prevTitle, type } = this.state
-    this.state.board.title = this.state.title
+    const board = this.state.board.title
+    board.title = this.state.title
+    this.setState({ board: board })
+
     // if (!type.title) {
     //   this.setState({ ...this.state, type: { ...type, title: prevTitle } })
     //   this.onToggleMode()

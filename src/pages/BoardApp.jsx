@@ -4,7 +4,6 @@ import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
 import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, saveBoard } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
-import { utilService } from '../services/util-service'
 
 
 class _BoardApp extends Component {
