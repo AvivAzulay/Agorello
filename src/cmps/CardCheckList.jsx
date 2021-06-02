@@ -1,8 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@material-ui/core'
-// import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import { CardChecklistTodo } from './CardChecklistTodo'
 import React, { Component } from 'react'
-// import { boardAction } from '../store/action/board.action'
 import { utilService } from '../services/util-service'
 
 export class CardCheckList extends Component {
@@ -14,28 +12,17 @@ export class CardCheckList extends Component {
         showDialog: false,
         isNew: false,
         isEditing: false,
-        // isNewTodoShownByFather,
         checklist: null,
         todo: null,
         txtValue: '',
     }
 
-    // isNewTodoShown
+
     componentDidMount() {
         this.setTasksStatus()
         this.setState({ checklist: this.props.card.checklist })
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (document.querySelector('.checklist-text-edit')) document.querySelector('.checklist-text-edit').onBlur(console.log('g'))
-    // }
-    //     if (prevProps.isNewTodoShownByFather !== this.props.isNewTodoShownByFather) {
-    //         if (!this.props.isNewTodoShownByFather) {
-    //             this.setState({isEditing: false})
-    //         } else {
-
-    //         }
-    // }
 
     setTasksStatus = () => {
         let tasksCompleted = 0
@@ -72,13 +59,6 @@ export class CardCheckList extends Component {
         }
         this.setState({ todo })
         this.onUpdateChecklist(todo)
-        // const activityTxt = this.getActivityTxt()
-        // if (this.state.isNew) {
-        //     this.props.onUpdate(todo)
-        //     this.setState({ txtValue: '' })
-        // } else {
-        //     this.props.onUpdate(todo, activityTxt)
-        // }
     }
 
     toggleDisplayCompleted = () => {
@@ -141,12 +121,9 @@ export class CardCheckList extends Component {
         this.props.onUpdateCardProps('checklist', checklist)
         this.closeDialog()
 
-        ///////////////HEREHEREHERE//////////////////
-
         //Add new card activity
         const newCard = { ...card } // for actions
         newCard.currList = list
-        // txt = `removed ${list.title} from this card`
         saveActivity(newCard, 'REMOVE_CHECKLIST')
     }
 
@@ -193,7 +170,14 @@ export class CardCheckList extends Component {
                 }
 
                 <main className="checklist-main">
-                    {this.props.list.todos.map(todo => <CardChecklistTodo key={todo.id} displayCompleted={this.state.displayCompleted} todo={todo} onUpdateChecklist={this.onUpdateChecklist} />)}
+                    {this.props.list.todos.map(todo => <CardChecklistTodo
+                        todo={todo}
+                        card={this.props.card}
+                        key={todo.id}
+                        saveActivity={this.props.saveActivity}
+                        displayCompleted={this.state.displayCompleted}
+                        onUpdateChecklist={this.onUpdateChecklist}
+                    />)}
                     {this.getNewTodoDisplay()}
                 </main>
 

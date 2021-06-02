@@ -3,7 +3,7 @@ import React from 'react'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>
-    // console.log(activities);
+    console.log(activities)
     return (
         <div className="flex column">
             {activities.map(activity => {

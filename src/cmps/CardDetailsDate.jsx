@@ -7,13 +7,14 @@ export class CardDetailsDate extends Component {
     }
 
     handleChange = (ev) => {
+        const { card, saveActivity } = this.props
         let checkStatus = ev.target.checked
         this.setState({ isDone: checkStatus })
+        !ev.target.checked && saveActivity(card, 'INCOMPLETE_DUEDATE')
+        ev.target.checked && saveActivity(card, 'COMPLETE_DUEDATE')
     }
 
     displayDueDate = () => {
-
-
         return <h5>{this.props.dueDate}</h5>
     }
 

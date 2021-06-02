@@ -19,7 +19,6 @@ export class CardCheckListContainer extends Component {
                     card={card}
                     list={list}
                     key={list.id}
-                    // checklist={checklist}
                     saveActivity={saveActivity}
                     onUpdateCardProps={onUpdateCardProps}
                 />)}

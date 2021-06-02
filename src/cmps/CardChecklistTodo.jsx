@@ -26,7 +26,15 @@ export class CardChecklistTodo extends Component {
 
     handleChange = (ev) => {
         ev.stopPropagation()
-        this.setState({ isDone: ev.target.checked })
+        this.setState({ isDone: ev.target.checked }, () => {
+            ////HEREHEREHERE///
+            // console.log(this.state.txtValue);
+            // console.log(ev.target.checked);
+            const card = { ...this.props.card }
+            card.txtValue = this.state.txtValue
+            ev.target.checked && this.props.saveActivity(card, 'COMPLETE_TASK')
+            !ev.target.checked && this.props.saveActivity(card, 'INCOMPLETE_TASK')
+        })
     }
 
     toggleEditing = () => {
@@ -68,7 +76,6 @@ export class CardChecklistTodo extends Component {
 
     onSubmit = (ev) => {
         ev.preventDefault()
-        console.log('sub')
         // this.setNotEditing()
         this.updateChecklist()
     }
@@ -135,7 +142,6 @@ export class CardChecklistTodo extends Component {
     render() {
         if (!this.props.displayCompleted && this.state.isDone) return <React.Fragment />
 
-
         if (this.state.isEditing) return (
             <div className="checklist-todo flex">
                 <Checkbox checked={this.state.isDone} className="checkbox-todo" />
@@ -152,23 +158,11 @@ export class CardChecklistTodo extends Component {
                 <div className={this.getTodoClassName()} onClick={this.toggleEditing}>
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
-                        {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
                     </Button>
                 </div>
-                {/* {this.getNewTodoDisplay()} */}
             </div>
         )
 
-        // return (
-        //     <>
-        //         <div className="checklist-todo flex">
-        //             {this.getTextBox()}
-        //         </div>
-        //         {this.getNewTodoDisplay()}
-        //     </>
-        // <div className="checklist-todo flex">
-        //     {(this.state.isNew) ? this.getNewTodoDisplay() : this.getTextBox()}
-        // </div>
-        // )
+
     }
 }

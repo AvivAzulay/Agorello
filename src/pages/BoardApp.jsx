@@ -26,11 +26,11 @@ class _BoardApp extends Component {
     }
 
     onSaveGroup = (group) => {
-        this.props.saveGroup(group)
+        return this.props.saveGroup(group)
     }
 
     onRemoveGroup = (groupId) => {
-        this.props.removeGroup(groupId)
+        return this.props.removeGroup(groupId)
     }
 
     onSaveCard = (card, groupId) => {
@@ -38,8 +38,7 @@ class _BoardApp extends Component {
     }
 
     onRemoveCard = (card) => {
-        // ev.stopPropogetion()
-        this.props.removeCard(card.id, card.currGroup.groupId)
+        return this.props.removeCard(card.id, card.currGroup.groupId)
     }
 
     onSetGroupIdx = (idx) => {
@@ -56,7 +55,7 @@ class _BoardApp extends Component {
     }
 
     getActivitiesByCardId = (cardId) => {
-        const cardActivities = this.props.board.activities.filter(activity => activity.card.id === cardId)
+        const cardActivities = this.props.board.activities.filter(activity => activity.card?.id === cardId)
         return cardActivities;
     }
 
@@ -66,6 +65,7 @@ class _BoardApp extends Component {
 
     render() {
         if (!this.props.board) return <div>Loading...</div>
+        console.log(this.props.board);
         return (<>
 
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}

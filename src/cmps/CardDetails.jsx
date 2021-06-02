@@ -168,7 +168,10 @@ export class _CardDetails extends Component {
                     <>
                       <div className="flex column">
                         {card.dueDate &&
-                          <CardDetailsDate dueDate={card.dueDate}
+                          <CardDetailsDate
+                            card={card}
+                            dueDate={card.dueDate}
+                            saveActivity={this.props.saveActivity}
                             onToggle={this.onToggleDueDateLeft} />
                         }
                         <div className="card-date-pos">
@@ -176,7 +179,8 @@ export class _CardDetails extends Component {
                             <CardDetailsDate
                               card={card}
                               dueDate={card.dueDate}
-                              onToggle={this.onToggleDueDateLeft}
+                              onToggle={this.onToggleDueDateRight}
+                              saveActivity={this.props.saveActivity}
                               onUpdateCardProps={this.onUpdateCardProps}
                             />}
                         </div>
@@ -225,7 +229,7 @@ export class _CardDetails extends Component {
                         <button>Show details</button>
                       </div>
                       <div className="edit-activity-description">
-                        <div>
+                        <div className="flex">
                           <div className='user-img-chat-add'>G</div>
                           <textarea readOnly className="edit-activity-description-textarea" type="text" value='Write a comment...' />
                         </div>

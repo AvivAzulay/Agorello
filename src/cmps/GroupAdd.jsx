@@ -29,9 +29,13 @@ export class GroupAdd extends Component {
         ev.preventDefault()
         if (!this.state.group.title) return
         const { onSaveGroup, onSaveActivity } = this.props
-        onSaveGroup(this.state.group)
-        this.setState({ ...this.state, group: { title: '' } })
-        onSaveActivity(this.state.group, 'ADD_GROUP')
+        // const group = 
+        onSaveGroup(this.state.group).then(group => {
+            this.setState({ ...this.state, group: { title: '' } })
+            onSaveActivity(group, 'ADD_GROUP')
+        }
+
+        )
     }
 
     render() {

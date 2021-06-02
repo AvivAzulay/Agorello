@@ -30,8 +30,10 @@ export function saveGroup(group) {
         try {
             const board = await boardService.saveGroup(group)
             dispatch({ type: group.id ? 'SET_BOARD' : 'SET_BOARD', board })
+            const currGroup = board.groups.find(currGroup => currGroup.id === group.id)
+            return currGroup
         } catch (err) {
-            console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
+            console.log(`BoardActions: err in ${group.title ? 'update group' : 'add group'}${err}`)
         }
     }
 }
@@ -52,6 +54,8 @@ export function removeGroup(groupId) { // Action Creator
         try {
             const board = await boardService.removeGroup(groupId)
             dispatch({ type: 'SET_BOARD', board })
+            const group = board.groups.find(group => group.id === groupId)
+            return group
         } catch (err) {
             console.log('BoardActions: err in removeGroup', err)
         }

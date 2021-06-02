@@ -114,7 +114,6 @@ function _getGroupById(id) {
 }
 
 function updateActivityList(data, action) {
-    console.log('on service');
     let activity = {
         "id": utilService.makeId(),
         "txtCard": "",
@@ -128,12 +127,11 @@ function updateActivityList(data, action) {
             "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
         }
     }
-
-    const group = _getGroupById(data.currGroup.groupId)
     switch (action) {
         case 'ADD_CARD':
-            activity.txtCard = `${activity.byMember.fullname} added this card to ${group.title}`
-            activity.txtBoard = `${activity.byMember.fullname} added ${data.title} to ${group.title}`
+            let group1 = _getGroupById(data.currGroup.groupId)
+            activity.txtCard = `${activity.byMember.fullname} added this card to ${group1.title}`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.title} to ${group1.title}`
             activity.card = {
                 "id": data.id,
                 "title": data.title,
@@ -141,8 +139,9 @@ function updateActivityList(data, action) {
             // activity.byMember = currLoggedInMember
             break;
         case 'ADD_MEMBER':
+            let group2 = _getGroupById(data.currGroup.groupId)
             activity.txtCard = `${activity.byMember.fullname} added ${data.addedMember.fullname} to this card`
-            activity.txtBoard = `${activity.byMember.fullname} added ${data.addedMember.fullname} to ${group.title}`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.addedMember.fullname} to ${group2.title}`
             activity.card = {
                 "id": data.id,
                 "title": data.title,
@@ -150,8 +149,9 @@ function updateActivityList(data, action) {
             // activity.byMember = currLoggedInMember
             break
         case 'REMOVE_MEMBER':
+            let group3 = _getGroupById(data.currGroup.groupId)
             activity.txtCard = `${activity.byMember.fullname} added ${data.removedMember.fullname} to this card`
-            activity.txtBoard = `${activity.byMember.fullname} added ${data.removedMember.fullname} to ${group.title}`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.removedMember.fullname} to ${group3.title}`
             activity.card = {
                 "id": data.id,
                 "title": data.title,
@@ -159,8 +159,9 @@ function updateActivityList(data, action) {
             // activity.byMember = currLoggedInMember
             break
         case 'ADD_CHECKLIST':
+            let group4 = _getGroupById(data.currGroup.groupId)
             activity.txtCard = `${activity.byMember.fullname} added ${data.currList.title} to this card`
-            activity.txtBoard = `${activity.byMember.fullname} added ${data.currList.title} to ${group.title}`
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.currList.title} to ${group4.title}`
             activity.card = {
                 "id": data.id,
                 "title": data.title,
@@ -168,28 +169,65 @@ function updateActivityList(data, action) {
             // activity.byMember = currLoggedInMember
             break
         case 'REMOVE_CHECKLIST':
+            let group5 = _getGroupById(data.currGroup.groupId)
             activity.txtCard = `${activity.byMember.fullname} removed ${data.currList.title} from this card`
-            activity.txtBoard = `${activity.byMember.fullname} removed ${data.currList.title} from ${group.title}`
+            activity.txtBoard = `${activity.byMember.fullname} removed ${data.currList.title} from ${group5.title}`
             activity.card = {
                 "id": data.id,
                 "title": data.title,
             }
             // activity.byMember = currLoggedInMember
             break
-
+        case 'ADD_GROUP':
+            activity.txtBoard = `${activity.byMember.fullname} added ${data.title} to this board`
+            break
+        case 'REMOVE_GROUP':
+            activity.txtBoard = `${activity.byMember.fullname} archived list ${data.title}`
+            break
+        case 'COMPLETE_TASK':
+            let group6 = _getGroupById(data.currGroup.groupId)
+            activity.txtCard = `${activity.byMember.fullname} completed ${data.txtValue} on this card`
+            activity.txtBoard = `${activity.byMember.fullname} completed ${data.txtValue} on ${group6.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'INCOMPLETE_TASK':
+            let group7 = _getGroupById(data.currGroup.groupId)
+            activity.txtCard = `${activity.byMember.fullname} marked ${data.txtValue} incomplete on this card`
+            activity.txtBoard = `${activity.byMember.fullname} marked ${data.txtValue} incomplete on ${group7.title}`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'COMPLETE_DUEDATE':
+            let group8 = _getGroupById(data.currGroup.groupId)
+            activity.txtCard = `${activity.byMember.fullname} marked the due date complete`
+            activity.txtBoard = `${activity.byMember.fullname} marked the due date on ${group8.title} complete`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'INCOMPLETE_DUEDATE':
+            let group9 = _getGroupById(data.currGroup.groupId)
+            activity.txtCard = `${activity.byMember.fullname} marked the due date incomplete`
+            activity.txtBoard = `${activity.byMember.fullname} marked the due date on ${group9.title} incomplete`
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
         default:
             break;
     }
+
     gBoard.activities.unshift(activity)
     return Promise.resolve(_deepCloneBoard(gBoard))
-
-
-    // activity.group = {
-    //     "id": value.id,
-    //     "title": value.title,
-    // }
-
 }
+
 
 /* <h3 contentEditable>Description</h3> */
 
@@ -312,70 +350,70 @@ function getGboards() {
             }
         ],
         "activities": [
-            {
-                "id": "2DVJ3",
-                "txt": "moved the card",
-                "commentTxt": "",
-                "createdAt": 1601367036803,
-                "byMember": {
-                    "_id": "5f6a2528973d861c5d78c355",
-                    "fullname": "puki ben david",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "2L8J2",
-                    "title": "Signup"
-                },
-                "group": {}
-            },
-            {
-                "id": "2LD34",
-                "txt": "moved the group",
-                "commentTxt": "",
-                "createdAt": 1601367032102,
-                "byMember": {
-                    "_id": "5f6a2528973d861c5d78c355",
-                    "fullname": "puki ben david",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {},
-                "group": {
-                    "id": "2L4G4",
-                    "title": "QA"
-                }
-            },
-            {
-                "id": "2LG8E",
-                "txt": "",
-                "commentTxt": "deleted card content",
-                "createdAt": 1601366968534,
-                "byMember": {
-                    "_id": "5f6a2532173d861c5d78c332",
-                    "fullname": "mike awsome",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "5KK3V",
-                    "title": "Shaving cream"
-                },
-                "group": {}
-            },
-            {
-                "id": "2D6J2",
-                "txt": "edited the group",
-                "commentTxt": "",
-                "createdAt": 1601367016951,
-                "byMember": {
-                    "_id": "5f6a2532173d861c5d78c332",
-                    "fullname": "mike awsome",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {},
-                "group": {
-                    "id": "2KE43",
-                    "title": "Development"
-                }
-            }
+            // {
+            //     "id": "2DVJ3",
+            //     "txt": "moved the card",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367036803,
+            //     "byMember": {
+            //         "_id": "5f6a2528973d861c5d78c355",
+            //         "fullname": "puki ben david",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "2L8J2",
+            //         "title": "Signup"
+            //     },
+            //     "group": {}
+            // },
+            // {
+            //     "id": "2LD34",
+            //     "txt": "moved the group",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367032102,
+            //     "byMember": {
+            //         "_id": "5f6a2528973d861c5d78c355",
+            //         "fullname": "puki ben david",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {},
+            //     "group": {
+            //         "id": "2L4G4",
+            //         "title": "QA"
+            //     }
+            // },
+            // {
+            //     "id": "2LG8E",
+            //     "txt": "",
+            //     "commentTxt": "deleted card content",
+            //     "createdAt": 1601366968534,
+            //     "byMember": {
+            //         "_id": "5f6a2532173d861c5d78c332",
+            //         "fullname": "mike awsome",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "5KK3V",
+            //         "title": "Shaving cream"
+            //     },
+            //     "group": {}
+            // },
+            // {
+            //     "id": "2D6J2",
+            //     "txt": "edited the group",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367016951,
+            //     "byMember": {
+            //         "_id": "5f6a2532173d861c5d78c332",
+            //         "fullname": "mike awsome",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {},
+            //     "group": {
+            //         "id": "2KE43",
+            //         "title": "Development"
+            //     }
+            // }
         ],
         "createdBy": {
             "_id": "5f6a2532173d861c5d78c332",
@@ -621,74 +659,74 @@ function getGboards() {
             }
         ],
         "activities": [
-            {
-                "id": "2DVJ3",
-                "txt": "moved the card",
-                "commentTxt": "",
-                "createdAt": 1601367036803,
-                "byMember": {
-                    "_id": "5f6a2528973d861c5d78c355",
-                    "fullname": "puki ben david",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "7K7YD",
-                    "title": "EdidCard.jsx",
-                },
-            },
-            {
-                "id": "2LD34",
-                "txt": "moved the group",
-                "commentTxt": "",
-                "createdAt": 1601367032102,
-                "byMember": {
-                    "_id": "5f6a2528973d861c5d78c355",
-                    "fullname": "puki ben david",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "7K7YD",
-                    "title": "EdidCard.jsx",
-                },
-            },
-            {
-                "id": "2LG8E",
-                "txt": "",
-                "commentTxt": "deleted card content",
-                "createdAt": 1601366968534,
-                "byMember": {
-                    "_id": "5f6a2532173d861c5d78c332",
-                    "fullname": "mike awsome",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "5K24K",
-                    "title": "EdidCard.jsx",
-                },
-                "group": {
-                    "id": "5H6D9",
-                    "title": "Cmps",
-                }
-            },
-            {
-                "id": "2D6J2",
-                "txt": "edited the group",
-                "commentTxt": "",
-                "createdAt": 1601367016951,
-                "byMember": {
-                    "_id": "5f6a2532173d861c5d78c332",
-                    "fullname": "mike awsome",
-                    "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                },
-                "card": {
-                    "id": "5K24K",
-                    "title": "EdidCard.jsx",
-                },
-                "group": {
-                    "id": "5H6D9",
-                    "title": "Cmps",
-                }
-            }
+            // {
+            //     "id": "2DVJ3",
+            //     "txt": "moved the card",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367036803,
+            //     "byMember": {
+            //         "_id": "5f6a2528973d861c5d78c355",
+            //         "fullname": "puki ben david",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "7K7YD",
+            //         "title": "EdidCard.jsx",
+            //     },
+            // },
+            // {
+            //     "id": "2LD34",
+            //     "txt": "moved the group",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367032102,
+            //     "byMember": {
+            //         "_id": "5f6a2528973d861c5d78c355",
+            //         "fullname": "puki ben david",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "7K7YD",
+            //         "title": "EdidCard.jsx",
+            //     },
+            // },
+            // {
+            //     "id": "2LG8E",
+            //     "txt": "",
+            //     "commentTxt": "deleted card content",
+            //     "createdAt": 1601366968534,
+            //     "byMember": {
+            //         "_id": "5f6a2532173d861c5d78c332",
+            //         "fullname": "mike awsome",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "5K24K",
+            //         "title": "EdidCard.jsx",
+            //     },
+            //     "group": {
+            //         "id": "5H6D9",
+            //         "title": "Cmps",
+            //     }
+            // },
+            // {
+            //     "id": "2D6J2",
+            //     "txt": "edited the group",
+            //     "commentTxt": "",
+            //     "createdAt": 1601367016951,
+            //     "byMember": {
+            //         "_id": "5f6a2532173d861c5d78c332",
+            //         "fullname": "mike awsome",
+            //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            //     },
+            //     "card": {
+            //         "id": "5K24K",
+            //         "title": "EdidCard.jsx",
+            //     },
+            //     "group": {
+            //         "id": "5H6D9",
+            //         "title": "Cmps",
+            //     }
+            // }
         ],
         "createdBy": {
             "_id": "5f6a2532173d861c5d78c332",

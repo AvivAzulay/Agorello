@@ -31,7 +31,7 @@ class _Boards extends Component {
     this.setState({ ...this.state, addNewModal: !addNewModal })
 
   }
- 
+
   render() {
     const TemplateBoards = this.props.boards.filter(board => board.isTemplate);
     const NoTemplateBoards = this.props.boards.filter(board => !board.isTemplate);
@@ -48,7 +48,7 @@ class _Boards extends Component {
               <span className="borad-preview-fade"></span>
               <span className="borad-preview-fade">{board.title}</span> </div>
           )}
-        
+
         </div>
         <h1 className="borads-container-title">Your Boards</h1>
         <div className="borads-container">
@@ -58,7 +58,7 @@ class _Boards extends Component {
             </NavLink>)}
           <button className="borads-container-add-btn" onClick={this.toggleModal}>Add new borad </button>
         </div>
-        {addNewModal && <BoardAdd onNewBoard={this.onNewBoard} toggleModal={this.toggleModal} boards={this.props.boards} history={this.props.history}/>}
+        {addNewModal && <BoardAdd onNewBoard={this.onNewBoard} toggleModal={this.toggleModal} boards={this.props.boards} history={this.props.history} />}
 
       </div>
 
