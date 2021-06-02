@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import TimeAgo from 'react-timeago'
+
 
 export class CardActivitiesList extends Component {
 
     render() {
         const { activities, card } = this.props
+        console.log(activities);
         if (!activities) return <></>
         return (
             <>
@@ -11,7 +14,14 @@ export class CardActivitiesList extends Component {
                     if (!activity.card) return <></>
                     if (activity.card.id === card.id) {
                         return <div key={index}>
-                            <h5>{activity.txtCard} time ago</h5>
+                            {activity.txtCard && <h5>{activity.txtCard}
+                                <span> </span>
+                                <TimeAgo date={activity.createdAt} />
+                            </h5>}
+                            {activity.commentTxt && <h5>{activity.commentTxt}
+                                <span> </span>
+                                <TimeAgo date={activity.createdAt} />
+                            </h5>}
                         </div>
                     }
                 })}

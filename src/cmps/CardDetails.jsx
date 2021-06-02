@@ -14,7 +14,7 @@ import { CardCheckListContainer } from './CardCheckListContainer'
 import { CardAddCheckList } from './CardAddCheckList'
 import { CardActivitiesList } from './CardActivitiesList'
 import { AttachmentsList } from './AttachmentsList'
-
+import { CardComment } from './CardComment'
 import { UplodeImg } from './UplodeImg'
 
 export class _CardDetails extends Component {
@@ -39,6 +39,7 @@ export class _CardDetails extends Component {
   onUpdateCardProps = (key, value) => {
     const { card } = this.state
     card[key] = value
+    console.log(card);
     this.setState({ card }, () => this.onSaveCard(card))
   }
 
@@ -247,10 +248,11 @@ export class _CardDetails extends Component {
                         <button>Show details</button>
                       </div>
                       <div className="edit-activity-description">
-                        <div className="flex">
-                          <div className='user-img-chat-add'>G</div>
-                          <textarea readOnly className="edit-activity-description-textarea" type="text" value='Write a comment...' />
-                        </div>
+                        <CardComment
+                          card={card}
+                          saveActivity={this.props.saveActivity}
+                          onUpdateCardProps={this.onUpdateCardProps}
+                        />
                         <div>
                           <CardActivitiesList card={card} activities={this.props.board.activities} />
                         </div>
@@ -337,7 +339,7 @@ export class _CardDetails extends Component {
               <>
                 <>
                   <>
-               
+
                     <input
                       accept="image/*"
                       style={{ display: 'none' }}
@@ -349,10 +351,10 @@ export class _CardDetails extends Component {
                     <label htmlFor="raised-button-file">
                       <button className="edit-add-to-card-attachmen">
                         Attachment
-                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps}/></button>
+                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
                     </label>
-              
-               
+
+
                     <button className="edit-add-to-card-cover"> Cover</button>
                   </>
                 </>
