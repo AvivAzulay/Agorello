@@ -1,3 +1,4 @@
+import {MemberIcon} from './MemberIcon'
 export function CardMember(props) {
     const splitedName = props.boardMember.fullname.split(' ')
     let initials = splitedName.map(name => name[0])
@@ -16,7 +17,8 @@ export function CardMember(props) {
     return (
         <div className="board-member" onClick={onToggleState}>
            <div>
-            <span className="user-img-chat-add">{initials}</span>
+            {/* <span className="user-img-chat-add">{initials}</span> */}
+            <MemberIcon member={props.boardMember}/>
             <span>{props.boardMember.fullname}</span>
             </div>
             {isChecked ? <p></p> : null}

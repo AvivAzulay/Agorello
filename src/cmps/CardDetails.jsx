@@ -129,8 +129,10 @@ export class _CardDetails extends Component {
                   <>
                     <>
                       <div className="flex column">
-                        {card.members.length > 0 && <div><CardDetailsMembers members={card.members}
+                        {card.members.length > 0 && <div>
+                          <CardDetailsMembers members={card.members}
                           onToggle={this.onToggleCardMemberLeft} /></div>}
+                          
                         <div className="card-member-pos">
                           {this.state.isCardMemberListShowenLeft &&
                             <CardMemberList

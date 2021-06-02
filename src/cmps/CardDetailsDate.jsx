@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Checkbox } from '@material-ui/core'
-
+import { CardDateSetter } from './CardDateSetter'
 export class CardDetailsDate extends Component {
     state = {
         isDone: false,
@@ -33,7 +33,14 @@ export class CardDetailsDate extends Component {
                     <Checkbox checked={isDone} onChange={this.handleChange} className="checkbox-todo" />
                     {this.displayDueDate()}
                     {isDone && <div className="completed">COMPLETED</div>}
-                    <button onClick={this.props.onToggle} ></button>
+                    {/* <button onClick={this.props.onToggle} >
+                    <CardDateSetter
+                          dueDate={this.props.card.dueDate}
+                          onToggle={this.props.onToggleDueDateRight}
+                          onUpdateCardProps={this.props.onUpdateCardProps}
+                          card={this.props.card}
+                        />
+                    </button> */}
                 </div>
             </div>
         )

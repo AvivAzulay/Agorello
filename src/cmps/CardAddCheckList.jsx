@@ -40,8 +40,11 @@ export class CardAddCheckList extends Component {
         // if (! boardLabels ||  boardLabels.length === 0) return <h1>Loading...</h1>
         return (
             <div className="card-add-checklist" onClick={(ev) => { ev.stopPropagation() }}>
+                <div className="card-add-checklist-header">
+                <p></p>
                 <h3>Add checklist</h3>
-                <button onClick={this.props.onToggle} className="close-save-edit btn-close-card-label"></button>
+                <button onClick={this.props.onToggle} className="close-save-edit "></button>
+                </div>
                 <h4>Title</h4>
                 <input type="txt" onFocus={(ev) => ev.target.select()} ref={this.inputRef} placeholder="Search labels" name="labelName"
                     value={title} onChange={this.handleChange} />

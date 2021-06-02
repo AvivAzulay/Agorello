@@ -195,14 +195,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-right: 5px;
-& .checked{
+
+}
+.not-checked{
   background-color: #ec9488;
 }
-& .not-checked{
+ .checked{
   background-color: #61bd50;
 }
-}
-
 
 .card-preview-date-clock:before{
   font-family: icomoon;

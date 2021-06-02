@@ -39,8 +39,11 @@ export class CardLabelList extends Component {
         boardLabels = boardLabels.filter(label => label.name.toLowerCase().includes(this.state.labelName.toLowerCase()))
         return (
             <div className="card-label-list">
+                <div  className="card-label-list-header">
+                <p></p>
                 <h3>Labels</h3>
                 <button onClick={this.props.onToggle} className="close-save-edit btn-close-card-label"></button>
+                </div>
                 <input type="search" placeholder="Search labels" name="labelName"
                     value={this.state.labelName} onChange={this.handleChange} />
                 <h4>LABELS</h4>

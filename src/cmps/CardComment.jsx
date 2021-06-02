@@ -25,7 +25,6 @@ export class CardComment extends Component {
         const card = this.props.card
         card.commentTxt = this.state.commentTxt
         this.props.saveActivity(card, 'ADD_COMMENT')
-        this.toggleEditMode()
         this.setState({ commentTxt: '', isEditModeOn: !this.state.isEditModeOn })
     }
 
@@ -33,7 +32,7 @@ export class CardComment extends Component {
         const { commentTxt, isEditModeOn } = this.state
         return (
             <>
-                <div className="flex">
+                <div className="add-comment flex">
                     <div className='user-img-chat-add'>G</div>
                     <textarea onChange={this.handleChange}
                         type="text"
@@ -42,8 +41,9 @@ export class CardComment extends Component {
                         placeholder='Write a comment...'
                         className="edit-activity-description-textarea"
                     />
+                     {isEditModeOn && <button className=" save-btn" onClick={this.onSubmit}>Save</button>}
                 </div>
-                {isEditModeOn && <button onClick={this.onSubmit}>Save</button>}
+               
             </>
         )
     }

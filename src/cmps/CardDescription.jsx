@@ -33,13 +33,15 @@ export class CardDescription extends Component {
         )
         return (
             <div>
-                <textarea className="adit-details-description-textarea"
+                <textarea className="edit-details-description-textarea"
                     value={this.state.description}
                     autoFocus onChange={this.onChange}
                     onBlur={this.onSave}
                     placeholder="Enter a more details description here..." />
+                    <div className="edit-details-description-btns">
                 <button onClick={this.onSave} className="save-btn">Save</button>
                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
+                </div>
             </div>
         )
     }
