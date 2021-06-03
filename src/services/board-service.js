@@ -368,29 +368,17 @@ function getGboards() {
             ],
             "activities": [
                 {
-<<<<<<< HEAD
-                    "id": "57RKox",
-                    "txtCard": "Gad Refaeli marked the due date complete",
-                    "txtBoard": "Gad Refaeli marked the due date on Done complete",
-                    "commentTxt": "",
-                    "createdAt": 1622720486374,
-=======
                     "id": "uSyast",
                     "txtCard": "Gad Refaeli marked the due date complete",
                     "txtBoard": "Gad Refaeli marked the due date on Done complete",
                     "commentTxt": "",
                     "createdAt": 1622722552665,
->>>>>>> 7f0452d62caec9731384046456820427573ec814
                     "byMember": {
                         "_id": "5f6a2528973d861c5d78c355",
                         "fullname": "Gad Refaeli",
                         "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                     },
                     "card": {
-<<<<<<< HEAD
-                        "id": "oCSF9e",
-                        "title": "login with facebook"
-=======
                         "id": "lbnCjI",
                         "title": "filters"
                     }
@@ -677,7 +665,6 @@ function getGboards() {
                         "_id": "5f6a2528973d861c5d78c355",
                         "fullname": "Gad Refaeli",
                         "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
->>>>>>> 7f0452d62caec9731384046456820427573ec814
                     }
                 },
                 {
@@ -1680,13 +1667,6 @@ function getGboards() {
                                 }
                             ],
                             "attachments": [],
-<<<<<<< HEAD
-                            "checklist": [],
-                            "dueDate": {
-                                "time": "2021-06-01T14:41",
-                                "isCompleted": true
-                            }
-=======
                             "checklist": []
                         },
                         {
@@ -1881,7 +1861,6 @@ function getGboards() {
                                 "isCompleted": false
                             },
                             "description": "dsad"
->>>>>>> 7f0452d62caec9731384046456820427573ec814
                         }
                     ]
                 },
