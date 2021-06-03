@@ -131,8 +131,8 @@ export class _CardDetails extends Component {
                       <div className="flex column">
                         {card.members.length > 0 && <div>
                           <CardDetailsMembers members={card.members}
-                          onToggle={this.onToggleCardMemberLeft} /></div>}
-                          
+                            onToggle={this.onToggleCardMemberLeft} /></div>}
+
                         <div className="card-member-pos">
                           {this.state.isCardMemberListShowenLeft &&
                             <CardMemberList
@@ -177,8 +177,10 @@ export class _CardDetails extends Component {
                           <CardDetailsDate
                             card={card}
                             dueDate={card.dueDate}
+                            onToggle={this.onToggleDueDateLeft}
                             saveActivity={this.props.saveActivity}
-                            onToggle={this.onToggleDueDateLeft} />
+                            onUpdateCardProps={this.onUpdateCardProps}
+                          />
                         }
                         <div className="card-date-pos">
                           {this.state.isCardMemberListShowenLeft &&
@@ -325,16 +327,16 @@ export class _CardDetails extends Component {
                   <>
                     {/* <CardDateSetter onUpdateCardProps={this.onUpdateCardProps} card={card} /> */}
                     <button className="edit-add-to-card-dates"
-                     > Dates
+                    > Dates
                     <div className="card-date-pos">
-                      {
-                        <CardDateSetter
-                          dueDate={this.state.card.dueDate}
-                          onToggle={this.onToggleDueDateRight}
-                          onUpdateCardProps={this.onUpdateCardProps}
-                          card={card}
-                        />}
-                    </div>
+                        {
+                          <CardDateSetter
+                            dueDate={this.state.card.dueDate}
+                            onToggle={this.onToggleDueDateRight}
+                            onUpdateCardProps={this.onUpdateCardProps}
+                            card={card}
+                          />}
+                      </div>
                     </button>
                   </>
                 </>

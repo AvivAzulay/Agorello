@@ -482,99 +482,103 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": 1701396951048,
+
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
 
-        //                     "currGroup": {
-        //                         "groupId": "5H6D9",
-        //                         "createdAt": 1601366751048
-        //                     },
-        //                     "byMember": {
-        //                         "_id": "5f6a2532173d861c5d78c321",
-        //                         "fullname": "tuki taka",
-        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-        //                     }
-        //                 },
-        //                 {
-        //                     "id": "7K2SD",
-        //                     "title": "Activities.jsx",
-        //                     "archivedAt": null,
-        //                     "description": "",
-        //                     "members": [],
-        //                     "labels": [
-        //                         {
-        //                             "id": "l101",
-        //                             "name": "Teamwork",
-        //                             "color": "green"
-        //                         },
-        //                         {
-        //                             "id": "l105"
-        //                         },
-        //                         {
-        //                             "id": "l103"
-        //                         }
-        //                     ],
-        //                     "createdAt": 1601365551048,
-        //                     "dueDate": 1601365561048,
-        //                     "attachments": [],
-        //                     "currGroup": {
-        //                         "groupId": "5H6D9",
-        //                         "createdAt": 1601366751050
-        //                     },
-        //                     "byMember": {
-        //                         "_id": "5f6a2532173d861c5d78c332",
-        //                         "fullname": "mike awsome",
-        //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-        //                     }
-        //                 }
-        //             ]
-        //         },
-        //         {
-        //             "id": "2D5FR",
-        //             "title": "Dev",
-        //             "archivedAt": false,
-        //             "cards": [
-        //                 {
-        //                     "id": "5KK3V",
-        //                     "title": "EditCard.jsx",
-        //                     "description": "",
-        //                     "members": [],
-        //                     "checklist": [
-        //                         {
-        //                             "id": "M6B0S",
-        //                             "title": "hello",
-        //                             "todos": [
-        //                                 {
-        //                                     "id": "KD23G",
-        //                                     "title": "to this",
-        //                                     "isDone": false
-        //                                 },
-        //                                 {
-        //                                     "id": "KAHN3",
-        //                                     "title": "to that",
-        //                                     "isDone": true
-        //                                 },
-        //                             ],
+                            //                     "currGroup": {
+                            //                         "groupId": "5H6D9",
+                            //                         "createdAt": 1601366751048
+                            //                     },
+                            //                     "byMember": {
+                            //                         "_id": "5f6a2532173d861c5d78c321",
+                            //                         "fullname": "tuki taka",
+                            //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                            //                     }
+                            //                 },
+                            //                 {
+                            //                     "id": "7K2SD",
+                            //                     "title": "Activities.jsx",
+                            //                     "archivedAt": null,
+                            //                     "description": "",
+                            //                     "members": [],
+                            //                     "labels": [
+                            //                         {
+                            //                             "id": "l101",
+                            //                             "name": "Teamwork",
+                            //                             "color": "green"
+                            //                         },
+                            //                         {
+                            //                             "id": "l105"
+                            //                         },
+                            //                         {
+                            //                             "id": "l103"
+                            //                         }
+                            //                     ],
+                            //                     "createdAt": 1601365551048,
+                            //                     "dueDate": 1601365561048,
+                            //                     "attachments": [],
+                            //                     "currGroup": {
+                            //                         "groupId": "5H6D9",
+                            //                         "createdAt": 1601366751050
+                            //                     },
+                            //                     "byMember": {
+                            //                         "_id": "5f6a2532173d861c5d78c332",
+                            //                         "fullname": "mike awsome",
+                            //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                            //                     }
+                            //                 }
+                            //             ]
+                            //         },
+                            //         {
+                            //             "id": "2D5FR",
+                            //             "title": "Dev",
+                            //             "archivedAt": false,
+                            //             "cards": [
+                            //                 {
+                            //                     "id": "5KK3V",
+                            //                     "title": "EditCard.jsx",
+                            //                     "description": "",
+                            //                     "members": [],
+                            //                     "checklist": [
+                            //                         {
+                            //                             "id": "M6B0S",
+                            //                             "title": "hello",
+                            //                             "todos": [
+                            //                                 {
+                            //                                     "id": "KD23G",
+                            //                                     "title": "to this",
+                            //                                     "isDone": false
+                            //                                 },
+                            //                                 {
+                            //                                     "id": "KAHN3",
+                            //                                     "title": "to that",
+                            //                                     "isDone": true
+                            //                                 },
+                            //                             ],
 
 
-        //                         },
-        //                         {
-        //                             "id": "8DKJ3",
-        //                             "title": "YOOOO",
-        //                             "todos": [
-        //                                 {
-        //                                     "id": "KD23G",
-        //                                     "title": "dont this!",
-        //                                     "isDone": false
-        //                                 },
-        //                                 {
-        //                                     "id": "KAHN3",
-        //                                     "title": "dont that!",
-        //                                     "isDone": false
-        //                                 },
-        //                             ],
-        //                         },
-        //                     ],
+                            //                         },
+                            //                         {
+                            //                             "id": "8DKJ3",
+                            //                             "title": "YOOOO",
+                            //                             "todos": [
+                            //                                 {
+                            //                                     "id": "KD23G",
+                            //                                     "title": "dont this!",
+                            //                                     "isDone": false
+                            //                                 },
+                            //                                 {
+                            //                                     "id": "KAHN3",
+                            //                                     "title": "dont that!",
+                            //                                     "isDone": false
+                            //                                 },
+                            //                             ],
+                            //                         },
+                            //                     ],
 
                             "archivedAt": null,
                             "members": [
@@ -587,7 +591,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
                             "currGroup": {
                                 "groupId": "2D5FR",
@@ -617,7 +624,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601365551048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "2D5FR",
@@ -762,7 +772,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": 1701396951048,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": [
                                 "https://res.cloudinary.com/taskit-sprint/image/upload/v1622641585/at0x1f0faauizw8zoler.jpg"
                             ],
@@ -796,7 +809,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601365551048,
-                            "dueDate": 1601365561048,
+                            "dueDate": {
+                                "time": 1601365561048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "5H6D9",
@@ -863,7 +879,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1601365561048,
+                                "isCompleted": false
+                            },
                             "attachments": [
                                 "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"
                             ],
@@ -895,7 +914,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601365551048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1601365561048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "2D5FR",
@@ -1089,7 +1111,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": 1701396951048,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
 
                             "currGroup": {
@@ -1122,7 +1147,11 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601365551048,
-                            "dueDate": 1601365561048,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
+
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "5H6D9",
@@ -1196,7 +1225,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601366751048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
                             "currGroup": {
                                 "groupId": "2D5FR",
@@ -1226,7 +1258,10 @@ function getGboards() {
                                 }
                             ],
                             "createdAt": 1601365551048,
-                            "dueDate": null,
+                            "dueDate": {
+                                "time": 1701396951048,
+                                "isCompleted": false
+                            },
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "2D5FR",

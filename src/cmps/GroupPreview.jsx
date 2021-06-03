@@ -36,6 +36,7 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
                         <CardList
                             group={group}
                             board={board}
+                            onSaveCard={onSaveCard}
                             isLebelOpen={isLebelOpen}
                             onRemoveCard={onRemoveCard}
                             onOpenPreviewLabels={onOpenPreviewLabels}

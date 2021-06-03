@@ -2,10 +2,16 @@ import React from 'react'
 // import Checkbox from './Checkbox';
 import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
-import {MemberIcon} from './MemberIcon'
+import { MemberIcon } from './MemberIcon'
 
-export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board
-}) {
+export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate }) {
+
+
+    function toggleDueDate(ev) {
+        ev.stopPropagation()
+        card.dueDate.isCompleted = !card.dueDate.isCompleted
+        onSaveCard(card, card.currGroup.groupId)
+    }
 
     return (
 
@@ -44,18 +50,10 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                             <div className="card-preview-bottom">
                                 {getActivitiesByCardId(card.id).length !== 0 &&
                                     <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
-                                {card.dueDate ? <span className="card-preview-date checked">
-
-                                    <div className="card-preview-date-clock">
-                                        {/* <Checkbox
-                                            label={label}
-                                            // handleCheckboxChange={this.toggleCheckbox}
-                                            key={label}
-                                        /> */}
-                                    </div>
-                                    {(new Date(card.dueDate)).toString().split(' ')[1]
+                                {card?.dueDate?.time ? <span onClick={(event) => toggleDueDate(event)} className={card.dueDate.isCompleted ? "card-preview-date checked" : "card-preview-date not-checked"}>
+                                    {(new Date(card.dueDate.time)).toString().split(' ')[1]
                                         + ' ' +
-                                        (new Date(card.dueDate)).getUTCDate()
+                                        (new Date(card.dueDate.time)).getUTCDate()
                                     }</span> : <span></span>}
                                 {card.description && <span className="icon-desription"></span>}
 
@@ -63,9 +61,7 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                                     card.members &&
                                     card.members.map((member, index) =>
                                         // <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
-                                     
-                                        <MemberIcon member={member}/>
-
+                                        <MemberIcon member={member} />
                                     )}
                                 </div>
 

@@ -21,10 +21,9 @@ export function CardDateSetter({ onUpdateCardProps }) {
                     type="datetime-local"
                     InputLabelProps={{
                         shrink: false,
-                        required:false,
-                        fullWidth:true
+                        required: false,
+                        fullWidth: true
                     }}
-                    
                 />
             </form>
         </div >
