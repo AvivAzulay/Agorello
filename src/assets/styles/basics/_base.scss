@@ -68,7 +68,7 @@ border-radius: 10px;
   cursor: pointer;
   }
   .user-img-chat {
-    width: 35px;
+    min-width: 35px;
     height: 35px;
     // background-color: RGB(222, 225, 233);
     border-radius: 50%;
@@ -80,6 +80,8 @@ border-radius: 10px;
     font-weight: 600;
     color: #42516e;
     background-size:contain ;
+    background-repeat: no-repeat;
+
 
     
   }

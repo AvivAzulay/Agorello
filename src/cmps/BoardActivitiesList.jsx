@@ -1,22 +1,20 @@
 import React from 'react'
-import TimeAgo from 'react-timeago'
-import {MemberIcon} from './MemberIcon'
+import Moment from 'react-moment'
+import { MemberIcon } from './MemberIcon'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>
     console.log(activities)
     return (
-        <div className="flex column">
+        <span className="activity-list">
             {activities.map(activity => {
-                return <div key={activity.id}>
-                  <MemberIcon member={activity.byMember
- }/>
-                    <h5>{activity.txtBoard}
-                        <span> </span>
-                        <TimeAgo date={activity.createdAt} />
-                    </h5>
+                return <div className="activity-list-container" key={activity.id}>
+                   <div  className="activity-list-container-icon-txt" >
+                   <MemberIcon member={activity.byMember} />
+                    <div><h5>{activity.txtBoard} <Moment fromNow>{activity.createdAt}</Moment></h5></div>
+                   </div>
                 </div>
             })}
-        </div>
+        </span>
     )
 }

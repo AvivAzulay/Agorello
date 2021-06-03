@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import TimeAgo from 'react-timeago'
+import Moment from 'react-moment'
+
 import {MemberIcon} from './MemberIcon'
 
 export class CardActivitiesList extends Component {
@@ -13,16 +14,15 @@ export class CardActivitiesList extends Component {
                     if (!activity.card) return <></>
                     if (activity.card.id === card.id) {
 
-                        return <div key={index}>
-                           <MemberIcon member={activity.byMember
- }/>
-                            {activity.txtCard && <h5>{activity.txtCard}
+                        return <div className="activity-list-card"  key={index}>
+                           <MemberIcon member={activity.byMember}/>
+                            {activity.txtCard && <span>{activity.txtCard}
                                 <span> </span>
-                                <TimeAgo date={activity.createdAt} />
-                            </h5>}
+                                <Moment fromNow>{activity.createdAt}</Moment>
+                            </span>}
                             {activity.commentTxt && <h5>{activity.commentTxt}
                                 <span> </span>
-                                <TimeAgo date={activity.createdAt} />
+                                <Moment fromNow>{activity.createdAt}</Moment>
                             </h5>}
                         </div>
                     }

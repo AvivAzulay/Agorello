@@ -1,0 +1,31 @@
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 300px;
+
+  .activity-list-container{
+display: flex;
+align-items: center;
+min-height: 2px;
+flex-direction: column;
+  }
+
+}
+
+.activity-list-card{
+  display: flex;
+  flex-direction: row;
+  max-width: 468px;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+
+.activity-list-container-icon-txt{
+display: flex;
+flex-direction: row;
+align-items: center
+
+}
