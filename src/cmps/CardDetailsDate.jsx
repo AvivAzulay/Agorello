@@ -23,10 +23,10 @@ export class CardDetailsDate extends Component {
     }
 
     displayDueDate = () => {
-        return <span>{(new Date(this.props?.dueDate.time)).toString().split(' ')[1]
+        return <span>{(new Date(this.props.dueDate?.time)).toString().split(' ')[1]
             + ' ' +
-            (new Date(this.props?.dueDate.time)).getUTCDate() + ' at ' +
-            (new Date(this.props?.dueDate.time)).toString().split(' ')[4].slice(0, 5)
+            (new Date(this.props.dueDate?.time)).getUTCDate() + ' at ' +
+            (new Date(this.props.dueDate?.time)).toString().split(' ')[4].slice(0, 5)
         }</span>
     }
 
