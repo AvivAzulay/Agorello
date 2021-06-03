@@ -1,6 +1,6 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
-
+import Moment from 'react-moment'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>
@@ -11,7 +11,7 @@ export function BoardActivitiesList({ activities }) {
                 return <div key={activity.id}>
                     <h5>{activity.txtBoard}
                         <span> </span>
-                        <TimeAgo date={activity.createdAt} />
+                        <Moment fromNow> {activity.createdAt}</Moment>
                     </h5>
                 </div>
             })}

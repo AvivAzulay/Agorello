@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import TimeAgo from 'react-timeago'
+
+import Moment from 'react-moment'
 
 
 export class CardActivitiesList extends Component {
@@ -15,11 +16,13 @@ export class CardActivitiesList extends Component {
                         return <div key={index}>
                             {activity.txtCard && <h5>{activity.txtCard}
                                 <span> </span>
-                                <TimeAgo date={activity.createdAt} />
+                                <Moment fromNow>{activity.createdAt}</Moment>
+
                             </h5>}
                             {activity.commentTxt && <h5>{activity.commentTxt}
                                 <span> </span>
-                                <TimeAgo date={activity.createdAt} />
+                                <Moment fromNow>{activity.createdAt}</Moment>
+
                             </h5>}
                         </div>
                     }
