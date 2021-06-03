@@ -175,7 +175,6 @@ export class _CardDetails extends Component {
                         {card.dueDate &&
                           <CardDetailsDate
                             card={card}
-                            dueDate={card.dueDate}
                             onToggle={this.onToggleDueDateLeft}
                             saveActivity={this.props.saveActivity}
                             onUpdateCardProps={this.onUpdateCardProps}
@@ -185,7 +184,6 @@ export class _CardDetails extends Component {
                           {this.state.isCardMemberListShowenLeft &&
                             <CardDetailsDate
                               card={card}
-                              dueDate={card.dueDate}
                               onToggle={this.onToggleDueDateRight}
                               saveActivity={this.props.saveActivity}
                               onUpdateCardProps={this.onUpdateCardProps}
