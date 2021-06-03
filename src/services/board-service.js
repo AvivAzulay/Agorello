@@ -21,7 +21,7 @@ let gBoard;
 function query(bordId) {
     if (gBoard) updateBoards() //updates the boards array at every change by the current board
     gBoard = getBoardById(bordId)
-   console.log(gBoard)
+    console.log(gBoard)
     return Promise.resolve(gBoard)
 }
 
@@ -330,10 +330,10 @@ function addBoard(title, backgroundURL, board) {
 function getGboards() {
     return [
         {
-            "_id": "GZkw1yt2w6hrQ2C2diPiQmIy",
-            "title": "sprint 4",
+            "_id": "g3gPM7RYS7A4Us4a813u3XZN",
+            "title": "Sprint 4 - tasKit",
             "isArchived": false,
-            "isTemplate": false,
+            "isTemplate": true,
             "labels": [
                 {
                     "id": "l101",
@@ -367,6 +367,306 @@ function getGboards() {
                 }
             ],
             "activities": [
+                {
+                    "id": "uSyast",
+                    "txtCard": "Gad Refaeli marked the due date complete",
+                    "txtBoard": "Gad Refaeli marked the due date on Done complete",
+                    "commentTxt": "",
+                    "createdAt": 1622722552665,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "lbnCjI",
+                        "title": "filters"
+                    }
+                },
+                {
+                    "id": "XfdB37",
+                    "txtCard": "Gad Refaeli added Gad Refaeli to this card",
+                    "txtBoard": "Gad Refaeli added Gad Refaeli to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722545341,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "lbnCjI",
+                        "title": "filters"
+                    }
+                },
+                {
+                    "id": "zBvbwV",
+                    "txtCard": "Gad Refaeli added Aviv Azulay to this card",
+                    "txtBoard": "Gad Refaeli added Aviv Azulay to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722544990,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "lbnCjI",
+                        "title": "filters"
+                    }
+                },
+                {
+                    "id": "JYymxT",
+                    "txtCard": "Gad Refaeli added Oded Alon to this card",
+                    "txtBoard": "Gad Refaeli added Oded Alon to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722544651,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "lbnCjI",
+                        "title": "filters"
+                    }
+                },
+                {
+                    "id": "wDoWn6",
+                    "txtCard": "Gad Refaeli added Gad Refaeli to this card",
+                    "txtBoard": "Gad Refaeli added Gad Refaeli to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722541478,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "Tgt6jO",
+                        "title": "card details"
+                    }
+                },
+                {
+                    "id": "slThan",
+                    "txtCard": "Gad Refaeli added Oded Alon to this card",
+                    "txtBoard": "Gad Refaeli added Oded Alon to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722538119,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "aHspo8",
+                        "title": "changing card & groups props"
+                    }
+                },
+                {
+                    "id": "aeneQx",
+                    "txtCard": "Gad Refaeli added Aviv Azulay to this card",
+                    "txtBoard": "Gad Refaeli added Aviv Azulay to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722534593,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "7whg1M",
+                        "title": "react moment npm"
+                    }
+                },
+                {
+                    "id": "TWOb82",
+                    "txtCard": "Gad Refaeli marked the due date complete",
+                    "txtBoard": "Gad Refaeli marked the due date on Done complete",
+                    "commentTxt": "",
+                    "createdAt": 1622722514116,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "2XYRXg",
+                        "title": "board header"
+                    }
+                },
+                {
+                    "id": "ZG2BUO",
+                    "txtCard": "",
+                    "txtBoard": "Gad Refaeli on Done\n hello\n",
+                    "commentTxt": "Gad Refaeli commented\n hello\n",
+                    "createdAt": 1622722510184,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "2XYRXg",
+                        "title": "board header"
+                    }
+                },
+                {
+                    "id": "eP3sNN",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added filters to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722502800,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "lbnCjI",
+                        "title": "filters"
+                    }
+                },
+                {
+                    "id": "UUV7PQ",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added board header to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722499177,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "2XYRXg",
+                        "title": "board header"
+                    }
+                },
+                {
+                    "id": "CFLv0J",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added react moment npm to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722488120,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "7whg1M",
+                        "title": "react moment npm"
+                    }
+                },
+                {
+                    "id": "VFtiOh",
+                    "txtCard": "Gad Refaeli added this card to Cmps",
+                    "txtBoard": "Gad Refaeli added Building tasKit with react to Cmps",
+                    "commentTxt": "",
+                    "createdAt": 1622722457049,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "UJYuoe",
+                        "title": "Building tasKit with react"
+                    }
+                },
+                {
+                    "id": "lhn2Lf",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added card details to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722364584,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "Tgt6jO",
+                        "title": "card details"
+                    }
+                },
+                {
+                    "id": "j1fzSA",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added add groups & cards to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722348224,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "yXxOYK",
+                        "title": "add groups & cards"
+                    }
+                },
+                {
+                    "id": "RT1QNA",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added changing card & groups props to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722319903,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "aHspo8",
+                        "title": "changing card & groups props"
+                    }
+                },
+                {
+                    "id": "g1hx2b",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added add groups to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722305379,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "LLquDA",
+                        "title": "add groups"
+                    }
+                },
+                {
+                    "id": "xQCjpr",
+                    "txtCard": "Gad Refaeli added this card to Done",
+                    "txtBoard": "Gad Refaeli added add cards to Done",
+                    "commentTxt": "",
+                    "createdAt": 1622722302570,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "bI9NC3",
+                        "title": "add cards"
+                    }
+                },
+                {
+                    "id": "5nuuAM",
+                    "txtCard": "",
+                    "txtBoard": "Gad Refaeli added Work hard to this board",
+                    "commentTxt": "",
+                    "createdAt": 1622722293286,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    }
+                },
                 {
                     "id": "PXZvna",
                     "txtCard": "",
@@ -1104,6 +1404,20 @@ function getGboards() {
                             "labels": [],
                             "attachments": [],
                             "checklist": []
+                        },
+                        {
+                            "title": "Building tasKit with react",
+                            "id": "UJYuoe",
+                            "currGroup": {
+                                "groupId": "5H6D9",
+                                "createdAt": "2021-06-03T12:14:17.049Z"
+                            },
+                            "members": [],
+                            "labels": [],
+                            "attachments": [
+                                "https://res.cloudinary.com/taskit-sprint/image/upload/v1622722464/a0smhfmkad9ddfjantg8.jpg"
+                            ],
+                            "checklist": []
                         }
                     ]
                 },
@@ -1264,14 +1578,212 @@ function getGboards() {
                             ],
                             "attachments": [],
                             "checklist": []
+                        },
+                        {
+                            "title": "add groups & cards",
+                            "id": "yXxOYK",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:12:28.224Z"
+                            },
+                            "members": [],
+                            "labels": [
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                },
+                                {
+                                    "id": "l105",
+                                    "name": "Default",
+                                    "color": "purple"
+                                },
+                                {
+                                    "id": "l106",
+                                    "name": "Default",
+                                    "color": "blue"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": []
+                        },
+                        {
+                            "title": "changing card & groups props",
+                            "id": "aHspo8",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:11:59.903Z"
+                            },
+                            "members": [
+                                {
+                                    "_id": "5f6a2528973d861c5d78c355",
+                                    "fullname": "Oded Alon",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
+                                }
+                            ],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                },
+                                {
+                                    "id": "l102",
+                                    "name": "Urgent",
+                                    "color": "yellow"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": []
+                        },
+                        {
+                            "title": "card details",
+                            "id": "Tgt6jO",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:12:44.583Z"
+                            },
+                            "members": [
+                                {
+                                    "_id": "5f6a2532173d861c5d78c321",
+                                    "fullname": "Gad Refaeli",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                                }
+                            ],
+                            "labels": [
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                },
+                                {
+                                    "id": "l103",
+                                    "name": "Pay attention",
+                                    "color": "orange"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": []
+                        },
+                        {
+                            "title": "react moment npm",
+                            "id": "7whg1M",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:14:48.120Z"
+                            },
+                            "members": [
+                                {
+                                    "_id": "5f6a2532173d861c5d78c332",
+                                    "fullname": "Aviv Azulay",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
+                                }
+                            ],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": []
+                        },
+                        {
+                            "title": "board header",
+                            "id": "2XYRXg",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:14:59.176Z"
+                            },
+                            "members": [],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                },
+                                {
+                                    "id": "l106",
+                                    "name": "Default",
+                                    "color": "blue"
+                                },
+                                {
+                                    "id": "l105",
+                                    "name": "Default",
+                                    "color": "purple"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": [],
+                            "commentTxt": "hello\n",
+                            "dueDate": {
+                                "time": "2021-06-17T15:15",
+                                "isCompleted": true
+                            },
+                            "description": "hello"
+                        },
+                        {
+                            "title": "filters",
+                            "id": "lbnCjI",
+                            "currGroup": {
+                                "groupId": "5Xz6Ud",
+                                "createdAt": "2021-06-03T12:15:02.799Z"
+                            },
+                            "members": [
+                                {
+                                    "_id": "5f6a2528973d861c5d78c355",
+                                    "fullname": "Oded Alon",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
+                                },
+                                {
+                                    "_id": "5f6a2532173d861c5d78c332",
+                                    "fullname": "Aviv Azulay",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
+                                },
+                                {
+                                    "_id": "5f6a2532173d861c5d78c321",
+                                    "fullname": "Gad Refaeli",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                                }
+                            ],
+                            "labels": [
+                                {
+                                    "id": "l106",
+                                    "name": "Default",
+                                    "color": "blue"
+                                },
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                },
+                                {
+                                    "id": "l102",
+                                    "name": "Urgent",
+                                    "color": "yellow"
+                                }
+                            ],
+                            "attachments": [],
+                            "checklist": [],
+                            "dueDate": {
+                                "time": "2021-06-01T15:15",
+                                "isCompleted": false
+                            },
+                            "description": "dsad"
                         }
                     ]
+                },
+                {
+                    "title": "Work hard",
+                    "id": "69mSqU",
+                    "cards": []
                 }
             ]
         },
         {
-            "_id": "5f72ea5a1ab1fc0017450368",
-            "title": "Hello !!!",
+            "_id": "fwkaMn8aUTujZYzgmsUPmBWt",
+            "title": "Saving animals",
             "isArchived": false,
             "isTemplate": true,
             "labels": [
@@ -1306,102 +1818,37 @@ function getGboards() {
                     "color": "blue"
                 }
             ],
-            "activities": [
-                // {
-                //     "id": "2DVJ3",
-                //     "txt": "moved the card",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367036803,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "2L8J2",
-                //         "title": "Signup"
-                //     },
-                //     "group": {}
-                // },
-                // {
-                //     "id": "2LD34",
-                //     "txt": "moved the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367032102,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {},
-                //     "group": {
-                //         "id": "2L4G4",
-                //         "title": "QA"
-                //     }
-                // },
-                // {
-                //     "id": "2LG8E",
-                //     "txt": "",
-                //     "commentTxt": "deleted card content",
-                //     "createdAt": 1601366968534,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "5KK3V",
-                //         "title": "Shaving cream"
-                //     },
-                //     "group": {}
-                // },
-                // {
-                //     "id": "2D6J2",
-                //     "txt": "edited the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367016951,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {},
-                //     "group": {
-                //         "id": "2KE43",
-                //         "title": "Development"
-                //     }
-                // }
-            ],
+            "activities": [],
             "createdBy": {
                 "_id": "5f6a2532173d861c5d78c332",
                 "fullname": "mike awsome",
-                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
             },
             "style": {
                 "id": "LD2D5",
                 "fontClr": "#f9f9f9",
-                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
+                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319326/background%20for%20Taskit/background_16_fiaoup.jpg"
             },
             "members": [
                 {
                     "_id": "5f6a2528973d861c5d78c355",
                     "fullname": "Oded Alon",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c332",
                     "fullname": "Aviv Azulay",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c321",
                     "fullname": "Gad Refaeli",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c320",
                     "fullname": "Matan Crispel",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
                 }
             ],
             "groups": [
@@ -1419,113 +1866,6 @@ function getGboards() {
                             "members": [],
                             "labels": [
                                 {
-                                    "id": "l101"
-                                }
-                            ],
-                            "createdAt": 1601366751048,
-
-                            "dueDate": {
-                                "time": 1701396951048,
-                                "isCompleted": false
-                            },
-                            "attachments": [],
-
-                            //                     "currGroup": {
-                            //                         "groupId": "5H6D9",
-                            //                         "createdAt": 1601366751048
-                            //                     },
-                            //                     "byMember": {
-                            //                         "_id": "5f6a2532173d861c5d78c321",
-                            //                         "fullname": "tuki taka",
-                            //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            //                     }
-                            //                 },
-                            //                 {
-                            //                     "id": "7K2SD",
-                            //                     "title": "Activities.jsx",
-                            //                     "archivedAt": null,
-                            //                     "description": "",
-                            //                     "members": [],
-                            //                     "labels": [
-                            //                         {
-                            //                             "id": "l101",
-                            //                             "name": "Teamwork",
-                            //                             "color": "green"
-                            //                         },
-                            //                         {
-                            //                             "id": "l105"
-                            //                         },
-                            //                         {
-                            //                             "id": "l103"
-                            //                         }
-                            //                     ],
-                            //                     "createdAt": 1601365551048,
-                            //                     "dueDate": 1601365561048,
-                            //                     "attachments": [],
-                            //                     "currGroup": {
-                            //                         "groupId": "5H6D9",
-                            //                         "createdAt": 1601366751050
-                            //                     },
-                            //                     "byMember": {
-                            //                         "_id": "5f6a2532173d861c5d78c332",
-                            //                         "fullname": "mike awsome",
-                            //                         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                            //                     }
-                            //                 }
-                            //             ]
-                            //         },
-                            //         {
-                            //             "id": "2D5FR",
-                            //             "title": "Dev",
-                            //             "archivedAt": false,
-                            //             "cards": [
-                            //                 {
-                            //                     "id": "5KK3V",
-                            //                     "title": "EditCard.jsx",
-                            //                     "description": "",
-                            //                     "members": [],
-                            //                     "checklist": [
-                            //                         {
-                            //                             "id": "M6B0S",
-                            //                             "title": "hello",
-                            //                             "todos": [
-                            //                                 {
-                            //                                     "id": "KD23G",
-                            //                                     "title": "to this",
-                            //                                     "isDone": false
-                            //                                 },
-                            //                                 {
-                            //                                     "id": "KAHN3",
-                            //                                     "title": "to that",
-                            //                                     "isDone": true
-                            //                                 },
-                            //                             ],
-
-
-                            //                         },
-                            //                         {
-                            //                             "id": "8DKJ3",
-                            //                             "title": "YOOOO",
-                            //                             "todos": [
-                            //                                 {
-                            //                                     "id": "KD23G",
-                            //                                     "title": "dont this!",
-                            //                                     "isDone": false
-                            //                                 },
-                            //                                 {
-                            //                                     "id": "KAHN3",
-                            //                                     "title": "dont that!",
-                            //                                     "isDone": false
-                            //                                 },
-                            //                             ],
-                            //                         },
-                            //                     ],
-
-                            "archivedAt": null,
-                            "members": [
-                            ],
-                            "labels": [
-                                {
                                     "id": "l101",
                                     "name": "Default",
                                     "color": "green"
@@ -1536,7 +1876,9 @@ function getGboards() {
                                 "time": 1701396951048,
                                 "isCompleted": false
                             },
-                            "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
+                            "attachments": [
+                                "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"
+                            ],
                             "currGroup": {
                                 "groupId": "2D5FR",
                                 "createdAt": 1601366751048
@@ -1544,7 +1886,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c321",
                                 "fullname": "tuki taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
                             }
                         },
                         {
@@ -1577,7 +1919,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c332",
                                 "fullname": "mike awsome",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
                             }
                         }
                     ]
@@ -1586,14 +1928,13 @@ function getGboards() {
                     "id": "K2D5f",
                     "title": "Dev",
                     "archivedAt": false,
-                    "cards": [
-                    ]
+                    "cards": []
                 }
             ]
         },
         {
-            "_id": "XNuugp6UQjDNZIqKuP70vV7b",
-            "title": "ToDo List!!!",
+            "_id": "Z8WEqH52AxBYgz9NNVYIfx0F",
+            "title": "Plan a trip!",
             "isArchived": false,
             "isTemplate": true,
             "labels": [
@@ -1670,28 +2011,28 @@ function getGboards() {
             "style": {
                 "id": "LD2D5",
                 "fontClr": "#f9f9f9",
-                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg"
+                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_4_vzr9ec.jpg"
             },
             "members": [
                 {
                     "_id": "5f6a2528973d861c5d78c355",
                     "fullname": "Oded Alon",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c332",
                     "fullname": "Aviv Azulay",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c321",
                     "fullname": "Gad Refaeli",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c320",
                     "fullname": "Matan Crispel",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
                 }
             ],
             "groups": [
@@ -1895,8 +2236,8 @@ function getGboards() {
             ]
         },
         {
-            "_id": "8f72ea5a1ab1fc0017450368",
-            "title": "ToDo List!!!",
+            "_id": "HSPjnC5cRRd9wFbSgPL4iYis",
+            "title": "Vacation planning",
             "isArchived": false,
             "isTemplate": true,
             "labels": [
@@ -1931,106 +2272,37 @@ function getGboards() {
                     "color": "blue"
                 }
             ],
-            "activities": [
-                // {
-                //     "id": "2DVJ3",
-                //     "txt": "moved the card",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367036803,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "7K7YD",
-                //         "title": "EdidCard.jsx",
-                //     },
-                // },
-                // {
-                //     "id": "2LD34",
-                //     "txt": "moved the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367032102,
-                //     "byMember": {
-                //         "_id": "5f6a2528973d861c5d78c355",
-                //         "fullname": "puki ben david",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "7K7YD",
-                //         "title": "EdidCard.jsx",
-                //     },
-                // },
-                // {
-                //     "id": "2LG8E",
-                //     "txt": "",
-                //     "commentTxt": "deleted card content",
-                //     "createdAt": 1601366968534,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "5K24K",
-                //         "title": "EdidCard.jsx",
-                //     },
-                //     "group": {
-                //         "id": "5H6D9",
-                //         "title": "Cmps",
-                //     }
-                // },
-                // {
-                //     "id": "2D6J2",
-                //     "txt": "edited the group",
-                //     "commentTxt": "",
-                //     "createdAt": 1601367016951,
-                //     "byMember": {
-                //         "_id": "5f6a2532173d861c5d78c332",
-                //         "fullname": "mike awsome",
-                //         "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
-                //     },
-                //     "card": {
-                //         "id": "5K24K",
-                //         "title": "EdidCard.jsx",
-                //     },
-                //     "group": {
-                //         "id": "5H6D9",
-                //         "title": "Cmps",
-                //     }
-                // }
-            ],
+            "activities": [],
             "createdBy": {
                 "_id": "5f6a2532173d861c5d78c332",
                 "fullname": "mike awsome",
-                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
             },
             "style": {
                 "id": "LD2D5",
                 "fontClr": "#f9f9f9",
-                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319325/background%20for%20Taskit/background_17_nktykt.jpg"
+                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319309/background%20for%20Taskit/background_10_isqnt4.jpg"
             },
             "members": [
                 {
                     "_id": "5f6a2528973d861c5d78c355",
                     "fullname": "Oded Alon",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c332",
                     "fullname": "Aviv Azulay",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c321",
                     "fullname": "Gad Refaeli",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                 },
                 {
                     "_id": "5f6a2532173d861c5d78c320",
                     "fullname": "Matan Crispel",
-                    "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
+                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
                 }
             ],
             "groups": [
@@ -2057,7 +2329,6 @@ function getGboards() {
                                 "isCompleted": false
                             },
                             "attachments": [],
-
                             "currGroup": {
                                 "groupId": "5H6D9",
                                 "createdAt": 1601366751048
@@ -2065,7 +2336,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c321",
                                 "fullname": "tuki taka",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
                             }
                         },
                         {
@@ -2092,7 +2363,6 @@ function getGboards() {
                                 "time": 1701396951048,
                                 "isCompleted": false
                             },
-
                             "attachments": [],
                             "currGroup": {
                                 "groupId": "5H6D9",
@@ -2101,7 +2371,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c332",
                                 "fullname": "mike awsome",
-                                "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+                                "imgUrl": "https://robohash.org/5f6a2528973d861c5d78c355?set=set4"
                             }
                         }
                     ]
@@ -2129,10 +2399,8 @@ function getGboards() {
                                             "id": "KAHN3",
                                             "title": "to that",
                                             "isDone": true
-                                        },
-                                    ],
-
-
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "8DKJ3",
@@ -2147,17 +2415,18 @@ function getGboards() {
                                             "id": "KAHN3",
                                             "title": "dont that!",
                                             "isDone": false
-                                        },
-                                    ],
-                                },
+                                        }
+                                    ]
+                                }
                             ],
-
                             "archivedAt": null,
-                            "members": [{
-                                "_id": "5f6a2532173d861c5d7d02n8",
-                                "fullname": "Tuki Taka",
-                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
-                            }],
+                            "members": [
+                                {
+                                    "_id": "5f6a2532173d861c5d7d02n8",
+                                    "fullname": "Tuki Taka",
+                                    "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
+                                }
+                            ],
                             "labels": [
                                 {
                                     "id": "l101",
@@ -2170,7 +2439,9 @@ function getGboards() {
                                 "time": 1701396951048,
                                 "isCompleted": false
                             },
-                            "attachments": ["https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"],
+                            "attachments": [
+                                "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg"
+                            ],
                             "currGroup": {
                                 "groupId": "2D5FR",
                                 "createdAt": 1601366751048
@@ -2178,7 +2449,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c321",
                                 "fullname": "tuki taka",
-                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
+                                "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
                             }
                         },
                         {
@@ -2211,7 +2482,7 @@ function getGboards() {
                             "byMember": {
                                 "_id": "5f6a2532173d861c5d78c332",
                                 "fullname": "mike awsome",
-                                "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg`
+                                "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/matan_plxhso.jpg"
                             }
                         }
                     ]
@@ -2220,12 +2491,11 @@ function getGboards() {
                     "id": "K2D5f",
                     "title": "Dev",
                     "archivedAt": false,
-                    "cards": [
-                    ]
+                    "cards": []
                 }
             ]
         },
-        
+
     ]
 }
 
