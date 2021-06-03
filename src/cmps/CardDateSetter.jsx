@@ -1,13 +1,14 @@
 import React from 'react'
 import TextField from "@material-ui/core/TextField"
 
-// import React from 'react'
-
 export function CardDateSetter({ onUpdateCardProps }) {
 
     function handleChange(ev) {
         const { value } = ev.target
-        onUpdateCardProps('dueDate', value)
+        const dueDate = {}
+        dueDate.time = value
+        dueDate.isCompleted = false
+        onUpdateCardProps('dueDate', dueDate)
     }
 
     return (
