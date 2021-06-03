@@ -1,5 +1,5 @@
 .card-preview,
-.card-preview-drag{
+.card-preview-drag {
   // flex: 0 0 27rem;
   display: flex;
   flex-direction: column;
@@ -12,18 +12,16 @@
   cursor: pointer;
   justify-content: center;
   box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
-  white-space: normal; 
+  white-space: normal;
   position: relative;
-  
 }
-.drag-flex{
+.drag-flex {
   display: flex;
   flex-direction: column;
 }
 // .card-preview-drag{
 //   transform: skewY(1deg);
 // }
-  
 
 .card-add-edit {
   display: flex;
@@ -33,93 +31,89 @@
   color: #838c91;
   text-align: left;
   cursor: pointer;
-  textarea{
+  textarea {
     outline: none;
     border: none;
-    border:0;
+    border: 0;
     background-color: #fafbfc;
     height: 100px;
     resize: none;
     width: 94%;
     margin: 8px 10px;
-    font-size:16px ;
+    font-size: 16px;
     padding: 10px;
     border: none;
     border-radius: 0.3rem;
     display: flex;
     align-items: flex-start;
-    box-shadow: 0, 1px ,0 rgb(9, 30, 66 / 25%);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',;
-  box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
-
+    box-shadow: 0, 1px, 0 rgb(9, 30, 66 / 25%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+      "Droid Sans", "Helvetica Neue";
+    box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
   }
-  .card-add-menu-btn:before{
+  .card-add-menu-btn:before {
     font-family: icomoon;
-    content: '\e951';
+    content: "\e951";
     font-size: 25px;
     color: #69788d;
   }
-  
-  .card-add-txt{
+
+  .card-add-txt {
     color: #5e6c84;
-    font-size:16px ;
+    font-size: 16px;
     padding-left: 12px;
     display: flex;
     align-items: center;
-    font-size:14px;
-    line-height: 17px; 
+    font-size: 14px;
+    line-height: 17px;
   }
 
-  .card-add-txt:before{
+  .card-add-txt:before {
     font-family: icomoon;
-    content: '\e901';
+    content: "\e901";
     margin-right: 5px;
     font-size: 17px;
     text-align: center;
     line-height: 10px;
-
   }
-
 }
-.card-preview-remove-btn,.card-preview-edit-icon{
-border: none;
-background-color: #fafbfc;
-display: flex;
-padding: 5px 5px;
-cursor: pointer;
-align-items: center;
-justify-content: center;
-border-radius: 5px;
-width: 30px;
-height: 30px;
-position: absolute;
-background-color: transparent;
+.card-preview-remove-btn,
+.card-preview-edit-icon {
+  border: none;
+  background-color: #fafbfc;
+  display: flex;
+  padding: 5px 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: transparent;
 }
-.card-preview-remove-btn{
-  top:2px;
-  right:2px;
+.card-preview-remove-btn {
+  top: 2px;
+  right: 2px;
 }
-.card-preview-edit-icon{
-  top:2px;
-  right:25px;
+.card-preview-edit-icon {
+  top: 2px;
+  right: 25px;
 }
 
 .card-preview:hover {
-  .card-preview-remove-btn:before{
+  .card-preview-remove-btn:before {
     font-family: icomoon;
-    content: '\e971';
+    content: "\e971";
     font-size: 20px;
     color: #5e6c84;
   }
-  .card-preview-remove-btn:hover{
+  .card-preview-remove-btn:hover {
     background-color: rgba(211, 208, 208, 0.364);
-    
   }
 }
 
-
-.card-add-edit-btn{
+.card-add-edit-btn {
   background-color: #0079bf;
   box-shadow: none;
   border: none;
@@ -127,49 +121,45 @@ background-color: transparent;
   height: 30px;
   padding: 6px 12px;
   border-radius: 4px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',;
-margin-right: 5px;
-font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue";
+  margin-right: 5px;
+  font-size: 14px;
 }
 
-
-
-.card-add-exit-btn{
+.card-add-exit-btn {
   border: none;
   background-color: #e2e4e600;
   cursor: pointer;
-
-
 }
 
-.card-add-exit-btn:before{
+.card-add-exit-btn:before {
   font-family: icomoon;
-  content: '\e91b';
+  content: "\e91b";
   font-size: 26px;
   text-align: center;
   color: #69788d;
 }
 
-.card-add-btn{
-display: flex;
-justify-content: space-between;
-margin: 10px 10px;
-.left-btn{
+.card-add-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px 10px;
+  .left-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-.test-white-space{
+.test-white-space {
   width: 250px;
   word-wrap: break-word;
 }
 
-.card-preview-members{
+.card-preview-members {
   display: flex;
-  div{
+  div {
     width: 28px;
     height: 28px;
     background-color: RGB(222, 225, 233);
@@ -178,79 +168,80 @@ margin: 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
-    font-weight:700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+      "Droid Sans", "Helvetica Neue";
+    font-weight: 700;
     color: #42516e;
     font-size: 12px;
   }
 }
 
-
-.card-preview-date{
-font-size: 12px;
-border-radius: 3px;
-color: #fff;
-padding: 3px 5px;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-right: 5px;
-
+.card-preview-date {
+  font-size: 12px;
+  border-radius: 3px;
+  color: #fff;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
 }
-.not-checked{
+.not-checked {
   background-color: #ec9488;
 }
- .checked{
+.checked {
   background-color: #61bd50;
 }
 
-.card-preview-date-clock:before{
+.card-preview-date-clock:before {
   font-family: icomoon;
-  content: '\e91a';
+  content: "\e91a";
   font-size: 18px;
   color: #ffffff;
-margin-right: 2px;
+  margin-right: 2px;
 }
-.card-preview-bottom{
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-top: 10px;
+.card-preview-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
 }
-.card-preview:hover{
-
-    .card-preview-edit-icon:before{
-      font-family: icomoon;
-      content: '\e927';
-      font-size: 20px;
-      color: #5e6c84;
-    }
-  
+.card-preview:hover {
+  .card-preview-edit-icon:before {
+    font-family: icomoon;
+    content: "\e927";
+    font-size: 20px;
+    color: #5e6c84;
+  }
+  .card-preview-bottom-list {
+    display: flex;
+    justify-content: space-between;
+  }
 }
-.icon-desription:before{
+.icon-desription:before {
   font-family: icomoon;
-      content: '\e921';
-      font-size: 20px;
-      color: #5e6c84;
+  content: "\e921";
+  font-size: 20px;
+  color: #5e6c84;
 }
-.card-preview-activities:before{
+.card-preview-activities:before {
   font-family: icomoon;
-      content: '\e91d';
-      font-size: 20px;
-      color: #5e6c84;
+  content: "\e91d";
+  font-size: 20px;
+  color: #5e6c84;
 }
-.card-preview-activities{
+.card-preview-activities {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   font-size: 14px;
   margin-right: 5px;
 }
-.card-preview-attachments-img{
+.card-preview-attachments-img {
   width: 100%;
   border-radius: 10px;
   border: none;
   background-repeat: no-repeat;
-  background-size: cover ;
+  background-size: cover;
   margin-top: 10px;
 }

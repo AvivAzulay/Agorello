@@ -333,7 +333,7 @@ function getGboards() {
             "_id": "GZkw1yt2w6hrQ2C2diPiQmIy",
             "title": "sprint 4",
             "isArchived": false,
-            "isTemplate": false,
+            "isTemplate": true,
             "labels": [
                 {
                     "id": "l101",
@@ -367,6 +367,22 @@ function getGboards() {
                 }
             ],
             "activities": [
+                {
+                    "id": "57RKox",
+                    "txtCard": "Gad Refaeli marked the due date complete",
+                    "txtBoard": "Gad Refaeli marked the due date on Done complete",
+                    "commentTxt": "",
+                    "createdAt": 1622720486374,
+                    "byMember": {
+                        "_id": "5f6a2528973d861c5d78c355",
+                        "fullname": "Gad Refaeli",
+                        "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
+                    },
+                    "card": {
+                        "id": "oCSF9e",
+                        "title": "login with facebook"
+                    }
+                },
                 {
                     "id": "PXZvna",
                     "txtCard": "",
@@ -1005,7 +1021,10 @@ function getGboards() {
                                     ]
                                 }
                             ],
-                            "dueDate": ""
+                            "dueDate": {
+                                "time": "2021-06-18T14:42",
+                                "isCompleted": false
+                            }
                         },
                         {
                             "title": "status",
@@ -1031,7 +1050,23 @@ function getGboards() {
                                     "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                                 }
                             ],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                },
+                                {
+                                    "id": "l102",
+                                    "name": "Urgent",
+                                    "color": "yellow"
+                                },
+                                {
+                                    "id": "l103",
+                                    "name": "Pay attention",
+                                    "color": "orange"
+                                }
+                            ],
                             "attachments": [
                                 "https://res.cloudinary.com/taskit-sprint/image/upload/v1622714999/fddzjasuftc1bfo4i4qj.jpg"
                             ],
@@ -1083,9 +1118,19 @@ function getGboards() {
                                     "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668301/members%20taskit/aviv_hkgpml.jpg"
                                 }
                             ],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l103",
+                                    "name": "Pay attention",
+                                    "color": "orange"
+                                }
+                            ],
                             "attachments": [],
-                            "checklist": []
+                            "checklist": [],
+                            "dueDate": {
+                                "time": "2021-06-04T14:42",
+                                "isCompleted": false
+                            }
                         },
                         {
                             "title": "Login sign up ",
@@ -1101,7 +1146,13 @@ function getGboards() {
                                     "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                                 }
                             ],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l103",
+                                    "name": "Pay attention",
+                                    "color": "orange"
+                                }
+                            ],
                             "attachments": [],
                             "checklist": []
                         }
@@ -1144,7 +1195,18 @@ function getGboards() {
                                     "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg"
                                 }
                             ],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l102",
+                                    "name": "Urgent",
+                                    "color": "yellow"
+                                },
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                }
+                            ],
                             "attachments": [],
                             "checklist": [
                                 {
@@ -1184,12 +1246,37 @@ function getGboards() {
                                     "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/oded_i8t6vj.jpg"
                                 }
                             ],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                },
+                                {
+                                    "id": "l102",
+                                    "name": "Urgent",
+                                    "color": "yellow"
+                                },
+                                {
+                                    "id": "l103",
+                                    "name": "Pay attention",
+                                    "color": "orange"
+                                },
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                }
+                            ],
                             "attachments": [
                                 "https://res.cloudinary.com/taskit-sprint/image/upload/v1622718148/rfwgjzl9vh0ht61a0tyc.jpg"
                             ],
                             "checklist": [],
-                            "description": "Sockets and everything else should be wroking today\n"
+                            "description": "Sockets and everything else should be wroking today\n",
+                            "dueDate": {
+                                "time": "2021-06-15T14:42",
+                                "isCompleted": false
+                            }
                         }
                     ]
                 },
@@ -1219,7 +1306,11 @@ function getGboards() {
                                 }
                             ],
                             "attachments": [],
-                            "checklist": []
+                            "checklist": [],
+                            "dueDate": {
+                                "time": "2021-06-22T14:41",
+                                "isCompleted": false
+                            }
                         },
                         {
                             "title": "Test algorithm",
@@ -1229,11 +1320,26 @@ function getGboards() {
                                 "createdAt": "2021-06-03T11:03:58.810Z"
                             },
                             "members": [],
-                            "labels": [],
+                            "labels": [
+                                {
+                                    "id": "l101",
+                                    "name": "Teamwork",
+                                    "color": "green"
+                                },
+                                {
+                                    "id": "l104",
+                                    "name": "Important",
+                                    "color": "red"
+                                }
+                            ],
                             "attachments": [
                                 "https://res.cloudinary.com/taskit-sprint/image/upload/v1622718282/fmu8hstm9io0s62onob1.jpg"
                             ],
-                            "checklist": []
+                            "checklist": [],
+                            "dueDate": {
+                                "time": "2021-06-04T14:42",
+                                "isCompleted": false
+                            }
                         }
                     ]
                 },
@@ -1263,7 +1369,11 @@ function getGboards() {
                                 }
                             ],
                             "attachments": [],
-                            "checklist": []
+                            "checklist": [],
+                            "dueDate": {
+                                "time": "2021-06-01T14:41",
+                                "isCompleted": true
+                            }
                         }
                     ]
                 }
