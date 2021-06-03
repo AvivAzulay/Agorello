@@ -7,6 +7,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 .edit-details {
   flex-grow: 40;
   padding-right: 10px;
+  width: 300px;
 }
 
 .user-img-chat-add {
@@ -163,6 +164,25 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     }
   }
   .edit-details-description {
+    .edit-details-description-btns{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .save-btn{
+        width: 80px;
+        height: 30px;
+        background-color: #0079bf;
+        box-shadow: none;
+        border: none;
+        color: #fff;
+        border-radius: 3px;
+        padding: 3px 8px;
+        text-decoration: none;
+        resize: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+      }
+    }
+  
     textarea {
       background-color: rgba(9, 30, 66, 0.04);
       box-shadow: none;
@@ -175,7 +195,15 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
       resize: none;
       margin-bottom: 20px;
       font-family: $base-font;
-      width:100%
+      width:100%;
+      &:focus{
+        min-height: 108px;
+        background: #fff;
+        background-color: #fff;
+    box-shadow: inset 0 0 0 2px #0079bf;
+    outline: none;
+      }
+      
     }
     .edit-details-description-header {
       height: 40px;
@@ -399,7 +427,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 
 .card-details-members {
-  padding-left: 40px;
+ 
  
   h1 {
     color: #5e6c84;
@@ -415,7 +443,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 
 .card-details-labels {
-  padding-left: 40px;
+  
  
   h1 {
     color: #5e6c84;

@@ -2,10 +2,11 @@ import React from 'react'
 // import Checkbox from './Checkbox';
 import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
-
+import {MemberIcon} from './MemberIcon'
 
 export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board
 }) {
+
     return (
 
         <Draggable
@@ -43,7 +44,7 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                             <div className="card-preview-bottom">
                                 {getActivitiesByCardId(card.id).length !== 0 &&
                                     <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
-                                {card.dueDate ? <span className="card-preview-date">
+                                {card.dueDate ? <span className="card-preview-date checked">
 
                                     <div className="card-preview-date-clock">
                                         {/* <Checkbox
@@ -61,9 +62,10 @@ export function CardPreview({ onRemoveCard, card, index, getActivitiesByCardId, 
                                 <div className="card-preview-members">{
                                     card.members &&
                                     card.members.map((member, index) =>
-                                        <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
-                                        //   { !member.imgUrl &&
-                                        //     <div style={{ backgroundImage: `url(${member.imgUrl})` }}></div>}
+                                        // <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
+                                     
+                                        <MemberIcon member={member}/>
+
                                     )}
                                 </div>
 

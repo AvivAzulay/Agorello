@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
 import Moment from 'react-moment'
 
+import { MemberIcon } from './MemberIcon'
 
 export class CardActivitiesList extends Component {
 
@@ -13,16 +13,16 @@ export class CardActivitiesList extends Component {
                 {activities.map((activity, index) => {
                     if (!activity.card) return <></>
                     if (activity.card.id === card.id) {
-                        return <div key={index}>
-                            {activity.txtCard && <h5>{activity.txtCard}
+
+                        return <div className="activity-list-card" key={index}>
+                            <MemberIcon member={activity.byMember} />
+                            {activity.txtCard && <span>{activity.txtCard}
                                 <span> </span>
                                 <Moment fromNow>{activity.createdAt}</Moment>
-
-                            </h5>}
+                            </span>}
                             {activity.commentTxt && <h5>{activity.commentTxt}
                                 <span> </span>
                                 <Moment fromNow>{activity.createdAt}</Moment>
-
                             </h5>}
                         </div>
                     }

@@ -129,8 +129,10 @@ export class _CardDetails extends Component {
                   <>
                     <>
                       <div className="flex column">
-                        {card.members.length > 0 && <div><CardDetailsMembers members={card.members}
+                        {card.members.length > 0 && <div>
+                          <CardDetailsMembers members={card.members}
                           onToggle={this.onToggleCardMemberLeft} /></div>}
+                          
                         <div className="card-member-pos">
                           {this.state.isCardMemberListShowenLeft &&
                             <CardMemberList
@@ -323,9 +325,9 @@ export class _CardDetails extends Component {
                   <>
                     {/* <CardDateSetter onUpdateCardProps={this.onUpdateCardProps} card={card} /> */}
                     <button className="edit-add-to-card-dates"
-                      onClick={this.onToggleDueDateRight}> Dates</button>
+                     > Dates
                     <div className="card-date-pos">
-                      {this.state.isDueDateListShowenRight &&
+                      {
                         <CardDateSetter
                           dueDate={this.state.card.dueDate}
                           onToggle={this.onToggleDueDateRight}
@@ -333,6 +335,7 @@ export class _CardDetails extends Component {
                           card={card}
                         />}
                     </div>
+                    </button>
                   </>
                 </>
               </>
@@ -349,7 +352,7 @@ export class _CardDetails extends Component {
                       onSubmit={this.onAttachmentFile}
                     />
                     <label htmlFor="raised-button-file">
-                      <button className="edit-add-to-card-attachmen">
+                      <button className="edit-add-to-card-attachment">
                         Attachment
                         <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
                     </label>
