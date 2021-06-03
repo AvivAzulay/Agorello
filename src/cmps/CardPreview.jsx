@@ -51,6 +51,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                 {getActivitiesByCardId(card.id).length !== 0 &&
                                     <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                 {card?.dueDate?.time ? <span onClick={(event) => toggleDueDate(event)} className={card.dueDate.isCompleted ? "card-preview-date checked" : "card-preview-date not-checked"}>
+                                    <div className="card-preview-date-clock"></div>
                                     {(new Date(card.dueDate.time)).toString().split(' ')[1]
                                         + ' ' +
                                         (new Date(card.dueDate.time)).getUTCDate()

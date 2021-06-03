@@ -20,7 +20,7 @@ export function saveBoard(board) {
             const newBoard = await boardService.saveBoard(board)
             dispatch({ type: 'SET_BOARD', newBoard })
         } catch (err) {
-            console.log(`BoardActions: err in ${board._id} ::: ${err}`)
+            console.log(`BoardActions: err in ${board._id} : ${err}`)
         }
     }
 }
