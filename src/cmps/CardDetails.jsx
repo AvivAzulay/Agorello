@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { boardService } from '../services/board-service'
+// import { boardService } from '../services/board-service'
 import { saveCard, saveActivity } from '../store/action/board.action'
-import { GroupTitleEdit } from './GroupTitleEdit'
+import { SmartTitleEdit } from './SmartTitleEdit'
 import { CardDescription } from './CardDescription'
 import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
@@ -31,8 +31,14 @@ export class _CardDetails extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.cardId
-    const card = boardService.getCardById(id)
+    const cardId = this.props.cardId
+    this.onLoadCard(cardId)
+  }
+
+  onLoadCard = (cardId) => {
+    const group = this.props.board.groups.find(group =>
+      group.cards.find(card => card.id === cardId))
+    const card = group.cards.find(card => card.id === cardId)
     this.setState({ card })
   }
 
@@ -44,7 +50,7 @@ export class _CardDetails extends Component {
 
   onSaveCard = () => {
     const { card } = this.state
-    this.props.saveCard(card, card.currGroup.groupId)
+    this.props.saveCard(card, card.currGroup.groupId, this.props.board)
   }
 
   onToggleCardMemberRight = () => {
@@ -96,7 +102,7 @@ export class _CardDetails extends Component {
     const { card } = this.state
     if (!card) return <></>
     return (
-      <div className="window-screen" onClick={() => this.props.history.push('/board')}>
+      <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
 
         <div className="edit" onClick={this.onCloseAllModals}>
           <>
@@ -104,8 +110,8 @@ export class _CardDetails extends Component {
               <>
                 <div className="edit-details-header">
                   <p className="edit-details-header-logo"></p>
-                  <GroupTitleEdit title={card.title} group={card} />
-                  <button className="close-save-edit" onClick={() => this.props.history.push('/board')} ></button>
+                  <SmartTitleEdit card={card} saveCard={this.props.saveCard} board={this.props.board} />
+                  <button className="close-save-edit" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
                 </div>
               </>
             </>
@@ -378,7 +384,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   saveCard,
   saveActivity,
-
 }
 
 export const CardDetails = connect(mapStateToProps, mapDispatchToProps)(_CardDetails)

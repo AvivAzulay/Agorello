@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Checkbox from './Checkbox';
 import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
@@ -6,6 +6,8 @@ import { MemberIcon } from './MemberIcon'
 
 export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate }) {
 
+    const [previousX, setPreviousX] = useState(null);
+    const [cardPreviewDragClass, setCardPreviewDragClass] = useState("card-preview-drag-right")
 
     function toggleDueDate(ev) {
         ev.stopPropagation()
@@ -13,12 +15,25 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
         onSaveCard(card, card.currGroup.groupId)
     }
 
+
+    function handleDrag({ provided }) {
+        const { transform } = provided.draggableProps.style;
+        const currentXPosition = +transform?.match(/\(.*\px,/g)[0].slice(1, -3);
+        if (currentXPosition !== previousX) setPreviousX(currentXPosition);
+        if (previousX && previousX !== currentXPosition) {
+            const className = `card-preview-drag-${previousX < currentXPosition ? 'right' : 'left'}`;
+            setCardPreviewDragClass(className)
+            return className;
+        }
+
+        return cardPreviewDragClass;
+    }
+
     return (
 
         <Draggable
             draggableId={card.id}
             index={index}
-
         >
             {(provided, snapshot) => (
                 <div
@@ -26,10 +41,9 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className={snapshot.isDragging ? '' : 'card-preview'}>
-                    <div className={snapshot.isDragging ? 'card-preview-drag' : 'drag-flex'}>
-
+                    <div className={snapshot.isDragging ? handleDrag({ provided }) : 'drag-flex'}>
                         <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
-                            card.labels.map((label, index) =>
+                            card?.labels?.map((label, index) =>
                                 <div className={`card-preview-label ${label.color}`} key={index}>
                                     {isLebelOpen && <span>{label.name}</span>}
                                 </div>
@@ -43,7 +57,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
 
                             <div className="card-preview-attachments" >{
 
-                                card.attachments.map((attachment, index) =>
+                                card?.attachments?.map((attachment, index) =>
                                     <img className="card-preview-attachments-img" src={attachment} alt="" key={index} />)}
                             </div>
 
@@ -62,7 +76,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                     card.members &&
                                     card.members.map((member, index) =>
                                         // <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
-                                        <MemberIcon member={member} />
+                                        <MemberIcon member={member} key={index} />
                                     )}
                                 </div>
 

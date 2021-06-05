@@ -20,7 +20,6 @@ export class CardAdd extends Component {
     onToggleMode = () => {
         const { isEditing } = this.state
         this.setState({ ...this.state, isEditing: !isEditing })
-
     }
 
     handleChange = (ev) => {
@@ -53,8 +52,9 @@ export class CardAdd extends Component {
     onAddCard = () => {
         const { card } = this.state
         this.props.onSaveCard(this.state.card, this.props.group.id)
-        // this.props.onSaveActivity(card, `added this card to ${this.props.group.title}`, 'card')
-        this.props.onSaveActivity(card, 'ADD_CARD')
+        card.currGroup = {}
+        card.currGroup.groupId = this.props.group.id
+        this.props.onSaveActivity(this.props.board, card, 'ADD_CARD')
     }
 
     render() {

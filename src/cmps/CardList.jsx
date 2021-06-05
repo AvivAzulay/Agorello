@@ -11,7 +11,7 @@ export function CardList({ onRemoveCard, group, getActivitiesByCardId, onSaveCar
           {...provided.droppableProps}
         >
           <div className="card-container">
-            {group.cards.map((card, index) => {
+            {group.cards?.map((card, index) => {
               return <CardPreview
                 card={card}
                 index={index}

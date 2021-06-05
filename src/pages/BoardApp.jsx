@@ -2,46 +2,61 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, saveBoard } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, updateBoardSockets } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
+import { socketService } from '../services/socketService'
 
 
 class _BoardApp extends Component {
 
     state = {
         currGroupIdx: null,
-        isLebelOpen: false
+        isLebelOpen: false,
     }
 
-    componentDidMount() {
-        this.onLoadBoard()
+    async componentDidMount() {
+        const boardId = this.props.match.params.boardId
+        try {
+            await this.onLoadBoard()
+            socketService.emit('join board', boardId)
+            socketService.on('board updated', (board) => {
+                this.props.updateBoardSockets(board)
+            })
+        } catch (err) {
+            console.log('Huge error', err);
+        }
     }
 
-    componentDidUpdate() {
+    componentWillUnmount() {
+        // socketService.off('board updated')
+        // socketService.terminate()
     }
 
     onLoadBoard = () => {
         this.props.loadBoard(this.props.match.params.boardId)
     }
 
-    onSaveBoard = (board) => {
-        this.props.saveBoard(board)
+    onUpdateBoard = (key, value) => {
+        const newBoard = { ...this.props.board }
+        newBoard[key] = value
+        this.props.updateBoard(newBoard)
+        // socketService.emit('board updated', { newBoard })
     }
 
-    onSaveGroup = (group) => {
-        return this.props.saveGroup(group)
+    onSaveGroup = (group, board) => {
+        return this.props.saveGroup(group, board)
     }
 
     onRemoveGroup = (groupId) => {
-        return this.props.removeGroup(groupId)
+        return this.props.removeGroup(groupId, this.props.board)
     }
 
     onSaveCard = (card, groupId) => {
-        this.props.saveCard(card, groupId)
+        this.props.saveCard(card, groupId, this.props.board)
     }
 
     onRemoveCard = (card) => {
-        return this.props.removeCard(card.id, card.currGroup.groupId)
+        return this.props.removeCard(card, this.props.board)
     }
 
     onSetGroupIdx = (idx) => {
@@ -62,21 +77,19 @@ class _BoardApp extends Component {
         return cardActivities;
     }
 
-    onSaveActivity = (data, action) => {
-        this.props.saveActivity(data, action)
+    onSaveActivity = (board, data, action) => {
+        this.props.saveActivity(board, data, action)
     }
 
     render() {
         const { board } = this.props
-       console.log(board)
         if (!board) return <div>Loading...</div>
         return (<>
-
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
             <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
                 <BoardHeader
                     board={board}
-                    onSaveBoard={this.onSaveBoard}
+                    onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
@@ -109,13 +122,13 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     saveCard,
-    saveBoard,
     loadBoard,
     saveGroup,
     removeCard,
     updateBoard,
     removeGroup,
-    saveActivity
+    saveActivity,
+    updateBoardSockets
 }
 
 

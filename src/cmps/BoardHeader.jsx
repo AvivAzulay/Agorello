@@ -4,12 +4,11 @@ import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 
 export class BoardHeader extends Component {
 
-
   state = {
     title: '',
     board: null,
     filterBy: '',
-    // prevTitle: '',
+    prevTitle: '',
     isMenuOn: false,
     isEditing: false,
     isSetBackGround: false
@@ -18,9 +17,8 @@ export class BoardHeader extends Component {
   inputRef = React.createRef()
 
   componentDidMount() {
-    this.setState({ board: this.props.board, title: this.props.board.title })
+    this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
     // this.inputRef.current.focus()
-
   }
 
   onSetFilter = (filterBy) => {
@@ -55,19 +53,12 @@ export class BoardHeader extends Component {
   }
 
   onSubmit = () => {
-    // ev.preventDefault()
-    // const { prevTitle, type } = this.state
-    const board = this.state.board.title
-    board.title = this.state.title
-    this.setState({ board: board })
-
-    // if (!type.title) {
-    //   this.setState({ ...this.state, type: { ...type, title: prevTitle } })
-    //   this.onToggleMode()
-    //   this.setState({ ...this.state, prevTitle: type.title })
-    //   return
-    // }
-    this.props.onSaveBoard(this.state.board)
+    if (!this.state.title) {
+      this.setState({ title: this.state.prevTitle })
+      return
+    }
+    this.setState({ prevTitle: this.state.title })
+    this.props.onUpdateBoard('title', this.state.title)
     this.toggleEdditing()
   }
 
@@ -97,6 +88,7 @@ export class BoardHeader extends Component {
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319310/background%20for%20Taskit/background_7_kdnduh.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319329/background%20for%20Taskit/background_1_veqold.jpg"
     ]
+
     const { isMenuOn, isSetBackGround, isEditing, title } = this.state
     if (!this.props.board) return <div>Loading...</div>
     return (
@@ -126,7 +118,7 @@ export class BoardHeader extends Component {
           <div className="edit-details-activity-header">
             <span>
               <p className="edit-details-activity-logo">
-                <h1>Activity</h1>
+                <span>Activity</span>
               </p>
               <BoardActivitiesList activities={this.props.board.activities} />
             </span>
