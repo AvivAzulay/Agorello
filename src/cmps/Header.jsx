@@ -11,13 +11,13 @@ export function Header() {
                 <NavLink className="boards main-nav-btn" to="/boards"><span>Boards</span></NavLink>
                 </div>
                 
-               <span className="logo"></span>
-           
+               <div className="logo"></div>
+               <div className="main-header-right">
                 <NavLink to="/about"><button className="create-board main-nav-btn"></button></NavLink>
                 <NavLink to="/about"><button className="about main-nav-btn"></button></NavLink>
                 <NavLink to="/about"><button className="notifications main-nav-btn"></button></NavLink>
                 <div className="user-img">G</div>
-                     
+                 </div>
             </nav>
 
         </header>

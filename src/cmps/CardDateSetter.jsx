@@ -23,7 +23,8 @@ export function CardDateSetter({ onUpdateCardProps }) {
                     InputLabelProps={{
                         shrink: false,
                         required: false,
-                        fullwidth: true
+                        // fullwidth: true
+                        fullwidth: "true"
                     }}
                 />
             </form>

@@ -13,6 +13,7 @@ import { AttachmentsList } from './AttachmentsList'
 import { CardComment } from './CardComment'
 import { UplodeImg } from './UplodeImg'
 import { CardDetailsModal } from './CardDetailsModal'
+import { CardCoverList } from './CardCoverList'
 
 export class _CardDetails extends Component {
   state = {
@@ -22,7 +23,8 @@ export class _CardDetails extends Component {
     isNewTodoShown: false,
     isModalShown: false,
     modalType: '',
-    modalLoc: ''
+    modalLoc: '',
+    isCoverListShowen:false,
   }
 
   componentDidMount() {
@@ -58,6 +60,10 @@ export class _CardDetails extends Component {
     this.setState({ isDueDateListShowenRight: false })
   }
 
+  onToggleCover = () => {
+    this.setState({ isCoverListShowen: !this.state.isCoverListShowen }) 
+  }
+
   onToggleModal = () => {
     this.setState({ isModalShown: !this.state.isModalShown })
   }
@@ -73,20 +79,19 @@ export class _CardDetails extends Component {
     const { card } = this.state
     if (!card) return <></>
     return (
-      <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
+     
+      <div className="window-screen" onClick={() => this.props.history.push('/board${this.props.board._id}')}>
 
         <div className="edit" onClick={this.onCloseModals}>
-          <>
-            <>
-              <>
+       
+        {card.cover&& <div> <img className="card-details-cover" src={card.cover} alt=""  /> </div>}
+         <div className="edit-contaner">
                 <div className="edit-details-header">
                   <p className="edit-details-header-logo"></p>
                   <GroupTitleEdit title={card.title} board={this.props.board} card={card} saveCard={this.props.saveCard} />
-                  <button className="close-save-edit" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
+                  <button className="close-save-edit-top" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
                 </div>
-              </>
-            </>
-          </>
+          
           <div className="edit-body">
             <div className="edit-details">
               <span className="list-pages">In list pages</span>
@@ -308,7 +313,14 @@ export class _CardDetails extends Component {
                     </label>
 
 
-                    <button className={`edit-add-to-card-cover ${this.state.modalType}`}> Cover</button>
+                    <div style={{position: "relative"}}>
+                    <button className="edit-add-to-card-cover" onClick={this.onToggleCover}> Cover</button>
+                     <CardCoverList  
+                     onUpdateCardProps={this.onUpdateCardProps}
+                     onToggle={this.onToggleCover}
+                     isCoverListShowen={this.state.isCoverListShowen}
+                     />
+                     </div>
                     
                     {this.state.isModalShown && <CardDetailsModal 
                     modalType={this.state.modalType} 
@@ -319,10 +331,11 @@ export class _CardDetails extends Component {
                     onUpdateCardProps={this.onUpdateCardProps}
                     onToggleModal={this.onToggleModal}
                     boardLabels={this.props.board.labels}/>
-                    }
+                    } 
                   </>
                 </>
               </>
+              </div>
             </div>
           </div>
         </div >

@@ -56,7 +56,7 @@ export function saveGroup(group, board) {
 
             await boardService.updateBoard(newBoard)
         } catch (err) {
-            console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
+            console.log(`BoardActions: err in ${group.title ? 'update group' : 'add group'}${err}`)
         }
     }
 }

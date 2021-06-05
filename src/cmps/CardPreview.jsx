@@ -25,8 +25,10 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className={snapshot.isDragging ? '' : 'card-preview'}>
-                    <div className={snapshot.isDragging ? 'card-preview-drag' : 'drag-flex'}>
 
+                    <div className={snapshot.isDragging ? 'card-preview-drag' : 'drag-flex'}>
+                        {card.cover&&<div className="card-preview-cover" style={{ backgroundImage: `url(${card.cover})` }}></div>}
+                       <div  className="card-preview-body">
                         <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
                             card?.labels?.map((label, index) =>
                                 <div className={`card-preview-label ${label.color}`} key={index}>
@@ -47,6 +49,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                             </div>
 
                             <div className="card-preview-bottom">
+                            <div className="card-preview-bottom-list">
                                 {getActivitiesByCardId(card.id).length !== 0 &&
                                     <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                 {card?.dueDate?.time ? <span onClick={(event) => toggleDueDate(event)} className={card.dueDate.isCompleted ? "card-preview-date checked" : "card-preview-date not-checked"}>
@@ -56,7 +59,8 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                         (new Date(card.dueDate.time)).getUTCDate()
                                     }</span> : <span></span>}
                                 {card.description && <span className="icon-desription"></span>}
-
+                                    </div>
+                                    
                                 <div className="card-preview-members">{
                                     card.members &&
                                     card.members.map((member, index) =>
@@ -70,6 +74,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
 
                     </div>
                     {provided.placeholder}
+                    </div>
                 </div>
             )}
         </Draggable>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, saveBoard } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 
@@ -44,6 +44,10 @@ class _BoardApp extends Component {
         this.props.updateBoard(newBoard)
         socketService.emit('board updated', { newBoard, id: newBoard._id })
         // socketService.emit('board updated', { from, txt: this.state.msg.txt })
+    }
+
+    onSaveBoard = (board) => {
+        this.props.saveBoard(board)
     }
 
     onSaveGroup = (group) => {
@@ -88,11 +92,15 @@ class _BoardApp extends Component {
         const { board } = this.props
         if (!board) return <div>Loading...</div>
         return (<>
+      
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
+            
             <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
+            <div className="fade"></div>
+            <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
-                    onUpdateBoard={this.onUpdateBoard}
+                    onSaveBoard={this.onSaveBoard}
                     onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
@@ -125,10 +133,11 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     saveCard,
+    // saveBoard,
     loadBoard,
     saveGroup,
     removeCard,
-    updateBoard,
+    // updateBoard,
     removeGroup,
     saveActivity,
     updateBoard

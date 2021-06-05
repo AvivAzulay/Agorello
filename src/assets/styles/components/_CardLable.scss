@@ -28,31 +28,27 @@
     font-size: 14px;
 }
 .card-preview-label{
-    border-radius: 3px;
+    border-radius:5px;
     display: block;
     font-weight: 600;
     line-height: 16px;
     margin: 0 4px 4px 0;
-    min-width: 40px;
-    min-height:5px;
+    min-width: 39px;
+    min-height:8px;
     padding: 0 12px;
     width: auto;
     color: #fff;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
     font-size: 12px;
+    max-width: 100px;
+    max-height: 16px;
+    transition: max-width .6s, max-height .6s .2s;
 }
 .card-preview-labels{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-        // span{
-        //     display: none;
-        // }
-        
     }
-    a:checked{
-        span{
-        display: block; 
-        }
-    }
+   
+ 
 
