@@ -2,6 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import { CardChecklistTodo } from './CardChecklistTodo'
 import React, { Component } from 'react'
 import { utilService } from '../services/util-service'
+import { CardAddTodo } from './CardAddTodo'
 
 export class CardCheckList extends Component {
 
@@ -178,7 +179,8 @@ export class CardCheckList extends Component {
                         displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
                     />)}
-                    {this.getNewTodoDisplay()}
+                    {/* {this.getNewTodoDisplay()} */}
+                    <CardAddTodo onUpdateChecklist={this.onUpdateChecklist}/>
                 </main>
 
 

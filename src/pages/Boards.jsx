@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getboards, addBoard } from '../store/action/board.action.js'
+import { loadBoards, addBoard } from '../store/action/board.action.js'
 import { BoardAdd } from '../cmps/BoardAdd'
 
 class _Boards extends Component {
@@ -17,7 +17,7 @@ class _Boards extends Component {
   }
 
   onLoadBoards = () => {
-    this.props.getboards()
+    this.props.loadBoards()
     this.setState({ boards: this.props.boards })
 
   }
@@ -54,7 +54,7 @@ class _Boards extends Component {
         <h1 className="borads-container-title">Your Boards</h1>
         <div className="borads-container">
           {NoTemplateBoards.map((board, index) =>
-            <NavLink to={`board/${board._id}?`}>
+            <NavLink to={`board/${board._id}?`} key={index}>
               <div className="borad-preview" key={board._id} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade">{board.title}</span> </div>
             </NavLink>)}
           <button className="borads-container-add-btn" onClick={this.toggleModal}>Add new borad </button>
@@ -79,7 +79,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getboards,
+  loadBoards,
   addBoard
 
 }

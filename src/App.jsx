@@ -1,6 +1,7 @@
 import { HashRouter as Router, Route } from 'react-router-dom'
 import { updatePosition, updateBoard } from './store/action/board.action.js'
 import { DragDropContext } from 'react-beautiful-dnd'
+import { socketService } from './services/socketService'
 import { routes } from './routes.js'
 import { Header } from './cmps/Header.jsx'
 import { connect } from 'react-redux'
@@ -9,6 +10,11 @@ import './App.css'
 
 
 class _App extends Component {
+
+
+  componentDidMount() {
+    socketService.setup()
+  }
 
   onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result

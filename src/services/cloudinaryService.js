@@ -26,7 +26,7 @@ function uploadImg(ev) {
     .then(res => res.json())
     .then(res => {
       console.log(res)
-      lastGetURL=res.secure_url
+      lastGetURL = res.secure_url
       console.log(lastGetURL)
       return res
     })

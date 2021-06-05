@@ -4,7 +4,6 @@ import { MemberIcon } from './MemberIcon'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>
-    console.log(activities)
     return (
         <span className="activity-list">
             {activities.map(activity => {

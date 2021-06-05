@@ -23,7 +23,7 @@ export default class _AnalysisDashboard extends Component {
                 progress: undefined,
             });
             setTimeout(() => {
-                this.props.history.push('/board')
+                this.props.history.push('/boards')
             }, 1000)
         }
     }

@@ -1,31 +1,35 @@
 // cardMemberList.jsx 
+
 onClickBoardMember = (member, isChecked) => {
-    const { saveActivity, onUpdateCardProps, card } = this.props
-    const newCard = { ...card } ///Cloning card for adding activity key
-    let members = newCard.members
+    let members = this.props.card.members
+    let card = { ...this.props.card }
     if (!isChecked) {
         members.push(member)
-        // Add Activity
-        newCard.addedMember = member
-        saveActivity(newCard, 'ADD_MEMBER')
+        card.addedMember = member
+        this.props.saveActivity(card, 'ADD_MEMBER')
     } else {
-        members = newCard.members.filter(cardMember => cardMember._id !== member._id)
-        // Add Activity
-        newCard.removedMember = member
-        saveActivity(newCard, 'REMOVE_MEMBER')
+        members = members.filter(cardMember => cardMember._id !== member._id)
+        card.removedMember = member
+        this.props.saveActivity(card, 'REMOVE_MEMBER')
     }
-    onUpdateCardProps('members', members)
+    this.props.onUpdateCardProps('members', members)
 }
 
-// CardDetails.jsx
+
+
+// cardDetails.jsx
+
 onUpdateCardProps = (key, value) => {
     const { card } = this.state
     card[key] = value
     this.setState({ card })
     this.props.saveCard(card, card.currGroup.groupId, this.props.board)
-}
+  }
+
+
 
 // board.action.js
+
 export function saveCard(card, groupId, currBoard) {
     return async dispatch => {
         try {
@@ -37,7 +41,10 @@ export function saveCard(card, groupId, currBoard) {
     }
 }
 
+
+
 // board.service.js
+
 async function saveCard(card, groupId, board) {
     if (card.id) {
         const groupIdx = board.groups.findIndex(group => group.id === groupId)
@@ -61,16 +68,19 @@ async function saveCard(card, groupId, board) {
     }
 }
 
-
 function _deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
 }
 
+
+
 // board.reducr.js
+
 const initialState = {
     board: null,
-    boards: []
+    boards:[]
 }
+
 export function boardReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_BOARDS':
