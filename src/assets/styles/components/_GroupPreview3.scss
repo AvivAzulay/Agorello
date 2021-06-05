@@ -3,14 +3,24 @@
   flex-direction: column;
   // background-color: #e2e4e6;
   background-color: #ebecf0;
-  max-height: calc(100vh - 11.8rem);
+  @include for-wide-layout {
+  max-height: 87vh;
+  }
+  @include  for-mobile-layout {
+    max-height:75vh;
+    }
   border-radius: 0.3rem;
   margin-right: 0.45rem;
 }
 
 .group-list-container {
   overflow-x: auto;
+  @include for-wide-layout {
   height: calc(100vh - 100px);
+  }
+  @include  for-mobile-layout {
+    height: 79vh;
+    }
 }
 
 .group-list{

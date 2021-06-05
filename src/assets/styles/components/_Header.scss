@@ -7,9 +7,11 @@
   content: "\e906";
  
 }
-.about:before {
+.about{
+&:before {
   font-family: icomoon;
   content: "\e93a";
+}
 }
 .boards:before {
   font-family: icomoon;
@@ -78,9 +80,21 @@
     display: flex;
     
     .boards {
+      @include for-mobile-layout(){
+        width: 32px;
+      }
+      @include for-wide-layout {
       width: 83px;
+      }
       color: white;
       margin-right: 4px;
+      span{
+        @include for-mobile-layout(){
+          display: none;
+        }
+  
+      }
+    
   
     }
   }
