@@ -1,7 +1,7 @@
 import { CardPreview } from './CardPreview.jsx'
 import { Droppable } from 'react-beautiful-dnd'
 
-export function CardList({ onRemoveCard, group, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen,board }) {
+export function CardList({ onRemoveCard, group, getActivitiesByCardId, onSaveCard, onOpenPreviewLabels, isLebelOpen, board }) {
   return (
     <Droppable droppableId={group.id} type="card">
       {provided => (
@@ -11,16 +11,17 @@ export function CardList({ onRemoveCard, group, getActivitiesByCardId, onOpenPre
           {...provided.droppableProps}
         >
           <div className="card-container">
-            {group.cards.map((card, index) => {
+            {group.cards?.map((card, index) => {
               return <CardPreview
-                key={card.id}
                 card={card}
                 index={index}
-                onRemoveCard={onRemoveCard}
-                getActivitiesByCardId={getActivitiesByCardId}
-                onOpenPreviewLabels={onOpenPreviewLabels}
-                isLebelOpen={isLebelOpen}
                 board={board}
+                key={card.id}
+                onSaveCard={onSaveCard}
+                isLebelOpen={isLebelOpen}
+                onRemoveCard={onRemoveCard}
+                onOpenPreviewLabels={onOpenPreviewLabels}
+                getActivitiesByCardId={getActivitiesByCardId}
               />
             })}
           </div>

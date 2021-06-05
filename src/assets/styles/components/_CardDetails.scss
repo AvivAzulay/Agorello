@@ -6,6 +6,8 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 .edit-details {
   flex-grow: 40;
+  padding-right: 10px;
+  width: 300px;
 }
 
 .user-img-chat-add {
@@ -22,7 +24,8 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   color: #42516e;
 }
 
-.card-details-members-open:after {
+.card-details-members-open {
+    &::after {
     font-family: icomoon;
     content: '\e901';
     margin-right: 5px;
@@ -40,16 +43,16 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     font-weight: 600;
     color: #42516e;
     display: flex;
-    // .card-details-members-open:hover {
-    //   background-color: RGB(222, 225, 233);
-    // }
+  }
+  &:hover {
+    &::after {
+    background-color: RGB(222, 225, 233)
+    }
+  }
 }
 
-.card-details-members-open:after:hover {
-  background-color: RGB(222, 225, 233);
-}
-
-.card-details-labels-open:after {
+.card-details-labels-open {
+  &::after {
   font-family: icomoon;
   content: '\e901';
   margin-right: 5px;
@@ -67,27 +70,27 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   font-weight: 600;
   color: #42516e;
   display: flex;
-  // .card-details-members-open:hover {
-  //   background-color: RGB(222, 225, 233);
-  // }
+  }
+  &:hover {
+    &::after {
+    background-color: RGB(222, 225, 233)
+    }
+  }
 }
 
 .edit {
   background-color: #f4f5f7;
   width: 800px;
-  // height: 422px;
-  align-self: center;
-  position: absolute;
-  left: 30%;
-  right: 30%;
   border-radius: 5px;
-  padding: 10px 10px;
-  top: 18vh;
+  padding: 10px 20px;
+  margin-top: 50px;
+  height: auto;
+
 
   .edit-details-header {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
     gap: 10px;
   }
@@ -165,6 +168,25 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     }
   }
   .edit-details-description {
+    .edit-details-description-btns{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .save-btn{
+        width: 80px;
+        height: 30px;
+        background-color: #0079bf;
+        box-shadow: none;
+        border: none;
+        color: #fff;
+        border-radius: 3px;
+        padding: 3px 8px;
+        text-decoration: none;
+        resize: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+      }
+    }
+  
     textarea {
       background-color: rgba(9, 30, 66, 0.04);
       box-shadow: none;
@@ -174,14 +196,20 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
       min-height: 40px;
       padding: 8px 12px;
       text-decoration: none;
-      width: 99%;
       resize: none;
       margin-bottom: 20px;
       font-family: $base-font;
+      width:100%;
+      &:focus{
+        min-height: 108px;
+        background: #fff;
+        background-color: #fff;
+    box-shadow: inset 0 0 0 2px #0079bf;
+    outline: none;
+      }
+      
     }
     .edit-details-description-header {
-      margin-left: 10px;
-      margin-right: 10px;
       height: 40px;
       display: flex;
       align-items: center;
@@ -230,7 +258,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   background: transparent;
   border-radius: 3px;
   box-shadow: none;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   padding: 4px 4px;
   resize: none;
@@ -242,14 +270,15 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   align-content: flex-end;
   color: #42516e;
   font-family: $base-font;
+  margin-top: 3px;
 }
 
 .edit-details-textarea-header:focus {
   background-color: #fff;
   box-shadow: inset 0 0 0 2px #0079bf;
   height: 35px;
-  line-height: 1;
-  margin-top: 26px;
+
+  
  
 }
 
@@ -259,6 +288,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 .edit-activity-description {
   display: flex;
+  flex-direction: column;
   margin-top: 20px;
   .user-img-chat-add {
     width: 35px;
@@ -402,7 +432,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 
 .card-details-members {
-  padding-left: 40px;
+ 
  
   h1 {
     color: #5e6c84;
@@ -418,7 +448,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 
 .card-details-labels {
-  padding-left: 40px;
+  
  
   h1 {
     color: #5e6c84;
@@ -431,4 +461,9 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   .user-img-chat-add {
     margin-right: 3px;
   }
+}
+.members-labels-container{
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

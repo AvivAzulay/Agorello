@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getboards, addBoard } from '../store/action/board.action.js'
+import { loadBoards, addBoard } from '../store/action/board.action.js'
+import { BoardAdd } from '../cmps/BoardAdd'
 
 class _Boards extends Component {
   state = {
-    boards: null
+    boards: null,
+    addNewModal: false,
+
   }
 
   componentDidMount() {
@@ -13,32 +16,49 @@ class _Boards extends Component {
 
   }
 
-
   onLoadBoards = () => {
-    this.props.getboards()
+    this.props.loadBoards()
     this.setState({ boards: this.props.boards })
-  }
-
-
-  onNewBoard = () => {
-    this.props.addBoard()
 
   }
 
+  onNewBoard = (title, backgroundURL) => {
+    return this.props.addBoard(title, backgroundURL)
+  }
+
+  toggleModal = () => {
+    const { addNewModal } = this.state
+    this.setState({ ...this.state, addNewModal: !addNewModal })
+
+  }
 
   render() {
+    const TemplateBoards = this.props.boards.filter(board => board.isTemplate);
+    const NoTemplateBoards = this.props.boards.filter(board => !board.isTemplate);
     if (!this.state.boards) return <div>Loading...</div>
+    const { addNewModal } = this.state
     return (
-      <div>
-        <div ><h1 className="borads-container-title">YOUR WORKSPACES</h1></div>
+      <div className="borads">
+        <h1 className="borads-container-title">Suggested Templates</h1>
         <div className="borads-container">
-          {this.props.boards.map((board, index) =>
-            <NavLink to={`board/${board._id}?`} key={index}>
-              <div className="borad-preview" key={index} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade">{board.title}</span> </div>
-            </NavLink>)}
-          <button className="borads-container-add-btn" onClick={this.onNewBoard}>Add new borad </button>
-        </div>
+          {TemplateBoards.map((board, index) =>
+            <div className="borad-preview" key={index}
+              style={{ backgroundImage: `url(${board.style.bgImg})` }}
+              onClick={() => this.props.addBoard(board.title, board.style.bgImg, board)} >
+              <span className="borad-preview-fade"></span>
+              <span className="borad-preview-fade">{board.title}</span> </div>
+          )}
 
+        </div>
+        <h1 className="borads-container-title">Your Boards</h1>
+        <div className="borads-container">
+          {NoTemplateBoards.map((board, index) =>
+            <NavLink to={`board/${board._id}?`} key={index}>
+              <div className="borad-preview" key={board._id} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade">{board.title}</span> </div>
+            </NavLink>)}
+          <button className="borads-container-add-btn" onClick={this.toggleModal}>Add new borad </button>
+        </div>
+        {addNewModal && <BoardAdd onNewBoard={this.onNewBoard} toggleModal={this.toggleModal} boards={this.props.boards} history={this.props.history} />}
 
       </div>
 
@@ -58,11 +78,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getboards,
+  loadBoards,
   addBoard
 
 }
-
-
-
 export const Boards = connect(mapStateToProps, mapDispatchToProps)(_Boards)

@@ -13,10 +13,17 @@
     width: 300px;
     position: absolute;
     z-index: 1;
+    &.modal-right {
+        position: absolute;
+        transform: translateY(110px);
+    }
+    &.modal-left {
+        position: absolute;
+        transform: translate(-545px, 103px);
+    }
     .close-save-edit {
         background-color: transparent;
-        top: 5px;
-        right: 5px;
+       
         width: 40px;
       
     }
@@ -63,6 +70,7 @@
         padding: 3px 3px;
         display: flex;
         justify-content: space-between;
+        
         p:before {
             font-family: icomoon;
             content: "\e915";
@@ -75,27 +83,20 @@
             justify-content: center;
             align-items: center;
         }
+        .board-label-name{
+        border-radius: 3px;
+        }
+        &:hover {
+            background-color: #ebecf0;
+        }
     }
-    .board-label:hover {
-        background-color: #ebecf0;
-    }
+    
 }
-//     position: absolute;
-//     width: 300px;
-//     margin-top: 10px;
-//     border-radius: 5px;
-//     padding: 5px;
-// }
-
-// .btn-close-card-label {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .board-label {
-//     padding: 5px;
-// }
-
-// .board-label:hover {
-//     background-color: RGB(245, 245, 245);
-// }
+.card-add-checklist-header{
+    display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1px solid #dfe3e8;
+margin-bottom: 10px;
+}

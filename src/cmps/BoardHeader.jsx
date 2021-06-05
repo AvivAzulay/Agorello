@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
 import { ActivitiesFilter } from './ActivitiesFilter.jsx'
+import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 
 export class BoardHeader extends Component {
 
   state = {
+    title: '',
+    board: null,
     filterBy: '',
+    prevTitle: '',
     isMenuOn: false,
+    isEditing: false,
     isSetBackGround: false
   }
+
+  inputRef = React.createRef()
+
+  componentDidMount() {
+    this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
+    // this.inputRef.current.focus()
+  }
+
   onSetFilter = (filterBy) => {
     // this.props.loadBoard(filterBy)
   }
@@ -17,9 +30,36 @@ export class BoardHeader extends Component {
     this.setState({ ...this.state, isMenuOn: !isMenuOn, isSetBackGround: false })
 
   }
+
   toggleSetBackGround = () => {
     const { isSetBackGround } = this.state
     this.setState({ ...this.state, isSetBackGround: !isSetBackGround })
+  }
+
+  toggleEdditing = () => {
+    const { isEditing } = this.state
+    this.setState({ ...this.state, isEditing: !isEditing })
+  }
+
+  handleChange = (ev) => {
+    const { value } = ev.target
+    this.setState({ ...this.state, title: value })
+  }
+
+  handleKeyPress = (ev) => {
+    if (ev.key === 'Enter') {
+      this.onSubmit()
+    }
+  }
+
+  onSubmit = () => {
+    if (!this.state.title) {
+      this.setState({ title: this.state.prevTitle })
+      return
+    }
+    this.setState({ prevTitle: this.state.title })
+    this.props.onUpdateBoard('title', this.state.title)
+    this.toggleEdditing()
   }
 
   onSearch = (searchTxt) => {
@@ -48,23 +88,41 @@ export class BoardHeader extends Component {
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319310/background%20for%20Taskit/background_7_kdnduh.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319329/background%20for%20Taskit/background_1_veqold.jpg"
     ]
-    const { isMenuOn, isSetBackGround } = this.state
+
+    const { isMenuOn, isSetBackGround, isEditing, title } = this.state
     if (!this.props.board) return <div>Loading...</div>
     return (
       <div className="borad-nav">
         <div className="borad-nav-left">
-          <h1>{this.props.board.title}</h1>
+          {!isEditing && <h1 onClick={this.toggleEdditing}>{this.props.board.title}</h1>}
+          {isEditing && <input
+            type="text"
+            value={title}
+            ref={this.inputRef}
+            onBlur={this.onSubmit}
+            placeholder="Board's name..."
+            onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
+            onFocus={(ev) => ev.target.select()}
+          >
+          </input>}
           <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} />
         </div>
         <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
-
-
         {isMenuOn && !isSetBackGround && <div className="side-menu">
           <div><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
           <button className="about-this-board"> About this Board</button>
           <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
           <button className="board-analysis"> Board Analysis</button>
           <button className="labels"> Labels</button>
+          <div className="edit-details-activity-header">
+            <span>
+              <p className="edit-details-activity-logo">
+                <span>Activity</span>
+              </p>
+              <BoardActivitiesList activities={this.props.board.activities} />
+            </span>
+          </div>
         </div>}
 
 

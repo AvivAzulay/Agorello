@@ -6,6 +6,14 @@ import { GroupTitleEdit } from './GroupTitleEdit'
 
 
 export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, onSaveActivity }) {
+
+
+    function removeGroup(groupId) {
+        onRemoveGroup(groupId, board)
+        onSaveActivity(group, 'REMOVE_GROUP')
+    }
+
+
     return (
         <Draggable
             draggableId={group.id}
@@ -20,14 +28,24 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
 
                 >
                     <div className="group-preview-header">
-                        <GroupTitleEdit group={group} onSaveGroup={onSaveGroup} value="group" />
-                        <button onClick={() => onRemoveGroup(group.id)} className="group-preview-header-btn"></button>
+                        <GroupTitleEdit group={group} onSaveGroup={onSaveGroup} board={board} value="group" />
+                        <button onClick={() => removeGroup(group.id)} className="group-preview-header-btn"></button>
                     </div>
 
                     <div className="card-list-and-add">
-                        <CardList group={group} onRemoveCard={onRemoveCard} getActivitiesByCardId={getActivitiesByCardId} onOpenPreviewLabels={onOpenPreviewLabels}
-                            isLebelOpen={isLebelOpen} board={board} />
-                        <CardAdd group={group} onSaveCard={onSaveCard} onSaveActivity={onSaveActivity} />
+                        <CardList
+                            group={group}
+                            board={board}
+                            onSaveCard={onSaveCard}
+                            isLebelOpen={isLebelOpen}
+                            onRemoveCard={onRemoveCard}
+                            onOpenPreviewLabels={onOpenPreviewLabels}
+                            getActivitiesByCardId={getActivitiesByCardId} />
+                        <CardAdd
+                            group={group}
+                            board={board}
+                            onSaveCard={onSaveCard}
+                            onSaveActivity={onSaveActivity} />
                     </div>
                 </div>
 

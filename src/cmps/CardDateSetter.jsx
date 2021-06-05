@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TextField from "@material-ui/core/TextField"
-import { Popover } from "@material-ui/core"
-
-// import React from 'react'
 
 export function CardDateSetter({ onUpdateCardProps }) {
 
     function handleChange(ev) {
         const { value } = ev.target
-        onUpdateCardProps('dueDate', value)
+        const dueDate = {}
+        dueDate.time = value
+        dueDate.isCompleted = false
+        onUpdateCardProps('dueDate', dueDate)
     }
 
     return (
@@ -20,9 +20,10 @@ export function CardDateSetter({ onUpdateCardProps }) {
                     id="datetime-local"
                     label="Due date"
                     type="datetime-local"
-                    defaultValue="2021-06-01T10:30"
                     InputLabelProps={{
-                        shrink: true,
+                        shrink: false,
+                        required: false,
+                        fullwidth: true
                     }}
                 />
             </form>
