@@ -126,7 +126,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     font-family: icomoon;
     content: "\e91b";
     font-size: 22px;
-    color: white;
+    
     
   }
   border-radius: 50%;
@@ -288,7 +288,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   background: transparent;
   border-radius: 3px;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   resize: none;
   outline: none;
@@ -300,6 +300,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   color: #42516e;
   font-family: $base-font;
   min-height: 20px;
+  height: 35px;
 }
 
 .edit-details-textarea-header:focus {
