@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 import { MemberIcon } from './MemberIcon'
 
+
 export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate }) {
 
     const [previousX, setPreviousX] = useState(null);
@@ -91,7 +92,8 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                         {provided.placeholder}
                     </div>
                 </div>
-            )}
-        </Draggable>
+            )
+            }
+        </Draggable >
     )
 }

@@ -102,8 +102,7 @@ class _BoardApp extends Component {
         const { board } = this.props
         if (!board) return <div>Loading...</div>
         return (<>
-
-            {/* { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div> } */}
+            { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
             <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
                 <div className="fade"></div>
@@ -146,7 +145,7 @@ const mapDispatchToProps = {
     loadBoard,
     saveGroup,
     removeCard,
-    // updateBoard,
+    updateBoard,
     removeGroup,
     saveActivity,
     updateBoardSockets

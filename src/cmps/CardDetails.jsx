@@ -77,10 +77,9 @@ export class _CardDetails extends Component {
   }
   render() {
     const { card } = this.state
-    if (!card) return <></>
+    if (!card) return <><h1>H!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1></>
     return (
       <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
-
         <div className="edit" onClick={this.onCloseModals}>
 
           {card.cover && <div> <img className="card-details-cover" src={card.cover} alt="" /> </div>}
@@ -105,67 +104,55 @@ export class _CardDetails extends Component {
               #########################################
                */}
                 <div className="flex members-labels-container">
-                  <>
-                    <>
-                      <>
-                        <div className="flex column">
-                          {card.members.length > 0 && <div>
-                            <CardDetailsMembers members={card.members}
-                              onToggle={() => {
-                                this.onToggleModal()
-                                this.setState({ modalType: 'members', modalLoc: 'modal-left' })
-                              }
-                              } /></div>}
+
+                  <div className="flex column">
+                    {card.members.length > 0 && <div>
+                      <CardDetailsMembers members={card.members}
+                        onToggle={() => {
+                          this.onToggleModal()
+                          this.setState({ modalType: 'members', modalLoc: 'modal-left' })
+                        }
+                        } /></div>}
 
 
-                        </div>
-                      </>
-                    </>
-                  </>
+                  </div>
 
-                  <>
-                    <>
-                      <>
-                        <div className="flex column">
-                          {card.labels.length > 0 &&
-                            <div><CardDetailsLabels
-                              labels={card.labels}
-                              onToggle={() => {
-                                this.onToggleModal()
-                                this.setState({ modalType: 'labels', modalLoc: 'modal-left' })
-                              }
-                              } />
-                            </div>}
 
-                        </div>
-                      </>
-                    </>
-                  </>
-                  <>
-                    <>
-                      <>
-                        <div className="flex column">
-                          {card.dueDate &&
-                            <CardDetailsDate
-                              card={card}
-                              onToggle={this.onToggleDueDateLeft}
-                              saveActivity={this.props.saveActivity}
-                              onUpdateCardProps={this.onUpdateCardProps}
-                            />
-                          }
-                          <div className="card-date-pos">
-                            {this.state.isCardMemberListShowenLeft &&
-                              <CardDetailsDate
-                                card={card}
-                                onToggle={this.onToggleDueDateRight}
-                                saveActivity={this.props.saveActivity}
-                                onUpdateCardProps={this.onUpdateCardProps}
-                              />}
-                          </div>
-                        </div>
-                      </>
-                    </>
-                  </>
+
+                  <div className="flex column">
+                    {card.labels.length > 0 &&
+                      <div><CardDetailsLabels
+                        labels={card.labels}
+                        onToggle={() => {
+                          this.onToggleModal()
+                          this.setState({ modalType: 'labels', modalLoc: 'modal-left' })
+                        }
+                        } />
+                      </div>}
+
+                  </div>
+
+
+                  <div className="flex column">
+                    {card.dueDate &&
+                      <CardDetailsDate
+                        card={card}
+                        onToggle={this.onToggleDueDateLeft}
+                        saveActivity={this.props.saveActivity}
+                        onUpdateCardProps={this.onUpdateCardProps}
+                      />
+                    }
+                    <div className="card-date-pos">
+                      {this.state.isCardMemberListShowenLeft &&
+                        <CardDetailsDate
+                          card={card}
+                          onToggle={this.onToggleDueDateRight}
+                          saveActivity={this.props.saveActivity}
+                          onUpdateCardProps={this.onUpdateCardProps}
+                        />}
+                    </div>
+                  </div>
+
                 </div>
 
 
@@ -210,135 +197,106 @@ export class _CardDetails extends Component {
                     onUpdateCardProps={this.onUpdateCardProps} />
                   {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
                 </div>
-                <>
-                  <>
-                    <>
-                      <div>
-                        <div className="edit-details-activity-header">
-                          <span>
-                            <p className="edit-details-activity-logo"></p>
-                            <h1>Activity</h1>
-                          </span>
-                          <button>Show details</button>
-                        </div>
-                        <div className="edit-activity-description">
-                          <CardComment
-                            card={card}
-                            saveActivity={this.props.saveActivity}
-                            onUpdateCardProps={this.onUpdateCardProps}
-                          />
-                          <div>
-                            <CardActivitiesList card={card} activities={this.props.board.activities} />
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  </>
-                </>
+
+                <div>
+                  <div className="edit-details-activity-header">
+                    <span>
+                      <p className="edit-details-activity-logo"></p>
+                      <h1>Activity</h1>
+                    </span>
+                    <button>Show details</button>
+                  </div>
+                  <div className="edit-activity-description">
+                    <CardComment
+                      card={card}
+                      saveActivity={this.props.saveActivity}
+                      onUpdateCardProps={this.onUpdateCardProps}
+                    />
+                    <div>
+                      <CardActivitiesList card={card} activities={this.props.board.activities} />
+                    </div>
+                  </div>
+                </div>
+
               </div >
 
 
               <div className="edit-add-to-card">
                 <h1> ADD TO CARD </h1>
-                <>
-                  <>
-                    <>
-                      <button className="edit-add-to-card-members"
-                        onClick={() => {
-                          this.onToggleModal()
-                          this.setState({ modalType: 'members', modalLoc: 'modal-right' })
-                        }
-                        }> Members</button>
 
-                    </>
-                  </>
-                </>
-                <>
-                  <>
-                    <>
-                      <button className="edit-add-to-card-labels"
-                        onClick={() => {
-                          this.onToggleModal()
-                          this.setState({ modalType: 'labels', modalLoc: 'modal-right' })
-                        }
-                        }> Labels</button>
+                <button className="edit-add-to-card-members"
+                  onClick={() => {
+                    this.onToggleModal()
+                    this.setState({ modalType: 'members', modalLoc: 'modal-right' })
+                  }
+                  }> Members</button>
 
-                    </>
-                  </>
-                </>
-                <>
-                  <>
-                    <>
-                      <button className="edit-add-to-card-checklist"
-                        onClick={() => {
-                          this.onToggleModal()
-                          this.setState({ modalType: 'checklist', modalLoc: 'modal-right' })
-                        }
-                        }> Checklist</button>
 
-                    </>
-                  </>
-                </>
-                <>
-                  <>
-                    <>
 
-                      <button className="edit-add-to-card-dates"
-                      > Dates
+                <button className="edit-add-to-card-labels"
+                  onClick={() => {
+                    this.onToggleModal()
+                    this.setState({ modalType: 'labels', modalLoc: 'modal-right' })
+                  }
+                  }> Labels</button>
+
+                <button className="edit-add-to-card-checklist"
+                  onClick={() => {
+                    this.onToggleModal()
+                    this.setState({ modalType: 'checklist', modalLoc: 'modal-right' })
+                  }
+                  }> Checklist</button>
+
+
+                <button className="edit-add-to-card-dates"
+                > Dates
                     <div className="card-date-pos">
-                          {
-                            <CardDateSetter
-                              dueDate={this.state.card.dueDate}
-                              onToggle={this.onToggleDueDateRight}
-                              onUpdateCardProps={this.onUpdateCardProps}
-                              card={card}
-                            />}
-                        </div>
-                      </button>
-                    </>
-                  </>
-                </>
-                <>
-                  <>
-                    <>
-
-                      <input
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        id="raised-button-file"
-                        multiple
-                        type="file"
-                        onSubmit={this.onAttachmentFile}
-                      />
-                      <label htmlFor="raised-button-file">
-                        <button className="edit-add-to-card-attachment">
-                          Attachment
-                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
-                      </label>
-
-
-                      <div style={{ position: "relative" }}>
-                        <button className="edit-add-to-card-cover" onClick={this.onToggleCover}> Cover</button>
-                        <CardCoverList
-                          onUpdateCardProps={this.onUpdateCardProps}
-                          onToggle={this.onToggleCover}
-                          isCoverListShowen={this.state.isCoverListShowen}
-                        />
-                      </div>
-
-                      {this.state.isModalShown && <CardDetailsModal
-                        modalType={this.state.modalType}
-                        modalLoc={this.state.modalLoc}
-                        card={card}
-                        saveActivity={this.props.saveActivity}
-                        boardMembers={this.props.board.members}
+                    {
+                      <CardDateSetter
+                        dueDate={this.state.card.dueDate}
+                        onToggle={this.onToggleDueDateRight}
                         onUpdateCardProps={this.onUpdateCardProps}
-                        onToggleModal={this.onToggleModal}
-                        boardLabels={this.props.board.labels} />
-                      }
-                    </>
-                  </>
-                </>
+                        card={card}
+                      />}
+                  </div>
+                </button>
+
+
+                <input
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  id="raised-button-file"
+                  multiple
+                  type="file"
+                  onSubmit={this.onAttachmentFile}
+                />
+                <label htmlFor="raised-button-file">
+                  <button className="edit-add-to-card-attachment">
+                    Attachment
+                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
+                </label>
+
+
+                <div style={{ position: "relative" }}>
+                  <button className="edit-add-to-card-cover" onClick={this.onToggleCover}> Cover</button>
+                  <CardCoverList
+                    onUpdateCardProps={this.onUpdateCardProps}
+                    onToggle={this.onToggleCover}
+                    isCoverListShowen={this.state.isCoverListShowen}
+                  />
+                </div>
+
+                {this.state.isModalShown && <CardDetailsModal
+                  modalType={this.state.modalType}
+                  modalLoc={this.state.modalLoc}
+                  card={card}
+                  saveActivity={this.props.saveActivity}
+                  boardMembers={this.props.board.members}
+                  onUpdateCardProps={this.onUpdateCardProps}
+                  onToggleModal={this.onToggleModal}
+                  boardLabels={this.props.board.labels} />
+                }
+
               </div>
             </div>
           </div>

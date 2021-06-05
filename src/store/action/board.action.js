@@ -1,7 +1,6 @@
 import { boardService } from '../../services/board-service'
 import { utilService } from '../../services/util-service'
 
-///***********  DONE  ***********///
 export function loadBoard(boardId) {
     return async dispatch => {
         try {
@@ -13,7 +12,7 @@ export function loadBoard(boardId) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function saveCard(card, groupId, board) {
     return async dispatch => {
         try {
@@ -37,7 +36,7 @@ export function saveCard(card, groupId, board) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function saveGroup(group, board) {
     return async dispatch => {
         try {
@@ -58,7 +57,7 @@ export function saveGroup(group, board) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function removeCard(card, board) { // Action Creator
     return async dispatch => {
         try {
@@ -73,7 +72,7 @@ export function removeCard(card, board) { // Action Creator
         }
     }
 }
-///***********  DONE  ***********///
+
 export function removeGroup(groupId, board) { // Action Creator
     return async dispatch => {
         try {
@@ -87,7 +86,7 @@ export function removeGroup(groupId, board) { // Action Creator
         }
     }
 }
-///***********  DONE  ***********///
+
 export function updatePosition(newBoardPositioning) {
     return async dispatch => {
         try {
@@ -99,7 +98,7 @@ export function updatePosition(newBoardPositioning) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function updateBoard(board) {
     return async dispatch => {
         try {
@@ -123,7 +122,6 @@ export function updateBoardSockets(board) {
     }
 }
 
-///***********  DONE  ***********///
 export function addBoard(title, backgroundURL, board = null) {
     return async dispatch => {
         try {
@@ -134,7 +132,7 @@ export function addBoard(title, backgroundURL, board = null) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function loadBoards() {
     return async dispatch => {
         try {
