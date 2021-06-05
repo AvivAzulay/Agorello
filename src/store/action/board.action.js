@@ -17,11 +17,7 @@ export function loadBoard(boardId) {
 export function saveCard(card, groupId, board) {
     return async dispatch => {
         try {
-            console.log('card', card);
-            console.log('groupId', groupId);
-            console.log('board', board);
             let newBoard = _deepCloneBoard(board)
-            console.log('newBoard', newBoard);
             if (card.id) {
                 const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
                 const cardIdx = newBoard.groups[groupIdx].cards.findIndex(currCard => {
@@ -150,7 +146,6 @@ export function loadBoards() {
     }
 }
 
-
 ///***********  NOT DONE  ***********///
 export function saveActivity(board, data, action) {
     return async dispatch => {
@@ -181,6 +176,7 @@ function _getNewCardObj(groupId) {
         createdAt: Date.now()
     }
 }
+
 
 // export function removeBoard(boardId) { // Action Creator
 //     return async dispatch => {

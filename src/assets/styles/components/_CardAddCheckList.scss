@@ -12,6 +12,10 @@
     width: 300px;
     position: absolute;
     z-index: 1;
+    &.modal-right {
+        position: absolute;
+        transform: translateY(153px);
+      }
     h3 {
         color: #5e6c84;
         font-weight: 600;

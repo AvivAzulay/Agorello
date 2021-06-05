@@ -5,6 +5,7 @@
 .more-apps:before {
   font-family: icomoon;
   content: "\e906";
+ 
 }
 .about:before {
   font-family: icomoon;
@@ -47,7 +48,7 @@
   display: flex;
   width: 32px;
   font-weight: 100;
-  line-height: 32px;
+  height: 32px;
   margin: 0 4px 0 0;
   padding: 0;
   display: flex;
@@ -59,31 +60,33 @@
   span {
     margin-left: 2px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
 .main-header {
-  
   nav {
-    background-color: rgba(46, 45, 45, 0.5);
+    background-color: transparent;
     box-sizing: border-box;
     display: flex;
+   justify-content: space-between;
     max-height: 50px;
-    padding: 4px;
-    padding-top: 8px;
-  padding-bottom: 8px;
+    padding: 4px 3px;
+    max-width: 100vw;
   }
-  .main-header-left {
+  .main-header-left, .main-header-right {
     display: flex;
-    justify-content: flex-start;
-    flex-grow: 1;
-    flex-basis: 100%;
+    
     .boards {
-      width: 100px;
+      width: 83px;
       color: white;
+      margin-right: 4px;
+  
     }
   }
+}
+.main-header-right {
+justify-content: flex-end;
 }
 
 .logo {
@@ -92,13 +95,15 @@
   background-size: contain;
   border: none;
   background-repeat: no-repeat;
-  background-color:transparent;
-  width: 100%;
+  background-color: transparent;
+  width: 70px;
   outline: none;
   text-align: center;
   opacity: 0.8;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+  height:40px;
+  &:hover {
+    opacity: 1;
+  }
 }
-.logo:hover{
-  opacity: 1;
-} 
+

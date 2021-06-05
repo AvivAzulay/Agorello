@@ -92,6 +92,7 @@ export class BoardHeader extends Component {
     const { isMenuOn, isSetBackGround, isEditing, title } = this.state
     if (!this.props.board) return <div>Loading...</div>
     return (
+      <>
       <div className="borad-nav">
         <div className="borad-nav-left">
           {!isEditing && <h1 onClick={this.toggleEdditing}>{this.props.board.title}</h1>}
@@ -134,7 +135,7 @@ export class BoardHeader extends Component {
           </div>
         </div>}
       </div>
-
+</>
     )
   }
 }

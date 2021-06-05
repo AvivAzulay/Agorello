@@ -26,7 +26,6 @@ export class CardDetailsDate extends Component {
 
     displayDueDate = () => {
         const { card } = this.props
-        console.log(card);
         // if (!card || !card.dueDate || )
         return card.dueDate && <span>{(new Date(card?.dueDate?.time)).toString().split(' ')[1]
             + ' ' +

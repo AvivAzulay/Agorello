@@ -38,7 +38,7 @@ export class CardLabelList extends Component {
         if (!boardLabels || boardLabels.length === 0) return <h1>Loading...</h1>
         boardLabels = boardLabels.filter(label => label.name.toLowerCase().includes(this.state.labelName.toLowerCase()))
         return (
-            <div className="card-label-list">
+            <div className={`card-label-list ${this.props.modalLoc}`}>
                 <div  className="card-label-list-header">
                 <p></p>
                 <h3>Labels</h3>

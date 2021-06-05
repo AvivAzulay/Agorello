@@ -13,6 +13,14 @@
     width: 300px;
     position: absolute;
     z-index: 1;
+    &.modal-right {
+        position: absolute;
+        transform: translateY(70px);
+    }
+    &.modal-left {
+        position: absolute;
+        transform: translate(-595px, 103px);
+    }
     .close-save-edit {
         background-color: transparent;
         top: 5px;

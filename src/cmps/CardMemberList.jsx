@@ -12,7 +12,7 @@ export class CardMemberList extends Component {
 
     componentDidMount() {
         this.setState({ boardMembers: this.props.boardMembers })
-        this.inputRef.current.focus()
+        // this.inputRef.current.focus()
     }
 
     onClickBoardMember = (member, isChecked) => {
@@ -37,10 +37,10 @@ export class CardMemberList extends Component {
 
     render() {
         let { boardMembers } = this.state
-        // if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
+        if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
-            <div className="card-member-list" onClick={(ev) => { ev.stopPropagation() }}>
+            <div className={`card-member-list ${this.props.modalLoc}`} onClick={(ev) => { ev.stopPropagation() }}>
                 <div className="card-member-list-header">
                     <p></p>
                     <h3>Members</h3>
