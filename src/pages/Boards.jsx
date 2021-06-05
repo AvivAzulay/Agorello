@@ -39,6 +39,7 @@ class _Boards extends Component {
     const { addNewModal } = this.state
     return (
       <div className="borads">
+        <div className="home-nav"></div>
         <h1 className="borads-container-title">Suggested Templates</h1>
         <div className="borads-container">
           {TemplateBoards.map((board, index) =>

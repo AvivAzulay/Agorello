@@ -71,9 +71,12 @@ class _BoardApp extends Component {
        console.log(board)
         if (!board) return <div>Loading...</div>
         return (<>
-
+      
             {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
+            
             <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
+            <div className="fade"></div>
+            <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
                     onSaveBoard={this.onSaveBoard}

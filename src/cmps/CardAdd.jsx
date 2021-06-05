@@ -75,7 +75,7 @@ export class CardAdd extends Component {
                                 <button className="card-add-edit-btn" onClick={this.onSubmit}>Add card</button>
                                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
                             </span>
-                            <button className="card-add-menu-btn" onClick={() => { }}></button>
+                            
                         </div>
 
                     </form>

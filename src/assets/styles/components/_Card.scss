@@ -7,14 +7,19 @@
   max-height: calc(100vh - 11.8rem);
   border-radius: 0.3rem;
   margin-right: 1rem;
-  padding: 6px 10px 8px;
   margin: 6px 8px 6px;
+  
   cursor: pointer;
   justify-content: center;
-  box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
+  box-shadow: 0 1px 0 rgb(204 ,209, 217);
+  // box-shadow: 0 1px 0 rgb(9, 30, 66 / 25%);
   white-space: normal;
-  position: relative;
+  .card-preview-body{
+    padding: 6px 8px 2px;
+position: relative;
+  }
 }
+
 .drag-flex {
   display: flex;
   flex-direction: column;
@@ -31,22 +36,24 @@
   color: #838c91;
   text-align: left;
   cursor: pointer;
+  padding: 2px 2px;
+  form{
+    padding: 0px 5px;
+  }
   textarea {
     outline: none;
     border: none;
     border: 0;
     background-color: #fafbfc;
     height: 100px;
-    resize: none;
-    width: 94%;
-    margin: 8px 10px;
+    width: 100%;
+    
     font-size: 16px;
-    padding: 10px;
+    padding: 6px 8px 2px;
     border: none;
     border-radius: 0.3rem;
     display: flex;
     align-items: flex-start;
-    box-shadow: 0, 1px, 0 rgb(9, 30, 66 / 25%);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
       "Droid Sans", "Helvetica Neue";
     box-shadow: 0 0.5px 0 rgb(9, 30, 66 / 25%);
@@ -205,7 +212,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-
+  margin-bottom: 5px;
 }
 .card-preview:hover {
   .card-preview-edit-icon:before {
@@ -248,4 +255,5 @@
 .card-preview-bottom-list {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }

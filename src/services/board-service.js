@@ -396,7 +396,7 @@ function getGboards() {
                     },
                     "card": {
                         "id": "lbnCjI",
-                        "title": "filters"
+                        "title": "filters",
                     }
                 },
                 {
@@ -1287,6 +1287,7 @@ function getGboards() {
                                 }
                             ],
                             "attachments": [],
+                            "cover":"https://res.cloudinary.com/taskit-sprint/image/upload/v1622555555/background%20for%20Taskit/Layer_10_xkxb0s.jpg",
                             "checklist": [
                                 {
                                     "id": "0TNlSp",
@@ -1917,7 +1918,8 @@ function getGboards() {
             "style": {
                 "id": "LD2D5",
                 "fontClr": "#f9f9f9",
-                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319326/background%20for%20Taskit/background_16_fiaoup.jpg"
+                "bgImg": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319326/background%20for%20Taskit/background_16_fiaoup.jpg",
+
             },
             "members": [
                 {

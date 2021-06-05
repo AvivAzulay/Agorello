@@ -16,6 +16,7 @@ import { CardActivitiesList } from './CardActivitiesList'
 import { AttachmentsList } from './AttachmentsList'
 import { CardComment } from './CardComment'
 import { UplodeImg } from './UplodeImg'
+import { CardCoverList } from './CardCoverList'
 
 export class _CardDetails extends Component {
   state = {
@@ -27,7 +28,9 @@ export class _CardDetails extends Component {
     isCardDueDateShowenRight: false,
     isDueDateListShowenLeft: false,
     isCardCheckListShowen: false,
-    isNewTodoShown: false
+    isNewTodoShown: false,
+    isCoverListShowen:false,
+
   }
 
   componentDidMount() {
@@ -67,6 +70,7 @@ export class _CardDetails extends Component {
     this.setState({ isCardLabelListShowenRight: false })
   }
 
+
   onToggleCheckList = () => {
     this.setState({ isCardCheckListShowen: !this.state.isCardCheckListShowen })
   }
@@ -80,6 +84,12 @@ export class _CardDetails extends Component {
     this.setState({ isDueDateListShowenLeft: !this.state.isDueDateListShowenLeft })
     this.setState({ isDueDateListShowenRight: false })
   }
+
+  onToggleCover = () => {
+    this.setState({ isCoverListShowen: !this.state.isCoverListShowen })
+    
+  }
+
 
   onCloseAllModals = (ev) => {
     ev.stopPropagation()
@@ -99,17 +109,15 @@ export class _CardDetails extends Component {
       <div className="window-screen" onClick={() => this.props.history.push('/board')}>
 
         <div className="edit" onClick={this.onCloseAllModals}>
-          <>
-            <>
-              <>
+       
+        {card.cover&& <div> <img className="card-details-cover" src={card.cover} alt=""  /> </div>}
+         <div className="edit-contaner">
                 <div className="edit-details-header">
                   <p className="edit-details-header-logo"></p>
                   <GroupTitleEdit title={card.title} group={card} />
-                  <button className="close-save-edit" onClick={() => this.props.history.push('/board')} ></button>
+                  <button className="close-save-edit-top" onClick={() => this.props.history.push('/board')} ></button>
                 </div>
-              </>
-            </>
-          </>
+          
           <div className="edit-body">
             <div className="edit-details">
               <span className="list-pages">In list pages</span>
@@ -356,11 +364,18 @@ export class _CardDetails extends Component {
                         <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
                     </label>
 
-
-                    <button className="edit-add-to-card-cover"> Cover</button>
+                    <div style={{position: "relative"}}>
+                    <button className="edit-add-to-card-cover" onClick={this.onToggleCover}> Cover</button>
+                     <CardCoverList  
+                     onUpdateCardProps={this.onUpdateCardProps}
+                     onToggle={this.onToggleCover}
+                     isCoverListShowen={this.state.isCoverListShowen}
+                     />
+                     </div>
                   </>
                 </>
               </>
+              </div>
             </div>
           </div>
         </div >
