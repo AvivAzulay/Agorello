@@ -40,24 +40,29 @@ class _Boards extends Component {
     return (
       <div className="borads">
         <div className="home-nav"></div>
-        <h1 className="borads-container-title">Suggested Templates</h1>
+        <h2 >TEMPLATES</h2>
+        <h1 className="borads-container-title-a">All Taskit Template</h1>
         <div className="borads-container">
           {TemplateBoards.map((board, index) =>
             <div className="borad-preview" key={index}
               style={{ backgroundImage: `url(${board.style.bgImg})` }}
               onClick={() => this.props.addBoard(board.title, board.style.bgImg, board)} >
               <span className="borad-preview-fade"></span>
-              <span className="borad-preview-fade">{board.title}</span> </div>
+              <span className="borad-preview-fade-text"><div className="borad-preview-fade-template">Template</div>{board.title}</span> 
+              {/* <span className="borad-preview-fade-template"></span>  */}
+              </div>
+              
           )}
-
+   <button className="borads-container-add-btn" onClick={this.toggleModal}>Add new borad </button>
         </div>
-        <h1 className="borads-container-title">Your Boards</h1>
+       <h2>YOUR WORKSPACES</h2>
+        <h1 className="borads-container-title-b">Our Taskit Project</h1>
         <div className="borads-container">
           {NoTemplateBoards.map((board, index) =>
             <NavLink to={`board/${board._id}?`} key={index}>
-              <div className="borad-preview" key={board._id} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade">{board.title}</span> </div>
+              <div className="borad-preview" key={board._id} style={{ backgroundImage: `url(${board.style.bgImg})` }}><span className="borad-preview-fade"></span><span className="borad-preview-fade-text">{board.title}</span> </div>
             </NavLink>)}
-          <button className="borads-container-add-btn" onClick={this.toggleModal}>Add new borad </button>
+       
         </div>
         {addNewModal && <BoardAdd onNewBoard={this.onNewBoard} toggleModal={this.toggleModal} boards={this.props.boards} history={this.props.history} />}
 

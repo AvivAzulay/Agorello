@@ -15,11 +15,23 @@
     z-index: 1;
     &.modal-right {
         position: absolute;
-        transform: translateY(110px);
+        @include for-wide-layout {
+            transform: translateY(88px);
+          }
+          @include for-mobile-layout {
+            transform: translateY(-400px);
+          }
     }
     &.modal-left {
         position: absolute;
-        transform: translate(-545px, 103px);
+        @include for-wide-layout {
+            transform: translate(-545px, 103px);
+          }
+          @include for-mobile-layout {
+            transform: translateY(-860px);
+          }
+
+
     }
     .close-save-edit {
         background-color: transparent;

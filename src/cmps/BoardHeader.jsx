@@ -97,7 +97,8 @@ export class BoardHeader extends Component {
         <div className="borad-nav-left">
           {!isEditing && <h1 onClick={this.toggleEdditing}>{this.props.board.title}</h1>}
           {isEditing && <input
-            type="text"
+           className="borad-nav-title-edit"
+           type="text"
             value={title}
             ref={this.inputRef}
             onBlur={this.onSubmit}

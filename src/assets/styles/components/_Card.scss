@@ -54,7 +54,7 @@ position: relative;
     background-color: #fafbfc;
     height: 100px;
     width: 100%;
-    
+    resize: none;
     font-size: 16px;
     padding: 6px 8px 2px;
     border: none;
@@ -253,7 +253,7 @@ position: relative;
 }
 .card-preview-attachments-img {
   width: 100%;
-  border-radius: 10px;
+  
   border: none;
   background-repeat: no-repeat;
   background-size: cover;

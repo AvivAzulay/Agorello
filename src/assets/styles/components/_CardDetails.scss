@@ -2,12 +2,12 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   "Droid Sans", "Helvetica Neue";
 .edit-body {
   display: flex;
-  @include for-wide-layout{
-  flex-direction: row;
+  @include for-wide-layout {
+    flex-direction: row;
   }
-  @include for-mobile-layout{
+  @include for-mobile-layout {
     flex-direction: column;
-    }
+  }
 }
 .edit-details {
   flex-grow: 40;
@@ -30,9 +30,9 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 }
 
 .card-details-members-open {
-    &::after {
+  &::after {
     font-family: icomoon;
-    content: '\e901';
+    content: "\e901";
     margin-right: 5px;
     font-size: 17px;
     text-align: center;
@@ -51,34 +51,34 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   }
   &:hover {
     &::after {
-    background-color: RGB(222, 225, 233)
+      background-color: RGB(222, 225, 233);
     }
   }
 }
 
 .card-details-labels-open {
   &::after {
-  font-family: icomoon;
-  content: "\e901";
-  margin-right: 5px;
-  font-size: 17px;
-  text-align: center;
-  line-height: 10px;
-  width: 35px;
-  height: 35px;
-  background-color: RGB(235, 235, 235);
-  border-radius: 5px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  color: #42516e;
-  display: flex;
+    font-family: icomoon;
+    content: "\e901";
+    margin-right: 5px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: RGB(235, 235, 235);
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #42516e;
+    display: flex;
   }
   &:hover {
     &::after {
-    background-color: RGB(222, 225, 233)
+      background-color: RGB(222, 225, 233);
     }
   }
 }
@@ -86,20 +86,20 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 .edit {
   background-color: #f4f5f7;
   @include for-wide-layout {
-  width: 750px;
+    width: 750px;
   }
   @include for-mobile-layout {
     width: 95vw;
     overflow: hidden;
-    }
+  }
   border-radius: 5px;
   margin-top: 0;
   height: auto;
   position: relative;
   border-radius: 5px;
-.edit-contaner{
-  padding: 10px 20px;
-}
+  .edit-contaner {
+    padding: 10px 20px;
+  }
 
   .edit-details-header {
     display: flex;
@@ -127,7 +127,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     font-size: 22px;
     color: #42516e;
   }
-  .close-save-edit{
+  .close-save-edit {
     &:before {
       font-family: icomoon;
       content: "\e91b";
@@ -135,33 +135,31 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
       color: #5e6c84;
     }
   }
-  .close-save-edit-top{
-  &:before {
-    font-family: icomoon;
-    content: "\e91b";
-    font-size: 22px;
-    
-    
+  .close-save-edit-top {
+    &:before {
+      font-family: icomoon;
+      content: "\e91b";
+      font-size: 22px;
+    }
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 32px;
+    overflow: hidden;
+    padding: 4px;
+    margin: 4px;
+    width: 32px;
+    z-index: 2;
+    background-color: hsla(0, 0%, 100%, 0.24);
+    position: absolute;
+    top: 0;
+    right: 0;
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.32);
+      color: #fff;
+    }
   }
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 32px;
-  overflow: hidden;
-  padding: 4px;
-  margin: 4px;
-  width: 32px;
-  z-index: 2;
-  background-color: hsla(0,0%,100%,.24);
-  position:absolute;
-  top:0;
-  right:0;
-  &:hover{
-    background-color: hsla(0,0%,100%,.32);
-    color: #fff;
-  }
-}
   .edit-details-description-logo:before {
     font-family: icomoon;
     content: "\e921";
@@ -178,7 +176,7 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 10px;
+    
     margin-right: 10px;
     span {
       display: flex;
@@ -362,14 +360,14 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
 
 .edit-add-to-card {
   display: flex;
-  @include for-wide-layout{
-  flex-direction: column;
-  flex-grow: 1;
+  @include for-wide-layout {
+    flex-direction: column;
+    flex-grow: 1;
   }
-  @include for-mobile-layout{
+  @include for-mobile-layout {
     flex-direction: row;
     flex-wrap: wrap;
-    }
+  }
 
   button {
     background-color: rgba(9, 30, 66, 0.04);
@@ -382,16 +380,10 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     border: none;
     font-weight: 400;
     padding: 2px 6px;
-   
-    @include for-wide-layout{
-      width: 168px;
-      }
-    @include for-mobile-layout{
-      width: 108px;
-      }
     height: 32px;
     font: $base-font;
     margin-top: 10px;
+    width: 158px;
   }
 
   .edit-add-to-card-members:before {
@@ -427,10 +419,11 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     border: none;
     font-weight: 400;
     padding: 2px 6px;
-    width: 168px;
+    width: 150px;
     height: 32px;
     font: $base-font;
     margin-top: 10px;
+    margin-right: 7px;
   }
 
   .edit-add-to-card-members:before {
@@ -521,27 +514,37 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   width: 100%;
 }
 
-.card-preview-cover,.card-details-cover{
- 
+.card-preview-cover,
+.card-details-cover {
   width: 100%;
-  
-    background-size: initial;
-    background-origin: content-box;
-    padding: 0px;
-    box-sizing: border-box;
-    background-position: left center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-   
-  
-    
+
+  background-size: initial;
+  background-origin: content-box;
+  padding: 0px;
+  box-sizing: border-box;
+  background-position: left center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-.card-preview-cover{
+.card-preview-cover {
   height: 32px;
 }
 
-.card-details-cover{
-    height: 116px;
-    min-height: 116px;
+.card-details-cover {
+  height: 116px;
+  min-height: 116px;
+}
+
+.edit-add-to-card-btn-continer{
+display: flex;
+@include for-wide-layout {
+  flex-direction: column;
+}
+@include for-mobile-layout {
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+ 
+}
 
 }
