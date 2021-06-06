@@ -12,13 +12,12 @@ export const routes = [
         path: '/about',
         component: About,
     },
-    
+
     {
         path: '/boards/',
         component: Boards,
     },
 
-    
     {
         path: '/board/:boardId?/:cardId?',
         // ---> path: '/board/:boardId',

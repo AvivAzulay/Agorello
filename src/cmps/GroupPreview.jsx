@@ -2,7 +2,7 @@ import React from 'react'
 import { CardList } from './CardList'
 import { CardAdd } from './CardAdd'
 import { Draggable } from 'react-beautiful-dnd'
-import { GroupTitleEdit } from './GroupTitleEdit'
+import { SmartTitleEdit } from './SmartTitleEdit'
 
 
 export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, onSaveActivity }) {
@@ -28,7 +28,7 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
 
                 >
                     <div className="group-preview-header">
-                        <GroupTitleEdit group={group} onSaveGroup={onSaveGroup} board={board} value="group" />
+                        <SmartTitleEdit group={group} onSaveGroup={onSaveGroup} board={board} />
                         <button onClick={() => removeGroup(group.id)} className="group-preview-header-btn"></button>
                     </div>
 

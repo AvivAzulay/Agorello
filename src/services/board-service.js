@@ -7,19 +7,11 @@ export const boardService = {
     getById,
     addBoard,
     updateBoard,
-    setCurrBoard,
-    // getCardTitleById,
+    // setCurrBoard,
     updateActivityList
-    // saveGroup,
-    // saveCard,
-    // removeCard,
-    // removeGroup,
-    // getCardById,
-    // updateBoard,
-    // getGboards,
-    // saveBoard
 }
 
+<<<<<<< HEAD
 // const gBoards = getGboards()
 var gBoard;
 
@@ -27,6 +19,11 @@ async function setCurrBoard(boardId) {
     const board = await getById(boardId)
     gBoard = _deepCloneBoard(board)
 }
+=======
+// async function setCurrBoard(boardId) {
+//     const board = await getById(boardId)
+// }
+>>>>>>> 6c8087e86adfef8ed5d58e694138916361bb983b
 
 async function query(filterBy) {
     const boards = await httpService.get('board', filterBy)
@@ -42,125 +39,10 @@ async function getById(boardId) {
 }
 
 async function updateBoard(board) {
-    socketService.emit('board updated', board)
-    const boardId = board._id
-    return await httpService.put(`board/${boardId}`, board)
+    const result = await httpService.put(`board/${board._id}`, board)
+    socketService.emit('board update', board)
+    return result
 }
-
-// async function removeCard(cardId, groupId) {
-//     let board = gBoard
-//     const groupIdx = board.groups.findIndex(group => group.id === groupId)
-//     const cardIdx = board.groups[groupIdx].cards.findIndex(card => card.id === cardId)
-//     board.groups[groupIdx].cards.splice(cardIdx, 1)
-//     const newBoard = _deepCloneBoard(board)
-//     gBoard = _deepCloneBoard(newBoard)
-//     const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//     return updatedBoard
-// }
-
-// async function removeGroup(groupId) {
-//     let board = gBoard
-//     const groupIdx = board.groups.findIndex(group => group.id === groupId)
-//     board.groups.splice(groupIdx, 1)
-//     const newBoard = _deepCloneBoard(board)
-//     gBoard = _deepCloneBoard(newBoard)
-//     const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//     return updatedBoard
-// }
-
-// function getBoardById(bordId) {
-//     const board = gBoards.find(board => board._id === bordId)
-//     return board
-// }
-// function updateBoards() {
-//     const boardIdx = gBoards.findIndex(board => board._id === board.id)
-//     gBoards[boardIdx] = board
-// }
-
-// function getBoardIdx(bord) {
-//     const idx = gBoards.find(board => board._id === bordId)
-//     return board
-// }
-
-// function removeBoard(boardId) {
-//     return httpService.delete(`board/${boardId}`)
-// }
-
-// async function saveGroup(group, board) {
-//     if (group.id) {
-//         const groupIdx = board.groups.findIndex(currGroup => currGroup.id === group.id)
-//         board.groups[groupIdx] = group
-//         const newBoard = _deepCloneBoard(board)
-//         gBoard = _deepCloneBoard(newBoard)
-//         const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//         return updatedBoard
-//     // return Promise.resolve(_deepCloneBoard(gBoard))
-// }
-// else {
-//     group.cards = []
-//     board.groups.push(group)
-//     const newBoard = _deepCloneBoard(board)
-//     gBoard = _deepCloneBoard(newBoard)
-//     const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//     return updatedBoard
-// }
-// }
-
-// async function saveCard(card, groupId, board) {
-//     console.log('save card', board)
-//     if (card.id) {
-//         // let board = gBoard
-//         // let group = board.groups.find(group => group.id === groupId)
-//         const groupIdx = board.groups.findIndex(group => group.id === groupId)
-//         board.groups[groupIdx].cards.map(currCard => {
-//             return (currCard.id === card.id) ? card : currCard
-//         })
-//         const newBoard = _deepCloneBoard(board)
-//         gBoard = _deepCloneBoard(newBoard)
-//         const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//         return updatedBoard
-//         // return Promise.resolve(_deepCloneBoard(gBoard))
-//     } else {
-//         let board = gBoard
-//         console.log('save card', board)
-//         const groupIdx = board.groups.findIndex(group => group.id === groupId)
-//         card.currGroup = { groupId: board.groups[groupIdx].id, createdAt: new Date() }
-//         card.id = utilService.makeId()
-//         card.members = []
-//         card.labels = []
-//         card.attachments = []
-//         card.members = []
-//         card.checklist = []
-//         board.groups[groupIdx].cards.push(card)
-//         console.log(board.groups[groupIdx].cards)
-//         const newBoard = _deepCloneBoard(board)
-//         gBoard = _deepCloneBoard(newBoard)
-//         const updatedBoard = await httpService.put(`board/${board._id}`, newBoard)
-//         return updatedBoard
-//         // return Promise.resolve(_deepCloneBoard(gBoard))
-//     }
-// }
-
-
-// function getCardById(cardId, board) {
-//     const group = board.groups.find(group => group.cards.find(card => card.id === cardId))
-//     return group.cards.find(card => card.id === cardId)
-// }
-
-// function getCardTitleById(cardId) {
-//     let board = gBoard
-//     let cardTitle;
-//     board.groups.forEach(group => group.cards.forEach(card => {
-//         if (card.id === cardId) {
-//             cardTitle = card.title
-//         }
-//     }))
-//     return cardTitle
-// }
-
-// function updateBoard(board) {
-//     board = board;
-// }
 
 function _deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
@@ -183,8 +65,8 @@ function updateActivityList(board, data, action) {
         "byMember": {
             // Change it to current logged in user
             "_id": "5f6a2528973d861c5d78c355",
-            "fullname": "Gad Refaeli",
-            "imgUrl": `https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg`
+            "fullname": "puki ben david",
+            "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
         }
     }
     switch (action) {
@@ -372,6 +254,12 @@ async function addBoard(title, backgroundURL, board) {
 
     console.log('add', newBoard)
     newBoard = await httpService.post('board', newBoard)
+<<<<<<< HEAD
     // gBoards.push(newBoard)
+=======
+>>>>>>> 6c8087e86adfef8ed5d58e694138916361bb983b
     return Promise.resolve((_deepCloneBoard(newBoard)))
 }
+
+
+

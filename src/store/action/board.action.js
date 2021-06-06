@@ -1,7 +1,6 @@
 import { boardService } from '../../services/board-service'
 import { utilService } from '../../services/util-service'
 
-///***********  DONE  ***********///
 export function loadBoard(boardId) {
     return async dispatch => {
         try {
@@ -13,7 +12,7 @@ export function loadBoard(boardId) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function saveCard(card, groupId, board) {
     return async dispatch => {
         try {
@@ -24,7 +23,6 @@ export function saveCard(card, groupId, board) {
                     return (currCard.id === card.id)
                 })
                 newBoard.groups[groupIdx].cards[cardIdx] = card
-                console.log(board);
             } else {
                 const newCard = _getNewCardObj(groupId)
                 newCard.title = card.title
@@ -38,11 +36,11 @@ export function saveCard(card, groupId, board) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function saveGroup(group, board) {
     return async dispatch => {
         try {
-            let newBoard = _deepCloneBoard(board)
+            const newBoard = _deepCloneBoard(board)
             if (group.id) {
                 const groupIdx = board.groups.findIndex(currGroup => currGroup.id === group.id)
                 newBoard.groups[groupIdx] = group
@@ -53,14 +51,13 @@ export function saveGroup(group, board) {
             }
 
             dispatch({ type: 'SET_BOARD', board: newBoard })
-
             await boardService.updateBoard(newBoard)
         } catch (err) {
-            console.log(`BoardActions: err in ${group.title ? 'update group' : 'add group'}${err}`)
+            console.log(`BoardActions: err in ${group.id ? 'update group' : 'add group'}${err}`)
         }
     }
 }
-///***********  DONE  ***********///
+
 export function removeCard(card, board) { // Action Creator
     return async dispatch => {
         try {
@@ -75,7 +72,7 @@ export function removeCard(card, board) { // Action Creator
         }
     }
 }
-///***********  DONE  ***********///
+
 export function removeGroup(groupId, board) { // Action Creator
     return async dispatch => {
         try {
@@ -89,7 +86,7 @@ export function removeGroup(groupId, board) { // Action Creator
         }
     }
 }
-///***********  DONE  ***********///
+
 export function updatePosition(newBoardPositioning) {
     return async dispatch => {
         try {
@@ -101,7 +98,7 @@ export function updatePosition(newBoardPositioning) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function updateBoard(board) {
     return async dispatch => {
         try {
@@ -113,7 +110,18 @@ export function updateBoard(board) {
         }
     }
 }
-///***********  DONE  ***********///
+
+export function updateBoardSockets(board) {
+    return async dispatch => {
+        try {
+            const newBoard = JSON.parse(JSON.stringify(board))
+            dispatch({ type: 'SET_BOARD', board: newBoard })
+        } catch (err) {
+            console.log('error updating board', err)
+        }
+    }
+}
+
 export function addBoard(title, backgroundURL, board = null) {
     return async dispatch => {
         try {
@@ -124,7 +132,7 @@ export function addBoard(title, backgroundURL, board = null) {
         }
     }
 }
-///***********  DONE  ***********///
+
 export function loadBoards() {
     return async dispatch => {
         try {
@@ -149,16 +157,6 @@ export function saveActivity(board, data, action) {
     }
 }///***********  NOT DONE  ***********///
 
-// export function setMovementBoard(board) {
-//     return async dispatch => {
-//         try {
-//             dispatch({ type: 'SET_BOARD', board: board })
-//         } catch (err) {
-//             console.log(`OI:`, err)
-//         }
-//     }
-// }
-
 
 function _deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
@@ -176,7 +174,6 @@ function _getNewCardObj(groupId) {
         createdAt: Date.now()
     }
 }
-
 
 
 // export function removeBoard(boardId) { // Action Creator

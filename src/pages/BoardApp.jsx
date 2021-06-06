@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CardDetails } from '../cmps/CardDetails'
 import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, saveBoard } from '../store/action/board.action.js'
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, updateBoardSockets } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 
@@ -16,23 +16,30 @@ class _BoardApp extends Component {
 
     async componentDidMount() {
         const boardId = this.props.match.params.boardId
-        socketService.setup()
         try {
             await this.onLoadBoard()
-            socketService.emit('working board', boardId)
-            socketService.on('board updated 2', (board) => {
-                console.log(board);
-                this.onLoadBoard(board._id)
+            socketService.emit('join board', boardId)
+            socketService.on('board updated', (board) => {
+                this.props.updateBoardSockets(board)
             })
         } catch (err) {
             console.log('Huge error', err);
         }
     }
-    
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
     componentWillUnmount() {
-        socketService.off('board updated')
-        socketService.terminate()
+        // socketService.off('board updated')
+        // socketService.terminate()
     }
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
 
     onLoadBoard = () => {
         this.props.loadBoard(this.props.match.params.boardId, console.log(this.props.board))
@@ -46,12 +53,15 @@ class _BoardApp extends Component {
         // socketService.emit('board updated', { from, txt: this.state.msg.txt })
     }
 
-    onSaveBoard = (board) => {
-        this.props.saveBoard(board)
+    onUpdateBoard = (key, value) => {
+        const newBoard = { ...this.props.board }
+        newBoard[key] = value
+        this.props.updateBoard(newBoard)
+        // socketService.emit('board updated', { newBoard })
     }
 
-    onSaveGroup = (group) => {
-        return this.props.saveGroup(group, this.props.board)
+    onSaveGroup = (group, board) => {
+        return this.props.saveGroup(group, board)
     }
 
     onRemoveGroup = (groupId) => {
@@ -92,15 +102,14 @@ class _BoardApp extends Component {
         const { board } = this.props
         if (!board) return <div>Loading...</div>
         return (<>
-      
-            {(this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
-            
+            { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
+
             <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
-            <div className="fade"></div>
-            <div className="borad-nav-color"></div>
+                <div className="fade"></div>
+                <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
-                    onSaveBoard={this.onSaveBoard}
+                    onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
@@ -133,14 +142,13 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     saveCard,
-    // saveBoard,
     loadBoard,
     saveGroup,
     removeCard,
-    // updateBoard,
+    updateBoard,
     removeGroup,
     saveActivity,
-    updateBoard
+    updateBoardSockets
 }
 
 

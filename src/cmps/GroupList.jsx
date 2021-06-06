@@ -30,6 +30,7 @@ export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCa
             />)}
             {provided.placeholder}
             <GroupAdd
+              board={board}
               onSaveGroup={onSaveGroup}
               onSaveActivity={onSaveActivity}
             />

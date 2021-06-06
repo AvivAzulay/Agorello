@@ -1,5 +1,6 @@
 .card-preview,
-.card-preview-drag {
+.card-preview-drag-right,
+.card-preview-drag-left{
   // flex: 0 0 27rem;
   display: flex;
   flex-direction: column;
@@ -24,9 +25,15 @@ position: relative;
   display: flex;
   flex-direction: column;
 }
-// .card-preview-drag{
-//   transform: skewY(1deg);
-// }
+.card-preview-drag-right{
+  transform: scale(1.085) rotate(3.5deg);
+  transition: transform .12s;
+}
+.card-preview-drag-left{
+  transform: scale(1.085) rotate(-3.5deg);
+  transition: transform .12s;
+}
+  
 
 .card-add-edit {
   display: flex;

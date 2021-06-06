@@ -4,7 +4,6 @@ import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 
 export class BoardHeader extends Component {
 
-
   state = {
     title: '',
     board: null,
@@ -89,6 +88,7 @@ export class BoardHeader extends Component {
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319310/background%20for%20Taskit/background_7_kdnduh.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319329/background%20for%20Taskit/background_1_veqold.jpg"
     ]
+
     const { isMenuOn, isSetBackGround, isEditing, title } = this.state
     if (!this.props.board) return <div>Loading...</div>
     return (

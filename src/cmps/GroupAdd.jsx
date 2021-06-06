@@ -29,7 +29,7 @@ export class GroupAdd extends Component {
         ev.preventDefault()
         if (!this.state.group.title) return
         const { onSaveGroup, onSaveActivity } = this.props
-        onSaveGroup(this.state.group).then(group => {
+        onSaveGroup(this.state.group, this.props.board).then(group => {
             this.setState({ ...this.state, group: { title: '' } })
             onSaveActivity(group, 'ADD_GROUP')
         }

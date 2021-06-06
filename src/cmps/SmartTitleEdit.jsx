@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class GroupTitleEdit extends Component {
+export class SmartTitleEdit extends Component {
     state = {
         isEditing: false,
         group: null,
