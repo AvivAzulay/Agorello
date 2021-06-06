@@ -40,7 +40,6 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value, action, item) => {
-    console.log(item);
     const { card } = this.state
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card, action, item))
@@ -226,7 +225,7 @@ export class _CardDetails extends Component {
 
                 <h1> ADD TO CARD </h1>
 
-                <div className="edit-add-to-card-btn-continer"> 
+                <div className="edit-add-to-card-btn-continer">
                   <button className="edit-add-to-card-members"
                     onClick={() => {
                       this.onToggleModal()
@@ -276,7 +275,10 @@ export class _CardDetails extends Component {
                   <label htmlFor="raised-button-file">
                     <button className="edit-add-to-card-attachment">
                       Attachment
-                        <UplodeImg onUpdateCardProps={this.onUpdateCardProps} /></button>
+                        <UplodeImg
+                        card={card}
+                        onUpdateCardProps={this.onUpdateCardProps}
+                      /></button>
                   </label>
 
 
@@ -288,17 +290,17 @@ export class _CardDetails extends Component {
                       isCoverListShowen={this.state.isCoverListShowen}
                     />
                   </div>
-                {this.state.isModalShown && <CardDetailsModal
-                  modalType={this.state.modalType}
-                  modalLoc={this.state.modalLoc}
-                  card={card}
-                  board={this.props.board}
-                  saveActivity={this.props.saveActivity}
-                  boardMembers={this.props.board.members}
-                  onUpdateCardProps={this.onUpdateCardProps}
-                  onToggleModal={this.onToggleModal}
-                  boardLabels={this.props.board.labels} />
-                }
+                  {this.state.isModalShown && <CardDetailsModal
+                    modalType={this.state.modalType}
+                    modalLoc={this.state.modalLoc}
+                    card={card}
+                    board={this.props.board}
+                    saveActivity={this.props.saveActivity}
+                    boardMembers={this.props.board.members}
+                    onUpdateCardProps={this.onUpdateCardProps}
+                    onToggleModal={this.onToggleModal}
+                    boardLabels={this.props.board.labels} />
+                  }
 
                   {this.state.isModalShown && <CardDetailsModal
                     modalType={this.state.modalType}

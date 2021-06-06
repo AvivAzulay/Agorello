@@ -78,14 +78,15 @@ $header-width: 48px;
 .side-menu {
   z-index: 200;
   position: absolute;
-  top: 48px;
+  top: 40px;
   right: 0;
   display: flex;
   flex-direction: column;
   background-color: #f4f5f7;
   flex: 1;
-  overflow: hidden;
-  height: calc(100vh - 48px);
+  overflow-y: auto;
+
+  height: calc(100vh - 65px);
   button {
     width: 300px;
     font-weight: 600;
@@ -101,10 +102,15 @@ $header-width: 48px;
   button:hover {
     background-color: rgb(223, 227, 232);
   }
+  .side-menu-title{
+    display: flex;
+    margin: 0px 4px;
+    align-items: center;
+  }
   div {
     display: flex;
-    border-bottom: 2px solid rgb(223, 227, 232);
-    margin: 0px 8px;
+    margin: 0px 4px;
+    align-items: flex-start;
     h1 {
       color: #172b4d;
       padding: 0px 100px;

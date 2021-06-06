@@ -8,16 +8,18 @@ export class UplodeImg extends Component {
     width: 500,
     isUploading: false
   }
- 
-  
+
+
   uploadImg = async (ev) => {
+    console.log(ev);
     this.setState({ isUploading: true })
     const { secure_url, height, width } = await cloudinaryService.uploadImg(ev)
+    console.log(secure_url);
     this.setState({ isUploading: false, imgUrl: secure_url, height, width })
-    const url=[]
-     url.push(secure_url)
-   
-     this.props.onUpdateCardProps('attachments',url)
+    const url = []
+    url.push(secure_url)
+
+    this.props.onUpdateCardProps('attachments', url, 'ATTACHMENT', this.props.card)
   }
   get uploadMsg() {
     const { imgUrl, isUploading } = this.state
@@ -28,12 +30,12 @@ export class UplodeImg extends Component {
 
 
   render() {
-   
+
     return (
       <span className="upload-preview" >
         {/* <img src="" alt="" />
         <label className="upload-label" htmlFor="imgUpload">{ this.uploadMsg }</label> */}
-        <input type="file" onChange={ this.uploadImg } accept="img/*" id="imgUpload" />
+        <input type="file" onChange={this.uploadImg} accept="img/*" id="imgUpload" />
       </span>
     )
   }
