@@ -13,7 +13,8 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
     function toggleDueDate(ev) {
         ev.stopPropagation()
         card.dueDate.isCompleted = !card.dueDate.isCompleted
-        onSaveCard(card, card.currGroup.groupId)
+        const action = card.dueDate.isCompleted ? 'COMPLETE_DUEDATE' : 'INCOMPLETE_DUEDATE'
+        onSaveCard(card, card.currGroup.groupId, action)
     }
 
 
@@ -47,7 +48,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                         <div className="card-preview-body">
                             <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
                                 card?.labels?.map((label, index) =>
-                                    <div className={`card-preview-label ${label.color} ${isLebelOpen? "open" : ""}`} key={index}>
+                                    <div className={`card-preview-label ${label.color} ${isLebelOpen ? "open" : ""}`} key={index}>
                                         {isLebelOpen && <span>{label.name}</span>}
                                     </div>
                                 )}

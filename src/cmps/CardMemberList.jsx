@@ -21,14 +21,13 @@ export class CardMemberList extends Component {
         if (!isChecked) {
             members.push(member)
             card.addedMember = member
-            this.props.saveActivity(card, 'ADD_MEMBER')
+            this.props.onUpdateCardProps('members', members, 'ADD_MEMBER', member)
         } else {
             members = members.filter(cardMember => cardMember._id !== member._id)
             card.removedMember = member
-            this.props.saveActivity(card, 'REMOVE_MEMBER')
+            this.props.onUpdateCardProps('members', members, 'REMOVE_MEMBER', member)
         }
 
-        this.props.onUpdateCardProps('members', members)
     }
 
     handleChange = (ev) => {
@@ -37,7 +36,7 @@ export class CardMemberList extends Component {
 
     render() {
         let { boardMembers } = this.state
-        if (! boardMembers ||  boardMembers.length === 0) return <h1>Loading...</h1>
+        if (!boardMembers || boardMembers.length === 0) return <h1>Loading...</h1>
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
             <div className={`card-member-list ${this.props.modalLoc}`} onClick={(ev) => { ev.stopPropagation() }}>

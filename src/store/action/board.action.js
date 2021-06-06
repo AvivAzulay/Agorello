@@ -13,7 +13,7 @@ export function loadBoard(boardId) {
     }
 }
 
-export function saveCard(card, groupId, board) {
+export function saveCard(card, groupId, board, action = '', item = '') {
     return async dispatch => {
         try {
             let newBoard = _deepCloneBoard(board)
@@ -23,11 +23,13 @@ export function saveCard(card, groupId, board) {
                     return (currCard.id === card.id)
                 })
                 newBoard.groups[groupIdx].cards[cardIdx] = card
+                if (action) newBoard = _updateActivityList(newBoard, card, action, item)
             } else {
                 const newCard = _getNewCardObj(groupId)
                 newCard.title = card.title
                 const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
                 newBoard.groups[groupIdx].cards.push(newCard)
+                if (action) newBoard = _updateActivityList(newBoard, newCard, action, item)
             }
             dispatch({ type: 'SET_BOARD', board: newBoard })
             await boardService.updateBoard(newBoard)
@@ -37,10 +39,10 @@ export function saveCard(card, groupId, board) {
     }
 }
 
-export function saveGroup(group, board) {
+export function saveGroup(group, board, action = '') {
     return async dispatch => {
         try {
-            const newBoard = _deepCloneBoard(board)
+            let newBoard = _deepCloneBoard(board)
             if (group.id) {
                 const groupIdx = board.groups.findIndex(currGroup => currGroup.id === group.id)
                 newBoard.groups[groupIdx] = group
@@ -48,6 +50,7 @@ export function saveGroup(group, board) {
                 group.id = utilService.makeId()
                 group.cards = []
                 newBoard.groups.push(group)
+                newBoard = _updateActivityList(newBoard, group, action)
             }
 
             dispatch({ type: 'SET_BOARD', board: newBoard })
@@ -73,12 +76,13 @@ export function removeCard(card, board) { // Action Creator
     }
 }
 
-export function removeGroup(groupId, board) { // Action Creator
+export function removeGroup(group, board, action) { // Action Creator
     return async dispatch => {
         try {
-            const newBoard = _deepCloneBoard(board)
-            const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
+            let newBoard = _deepCloneBoard(board)
+            const groupIdx = newBoard.groups.findIndex(currGroup => currGroup.id === group.id)
             newBoard.groups.splice(groupIdx, 1)
+            newBoard = _updateActivityList(newBoard, group, action)
             dispatch({ type: 'SET_BOARD', board: newBoard })
             await boardService.updateBoard(newBoard)
         } catch (err) {
@@ -149,9 +153,10 @@ export function loadBoards() {
 export function saveActivity(board, data, action) {
     return async dispatch => {
         try {
-            const newBoard = await boardService.updateActivityList(board, data, action)
-            // console.log(newBoard);
+            // const newBoard = _updateActivityList(board, data, action)
             // dispatch({ type: 'SET_BOARD', board: newBoard })
+            // await boardService.updateBoard(newBoard)
+            // console.log(newBoard.activities);
         } catch (err) {
             console.log(`BoardActions: err in ${action} - can't add activity`)
         }
@@ -174,6 +179,127 @@ function _getNewCardObj(groupId) {
         currGroup: { groupId },
         createdAt: Date.now()
     }
+}
+
+function _getGroupById(board, id) {
+    // const group = board.groups.find(group => group.id === id)
+    // console.log(group);
+    return board.groups.find(group => group.id === id)
+}
+
+function _updateActivityList(board, data, action, item) {
+    let activity = {
+        "id": utilService.makeId(),
+        "txtCard": "",
+        "txtBoard": "",
+        "commentTxt": "",
+        "createdAt": Date.now(),
+        "byMember": {
+            // Change it to current logged in user
+            "_id": "5f6a2528973d861c5d78c355",
+            "fullname": "puki ben david",
+            "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+        }
+    }
+    switch (action) {
+        case 'ADD_CARD':
+            let group1 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` added this card to ${group1.title} `
+            activity.txtBoard = ` added ${data.title} to ${group1.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember\
+            break;
+        case 'ADD_MEMBER':
+            let group2 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` added ${item.fullname} to this card `
+            activity.txtBoard = ` added ${item.fullname} to ${group2.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'REMOVE_MEMBER':
+            let group3 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` removed ${item.fullname} to this card `
+            activity.txtBoard = ` removed ${item.fullname} to ${group3.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'ADD_CHECKLIST':
+            let group4 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` added ${item.title} to this card `
+            activity.txtBoard = ` added ${item.title} to ${group4.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'REMOVE_CHECKLIST':
+            let group5 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` removed ${item.title} from this card `
+            activity.txtBoard = ` removed ${item.title} from ${group5.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            // activity.byMember = currLoggedInMember
+            break
+        case 'ADD_GROUP':
+            activity.txtBoard = ` added ${data.title} to this board `
+            break
+        case 'REMOVE_GROUP':
+            activity.txtBoard = ` archived list ${data.title} `
+            break
+        case 'COMPLETE_TASK':
+            console.log('item', item);
+            let group6 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` completed ${item.title} on this card `
+            activity.txtBoard = ` completed ${item.title} on ${group6.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'INCOMPLETE_TASK':
+            let group7 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` marked ${item.title} incomplete on this card `
+            activity.txtBoard = ` marked ${item.title} incomplete on ${group7.title} `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'COMPLETE_DUEDATE':
+            let group8 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` marked the due date complete `
+            activity.txtBoard = ` marked the due date on ${group8.title} complete `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        case 'INCOMPLETE_DUEDATE':
+            let group9 = _getGroupById(board, data.currGroup.groupId)
+            activity.txtCard = ` marked the due date incomplete `
+            activity.txtBoard = ` marked the due date on ${group9.title} incomplete `
+            activity.card = {
+                "id": data.id,
+                "title": data.title,
+            }
+            break
+        default:
+            break;
+    }
+    board.activities.unshift(activity)
+    return board
 }
 
 

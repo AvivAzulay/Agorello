@@ -32,8 +32,6 @@ export class CardChecklistTodo extends Component {
             // console.log(ev.target.checked);
             const card = { ...this.props.card }
             card.txtValue = this.state.txtValue
-            ev.target.checked && this.props.saveActivity(card, 'COMPLETE_TASK')
-            !ev.target.checked && this.props.saveActivity(card, 'INCOMPLETE_TASK')
         })
     }
 
@@ -95,27 +93,14 @@ export class CardChecklistTodo extends Component {
         this.setState({ txtValue: ev.target.value })
     }
 
-    getActivityTxt = () => {
-        let txt;
-        if (this.state.isDone) {
-            txt = `completed ${this.state.txtValue}`
-        } else {
-            txt = `marked ${this.state.txtValue} incomplete`
-        }
-        return txt
-    }
-
-    onRemove = (ev) => {
-        // ev.stopPropagation()
-        // console.log(this.props.todo);
-        // console.log(ev);
+    onRemove = () => {
         this.props.todo.title = ''
         this.props.onUpdateChecklist(this.props.todo)
         // this.setState({ txtValue: '' }, this.updateChecklist)
     }
 
     updateChecklist = () => {
-
+        const { isDone, txtValue } = this.state
         let id;
         if (this.props.todo) {
             id = this.props.todo.id
@@ -124,18 +109,10 @@ export class CardChecklistTodo extends Component {
         }
         const todo = {
             id,
-            isDone: this.state.isDone,
-            title: this.state.txtValue
+            isDone: isDone,
+            title: txtValue
         }
-
         this.props.onUpdateChecklist(todo)
-        // const activityTxt = this.getActivityTxt()
-        // if (this.state.isNew) {
-        //     this.props.onUpdate(todo)
-        //     this.setState({ txtValue: '' })
-        // } else {
-        //     this.props.onUpdate(todo, activityTxt)
-        // }
     }
 
 

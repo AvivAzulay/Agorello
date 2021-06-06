@@ -94,18 +94,25 @@ export class CardCheckList extends Component {
     }
 
     onUpdateChecklist = (newTodo) => {
+
         // take the updated todo and insert it into the list
         if (!newTodo) return
         let todos = [...this.props.list.todos]
-        // find the todo index
         const todoIdx = todos.findIndex(todo => todo.id === newTodo.id)
+        // find the todo index
         // if new title is blank - remove todo
         if (!newTodo.title) {
             todos.splice(todoIdx, 1)
         } else if (todoIdx < 0) { //if the index is less than 0 - this is a new item
             todos.push(newTodo)
         } else {
+            console.log(newTodo);
             todos[todoIdx] = newTodo
+            const checklist = this.state.checklist
+            checklist.todos = todos
+            newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'COMPLETE_TASK', newTodo)
+            !newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'INCOMPLETE_TASK', newTodo)
+            return
         }
         const checklist = this.state.checklist
         let currList = checklist.find(list => list.id === this.props.list.id)
@@ -116,16 +123,11 @@ export class CardCheckList extends Component {
 
     onRemoveChecklist = () => {
         const { checklist } = this.state
-        const { list, saveActivity, card } = this.props
+        const { list } = this.props
         const checklistIdx = checklist.findIndex(currList => currList.id === list.id)
         checklist.splice(checklistIdx, 1)
-        this.props.onUpdateCardProps('checklist', checklist)
+        this.props.onUpdateCardProps('checklist', checklist, 'REMOVE_CHECKLIST', list)
         this.closeDialog()
-
-        //Add new card activity
-        const newCard = { ...card } // for actions
-        newCard.currList = list
-        saveActivity(newCard, 'REMOVE_CHECKLIST')
     }
 
     getNewTodoDisplay = () => {
@@ -175,12 +177,13 @@ export class CardCheckList extends Component {
                         todo={todo}
                         card={this.props.card}
                         key={todo.id}
+                        board={this.props.board}
                         saveActivity={this.props.saveActivity}
                         displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
                     />)}
                     {/* {this.getNewTodoDisplay()} */}
-                    <CardAddTodo onUpdateChecklist={this.onUpdateChecklist}/>
+                    <CardAddTodo onUpdateChecklist={this.onUpdateChecklist} />
                 </main>
 
 

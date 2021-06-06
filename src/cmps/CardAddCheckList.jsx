@@ -19,7 +19,7 @@ export class CardAddCheckList extends Component {
     }
 
     onAdd = () => {
-        const { card, onUpdateCardProps, saveActivity } = this.props
+        const { card, onUpdateCardProps } = this.props
         const list = {
             id: utilService.makeId(),
             title: this.state.title,
@@ -27,12 +27,7 @@ export class CardAddCheckList extends Component {
         }
         if (!card.checklist) card.checklist = []
         card.checklist.push(list)
-        onUpdateCardProps('checklist', card.checklist)
-
-        //Add new card activity
-        const newCard = { ...card }
-        newCard.currList = list
-        saveActivity(newCard, 'ADD_CHECKLIST')
+        onUpdateCardProps('checklist', card.checklist, 'ADD_CHECKLIST', list)
     }
 
     render() {
