@@ -18,7 +18,13 @@ export class CardActivitiesList extends Component {
                             <MemberIcon member={activity.byMember} />
                             {activity.txtCard && <>
                                 <span>{activity.byMember.fullname} </span>
-                                <span>{activity.txtBoard} </span>
+                                <span>{activity.txtCard} </span>
+                                <span><Moment fromNow>{activity.createdAt}</Moment></span>
+                            </>
+                            }
+                            {activity.attachment && <>
+                                <span>{activity.byMember.fullname} </span>
+                                <a href={activity.attachment}>attachment</a>
                                 <span><Moment fromNow>{activity.createdAt}</Moment></span>
                             </>
                             }

@@ -295,6 +295,16 @@ function _updateActivityList(board, data, action, item) {
                 "title": data.title,
             }
             break
+        case 'ATTACHMENT':
+            console.log(data);
+            let group10 = _getGroupById(board, item.currGroup.groupId)
+            activity.attachment = ` attached ${data.attachments[0]} to this card `
+            activity.txtBoard = ` attached ${data.attachments[0]} to ${group10.title} `
+            activity.card = {
+                "id": item.id,
+                "title": item.title,
+            }
+            break
         default:
             break;
     }
