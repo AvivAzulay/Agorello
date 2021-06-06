@@ -40,7 +40,6 @@ export class _CardDetails extends Component {
   }
 
   onUpdateCardProps = (key, value, action, item) => {
-    console.log(item);
     const { card } = this.state
     card[key] = value
     this.setState({ card }, () => this.onSaveCard(card, action, item))

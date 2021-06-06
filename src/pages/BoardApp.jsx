@@ -102,6 +102,7 @@ class _BoardApp extends Component {
     render() {
         const { board } = this.props
         if (!board) return <div>Loading...</div>
+        // console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
