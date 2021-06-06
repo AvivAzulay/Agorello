@@ -122,10 +122,11 @@ export function updateBoardSockets(board) {
     }
 }
 
-export function addBoard(title, backgroundURL, board = null) {
+export function addBoard(title, backgroundURL, history, board = null) {
     return async dispatch => {
         try {
             const newBoard = await boardService.addBoard(title, backgroundURL, board)
+            history.push(`/board/${newBoard._id}`)
             dispatch({ type: 'ADD_BOARD', board: newBoard })
         } catch (err) {
             console.log('error adding board', err)

@@ -47,7 +47,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                         <div className="card-preview-body">
                             <div className="card-preview-labels" onClick={onOpenPreviewLabels}>{
                                 card?.labels?.map((label, index) =>
-                                    <div className={`card-preview-label ${label.color}`} key={index}>
+                                    <div className={`card-preview-label ${label.color} ${isLebelOpen? "open" : ""}`} key={index}>
                                         {isLebelOpen && <span>{label.name}</span>}
                                     </div>
                                 )}

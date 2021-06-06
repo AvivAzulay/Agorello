@@ -11,19 +11,9 @@ export const boardService = {
     updateActivityList
 }
 
-<<<<<<< HEAD
-// const gBoards = getGboards()
-var gBoard;
-
-async function setCurrBoard(boardId) {
-    const board = await getById(boardId)
-    gBoard = _deepCloneBoard(board)
-}
-=======
 // async function setCurrBoard(boardId) {
 //     const board = await getById(boardId)
 // }
->>>>>>> 6c8087e86adfef8ed5d58e694138916361bb983b
 
 async function query(filterBy) {
     const boards = await httpService.get('board', filterBy)
@@ -254,10 +244,6 @@ async function addBoard(title, backgroundURL, board) {
 
     console.log('add', newBoard)
     newBoard = await httpService.post('board', newBoard)
-<<<<<<< HEAD
-    // gBoards.push(newBoard)
-=======
->>>>>>> 6c8087e86adfef8ed5d58e694138916361bb983b
     return Promise.resolve((_deepCloneBoard(newBoard)))
 }
 
