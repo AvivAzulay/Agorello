@@ -112,7 +112,7 @@ export class BoardHeader extends Component {
         </div>
         <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
         {isMenuOn && !isSetBackGround && <div className="side-menu">
-          <div><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
+          <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
           <button className="about-this-board"> About this Board</button>
           <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
           <button className="board-analysis"> Board Analysis</button>
