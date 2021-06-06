@@ -20,7 +20,7 @@ export const boardService = {
     // saveBoard
 }
 
-const gBoards = getGboards()
+// const gBoards = getGboards()
 var gBoard;
 
 async function setCurrBoard(boardId) {
@@ -372,6 +372,6 @@ async function addBoard(title, backgroundURL, board) {
 
     console.log('add', newBoard)
     newBoard = await httpService.post('board', newBoard)
-    gBoards.push(newBoard)
+    // gBoards.push(newBoard)
     return Promise.resolve((_deepCloneBoard(newBoard)))
 }
