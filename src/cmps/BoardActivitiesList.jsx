@@ -10,10 +10,12 @@ export function BoardActivitiesList({ activities }) {
                 return <div className="activity-list-container" key={activity.id}>
                     <div className="activity-list-container-icon-txt" >
                         <MemberIcon member={activity.byMember} />
-                        <div>
-                            <span>{activity.byMember.fullname}</span>
-                            <span>{activity.txtBoard} </span>
-                            <span><Moment fromNow>{activity.createdAt}</Moment></span>
+                        <div  className="activity-list-content" >
+                            <div>
+                            <span className="activity-list-name">{activity.byMember.fullname.split(' ')[0]}</span>
+                            <span className="activity-list-txt">{activity.txtBoard} </span>
+                            </div>
+                            <span  className="activity-list-time"><Moment fromNow>{activity.createdAt}</Moment></span>
                         </div>
                     </div>
                 </div>

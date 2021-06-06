@@ -120,7 +120,7 @@ export class BoardHeader extends Component {
           <div className="edit-details-activity-header">
             <span>
               <p className="edit-details-activity-logo">
-                <span>Activity</span>
+                <span className="activity-title">Activity</span>
               </p>
               <BoardActivitiesList activities={this.props.board.activities} />
             </span>
