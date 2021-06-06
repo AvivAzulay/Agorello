@@ -39,15 +39,15 @@ export class _CardDetails extends Component {
     this.setState({ card })
   }
 
-  onUpdateCardProps = (key, value) => {
+  onUpdateCardProps = (key, value, action, item) => {
+    console.log(item);
     const { card } = this.state
     card[key] = value
-    this.setState({ card }, () => this.onSaveCard(card))
+    this.setState({ card }, () => this.onSaveCard(card, action, item))
   }
 
-  onSaveCard = () => {
-    const { card } = this.state
-    this.props.saveCard(card, card.currGroup.groupId, this.props.board)
+  onSaveCard = (card, action, item) => {
+    this.props.saveCard(card, card.currGroup.groupId, this.props.board, action, item)
   }
 
   onToggleDueDateRight = () => {
@@ -137,6 +137,7 @@ export class _CardDetails extends Component {
                     {card.dueDate &&
                       <CardDetailsDate
                         card={card}
+                        board={this.props.board}
                         onToggle={this.onToggleDueDateLeft}
                         saveActivity={this.props.saveActivity}
                         onUpdateCardProps={this.onUpdateCardProps}
@@ -146,6 +147,7 @@ export class _CardDetails extends Component {
                       {this.state.isCardMemberListShowenLeft &&
                         <CardDetailsDate
                           card={card}
+                          board={this.props.board}
                           onToggle={this.onToggleDueDateRight}
                           saveActivity={this.props.saveActivity}
                           onUpdateCardProps={this.onUpdateCardProps}
@@ -192,10 +194,9 @@ export class _CardDetails extends Component {
                 <div>
                   <CardCheckListContainer
                     card={card}
-                    // checklist={card.checklist}
+                    board={this.props.board}
                     saveActivity={this.props.saveActivity}
                     onUpdateCardProps={this.onUpdateCardProps} />
-                  {/* <CardCheckListList onUpdate={this.onUpdateChecklists} /> */}
                 </div>
 
                 <div>
@@ -209,6 +210,7 @@ export class _CardDetails extends Component {
                   <div className="edit-activity-description">
                     <CardComment
                       card={card}
+                      board={this.props.board}
                       saveActivity={this.props.saveActivity}
                       onUpdateCardProps={this.onUpdateCardProps}
                     />
@@ -286,6 +288,17 @@ export class _CardDetails extends Component {
                       isCoverListShowen={this.state.isCoverListShowen}
                     />
                   </div>
+                {this.state.isModalShown && <CardDetailsModal
+                  modalType={this.state.modalType}
+                  modalLoc={this.state.modalLoc}
+                  card={card}
+                  board={this.props.board}
+                  saveActivity={this.props.saveActivity}
+                  boardMembers={this.props.board.members}
+                  onUpdateCardProps={this.onUpdateCardProps}
+                  onToggleModal={this.onToggleModal}
+                  boardLabels={this.props.board.labels} />
+                }
 
                   {this.state.isModalShown && <CardDetailsModal
                     modalType={this.state.modalType}

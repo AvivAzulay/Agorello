@@ -14,7 +14,7 @@ export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCa
             {...provided.droppableProps}
             ref={provided.innerRef}
             className="group-list">
-            {groups.map((group, index) => <GroupPreview
+            {groups?.map((group, index) => <GroupPreview
               key={group.id}
               group={group}
               index={index}

@@ -42,7 +42,7 @@ class _BoardApp extends Component {
     //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
 
     onLoadBoard = () => {
-        this.props.loadBoard(this.props.match.params.boardId, console.log(this.props.board))
+        this.props.loadBoard(this.props.match.params.boardId)
     }
 
     onUpdateBoard = (key, value) => {
@@ -60,16 +60,17 @@ class _BoardApp extends Component {
         // socketService.emit('board updated', { newBoard })
     }
 
-    onSaveGroup = (group, board) => {
-        return this.props.saveGroup(group, board)
+    onSaveGroup = (group, board, action) => {
+        return this.props.saveGroup(group, board, action)
     }
 
-    onRemoveGroup = (groupId) => {
-        return this.props.removeGroup(groupId, this.props.board)
+    onRemoveGroup = (group) => {
+        return this.props.removeGroup(group, this.props.board, 'REMOVE_GROUP')
     }
 
-    onSaveCard = (card, groupId) => {
-        this.props.saveCard(card, groupId, this.props.board)
+    onSaveCard = (card, groupId, action) => {
+        console.log(action);
+        this.props.saveCard(card, groupId, this.props.board, action)
     }
 
     onRemoveCard = (card) => {
@@ -104,7 +105,7 @@ class _BoardApp extends Component {
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
-            <div className="board" style={{ backgroundImage: `url(${board.style.bgImg})` }}>
+            <div className="board" style={{ backgroundImage: `url(${board?.style?.bgImg})` }}>
                 <div className="fade"></div>
                 <div className="borad-nav-color"></div>
                 <BoardHeader

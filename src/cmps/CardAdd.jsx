@@ -48,10 +48,10 @@ export class CardAdd extends Component {
 
     onAddCard = () => {
         const { card } = this.state
-        this.props.onSaveCard(this.state.card, this.props.group.id)
+        this.props.onSaveCard(this.state.card, this.props.group.id, 'ADD_CARD')
         card.currGroup = {}
         card.currGroup.groupId = this.props.group.id
-        this.props.onSaveActivity(this.props.board, card, 'ADD_CARD')
+        // this.props.onSaveActivity(this.props.board, card, 'ADD_CARD')
     }
 
     render() {
@@ -72,7 +72,7 @@ export class CardAdd extends Component {
                                 <button className="card-add-edit-btn" onClick={this.onSubmit}>Add card</button>
                                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
                             </span>
-                            
+
                         </div>
 
                     </form>

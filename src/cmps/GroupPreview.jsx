@@ -29,7 +29,7 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
                 >
                     <div className="group-preview-header">
                         <SmartTitleEdit group={group} onSaveGroup={onSaveGroup} board={board} />
-                        <button onClick={() => removeGroup(group.id)} className="group-preview-header-btn"></button>
+                        <button onClick={() => removeGroup(group)} className="group-preview-header-btn"></button>
                     </div>
 
                     <div className="card-list-and-add">

@@ -24,7 +24,7 @@ export class CardComment extends Component {
     onSubmit = () => {
         const card = this.props.card
         card.commentTxt = this.state.commentTxt
-        this.props.saveActivity(card, 'ADD_COMMENT')
+        this.props.saveActivity(this.props.board, card, 'ADD_COMMENT')
         this.setState({ commentTxt: '', isEditModeOn: !this.state.isEditModeOn })
     }
 
@@ -41,9 +41,9 @@ export class CardComment extends Component {
                         placeholder='Write a comment...'
                         className="edit-activity-description-textarea"
                     />
-                     {isEditModeOn && <button className=" save-btn" onClick={this.onSubmit}>Save</button>}
+                    {isEditModeOn && <button className=" save-btn" onClick={this.onSubmit}>Save</button>}
                 </div>
-               
+
             </>
         )
     }

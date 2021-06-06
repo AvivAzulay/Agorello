@@ -8,7 +8,6 @@ export class BoardAdd extends Component {
     }
   }
 
-
   componentDidMount() {
   }
 
@@ -27,8 +26,6 @@ export class BoardAdd extends Component {
     this.props.onNewBoard(newboard.title, newboard.backgroundURL)
     this.setState({ ...this.state, newboard: { title: '', backgroundURL: '' } })
     this.props.toggleModal()
-    // this.props.history.push(`/board/${this.props.boards[this.props.boards.length-1]._id}?`);
-
   }
 
   render() {

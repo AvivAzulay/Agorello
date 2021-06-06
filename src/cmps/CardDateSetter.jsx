@@ -24,7 +24,6 @@ export function CardDateSetter({ onUpdateCardProps }) {
                         shrink: false,
                         required: false,
                         fullwidth: "true"
-                        // fullwidth: true
                     }}
                 />
             </form>

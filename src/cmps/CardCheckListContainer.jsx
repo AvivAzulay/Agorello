@@ -11,12 +11,13 @@ export class CardCheckListContainer extends Component {
     }
 
     render() {
-        const { saveActivity, onUpdateCardProps, card } = this.props
+        const { saveActivity, onUpdateCardProps, board, card } = this.props
         if (!card.checklist || !card.checklist.length) return <></>
         return (
             <div className="checklists-container">
                 {card.checklist.map(list => <CardCheckList
                     card={card}
+                    board={board}
                     list={list}
                     key={list.id}
                     saveActivity={saveActivity}
