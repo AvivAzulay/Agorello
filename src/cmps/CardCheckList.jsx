@@ -24,7 +24,6 @@ export class CardCheckList extends Component {
         this.setState({ checklist: this.props.card.checklist })
     }
 
-
     setTasksStatus = () => {
         let tasksCompleted = 0
         let totalTasks = 0
@@ -104,20 +103,21 @@ export class CardCheckList extends Component {
         if (!newTodo.title) {
             todos.splice(todoIdx, 1)
         } else if (todoIdx < 0) { //if the index is less than 0 - this is a new item
+            newTodo.id = utilService.makeId()
             todos.push(newTodo)
         } else {
-            console.log(newTodo);
             todos[todoIdx] = newTodo
             const checklist = this.state.checklist
             checklist.todos = todos
-            newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'COMPLETE_TASK', newTodo)
-            !newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'INCOMPLETE_TASK', newTodo)
-            return
         }
         const checklist = this.state.checklist
+        console.log(checklist);
         let currList = checklist.find(list => list.id === this.props.list.id)
         currList.todos = todos
-        this.props.onUpdateCardProps('checklist', checklist)
+        if (todoIdx >= 0) {
+            newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'COMPLETE_TASK', newTodo)
+            !newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'INCOMPLETE_TASK', newTodo)
+        } else this.props.onUpdateCardProps('checklist', checklist)
         this.setTasksStatus()
     }
 
@@ -130,22 +130,22 @@ export class CardCheckList extends Component {
         this.closeDialog()
     }
 
-    getNewTodoDisplay = () => {
-        if (this.state.isEditing) {
-            return (
-                <form onSubmit={this.onSubmit}>
-                    {/* onBlur={this.toggleEditing} */}
-                    <input className="checklist-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.handleChange} />
-                    <button className="save-btn" type="submit">Save</button>
-                </form>
-            )
-        }
-        return (
-            <Button className="checklist-add-todo" onClick={this.toggleEditing}>
-                Add an item
-            </Button>
-        )
-    }
+    // getNewTodoDisplay = () => {
+    //     if (this.state.isEditing) {
+    //         return (
+    //             <form onSubmit={this.onSubmit}>
+    //                 {/* onBlur={this.toggleEditing} */}
+    //                 <input className="checklist-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.handleChange} />
+    //                 <button className="save-btn" type="submit">Save</button>
+    //             </form>
+    //         )
+    //     }
+    //     return (
+    //         <Button className="checklist-add-todo" onClick={this.toggleEditing}>
+    //             Add an item
+    //         </Button>
+    //     )
+    // }
 
     render() {
         const { list } = this.props

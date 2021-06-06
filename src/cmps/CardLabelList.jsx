@@ -5,7 +5,8 @@ import { CardLabel } from './CardLabel'
 export class CardLabelList extends Component {
     state = {
         labelName: '',
-        boardLabels: []
+        boardLabels: [],
+        isEditing: false
     }
 
     // inputRef = React.createRef()
@@ -34,9 +35,10 @@ export class CardLabelList extends Component {
     }
 
     render() {
-        let { boardLabels } = this.state
+        let { boardLabels, isEditing } = this.state
         if (!boardLabels || boardLabels.length === 0) return <h1>Loading...</h1>
         boardLabels = boardLabels.filter(label => label.name.toLowerCase().includes(this.state.labelName.toLowerCase()))
+        if (!isEditing)
         return (
             <div className={`card-label-list ${this.props.modalLoc}`}>
                 <div  className="card-label-list-header">

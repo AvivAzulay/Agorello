@@ -77,7 +77,7 @@ export class _CardDetails extends Component {
   }
   render() {
     const { card } = this.state
-    if (!card) return <><h1>H!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1></>
+    if (!card) return <><h1>Loading...</h1></>
     return (
       <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
         <div className="edit" onClick={this.onCloseModals}>
