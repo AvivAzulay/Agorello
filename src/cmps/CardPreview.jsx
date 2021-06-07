@@ -12,6 +12,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
 
     function toggleDueDate(ev) {
         ev.stopPropagation()
+        ev.stopPropagation()
         card.dueDate.isCompleted = !card.dueDate.isCompleted
         const action = card.dueDate.isCompleted ? 'COMPLETE_DUEDATE' : 'INCOMPLETE_DUEDATE'
         onSaveCard(card, card.currGroup.groupId, action)

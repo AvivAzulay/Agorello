@@ -129,10 +129,20 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
   }
   .close-save-edit {
     &:before {
+      background-color: #f4f5f7;
+      padding: 10px;
+      border-radius: 50%;
+      top: 5px;
+      right: 5px;
       font-family: icomoon;
       content: "\e91b";
       font-size: 22px;
       color: #5e6c84;
+      position: absolute;
+    }
+    &:hover:before {
+      transition: 0.4;
+      background-color: rgb(230, 230, 230);
     }
   }
   .close-save-edit-top {
@@ -208,7 +218,8 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
       width: 100px;
       font: $base-font;
       &:hover {
-        background-color: rgb(218, 218, 218);
+        transition: 0.4;
+        background-color: rgb(230, 230, 230);
       }
     }
   }
@@ -387,6 +398,10 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     font: $base-font;
     margin-top: 10px;
     width: 158px;
+    &.menu-btn:hover {
+      transition: 0.4;
+      background-color: rgb(230, 230, 230);
+    }
   }
 
   .edit-add-to-card-members:before {
