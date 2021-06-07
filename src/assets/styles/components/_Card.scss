@@ -219,9 +219,9 @@ position: relative;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: center;
   margin-top: 10px;
   margin-bottom: 5px;
+  align-items: flex-end;
 }
 .card-preview:hover {
   .card-preview-edit-icon:before {

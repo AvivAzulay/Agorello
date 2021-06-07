@@ -116,15 +116,12 @@ export class BoardHeader extends Component {
             <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
             <button className="about-this-board"> About this Board</button>
             <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
-            {/* <NavLink to={`/dashboard/${this.props.board._id}`}>
-              <button className="board-analysis"> Board Analysis</button>
-            </NavLink> */}
-            <NavLink to={`/dashboard/${this.props.board._id}`}><button className="board-analysis">Board Analysis</button></NavLink>
+            <button className="board-analysis"> Board Analysis</button>
             <button className="labels"> Labels</button>
             <div className="edit-details-activity-header">
               <span>
                 <p className="edit-details-activity-logo">
-                  <span className="activity-title">Activity</span>
+                  <div className="activity-title">Activitys</div>
                 </p>
                 <BoardActivitiesList activities={this.props.board.activities} />
               </span>
@@ -133,7 +130,7 @@ export class BoardHeader extends Component {
 
 
           {isMenuOn && isSetBackGround && <div className="side-menu-background">
-            <div><p className="side-menu-back" onClick={this.toggleSetBackGround}></p><h1>Set BackGround</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
+            <div className="side-menu-background-top"><p className="side-menu-back" onClick={this.toggleSetBackGround}></p><h1>Set BackGround</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
             <div className="thumbnail">
               {backgroundURLs.map((backgroundURL, index) =>
                 <button key={index} onClick={() => this.props.onSetBackground(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></button>)}

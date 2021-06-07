@@ -1,7 +1,7 @@
 import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
 import { CardAddCheckList } from './CardAddCheckList'
-import { CardDateSetter } from './CardDateSetter'
+import { CardCoverList } from './CardCoverList'
 
 export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleModal, saveActivity,
     onUpdateCardProps, boardMembers, boardLabels }) {
@@ -13,8 +13,8 @@ export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleMod
                 return <CardLabelList {...props} />
             case 'checklist':
                 return <CardAddCheckList {...props} />
-            case 'date':
-                return <CardDateSetter {...props} />
+            case 'cover':
+                return <CardCoverList {...props} />
         }
     }
     return (

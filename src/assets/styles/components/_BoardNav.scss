@@ -76,6 +76,7 @@ $header-width: 48px;
 
 //**********SIDE-MENU********
 .side-menu {
+  width: 320px;
   z-index: 200;
   position: absolute;
   top: 40px;
@@ -104,8 +105,10 @@ $header-width: 48px;
   }
   .side-menu-title{
     display: flex;
-    margin: 0px 4px;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 2px solid #dfe3e8;
   }
   div {
     display: flex;
@@ -153,31 +156,33 @@ $header-width: 48px;
 
 .side-menu-background {
   z-index: 200;
-  width: 300px;
+  width: 320px;
   position: absolute;
-  top: 48px;
+  top: 40px;
   right: 0;
   display: flex;
   flex-direction: column;
   background-color: #f4f5f7;
   flex: 1;
-  height: calc(100vh - 48px);
-  div {
+  height: calc(100vh - 65px);
+  .side-menu-background-top {
     display: flex;
     border-bottom: 2px solid rgb(223, 227, 232);
+    justify-content: space-between;
+    padding: 0 20px;
   }
   h1 {
     color: #172b4d;
     padding: 0px 32px;
   }
   button {
-    width: 20vw;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 10px;
     outline: none;
     border: none;
-    height: 10vw;
+    height: 25%;
     object-fit: cover;
   }
   .thumbnail {

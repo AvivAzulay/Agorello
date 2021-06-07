@@ -21,6 +21,7 @@ class _BoardApp extends Component {
     state = {
         currGroupIdx: null,
         isLebelOpen: false,
+        isQuickCardEditorOpen: false,
     }
 
     async componentDidMount() {
@@ -72,6 +73,10 @@ class _BoardApp extends Component {
     onSaveGroup = (group, board, action) => {
         return this.props.saveGroup(group, board, action)
     }
+    toggelQuickEditor = () => {
+        const { isQuickCardEditorOpen } = this.state
+        this.setState({ ...this.state, isQuickCardEditorOpen: !isQuickCardEditorOpen })
+    }
 
     onRemoveGroup = (group) => {
         return this.props.removeGroup(group, this.props.board, 'REMOVE_GROUP')
@@ -109,8 +114,7 @@ class _BoardApp extends Component {
     }
 
     render() {
-        const { board } = this.props
-        console.log(board);
+        const { board, isQuickCardEditorOpen } = this.props
         if (!board) return <div>Loading...</div>
         console.log(board);
         return (<>
@@ -137,6 +141,8 @@ class _BoardApp extends Component {
                         onSaveActivity={this.onSaveActivity}
                         onOpenPreviewLabels={this.onOpenPreviewLabels}
                         getActivitiesByCardId={this.getActivitiesByCardId}
+                        isQuickCardEditorOpen={this.isQuickCardEditorOpen}
+                        toggelQuickEditor={this.toggelQuickEditor}
                     />
                 </div>
             </div>

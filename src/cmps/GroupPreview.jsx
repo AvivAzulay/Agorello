@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import { SmartTitleEdit } from './SmartTitleEdit'
 
 
-export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, onSaveActivity }) {
+export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, onSaveActivity, isQuickCardEditorOpen, toggelQuickEditor }) {
 
 
     function removeGroup(groupId) {
@@ -40,7 +40,10 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
                             isLebelOpen={isLebelOpen}
                             onRemoveCard={onRemoveCard}
                             onOpenPreviewLabels={onOpenPreviewLabels}
-                            getActivitiesByCardId={getActivitiesByCardId} />
+                            getActivitiesByCardId={getActivitiesByCardId}
+                            isQuickCardEditorOpen={isQuickCardEditorOpen}
+                            toggelQuickEditor={toggelQuickEditor}
+                         />
                         <CardAdd
                             group={group}
                             board={board}

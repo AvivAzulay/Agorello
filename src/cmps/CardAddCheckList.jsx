@@ -41,7 +41,7 @@ export class CardAddCheckList extends Component {
                     <button onClick={this.props.onToggle} className="close-save-edit "></button>
                 </div>
                 <h4>Title</h4>
-                <input type="txt" onFocus={(ev) => ev.target.select()} ref={this.inputRef} placeholder="Search labels" name="labelName"
+                <input type="txt" onFocus={(ev) => ev.target.select()} ref={this.inputRef} placeholder="Checlist name" 
                     value={title} onChange={this.handleChange} />
                 <div></div>
                 <button onClick={this.onAdd}>Add</button>

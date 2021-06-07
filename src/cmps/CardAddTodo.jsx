@@ -4,7 +4,8 @@ export class CardAddTodo extends Component {
     state = {
         isEditing: false,
         todo: {
-            title: ''
+            title: '',
+            isDone: false
         }
     }
 
@@ -56,7 +57,7 @@ export class CardAddTodo extends Component {
 
             { !isEditing &&
                 <div className="todo-add-edit" >
-                    <p className="todo-add-txt" onClick={this.onToggleMode}>Add another todo</p>
+                    <p className="todo-add-txt" onClick={this.onToggleMode}>Add an item</p>
                 </div>}
 
             {isEditing &&
@@ -64,8 +65,8 @@ export class CardAddTodo extends Component {
                     <form action="">
                         <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title...' onKeyPress={this.onEnter} onChange={this.handleChange} />
                         <div className="todo-add-btn" >
-                            <span className="left-btn">
-                                <button className="card-add-edit-btn" onClick={this.onSubmit}>Add todo</button>
+                            <span className="left-btn flex align-center">
+                                <button className="checklist-add-edit-btn" onClick={this.onSubmit}>Add</button>
                                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
                             </span>
                         </div>

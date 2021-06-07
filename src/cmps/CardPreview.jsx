@@ -3,14 +3,16 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 import { MemberIcon } from './MemberIcon'
+import { QuickCardEditor } from '../cmps/QuickCardEditor.jsx'
 
 
-export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate }) {
+export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate ,isQuickCardEditorOpen, toggelQuickEditor}) {
 
     const [previousX, setPreviousX] = useState(null);
     const [cardPreviewDragClass, setCardPreviewDragClass] = useState("card-preview-drag-right")
 
     function toggleDueDate(ev) {
+        ev.stopPropagation()
         ev.stopPropagation()
         card.dueDate.isCompleted = !card.dueDate.isCompleted
         const action = card.dueDate.isCompleted ? 'COMPLETE_DUEDATE' : 'INCOMPLETE_DUEDATE'
@@ -55,8 +57,8 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                             </div>
                             <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
                             <Link to={`/board/${board._id}/${card.id}`} >
-                                <button className="card-preview-edit-icon" ></button>
-
+                                <button className="card-preview-edit-icon" onClick={() => toggelQuickEditor()}></button>
+                                {/* {isQuickCardEditorOpen && <QuickCardEditor/>} */}
                                 <div className="test-white-space">{card.title} </div>
 
                                 <div className="card-preview-attachments" >{
@@ -82,7 +84,7 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                         card.members &&
                                         card.members.map((member, index) =>
                                             // <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
-                                            <MemberIcon member={member} key={index} />
+                                            <MemberIcon member={member} size={'small'} key={index} />
                                         )}
                                     </div>
 
