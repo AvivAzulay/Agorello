@@ -35,7 +35,7 @@ export class _CardDetails extends Component {
   onLoadCard = (cardId) => {
     const group = this.props.board.groups.find(group =>
       group.cards.find(card => card.id === cardId))
-    const card = group.cards.find(card => card.id === cardId)
+    const card = group?.cards.find(card => card.id === cardId)
     this.setState({ card })
   }
 
@@ -76,7 +76,7 @@ export class _CardDetails extends Component {
   }
   render() {
     const { card } = this.state
-    if (!card) return <><h1>H!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1></>
+    if (!card) return <><h1>!</h1></>
     return (
       <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
         <div className="edit" onClick={this.onCloseModals}>

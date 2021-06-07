@@ -2,6 +2,7 @@ import { Home } from './pages/Home'
 import { About } from './pages/About'
 import { BoardApp } from './pages/BoardApp'
 import { Boards } from './pages/Boards'
+import { DashboardAnalisys } from './pages/DashboardAnalisys'
 
 export const routes = [
     {
@@ -14,6 +15,10 @@ export const routes = [
     },
 
     {
+        path: 'dashboard/:boardId?',
+        component: DashboardAnalisys,
+    },
+    {
         path: '/boards/',
         component: Boards,
     },
@@ -23,8 +28,4 @@ export const routes = [
         // ---> path: '/board/:boardId',
         component: BoardApp,
     },
-
-
-
-
 ]

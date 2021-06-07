@@ -9,6 +9,15 @@ import { socketService } from '../services/socketService'
 
 class _BoardApp extends Component {
 
+    ngOnInit() {
+        /** spinner starts on init */
+        this.spinner.show();
+
+        setTimeout(() => {
+            /** spinner ends after 5 seconds */
+            this.spinner.hide();
+        }, 5000);
+    }
     state = {
         currGroupIdx: null,
         isLebelOpen: false,
@@ -101,8 +110,9 @@ class _BoardApp extends Component {
 
     render() {
         const { board } = this.props
+        console.log(board);
         if (!board) return <div>Loading...</div>
-        // console.log(board);
+        console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
@@ -111,6 +121,7 @@ class _BoardApp extends Component {
                 <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
+                    props={this.props.history}
                     onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />

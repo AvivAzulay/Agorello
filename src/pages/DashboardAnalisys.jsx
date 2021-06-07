@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
-import { loadBoard, setStyle } from '../store/actions/boardActions';
+import { loadBoard } from '../store/action/board.action';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Doughnut, HorizontalBar, Bar } from 'react-chartjs-2';
+import { Doughnut, Bar } from 'react-chartjs-2';
+// import { Doughnut, HorizontalBar, Bar } from 'react-chartjs-2';
 
 
-export default class _AnalysisDashboard extends Component {
+export default class _DashboardAnalisys extends Component {
 
-    async componentDidMount() {
-        const boardId = this.props.match.params.id;
-        try {
-            await this.props.loadBoard(boardId);
-            this.props.setStyle(this.props.board.style);
-        } catch (err) {
-            toast.error('Oops! we seem to be missing the board you\'re looking for. going back to board selection.', {
-                position: "bottom-right",
-                autoClose: 3500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            setTimeout(() => {
-                this.props.history.push('/boards')
-            }, 1000)
-        }
+    // async componentDidMount() {
+    //     const boardId = this.props.match.params.id;
+    //     console.log(boardId);
+    //     try {
+    //         await this.props.loadBoard(boardId);
+    //         this.props.setStyle(this.props.board.style);
+    //     } catch (err) {
+    //         toast.error('Oops! we seem to be missing the board you\'re looking for. going back to board selection.', {
+    //             position: "bottom-right",
+    //             autoClose: 3500,
+    //             hideProgressBar: false,
+    //             closeOnClick: true,
+    //             pauseOnHover: true,
+    //             draggable: true,
+    //             progress: undefined,
+    //         });
+    //         setTimeout(() => {
+    //             this.props.history.push('/boards')
+    //         }, 1000)
+    //     }
+    // }
+    componentDidMount() {
+        console.log('hello');
     }
 
     getRndHexColor = () => {
@@ -47,6 +52,7 @@ export default class _AnalysisDashboard extends Component {
 
     dashboardNumbers = (board) => {
         if (!board || !board.members || !board.groups) return;
+        console.log(board);
         let numOfMembers = board.members.length;
         let unarchivedCardsCount = 0;
         let archivedCardsCount = 0;
@@ -241,7 +247,9 @@ export default class _AnalysisDashboard extends Component {
     }
 
     render() {
-        const { board, style } = this.props;
+
+        const { board } = this.props;
+        console.log(board);
         if (!board) return <div>Loading...</div>;
         const dashboardNumbers = this.dashboardNumbers(board);
         const cardsByGroups = this.cardsByGroups(board.groups);
@@ -251,7 +259,6 @@ export default class _AnalysisDashboard extends Component {
         return !board
             ? <div>Loading...</div>
             : <div className="page-container">
-                <h2 style={{ color: style.fontClr }}>{board.title} - Data Analysis</h2>
                 <div className="analysis-dashboard-container">
                     {dashboardNumbers && <div className="chart-container summary-numbers-conatiner">
                         <div><h3>{dashboardNumbers.numOfMembers}</h3><span>Total Members</span></div>
@@ -274,7 +281,7 @@ export default class _AnalysisDashboard extends Component {
                     </div>}
                     {cardsByMembers && <div className="chart-container cards-by-member-container">
                         <h3>Cards Per Member</h3>
-                        <HorizontalBar data={cardsByMembers.data} options={cardsByMembers.options} />
+                        {/* <HorizontalBar data={cardsByMembers.data} options={cardsByMembers.options} /> */}
                     </div>}
                     {timeInGroups && <div className="chart-container time-in-groups-container">
                         <h3>Groups' Time Analysis</h3>
@@ -285,18 +292,16 @@ export default class _AnalysisDashboard extends Component {
                         <Bar data={cardsByLabels.data} options={cardsByLabels.options} />
                     </div>}
                 </div>
-            </div>
+            </div >
     }
 }
 const mapStateToProps = state => {
     return {
-        board: state.boardReducer.board,
-        style: state.boardReducer.style
+        board: state.boardModule.board,
     };
 };
 const mapDispatchToProps = {
     loadBoard,
-    setStyle
 };
 
-export const AnalysisDashboard = connect(mapStateToProps, mapDispatchToProps)(_AnalysisDashboard);
+export const DashboardAnalisys = connect(mapStateToProps, mapDispatchToProps)(_DashboardAnalisys);

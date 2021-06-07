@@ -112,7 +112,7 @@ export class CardCheckList extends Component {
             checklist.todos = todos
             newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'COMPLETE_TASK', newTodo)
             !newTodo.isDone && this.props.onUpdateCardProps('checklist', checklist, 'INCOMPLETE_TASK', newTodo)
-            return
+            // return
         }
         const checklist = this.state.checklist
         let currList = checklist.find(list => list.id === this.props.list.id)
@@ -182,7 +182,7 @@ export class CardCheckList extends Component {
                         displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
                     />)}
-                    {/* {this.getNewTodoDisplay()} */}
+                    {this.getNewTodoDisplay()}
                     <CardAddTodo onUpdateChecklist={this.onUpdateChecklist} />
                 </main>
 
