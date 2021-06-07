@@ -9,7 +9,7 @@ export function BoardActivitiesList({ activities }) {
             {activities.map(activity => {
                 return <div className="activity-list-container" key={activity.id}>
                     <div className="activity-list-container-icon-txt" >
-                        <MemberIcon member={activity.byMember} />
+                        <MemberIcon member={activity.byMember} size={'small'} />
                         <div  className="activity-list-content" >
                             <div>
                             <span className="activity-list-name">{activity.byMember.fullname.split(' ')[0]}</span>

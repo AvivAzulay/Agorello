@@ -46,18 +46,19 @@ a:visited{
 ::-webkit-scrollbar {
     width: 10px;
     padding: 5px;
+    height:12px ;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-background: #dadae2;
-border-radius: 10px;
+background: #dadae24f;
+border-radius: 5px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #c0c4cf; 
-    border-radius: 10px;
+    background: #c0c4cf8e; 
+    border-radius:5px;
   }
   
   /* Handle on hover */
@@ -67,9 +68,8 @@ border-radius: 10px;
   button{
   cursor: pointer;
   }
-  .user-img-chat {
-    min-width: 28px;
-    height: 28px;
+  .user-img-chat-large, .user-img-chat-small {
+    
     // background-color: RGB(222, 225, 233);
     border-radius: 50%;
     display: flex;
@@ -80,6 +80,15 @@ border-radius: 10px;
     color: #42516e;
     background-size:contain ;
     background-repeat: no-repeat;
+  }
+  .user-img-chat-small{
+    min-width: 28px;
+    height: 28px;
+  }
+  .user-img-chat-large{
+    min-width: 34px;
+    height: 34px;
+    margin-left: 5px;
   }
   // .user-img-chat-card{
     

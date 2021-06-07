@@ -50,6 +50,10 @@ align-items: center
   font-weight: 700;
   display: flex;
   align-items: center;
+  justify-items: center;
+  padding: 5px 0;
+    border-bottom: 2px solid #dfe3e8;
+  
   &:before{
     font-family: icomoon;
         content: '\e900';
@@ -64,6 +68,7 @@ align-items: center
 }
 .activity-list-txt{
   font-size: 0.8rem;
+  word-break:break-all;
 }
 .activity-list-time{
   font-size: 0.8rem;

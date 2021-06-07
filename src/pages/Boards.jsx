@@ -35,6 +35,7 @@ class _Boards extends Component {
     const { addNewModal } = this.state
     return (
       <div className="borads">
+        <div className="borads-background"></div>
         <div className="home-nav"></div>
         <h2 >TEMPLATES</h2>
         <h1 className="borads-container-title-a">All Taskit Template</h1>

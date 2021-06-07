@@ -176,13 +176,16 @@ $base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
     margin-right: 10px;
+    
+  
     span {
+      
       display: flex;
       align-items: center;
     }
     h1 {
+      
       display: inline-block;
       width: auto;
       margin: 0;

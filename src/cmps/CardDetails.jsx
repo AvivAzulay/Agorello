@@ -203,6 +203,7 @@ export class _CardDetails extends Component {
                   <div className="edit-details-activity-header">
                     <span>
                       <p className="edit-details-activity-logo"></p>
+
                       <h1>Activity</h1>
                     </span>
                     <button>Show details</button>

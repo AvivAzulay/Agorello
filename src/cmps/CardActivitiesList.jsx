@@ -15,7 +15,7 @@ export class CardActivitiesList extends Component {
                     if (activity.card.id === card.id) {
 
                         return <div className="activity-list-card" key={index}>
-                            <MemberIcon member={activity.byMember} />
+                            <MemberIcon member={activity.byMember} size={'small'}/>
                             {activity.txtCard && <>
                                 <span  className="activity-list-name">{activity.byMember.fullname} </span>
                                 <span className="activity-list-txt">{activity.txtCard} </span>

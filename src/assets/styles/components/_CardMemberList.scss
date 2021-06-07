@@ -76,7 +76,6 @@
     .board-member {
         padding: 3px 3px;
         display: flex;
-        justify-content: space-between;
         p:before {
             font-family: icomoon;
             content: "\e915";
@@ -88,6 +87,9 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+        }
+        span{
+            margin-left: 10px;
         }
     }
     .board-member:hover {
