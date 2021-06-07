@@ -15,15 +15,12 @@
     &.modal-right {
         position: absolute;
         @include for-wide-layout{
-            transform: translateY(70px);
-         } 
-      
+            transform: translateY(50px);
+        } 
         @include for-narrow-layout{
             transform: translateY(-190);
-         } 
-   
-        }
-
+        } 
+    }
     &.modal-left {
         position: absolute;
         transform: translate(-595px, 103px);

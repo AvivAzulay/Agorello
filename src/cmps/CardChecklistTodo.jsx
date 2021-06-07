@@ -48,29 +48,7 @@ export class CardChecklistTodo extends Component {
         return `checklist-todo-title ${doneClass}`
     }
 
-    getTextBox = () => {
-        if (this.state.isEditing) return (
-            <React.Fragment>
-                <Checkbox color="primary" checked={this.state.isDone} onChange={this.onCheck} className="checkbox-todo" />
-                <form onBlur={this.toggleEditing} onSubmit={this.onSubmit}>
-                    <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
-                    <button className="save-btn" type="submit">Save</button>
-                </form>
-            </React.Fragment>
-        )
-        return (
-            <React.Fragment>
-                <Checkbox checked={this.state.isDone} onChange={this.onCheck} className="checkbox-todo" />
-                <div className={this.getTodoClassName()} onClick={this.toggleEditing}>
-                    {this.state.txtValue}
-                    <Button onClick={this.onRemove}>
-                        {/* <DeleteOutlineOutlinedIcon fontSize="inherit" /> */}
-                        {/* <DeleteOutlineOutlinedIcon /> */}
-                    </Button>
-                </div>
-            </React.Fragment>
-        )
-    }
+    // b
 
     onSubmit = (ev) => {
         ev.preventDefault()
@@ -121,7 +99,7 @@ export class CardChecklistTodo extends Component {
 
         if (this.state.isEditing) return (
             <div className="checklist-todo flex">
-                <Checkbox checked={this.state.isDone} className="checkbox-todo" />
+                <Checkbox color="primary" checked={this.state.isDone} className="checkbox-todo" />
                 <form onBlur={this.toggleEditing} onSubmit={this.onSubmit}>
                     <input className="checkbox-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.onChange} />
                     <button className="save-btn" type="submit">Save</button>
@@ -131,7 +109,7 @@ export class CardChecklistTodo extends Component {
         )
         return (
             <div className="checklist-todo flex">
-                <Checkbox checked={this.state.isDone} onChange={this.handleChange} className="checkbox-todo" />
+                <Checkbox color="primary" checked={this.state.isDone} onChange={this.handleChange} className="checkbox-todo" />
                 <div className={this.getTodoClassName()} onClick={this.toggleEditing}>
                     {this.state.txtValue}
                     <Button onClick={this.onRemove}>
