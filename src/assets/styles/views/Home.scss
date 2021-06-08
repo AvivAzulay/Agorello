@@ -54,9 +54,9 @@
   box-shadow: 0 10px 30px -10px #00aaff;
   color: white;
   line-height: 50px;
-  height: 50px;
-  padding:0 20px;
-  font-size: 16px;
+  height: 70px;
+  padding:0 35px;
+  font-size: 25px;
   border-radius: 36px;
   -webkit-appearance: none;
   font-family: "Avenir", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -71,7 +71,7 @@
   text-decoration: none;
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
   
-  margin: 50px 0;
+  margin: 55px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,4 +240,36 @@
     margin-right: -50%;
     transform: translate(-50%, -50%) 
 
+}
+
+.subheading {
+
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 120%;
+  color: rgba(61,71,77,0.5);
+  letter-spacing: normal;}
+.sub{
+  margin-bottom: 30px;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: -1px; 
+}
+
+
+.intro{
+  font-size: 21px;
+    color: rgba(61,71,77,0.5);
+    margin-bottom: 40px;
+}
+
+.content{
+
+  max-width: 1170px;
+    position: relative;
+    width: 100%;
+    padding: 0 25px;
+    font-size: 17px;
+   
 }

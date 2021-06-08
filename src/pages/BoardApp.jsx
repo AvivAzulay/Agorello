@@ -7,7 +7,7 @@ import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 import logo from '../assets/img/loder.gif'
 
-// s
+
 
 class _BoardApp extends Component {
 

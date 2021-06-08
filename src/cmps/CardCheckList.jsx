@@ -98,11 +98,12 @@ export class CardCheckList extends Component {
         if (!newTodo) return
         let todos = [...this.props.list.todos]
         const todoIdx = todos.findIndex(todo => todo.id === newTodo.id)
-        // find the todo index
+
         // if new title is blank - remove todo
         if (!newTodo.title) {
             todos.splice(todoIdx, 1)
-        } else if (todoIdx < 0) { //if the index is less than 0 - this is a new item
+        } else if (todoIdx < 0) {
+            //if the index is less than 0 - this is a new item
             newTodo.id = utilService.makeId()
             todos.push(newTodo)
         } else {
@@ -129,32 +130,12 @@ export class CardCheckList extends Component {
         this.closeDialog()
     }
 
-    // getNewTodoDisplay = () => {
-    //     if (this.state.isEditing) {
-    //         return (
-    //             <form onSubmit={this.onSubmit}>
-    //                 {/* onBlur={this.toggleEditing} */}
-    //                 <input className="checklist-text-edit" type="text" autoFocus value={this.state.txtValue} onChange={this.handleChange} />
-    //                 <button className="save-btn" type="submit">Save</button>
-    //             </form>
-    //         )
-    //     }
-    //     return (
-    //         <Button className="checklist-add-todo" onClick={this.toggleEditing}>
-    //             Add an item
-    //         </Button>
-    //     )
-    // }
-
     render() {
         const { list } = this.props
         return (
             <div className="checklist" onClick={(ev) => { ev.stopPropagation() }}>
-
-                {/* Check list + input + delete btn! */}
                 <div className="checklist-title-container flex space-between">
                     {/* <CheckBoxOutlinedIcon /> */}
-                    {/* TODO: Set here the icon of Checklist */}
                     <h1 className="checklist-title">{list.title}</h1>
                     <div className="checklist-title-btns">
                         {this.getDisplayCheckedBtn()}
@@ -166,7 +147,6 @@ export class CardCheckList extends Component {
                 {((this.state.totalTasks) ? (
                     <div className="checklist-progress">
                         <div className="checklist-progress-numbers">%{this.getPrecentegesCompleted()}</div>
-
                         <LinearProgress value={this.getPrecentegesCompleted()} borderRadius="5" variant="determinate" />
                     </div>
                 ) : <React.Fragment />)
@@ -182,7 +162,6 @@ export class CardCheckList extends Component {
                         displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
                     />)}
-                    {/* {this.getNewTodoDisplay()} */}
                     <CardAddTodo onUpdateChecklist={this.onUpdateChecklist} />
                 </main>
 
@@ -203,7 +182,6 @@ export class CardCheckList extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
-
             </div>
         )
     }

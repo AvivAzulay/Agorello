@@ -246,6 +246,21 @@
   font-size: 20px;
   color: #5e6c84;
 }
+
+.card-attachment-icon:before {
+  font-family: icomoon;
+  content: "\e908";
+  font-size: 20px;
+  color: #5e6c84;
+}
+
+.card-checklist-icon:before {
+  font-family: icomoon;
+  content: "\e917";
+  font-size: 20px;
+  color: #5e6c84;
+}
+
 .card-preview-activities {
   display: flex;
   justify-content: center;
@@ -253,9 +268,10 @@
   font-size: 14px;
   margin-right: 5px;
 }
+
+
 .card-preview-attachments-img {
   width: 100%;
-  
   border: none;
   background-repeat: no-repeat;
   background-size: cover;
@@ -274,3 +290,4 @@
   // margin:-4px ;
 
 }
+

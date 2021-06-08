@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import logo from '../assets/img/loder.gif'
 
 import { CardLabel } from './CardLabel'
 
@@ -58,7 +59,7 @@ export class CardLabelList extends Component {
 
     render() {
         let { boardLabels, isEditing } = this.state
-        if (!boardLabels || boardLabels.length === 0) return <h1>Loading...</h1>
+        if (!boardLabels || boardLabels.length === 0) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
         boardLabels = boardLabels.filter(label => label.name.toLowerCase().includes(this.state.labelName.toLowerCase()))
         if (!isEditing) {
             return (
