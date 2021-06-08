@@ -7,17 +7,11 @@ import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 
 
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 class _BoardApp extends Component {
 
-    ngOnInit() {
-        /** spinner starts on init */
-        this.spinner.show();
-
-        setTimeout(() => {
-            /** spinner ends after 5 seconds */
-            this.spinner.hide();
-        }, 5000);
-    }
     state = {
         currGroupIdx: null,
         isLebelOpen: false,
@@ -114,9 +108,19 @@ class _BoardApp extends Component {
     }
 
     render() {
-        const { board, isQuickCardEditorOpen } = this.props
-        if (!board) return <div>Loading...</div>
-        console.log(board);
+        const color = "#ffffff"
+        const loading = true
+        const override = css`
+            display: block;
+            margin: 0 auto;
+            margin-top: 35vh;
+            border-color: blue;
+            `;
+        const { board } = this.props
+        // const { board, isQuickCardEditorOpen } = this.props
+        // if (!board) return <div>Loading...</div>
+        if (!board) return <ClipLoader color={color} loading={loading} css={override} size={150} />
+        // console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
@@ -150,8 +154,6 @@ class _BoardApp extends Component {
         )
     }
 }
-
-
 
 function mapStateToProps(state) {
     return {

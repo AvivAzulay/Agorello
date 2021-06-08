@@ -1,76 +1,41 @@
-// cardMemberList.jsx 
-onClickBoardMember = (member, isChecked) => {
-    const { saveActivity, onUpdateCardProps, card } = this.props
-    const newCard = { ...card } ///Cloning card for adding activity key
-    let members = newCard.members
-    if (!isChecked) {
-        members.push(member)
-        // Add Activity
-        newCard.addedMember = member
-        saveActivity(newCard, 'ADD_MEMBER')
-    } else {
-        members = newCard.members.filter(cardMember => cardMember._id !== member._id)
-        // Add Activity
-        newCard.removedMember = member
-        saveActivity(newCard, 'REMOVE_MEMBER')
-    }
-    onUpdateCardProps('members', members)
-}
-
 // CardDetails.jsx
-onUpdateCardProps = (key, value) => {
+onUpdateCardProps = (key, value, action, item) => {
     const { card } = this.state
     card[key] = value
     this.setState({ card })
-    this.props.saveCard(card, card.currGroup.groupId, this.props.board)
+    this.props.saveCard(card, card.currGroup.groupId, this.props.board, action, item)
 }
 
+
 // board.action.js
-export function saveCard(card, groupId, currBoard) {
+export function saveCard(card, groupId, board, action = '', item = '') {
     return async dispatch => {
         try {
-            const board = await boardService.saveCard(card, groupId, currBoard)
-            dispatch({ type: 'SET_BOARD', board })
+            let newBoard = _deepCloneBoard(board)
+            if (card.id) {
+                const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
+                const cardIdx = newBoard.groups[groupIdx].cards.findIndex(currCard => {
+                    return (currCard.id === card.id)
+                })
+                newBoard.groups[groupIdx].cards[cardIdx] = card
+                if (action) newBoard = _updateActivityList(newBoard, card, action, item)
+            } else {
+                const newCard = _getNewCardObj(groupId)
+                newCard.title = card.title
+                const groupIdx = newBoard.groups.findIndex(group => group.id === groupId)
+                newBoard.groups[groupIdx].cards.push(newCard)
+                if (action) newBoard = _updateActivityList(newBoard, newCard, action, item)
+            }
+            dispatch({ type: 'SET_BOARD', board: newBoard })
+            await boardService.updateBoard(newBoard)
         } catch (err) {
             console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
         }
     }
 }
 
-// board.service.js
-async function saveCard(card, groupId, board) {
-    if (card.id) {
-        const groupIdx = board.groups.findIndex(group => group.id === groupId)
-        board.groups[groupIdx].cards.map(currCard => {
-            return (currCard.id === card.id) ? card : currCard
-        })
-        const updatedBoard = await httpService.put(`board/${board._id}`, board)
-        return Promise.resolve(_deepCloneBoard(updatedBoard))
-    } else {
-        const groupIdx = board.groups.findIndex(group => group.id === groupId)
-        card.currGroup = { groupId: board.groups[groupIdx].id, createdAt: new Date() }
-        card.id = utilService.makeId()
-        card.members = []
-        card.labels = []
-        card.attachments = []
-        card.members = []
-        card.checklist = []
-        board.groups[groupIdx].cards.push(card)
-        const updatedBoard = await httpService.put(`board/${board._id}`, board)
-        return Promise.resolve(_deepCloneBoard(updatedBoard))
-    }
-}
-
-
-function _deepCloneBoard(board) {
-    return JSON.parse(JSON.stringify(board))
-}
 
 // board.reducr.js
-const initialState = {
-    board: null,
-    boards: []
-}
 export function boardReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_BOARDS':
@@ -78,10 +43,16 @@ export function boardReducer(state = initialState, action) {
         case 'ADD_BOARD':
             return { ...state, board: action.board, boards: [...state.boards, action.board] }
         case 'SET_BOARD':
-            return { ...state, board: action.board, boards: [...state.boards] }
-        case 'ADD_GROUP':
             return { ...state, board: action.board }
         default:
             return state
     }
+}
+
+
+// board.service.js
+async function updateBoard(board) {
+    socketService.emit('board update', board)
+    const result = await httpService.put(`board/${board._id}`, board)
+    return result
 }

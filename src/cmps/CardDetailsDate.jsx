@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Checkbox } from '@material-ui/core'
-import Moment from 'react-moment';
-
+// import Moment from 'react-moment';
 // import { CardDateSetter } from './CardDateSetter'
 
 export class CardDetailsDate extends Component {
@@ -31,8 +30,8 @@ export class CardDetailsDate extends Component {
             + ' ' +
             (new Date(card?.dueDate?.time)).getUTCDate() + ' at ' +
             (new Date(card?.dueDate?.time)).getHours() + ':' +
-            (((new Date(card?.dueDate?.time)).getMinutes().toString().length === 1)? 
-            '0' + (new Date(card?.dueDate?.time)).getMinutes() : (new Date(card?.dueDate?.time)).getMinutes())
+            (((new Date(card?.dueDate?.time)).getMinutes().toString().length === 1) ?
+                '0' + (new Date(card?.dueDate?.time)).getMinutes() : (new Date(card?.dueDate?.time)).getMinutes())
         }</span>
 
         // return card.dueDate && <span>{(new Date(card?.dueDate?.time)).toString().split(' ')[1]

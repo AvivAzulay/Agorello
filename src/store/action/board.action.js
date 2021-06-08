@@ -6,7 +6,7 @@ export function loadBoard(boardId) {
         try {
             const board = await boardService.getById(boardId)
             dispatch({ type: 'SET_BOARD', board })
-            return board
+            return Promise.resolve(board)
         } catch (err) {
             console.log('BoardActions: err in loadBoard', err)
         }
@@ -174,7 +174,6 @@ function _getNewCardObj(groupId) {
         members: [],
         labels: [],
         attachments: [],
-        members: [],
         checklist: [],
         currGroup: { groupId },
         createdAt: Date.now()

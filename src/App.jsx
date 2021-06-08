@@ -1,19 +1,29 @@
+import { updatePosition, updateBoard, loadBoard } from './store/action/board.action.js'
 import { HashRouter as Router, Route } from 'react-router-dom'
-import { updatePosition, updateBoard } from './store/action/board.action.js'
-import { DragDropContext } from 'react-beautiful-dnd'
 import { socketService } from './services/socketService'
-import { routes } from './routes.js'
+import { DragDropContext } from 'react-beautiful-dnd'
 import { Header } from './cmps/Header.jsx'
-import { connect } from 'react-redux'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { routes } from './routes.js'
 import './App.css'
 
 
 class _App extends Component {
 
+  state = {
+
+  }
 
   componentDidMount() {
     socketService.setup()
+
+    // const boardId = this.props.match.params.boardId
+    // console.log(boardId);
+    // this.props.loadBoard().then(
+    //   (board) => this.setState({ board })
+    // )
+
   }
 
   onDragEnd = (result) => {
@@ -88,12 +98,17 @@ class _App extends Component {
   }
 
   render() {
+    // const { board } = this.props
+    // console.log(this.state);
+    // console.log(this.props);
+    // if (!board) return <h1>Loading...</h1>
+    // console.log('Made it');
     return (
       <DragDropContext
         onDragEnd={this.onDragEnd}
       >
         <Router>
-          <Header />
+          <Header board={this.props.board} />
           <main>
             {routes.map(route => <Route key={route.path} exact component={route.component} path={route.path} />)}
           </main>
@@ -108,9 +123,11 @@ function mapStateToProps(state) {
     board: state.boardModule.board,
   }
 }
+
 const mapDispatchToProps = {
   updatePosition,
   updateBoard,
+  loadBoard
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(_App)
