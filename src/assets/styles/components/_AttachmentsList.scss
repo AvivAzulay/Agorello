@@ -2,6 +2,7 @@
   @include aspect-ratio(1.25, 1);
   width: 8em;
   margin: 5px;
+  margin-left: 30px;
  
 
 }
@@ -9,7 +10,7 @@
 .edit-details-attachments{
  
   .edit-details-attachments-header {
-    height: 40px;
+    height: 27px;
     display: flex;
     align-items: center;
     justify-content: flex-start;

@@ -17,9 +17,9 @@
         @include for-wide-layout{
             transform: translateY(260px);
         } 
-        @include for-narrow-layout{
-            transform: translateY(-190);
-        } 
+        @include for-mobile-layout {
+            transform: translateY(-217px);
+        }
     }
     .close-save-edit {
         background-color: transparent;

@@ -17,13 +17,16 @@
         @include for-wide-layout{
             transform: translateY(50px);
         } 
-        @include for-narrow-layout{
-            transform: translateY(-190);
+        @include for-mobile-layout{
+            transform: translateY(-400px);
         } 
     }
     &.modal-left {
         position: absolute;
         transform: translate(-595px, 103px);
+        @include for-mobile-layout {
+            transform: translateY(-860px);
+        }
     }
     .close-save-edit {
         background-color: transparent;

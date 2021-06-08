@@ -44,20 +44,23 @@ a:visited{
 }
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-    padding: 5px;
-    height:12px ;
+    // width: 10px;
+    // padding: 5px;
+    // height:12px ;
+    height: 15px;
+    width: 8.5px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-background: #dadae24f;
+// background: #dadae24f;
+background: rgba(9,30,66,.08);
 border-radius: 5px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #c0c4cf8e; 
+    background: #c0c4cfbf ;
     border-radius:5px;
   }
   
@@ -88,7 +91,7 @@ border-radius: 5px;
   .user-img-chat-large{
     min-width: 34px;
     height: 34px;
-    margin-left: 5px;
+   
   }
   // .user-img-chat-card{
     

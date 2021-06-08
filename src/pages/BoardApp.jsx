@@ -5,7 +5,7 @@ import { BoardHeader } from '../cmps/BoardHeader.jsx'
 import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, updateBoardSockets } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
-
+import logo from '../assets/img/loder.gif'
 
 class _BoardApp extends Component {
 
@@ -106,7 +106,7 @@ class _BoardApp extends Component {
 
     render() {
         const { board , isQuickCardEditorOpen} = this.props
-        if (!board) return <div>Loading...</div>
+        if (!board) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
         // console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}

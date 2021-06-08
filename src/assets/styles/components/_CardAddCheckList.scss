@@ -15,6 +15,9 @@
     &.modal-right {
         position: absolute;
         transform: translateY(133px);
+        @include for-mobile-layout {
+         transform: translateY(-200px);
+        }
       }
     h3 {
         color: #5e6c84;
@@ -24,7 +27,6 @@
     }
     .close-save-edit {
         background-color: transparent;
-        
         width: 40px;
     }
     h4{
