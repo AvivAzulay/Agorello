@@ -94,13 +94,13 @@ export default class _DashboardAnalisys extends Component {
     cardsByLabels = (groups, labels) => {
         if (!groups || !labels) return;
         const colorsMap = {
-            green: '#61BD4F',
-            yellow: '#F2D600',
-            orange: '#FF9F1A',
-            red: '#EB5A46',
-            purple: '#C377E0',
-            blue: '#028ad8',
-            grey: '#a7a7a7',
+            green: '#61bd50',
+            yellow: '#f1d600',
+            orange: '#ff9f1a',
+            red: '#eb5a47',
+            purple: '#c377e1',
+            blue: '#0079be',
+            grey: '#838c91',
             black: '#202020'
         }
         let cards = groups.reduce((acc, group) => [...acc, ...group.cards], []);
@@ -152,39 +152,55 @@ export default class _DashboardAnalisys extends Component {
         const cardsByLabels = this.cardsByLabels(board.groups, board.labels)
         return !board
             ? <div>Loading...</div>
-            : <div className="page-container">
+            : <div className="page-container"  style={{ backgroundImage: `url(${board?.style?.bgImg})` }}>
+                
+                <div className="fade-analisys"></div>
+                <h3  className="analysis-title"> {board.title} : Data Analysis</h3>
+                <div className="home-nav"></div>
                 <div className="analysis-dashboard-container">
                     {dashboardNumbers && <div className="chart-container summary-numbers-conatiner">
-                        <div><h3>{dashboardNumbers.numOfMembers}</h3><span>Total Members</span></div>
+                        <div><span>Total Members</span><h3>{dashboardNumbers.numOfMembers}</h3></div>
                         <div>
+                        <span>Cards On Board</span>
                             <h3>
                                 {dashboardNumbers.unarchivedCardsCount}
                                 <span className="total">{` (${dashboardNumbers.archivedCardsCount} archived)`}</span>
                             </h3>
-                            <span>Cards On Board</span>
+                           
                         </div>
                         <div>
+                        <span>To-Dos Checked</span>
                             <h3 className={dashboardNumbers.todosCount.colorClass}>
                                 {`${dashboardNumbers.todosCount.checked}`}
                                 <span className="total">{` /${dashboardNumbers.todosCount.total}`}</span>
-                            </h3><span>To-Dos Checked</span></div>
+                            </h3></div>
+                    </div>}
+                    <div className="charts">
+                   
+                    {cardsByMembers && <div className="chart-container cards-by-member-container">
+                        <h3>Cards Per Member</h3>
+                        <div className="data">
+                        <Bar data={cardsByMembers.data} options={cardsByMembers.options} />
+                        </div>
                     </div>}
                     {cardsByGroups && <div className="chart-container cards-by-group-container">
                         <h3>Cards Per Group</h3>
+                        <div className="data">
                         <Doughnut data={cardsByGroups} />
+                        </div>
                     </div>}
-                    {cardsByMembers && <div className="chart-container cards-by-member-container">
-                        <h3>Cards Per Member</h3>
-                        <Bar data={cardsByMembers.data} options={cardsByMembers.options} />
-                    </div>}
-                    {<div className="chart-container time-in-groups-container">
+                    {/* {<div className="chart-container time-in-groups-container">
                         <h3>Groups' Time Analysis</h3>
                         <Bar />
-                    </div>}
+                    </div>} */}
                     {cardsByLabels && <div className="chart-container cards-by-labels-container">
                         <h3>Labels Summary</h3>
+                        <div className="data">
                         <Bar data={cardsByLabels.data} options={cardsByLabels.options} />
+                        </div>
                     </div>}
+                    </div>
+                
                 </div>
             </div >
     }
