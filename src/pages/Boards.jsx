@@ -29,9 +29,10 @@ class _Boards extends Component {
   }
 
   render() {
-    const TemplateBoards = this.props.boards.filter(board => board.isTemplate);
-    const NoTemplateBoards = this.props.boards.filter(board => !board.isTemplate);
     if (!this.state.boards) return <div>Loading...</div>
+    const TemplateBoards = this.props?.boards?.filter(board => board.isTemplate);
+    const NoTemplateBoards = this.props?.boards?.filter(board => !board.isTemplate);
+ 
     const { addNewModal } = this.state
     return (
       <div className="borads">
