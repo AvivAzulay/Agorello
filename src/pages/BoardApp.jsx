@@ -129,7 +129,7 @@ class _BoardApp extends Component {
                 <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
-                    props={this.props.history}
+                    props={this.props}
                     onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />

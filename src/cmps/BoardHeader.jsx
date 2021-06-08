@@ -18,6 +18,7 @@ export class BoardHeader extends Component {
   inputRef = React.createRef()
 
   componentDidMount() {
+    console.log(this.props);
     this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
     // this.inputRef.current.focus()
   }
@@ -29,7 +30,6 @@ export class BoardHeader extends Component {
   toggleMenu = () => {
     const { isMenuOn } = this.state
     this.setState({ ...this.state, isMenuOn: !isMenuOn, isSetBackGround: false })
-
   }
 
   toggleSetBackGround = () => {
