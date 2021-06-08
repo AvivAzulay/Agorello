@@ -119,6 +119,7 @@ class _BoardApp extends Component {
                 <BoardHeader
                     board={board}
                     props={this.props}
+                    loadBoard={this.props.loadBoard}
                     onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />

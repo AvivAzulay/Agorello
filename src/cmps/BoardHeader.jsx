@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActivitiesFilter } from './ActivitiesFilter.jsx'
+// import { ActivitiesFilter } from './ActivitiesFilter.jsx'
 import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/img/loder.gif'
@@ -12,6 +12,7 @@ export class BoardHeader extends Component {
     prevTitle: '',
     isMenuOn: false,
     isEditing: false,
+    searchTxt: '',
     isSetBackGround: false
   }
 
@@ -20,10 +21,6 @@ export class BoardHeader extends Component {
   componentDidMount() {
     this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
     // this.inputRef.current.focus()
-  }
-
-  onSetFilter = (filterBy) => {
-    // this.props.loadBoard(filterBy)
   }
 
   toggleMenu = () => {
@@ -42,8 +39,13 @@ export class BoardHeader extends Component {
   }
 
   handleChange = (ev) => {
-    const { value } = ev.target
-    this.setState({ ...this.state, title: value })
+    let { name, value } = ev.target
+    this.setState({ ...this.state, [name]: value })
+    if (name = 'searchTxt') this.onSetFilter(value)
+  }
+
+  onSetFilter = (filterBy) => {
+    this.props.loadBoard(this.state.board._id, filterBy)
   }
 
   handleKeyPress = (ev) => {
@@ -53,16 +55,15 @@ export class BoardHeader extends Component {
   }
 
   onSubmit = () => {
-    if (!this.state.title) {
-      this.setState({ title: this.state.prevTitle })
-      return
+    if (this.state.isEditing) {
+      if (!this.state.title) {
+        this.setState({ title: this.state.prevTitle })
+        return
+      }
+      this.setState({ prevTitle: this.state.title })
+      this.props.onUpdateBoard('title', this.state.title)
+      this.toggleEdditing()
     }
-    this.setState({ prevTitle: this.state.title })
-    this.props.onUpdateBoard('title', this.state.title)
-    this.toggleEdditing()
-  }
-
-  onSearch = (searchTxt) => {
   }
 
   render() {
@@ -109,6 +110,7 @@ export class BoardHeader extends Component {
             {isEditing && <input
               className="borad-nav-title-edit"
               type="text"
+              name="title"
               value={title}
               ref={this.inputRef}
               onBlur={this.onSubmit}
@@ -117,7 +119,8 @@ export class BoardHeader extends Component {
               onKeyPress={this.handleKeyPress}
               onFocus={(ev) => ev.target.select()}>
             </input>}
-            <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} />
+            <input type="search" name="searchTxt" value={this.state.searchTxt} placeholder="Search Cardes..." onChange={this.handleChange} />
+            {/* <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} /> */}
           </div>
           <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
           {isMenuOn && !isSetBackGround && <div className="side-menu">

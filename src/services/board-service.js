@@ -14,10 +14,9 @@ async function query(filterBy) {
     return Promise.resolve(boards)
 }
 
-async function getById(boardId) {
-    // if (board) updateBoards() //updates the boards array at every change by the current board
-    const boards = await httpService.get('board')
-    const board = boards.find(board => board._id === boardId)
+async function getById(boardId, filterBy) {
+    const board = await httpService.get(`board/${boardId}`, filterBy)
+    // const board = boards.find(board => board._id === boardId)
     const newBoard = _deepCloneBoard(board)
     return newBoard
 }

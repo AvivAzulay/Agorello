@@ -1,10 +1,10 @@
 import { boardService } from '../../services/board-service'
 import { utilService } from '../../services/util-service'
 
-export function loadBoard(boardId) {
+export function loadBoard(boardId, filterBy) {
     return async dispatch => {
         try {
-            const board = await boardService.getById(boardId)
+            const board = await boardService.getById(boardId, filterBy)
             dispatch({ type: 'SET_BOARD', board })
             return Promise.resolve(board)
         } catch (err) {
