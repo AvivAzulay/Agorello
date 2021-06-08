@@ -15,8 +15,8 @@ async function query(filterBy) {
 }
 
 async function getById(boardId, filterBy) {
-    const boards = await httpService.get('board', filterBy)
-    const board = boards.find(board => board._id === boardId)
+    const board = await httpService.get(`board/${boardId}`, filterBy)
+    // const board = boards.find(board => board._id === boardId)
     const newBoard = _deepCloneBoard(board)
     return newBoard
 }
