@@ -7,8 +7,7 @@ import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 import logo from '../assets/img/loder.gif'
 
-import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
+// s
 
 class _BoardApp extends Component {
 
