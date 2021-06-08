@@ -6,11 +6,9 @@ onClickBoardMember = (member, isChecked) => {
     if (!isChecked) {
         members.push(member)
         card.addedMember = member
-        this.props.saveActivity(card, 'ADD_MEMBER')
     } else {
         members = members.filter(cardMember => cardMember._id !== member._id)
         card.removedMember = member
-        this.props.saveActivity(card, 'REMOVE_MEMBER')
     }
     this.props.onUpdateCardProps('members', members)
 }
@@ -24,7 +22,7 @@ onUpdateCardProps = (key, value) => {
     card[key] = value
     this.setState({ card })
     this.props.saveCard(card, card.currGroup.groupId, this.props.board)
-  }
+}
 
 
 
@@ -78,7 +76,7 @@ function _deepCloneBoard(board) {
 
 const initialState = {
     board: null,
-    boards:[]
+    boards: []
 }
 
 export function boardReducer(state = initialState, action) {

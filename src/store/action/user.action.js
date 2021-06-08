@@ -1,7 +1,7 @@
 import { userService } from '../../services/user-service.js'
 
 export function loadUsers() {
-    return async dispatch=>{
+    return async dispatch => {
         try {
             const users = await userService.getUsers()
             dispatch({ type: 'SET_USERS', users })

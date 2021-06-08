@@ -150,21 +150,6 @@ export function loadBoards() {
     }
 }
 
-///***********  NOT DONE  ***********///
-export function saveActivity(board, data, action) {
-    return async dispatch => {
-        try {
-            // const newBoard = _updateActivityList(board, data, action)
-            // dispatch({ type: 'SET_BOARD', board: newBoard })
-            // await boardService.updateBoard(newBoard)
-            // console.log(newBoard.activities);
-        } catch (err) {
-            console.log(`BoardActions: err in ${action} - can't add activity`)
-        }
-    }
-}///***********  NOT DONE  ***********///
-
-
 function _deepCloneBoard(board) {
     return JSON.parse(JSON.stringify(board))
 }
@@ -175,7 +160,6 @@ function _getNewCardObj(groupId) {
         members: [],
         labels: [],
         attachments: [],
-        members: [],
         checklist: [],
         currGroup: { groupId },
         createdAt: Date.now()
@@ -183,8 +167,6 @@ function _getNewCardObj(groupId) {
 }
 
 function _getGroupById(board, id) {
-    // const group = board.groups.find(group => group.id === id)
-    // console.log(group);
     return board.groups.find(group => group.id === id)
 }
 
@@ -260,7 +242,6 @@ function _updateActivityList(board, data, action, item) {
             activity.txtBoard = ` archived list ${data.title} `
             break
         case 'COMPLETE_TASK':
-            console.log('item', item);
             let group6 = _getGroupById(board, data.currGroup.groupId)
             activity.txtCard = ` completed ${item.title} on this card `
             activity.txtBoard = ` completed ${item.title} on ${group6.title} `
@@ -311,39 +292,3 @@ function _updateActivityList(board, data, action, item) {
     board.activities.unshift(activity)
     return board
 }
-
-
-// export function removeBoard(boardId) { // Action Creator
-//     return async dispatch => {
-//         try {
-//             await toyService.remove(boardId)
-//             dispatch({ type: 'REMOVE_TOY', boardId })
-//         } catch (err) {
-//             console.log('ToysActions: err in removeToy', err)
-//         }
-//     }
-// }
-
-
-// export function setFilter(filterBy) {
-//     return dispatch => {
-//         const action = {
-//             type: 'SET_FILTER',
-//             filterBy
-//         }
-//         dispatch(action)
-
-//     }
-// }
-
-// export function saveBoard(board) {
-//     return async dispatch => {
-//         try {
-//             const newBoard = await boardService.saveBoard(board)
-//             dispatch({ type: 'SET_BOARD', newBoard })
-//         } catch (err) {
-//             console.log(`BoardActions: err in ${board._id} : ${err}`)
-//         }
-//     }
-// }
-

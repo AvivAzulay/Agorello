@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { saveCard, saveActivity, updateBoard } from '../store/action/board.action'
-import { SmartTitleEdit } from './SmartTitleEdit'
-import { CardDescription } from './CardDescription'
-import { CardDetailsMembers } from './CardDetailsMembers'
-import { CardDetailsLabels } from './CardDetailsLabels'
-import { CardDetailsDate } from './CardDetailsDate'
-import { CardDateSetter } from './CardDateSetter'
+import { saveCard, updateBoard } from '../store/action/board.action'
 import { CardCheckListContainer } from './CardCheckListContainer'
 import { CardActivitiesList } from './CardActivitiesList'
-import { AttachmentsList } from './AttachmentsList'
-import { CardComment } from './CardComment'
-import { UplodeImg } from './UplodeImg'
+import { CardDetailsMembers } from './CardDetailsMembers'
+import { CardDetailsLabels } from './CardDetailsLabels'
 import { CardDetailsModal } from './CardDetailsModal'
+import { CardDetailsDate } from './CardDetailsDate'
+import { AttachmentsList } from './AttachmentsList'
+import { CardDescription } from './CardDescription'
+import { SmartTitleEdit } from './SmartTitleEdit'
+import { CardDateSetter } from './CardDateSetter'
+import { CardComment } from './CardComment'
 import logo from '../assets/img/loder.gif'
+import React, { Component } from 'react'
+import { UplodeImg } from './UplodeImg'
+import { connect } from 'react-redux'
 
 
 export class _CardDetails extends Component {
@@ -73,6 +73,7 @@ export class _CardDetails extends Component {
     if (this.state.isCardDueDateShowenLeft === true) this.setState({ isCardDueDateShowenLeft: false })
     this.setState({ isNewTodoShown: false })
   }
+
   render() {
     const { card } = this.state
     if (!card) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
@@ -85,7 +86,7 @@ export class _CardDetails extends Component {
             <div className="edit-details-header">
               <p className="edit-details-header-logo"></p>
               <SmartTitleEdit card={card} saveCard={this.props.saveCard} board={this.props.board} />
-              <button className={card.cover?'close-save-edit-top-cover' :'close-save-edit'} onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
+              <button className={card.cover ? 'close-save-edit-top-cover' : 'close-save-edit'} onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
             </div>
 
             <div className="edit-body">
@@ -125,7 +126,6 @@ export class _CardDetails extends Component {
                         card={card}
                         board={this.props.board}
                         onToggle={this.onToggleDueDateLeft}
-                        saveActivity={this.props.saveActivity}
                         onUpdateCardProps={this.onUpdateCardProps}
                       />
                     }
@@ -135,7 +135,6 @@ export class _CardDetails extends Component {
                           card={card}
                           board={this.props.board}
                           onToggle={this.onToggleDueDateRight}
-                          saveActivity={this.props.saveActivity}
                           onUpdateCardProps={this.onUpdateCardProps}
                         />}
                     </div>
@@ -171,7 +170,6 @@ export class _CardDetails extends Component {
                   <CardCheckListContainer
                     card={card}
                     board={this.props.board}
-                    saveActivity={this.props.saveActivity}
                     onUpdateCardProps={this.onUpdateCardProps} />
                 </div>
                 <div>
@@ -187,7 +185,6 @@ export class _CardDetails extends Component {
                     <CardComment
                       card={card}
                       board={this.props.board}
-                      saveActivity={this.props.saveActivity}
                       onUpdateCardProps={this.onUpdateCardProps}
                     />
                     <div>
@@ -248,15 +245,14 @@ export class _CardDetails extends Component {
                       this.setState({ modalType: 'cover', modalLoc: 'modal-right' })
                     }}> Cover</button>
                   {this.state.isModalShown && <CardDetailsModal
-                    modalType={this.state.modalType}
-                    modalLoc={this.state.modalLoc}
                     card={card}
                     board={this.props.board}
-                    saveActivity={this.props.saveActivity}
-                    boardMembers={this.props.board.members}
-                    onUpdateCardProps={this.onUpdateCardProps}
+                    modalLoc={this.state.modalLoc}
+                    modalType={this.state.modalType}
                     onToggleModal={this.onToggleModal}
                     boardLabels={this.props.board.labels}
+                    boardMembers={this.props.board.members}
+                    onUpdateCardProps={this.onUpdateCardProps}
                     onUpdateBoardLabels={this.onUpdateBoardLabels} />
                   }
                 </div>
@@ -277,7 +273,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   saveCard,
-  saveActivity,
   updateBoard
 }
 

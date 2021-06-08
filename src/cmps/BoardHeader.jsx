@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
 import { BoardActivitiesList } from './BoardActivitiesList.jsx'
-import { NavLink } from 'react-router-dom'
 import logo from '../assets/img/loder.gif'
+import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react'
 
 export class BoardHeader extends Component {
 
   state = {
     title: '',
-    board: null,
     board: null,
     prevTitle: '',
     filterBy: '',
@@ -20,7 +19,6 @@ export class BoardHeader extends Component {
 
   componentDidMount() {
     this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
-    // this.inputRef.current.focus()
   }
 
   toggleMenu = () => {
@@ -41,7 +39,7 @@ export class BoardHeader extends Component {
   handleChange = (ev) => {
     let { name, value } = ev.target
     this.setState({ ...this.state, [name]: value })
-    if (name = 'filterBy') this.props.onSetFilter(value)
+    if (name === 'filterBy') this.props.onSetFilter(value)
   }
 
   handleKeyPress = (ev) => {
@@ -64,7 +62,7 @@ export class BoardHeader extends Component {
 
   render() {
     const backgroundURLs = [
-     
+
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190403/background%20for%20Taskit/new%20backgrond/skiers-ski-lift-mountain-resort-with-sky-mountains_sdskrm.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190411/background%20for%20Taskit/new%20backgrond/kirkjufell-sunrise-iceland-beautiful-landscape_arpirx.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319307/background%20for%20Taskit/background_6_lqcaex.jpg",
@@ -124,7 +122,6 @@ export class BoardHeader extends Component {
             <NavLink to={`/dashboard/${this.props.board._id}`}>
               <button className="board-analysis"> Board Analysis</button>
             </NavLink>
-
             <button className="labels"> Labels</button>
             <div className="edit-details-activity-header">
               <span>
@@ -135,7 +132,6 @@ export class BoardHeader extends Component {
               </span>
             </div>
           </div>}
-
 
           {isMenuOn && isSetBackGround && <div className="side-menu-background">
             <div className="side-menu-background-top"><p className="side-menu-back" onClick={this.toggleSetBackGround}></p><h1>Set BackGround</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class CardAddTodo extends Component {
+
     state = {
         isEditing: false,
         todo: {
@@ -28,7 +29,6 @@ export class CardAddTodo extends Component {
     onEnter = (ev) => {
         if (ev.key === 'Enter') {
             const { todo } = this.state
-            // No title check
             if (!todo.title || todo.title.charAt(0) === ' ' || todo.title.charAt(0) === '\n') {
                 this.setState({ ...this.state, todo: { title: '' } })
                 return
@@ -53,28 +53,26 @@ export class CardAddTodo extends Component {
 
     render() {
         const { isEditing, todo: { title } } = this.state
-        return (<React.Fragment>
+        return (
+            <React.Fragment>
+                { !isEditing &&
+                    <div className="todo-add-edit" >
+                        <p className="todo-add-txt" onClick={this.onToggleMode}>Add an item</p>
+                    </div>}
+                {isEditing &&
+                    <div className="todo-add-edit" >
+                        <form action="">
+                            <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title...' onKeyPress={this.onEnter} onChange={this.handleChange} />
+                            <div className="todo-add-btn" >
+                                <span className="left-btn flex align-center">
+                                    <button className="checklist-add-edit-btn" onClick={this.onSubmit}>Add</button>
+                                    <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
+                                </span>
+                            </div>
 
-            { !isEditing &&
-                <div className="todo-add-edit" >
-                    <p className="todo-add-txt" onClick={this.onToggleMode}>Add an item</p>
-                </div>}
-
-            {isEditing &&
-                <div className="todo-add-edit" >
-                    <form action="">
-                        <textarea type="text" ref={this.inputRef} value={title} placeholder='Enter a title...' onKeyPress={this.onEnter} onChange={this.handleChange} />
-                        <div className="todo-add-btn" >
-                            <span className="left-btn flex align-center">
-                                <button className="checklist-add-edit-btn" onClick={this.onSubmit}>Add</button>
-                                <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
-                            </span>
-                        </div>
-
-                    </form>
-                </div>}
-
-        </React.Fragment>
+                        </form>
+                    </div>}
+            </React.Fragment>
         )
     }
 }

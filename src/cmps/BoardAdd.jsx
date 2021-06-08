@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class BoardAdd extends Component {
+
   state = {
     newboard: {
       title: '',
@@ -8,13 +9,11 @@ export class BoardAdd extends Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   handleChange = (ev) => {
     const { value } = ev.target
     this.setState({ ...this.state, newboard: { ...this.state.newboard, title: value } })
   }
+
   setBackground = (URL) => {
     this.setState({ ...this.state, newboard: { ...this.state.newboard, backgroundURL: URL } })
   }
@@ -29,6 +28,7 @@ export class BoardAdd extends Component {
   }
 
   render() {
+
     const backgroundURLs = [
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622555555/background%20for%20Taskit/Layer_10_xkxb0s.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622555555/background%20for%20Taskit/Layer_9_epgs5d.jpg",
@@ -40,14 +40,14 @@ export class BoardAdd extends Component {
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622555554/background%20for%20Taskit/Layer_4_ozwqlv.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622555554/background%20for%20Taskit/Layer_5_dxwxr7.jpg"
     ]
+
     const { newboard: { title } } = this.state
+
     return (<React.Fragment>
       <div className="window-screen">
         <div className="board-add" >
           <div className="board-add-modal" >
-
             <form action="">
-
               <div className="newboard-add-hedder">
                 <input type="text" ref={this.inputRef} value={title} placeholder='Enter board title...' onKeyPress={this.onEnter} onChange={this.handleChange} />
                 <button className="newboard-add-exit-btn" onClick={this.props.toggleModal}></button>
@@ -57,10 +57,8 @@ export class BoardAdd extends Component {
                   {backgroundURLs.map((backgroundURL, index) =>
                     <button className={this.state.newboard.backgroundURL === backgroundURL ? 'active' : ''} key={index} onClick={() => this.setBackground(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></button>)}
                 </div>
-
               </div>
               <button className="newboard-add-edit-btn" onClick={this.onSubmit}>Add board</button>
-
             </form>
           </div>
         </div>

@@ -6,11 +6,6 @@ export class CardComment extends Component {
         isEditModeOn: false
     }
 
-    componentDidMount() {
-
-    }
-
-
     handleChange = ({ target }) => {
         const { value } = target
         this.setState({ commentTxt: value })
@@ -24,7 +19,6 @@ export class CardComment extends Component {
     onSubmit = () => {
         const card = this.props.card
         card.commentTxt = this.state.commentTxt
-        this.props.saveActivity(this.props.board, card, 'ADD_COMMENT')
         this.setState({ commentTxt: '', isEditModeOn: !this.state.isEditModeOn })
     }
 

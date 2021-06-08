@@ -1,8 +1,8 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@material-ui/core'
 import { CardChecklistTodo } from './CardChecklistTodo'
-import React, { Component } from 'react'
 import { utilService } from '../services/util-service'
 import { CardAddTodo } from './CardAddTodo'
+import React, { Component } from 'react'
 
 export class CardCheckList extends Component {
 
@@ -18,7 +18,6 @@ export class CardCheckList extends Component {
         txtValue: '',
     }
 
-
     componentDidMount() {
         this.setTasksStatus()
         this.setState({ checklist: this.props.card.checklist })
@@ -27,12 +26,10 @@ export class CardCheckList extends Component {
     setTasksStatus = () => {
         let tasksCompleted = 0
         let totalTasks = 0
-
         this.props.list.todos.forEach(todo => {
             if (todo.isDone) tasksCompleted += 1
             totalTasks += 1
         });
-
         this.setState({ tasksCompleted, totalTasks })
     }
 
@@ -93,7 +90,6 @@ export class CardCheckList extends Component {
     }
 
     onUpdateChecklist = (newTodo) => {
-
         // take the updated todo and insert it into the list
         if (!newTodo) return
         let todos = [...this.props.list.todos]
@@ -135,7 +131,6 @@ export class CardCheckList extends Component {
         return (
             <div className="checklist" onClick={(ev) => { ev.stopPropagation() }}>
                 <div className="checklist-title-container flex space-between">
-                    {/* <CheckBoxOutlinedIcon /> */}
                     <h1 className="checklist-title">{list.title}</h1>
                     <div className="checklist-title-btns">
                         {this.getDisplayCheckedBtn()}
@@ -143,7 +138,6 @@ export class CardCheckList extends Component {
                     </div>
                 </div>
 
-                {/* Adding liner bar progress! */}
                 {((this.state.totalTasks) ? (
                     <div className="checklist-progress">
                         <div className="checklist-progress-numbers">%{this.getPrecentegesCompleted()}</div>
@@ -155,12 +149,11 @@ export class CardCheckList extends Component {
                 <main className="checklist-main">
                     {this.props?.list?.todos.map(todo => <CardChecklistTodo
                         todo={todo}
-                        card={this.props.card}
                         key={todo.id}
+                        card={this.props.card}
                         board={this.props.board}
-                        saveActivity={this.props.saveActivity}
-                        displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
+                        displayCompleted={this.state.displayCompleted}
                     />)}
                     <CardAddTodo onUpdateChecklist={this.onUpdateChecklist} />
                 </main>

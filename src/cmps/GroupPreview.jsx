@@ -1,18 +1,15 @@
-import React from 'react'
+import { SmartTitleEdit } from './SmartTitleEdit'
+import { Draggable } from 'react-beautiful-dnd'
 import { CardList } from './CardList'
 import { CardAdd } from './CardAdd'
-import { Draggable } from 'react-beautiful-dnd'
-import { SmartTitleEdit } from './SmartTitleEdit'
+import React from 'react'
 
 
-export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, onSaveActivity, isQuickCardEditorOpen, toggelQuickEditor }) {
-
+export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, onSaveCard, index, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, isQuickCardEditorOpen, toggelQuickEditor }) {
 
     function removeGroup(groupId) {
         onRemoveGroup(groupId, board)
-        onSaveActivity(group, 'REMOVE_GROUP')
     }
-
 
     return (
         <Draggable
@@ -25,13 +22,11 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
                     {...provided.dragHandleProps}
                     {...provided.draggableProps}
                     ref={provided.innerRef}
-
                 >
                     <div className="group-preview-header">
                         <SmartTitleEdit group={group} onSaveGroup={onSaveGroup} board={board} />
                         <button onClick={() => removeGroup(group)} className="group-preview-header-btn"></button>
                     </div>
-
                     <div className="card-list-and-add">
                         <CardList
                             group={group}
@@ -39,22 +34,20 @@ export function GroupPreview({ onSaveGroup, onRemoveGroup, group, onRemoveCard, 
                             onSaveCard={onSaveCard}
                             isLebelOpen={isLebelOpen}
                             onRemoveCard={onRemoveCard}
-                            onOpenPreviewLabels={onOpenPreviewLabels}
-                            getActivitiesByCardId={getActivitiesByCardId}
-                            isQuickCardEditorOpen={isQuickCardEditorOpen}
                             toggelQuickEditor={toggelQuickEditor}
-                         />
+                            onOpenPreviewLabels={onOpenPreviewLabels}
+                            isQuickCardEditorOpen={isQuickCardEditorOpen}
+                            getActivitiesByCardId={getActivitiesByCardId}
+                        />
                         <CardAdd
                             group={group}
                             board={board}
-                            onSaveCard={onSaveCard}
-                            onSaveActivity={onSaveActivity} />
+                            onSaveCard={onSaveCard} />
                     </div>
                 </div>
 
             )}
         </Draggable>
-
     )
 }
 

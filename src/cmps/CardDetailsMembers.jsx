@@ -1,11 +1,10 @@
-// import {MemberIcon} from './MemberIcon'
-
 export function CardDetailsMembers(props) {
-    let initials = props.members.map((member, index) => {
-        // let splitedName = member.fullname.split(' ')
-        // let initials = splitedName.map(name => name[0])
-        // initials = initials.slice(0, 2)
-        return member.imgUrl ? <span className="user-img-chat-large" style={{ backgroundImage: `url(${member.imgUrl})` }}></span> : <span className="user-img-chat-large"> </span>
+
+    let initials = props.members.map((member) => {
+        let splitedName = member.fullname.split(' ')
+        let initials = splitedName.map(name => name[0])
+        initials = initials.slice(0, 2)
+        return member.imgUrl ? <span className="user-img-chat-large" style={{ backgroundImage: `url(${member.imgUrl})` }}></span> : <span className="user-img-chat-large">{initials}</span>
     })
 
     return (

@@ -1,6 +1,6 @@
+import { socketService } from './socketService'
 import { httpService } from './http-service'
 import { utilService } from './util-service'
-import { socketService } from './socketService'
 
 export const boardService = {
     query,
@@ -16,14 +16,12 @@ async function query(filterBy) {
 
 async function getById(boardId, filterBy = '') {
     const board = await httpService.get(`board/${boardId}`)
-    // const board = boards.find(board => board._id === boardId)
     let newBoard = _deepCloneBoard(board)
     let lists = newBoard.groups.map(group => {
         return group.cards.filter(card => card.title.toLowerCase().includes(filterBy.toLowerCase()))
     })
-    console.log(newBoard);
-    for (let i = 0; i < lists.length; i++ ) {
-      newBoard.groups[i].cards = lists[i]
+    for (let i = 0; i < lists.length; i++) {
+        newBoard.groups[i].cards = lists[i]
     }
     return newBoard
 }
@@ -46,7 +44,6 @@ async function addBoard(title, backgroundURL, board) {
         newBoard.isTemplate = false
     } else {
         newBoard = {
-            // "_id": utilService.makeId(12),
             "title": title,
             "isArchived": false,
             "isTemplate": false,

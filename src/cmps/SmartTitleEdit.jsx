@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
 import logo from '../assets/img/loder.gif'
+import React, { Component } from 'react'
+
 export class SmartTitleEdit extends Component {
+
     state = {
         isEditing: false,
         group: null,
@@ -8,7 +10,7 @@ export class SmartTitleEdit extends Component {
         data: null,
         prevTitle: ''
     }
-    // inputRef = React.createRef()
+
     componentDidMount() {
         const { card, group } = this.props
         if (group) {
@@ -19,22 +21,10 @@ export class SmartTitleEdit extends Component {
         }
     }
 
-    componentDidUpdate() {
-        // this.state.isEditing && this.inputRef.current.focus()
-    }
-
     onToggleMode = () => {
         const { isEditing } = this.state
         this.setState({ ...this.state, isEditing: !isEditing })
     }
-
-    // handleKeyPress = (ev) => {
-    //     if (ev.key === 'Enter') {
-    //         this.onSubmit()
-    //     }
-    //     const { isEditing } = this.state
-    //     this.setState({ ...this.state, isEditing: !isEditing })
-    // }
 
     handleChange = ({ target }) => {
         const { value } = target
@@ -42,7 +32,6 @@ export class SmartTitleEdit extends Component {
     }
 
     onSubmit = () => {
-        // const { prevTitle, data: data, card, group } = this.state
         const { prevTitle, data, card, group } = this.state
         if (!data.title) {
             this.setState({ ...this.state, data: { ...data, title: prevTitle } })
@@ -69,4 +58,3 @@ export class SmartTitleEdit extends Component {
         )
     }
 }
-// onKeyPress={this.handleKeyPress}

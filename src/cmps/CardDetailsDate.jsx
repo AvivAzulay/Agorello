@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
 import { Checkbox } from '@material-ui/core'
-// import Moment from 'react-moment';
-// import { CardDateSetter } from './CardDateSetter'
+import React, { Component } from 'react'
 
 export class CardDetailsDate extends Component {
+
     state = {
         isDone: false,
     }
@@ -25,7 +24,6 @@ export class CardDetailsDate extends Component {
 
     displayDueDate = () => {
         const { card } = this.props
-        // if (!card || !card.dueDate || )
         return card.dueDate && <span>{(new Date(card?.dueDate?.time)).toString().split(' ')[1]
             + ' ' +
             (new Date(card?.dueDate?.time)).getUTCDate() + ' at ' +
@@ -33,17 +31,10 @@ export class CardDetailsDate extends Component {
             (((new Date(card?.dueDate?.time)).getMinutes().toString().length === 1) ?
                 '0' + (new Date(card?.dueDate?.time)).getMinutes() : (new Date(card?.dueDate?.time)).getMinutes())
         }</span>
-
-        // return card.dueDate && <span>{(new Date(card?.dueDate?.time)).toString().split(' ')[1]
-        //     + ' ' +
-        //     (new Date(card?.dueDate?.time)).getUTCDate() + ' at ' +
-        //     (new Date(card?.dueDate?.time)).toString().split(' ')[4].slice(0, 5)
-        // }</span>
     }
 
 
     render() {
-        // console.log(this.props);
         const { isDone } = this.state
         return (
             <div className="due-date-edit-preview">

@@ -1,11 +1,11 @@
+import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, updateBoardSockets } from '../store/action/board.action.js'
+import { socketService } from '../services/socketService'
+import { BoardHeader } from '../cmps/BoardHeader.jsx'
+import { CardDetails } from '../cmps/CardDetails'
+import { GroupList } from '../cmps/GroupList'
+import logo from '../assets/img/loder.gif'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { CardDetails } from '../cmps/CardDetails'
-import { BoardHeader } from '../cmps/BoardHeader.jsx'
-import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, updateBoardSockets } from '../store/action/board.action.js'
-import { GroupList } from '../cmps/GroupList'
-import { socketService } from '../services/socketService'
-import logo from '../assets/img/loder.gif'
 
 
 
@@ -30,20 +30,11 @@ class _BoardApp extends Component {
             console.log('Huge error', err);
         }
     }
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
+
     componentWillUnmount() {
         // socketService.off('board updated')
         // socketService.terminate()
     }
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
-    //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
 
     onLoadBoard = () => {
         this.props.loadBoard(this.props.match.params.boardId, this.state.filterBy)
@@ -54,19 +45,17 @@ class _BoardApp extends Component {
         newBoard[key] = value
         this.props.updateBoard(newBoard)
         socketService.emit('board updated', { newBoard, id: newBoard._id })
-        // socketService.emit('board updated', { from, txt: this.state.msg.txt })
     }
 
     onUpdateBoard = (key, value) => {
         const newBoard = { ...this.props.board }
         newBoard[key] = value
         this.props.updateBoard(newBoard)
-        // socketService.emit('board updated', { newBoard })
     }
 
     onSetFilter = (filterBy) => {
         this.props.loadBoard(this.props.match.params.boardId, filterBy)
-      }
+    }
 
     onSaveGroup = (group, board, action) => {
         return this.props.saveGroup(group, board, action)
@@ -81,7 +70,6 @@ class _BoardApp extends Component {
     }
 
     onSaveCard = (card, groupId, action) => {
-        console.log(action);
         this.props.saveCard(card, groupId, this.props.board, action)
     }
 
@@ -107,43 +95,35 @@ class _BoardApp extends Component {
         return cardActivities;
     }
 
-    onSaveActivity = (board, data, action) => {
-        this.props.saveActivity(board, data, action)
-    }
-
     render() {
-        const { board , isQuickCardEditorOpen} = this.props
+        const { board } = this.props
         if (!board) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
-        // console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
-
             <div className="board" style={{ backgroundImage: `url(${board?.style?.bgImg})` }}>
                 <div className="fade"></div>
                 <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
                     props={this.props}
-                    loadBoard={this.props.loadBoard}
                     onSetFilter={this.onSetFilter}
-                    updateBoard={this.props.updateBoard}
+                    loadBoard={this.props.loadBoard}
                     onUpdateBoard={this.onUpdateBoard}
+                    updateBoard={this.props.updateBoard}
                     onSetBackground={this.onSetBackground}
                 />
                 <div className="board-container">
                     <GroupList
                         board={board}
+                        groups={board.groups}
                         onSaveCard={this.onSaveCard}
                         onSaveGroup={this.onSaveGroup}
-                        groups={board.groups}
                         onRemoveCard={this.onRemoveCard}
                         onRemoveGroup={this.onRemoveGroup}
                         isLebelOpen={this.state.isLebelOpen}
-                        onSaveActivity={this.onSaveActivity}
+                        toggelQuickEditor={this.toggelQuickEditor}
                         onOpenPreviewLabels={this.onOpenPreviewLabels}
                         getActivitiesByCardId={this.getActivitiesByCardId}
-                        isQuickCardEditorOpen={this.isQuickCardEditorOpen}
-                        toggelQuickEditor={this.toggelQuickEditor}
                     />
                 </div>
             </div>
@@ -165,10 +145,7 @@ const mapDispatchToProps = {
     removeCard,
     updateBoard,
     removeGroup,
-    saveActivity,
     updateBoardSockets
 }
-
-
 
 export const BoardApp = connect(mapStateToProps, mapDispatchToProps)(_BoardApp)

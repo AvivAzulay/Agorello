@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class CardCoverList extends Component {
+
     state = {
         cover: ''
     }
@@ -22,17 +23,17 @@ export class CardCoverList extends Component {
             "https://res.cloudinary.com/taskit-sprint/image/upload/v1622555554/background%20for%20Taskit/Layer_5_dxwxr7.jpg"
         ]
         return (
-                <div className={`card-cover-list ${this.props.modalLoc}`}>
-                    <div className="card-cover-list-header">
-                        <p></p>
-                        <h3>cover</h3>
-                        <button onClick={this.props.onToggle} className="close-save-edit btn-close-card-cover"></button>
-                    </div>
-                    <div className="cover-btns">
-                        {backgroundURLs.map((backgroundURL, index) =>
-                            <div key={index} onClick={() => this.onSaveCover(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></div>)}
-                    </div>
+            <div className={`card-cover-list ${this.props.modalLoc}`}>
+                <div className="card-cover-list-header">
+                    <p></p>
+                    <h3>cover</h3>
+                    <button onClick={this.props.onToggle} className="close-save-edit btn-close-card-cover"></button>
                 </div>
-            )
+                <div className="cover-btns">
+                    {backgroundURLs.map((backgroundURL, index) =>
+                        <div key={index} onClick={() => this.onSaveCover(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></div>)}
+                </div>
+            </div>
+        )
     }
 }

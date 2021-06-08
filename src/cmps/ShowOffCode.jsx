@@ -28,7 +28,7 @@ export function saveCard(card, groupId, board, action = '', item = '') {
             }
             dispatch({ type: 'SET_BOARD', board: newBoard })
             await boardService.updateBoard(newBoard)
-        } catch (err) {    
+        } catch (err) {
             dispatch({ type: 'SET_BOARD', board: board })
             console.log(`BoardActions: Cannot perform the change, Error in ${card.id ? 'update card' : 'add card'} ${err}`)
         }

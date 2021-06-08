@@ -1,8 +1,9 @@
 import { GroupPreview } from './GroupPreview.jsx'
-import { GroupAdd } from './GroupAdd.jsx'
 import { Droppable } from 'react-beautiful-dnd'
+import { GroupAdd } from './GroupAdd.jsx'
 
-export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCard, onSaveGroup, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, onSaveActivity, isQuickCardEditorOpen, toggelQuickEditor }) {
+export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCard, onSaveGroup, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, isQuickCardEditorOpen, toggelQuickEditor }) {
+
   return (
     <div className="group-list-container">
       <Droppable
@@ -15,26 +16,24 @@ export function GroupList({ board, onRemoveGroup, groups, onSaveCard, onRemoveCa
             ref={provided.innerRef}
             className="group-list">
             {groups?.map((group, index) => <GroupPreview
-              key={group.id}
               group={group}
               index={index}
               board={board}
+              key={group.id}
               onSaveCard={onSaveCard}
               isLebelOpen={isLebelOpen}
               onSaveGroup={onSaveGroup}
               onRemoveCard={onRemoveCard}
               onRemoveGroup={onRemoveGroup}
-              onSaveActivity={onSaveActivity}
-              onOpenPreviewLabels={onOpenPreviewLabels}
-              getActivitiesByCardId={getActivitiesByCardId}
-              isQuickCardEditorOpen={isQuickCardEditorOpen}
               toggelQuickEditor={toggelQuickEditor}
+              onOpenPreviewLabels={onOpenPreviewLabels}
+              isQuickCardEditorOpen={isQuickCardEditorOpen}
+              getActivitiesByCardId={getActivitiesByCardId}
             />)}
             {provided.placeholder}
             <GroupAdd
               board={board}
               onSaveGroup={onSaveGroup}
-              onSaveActivity={onSaveActivity}
             />
           </div>
         )}

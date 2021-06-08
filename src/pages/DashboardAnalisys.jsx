@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
 import { loadBoard } from '../store/action/board.action';
-import { connect } from 'react-redux';
 import { Doughnut, Bar } from 'react-chartjs-2';
-// import { toast } from 'react-toastify';
 import logo from '../assets/img/loder.gif'
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export default class _DashboardAnalisys extends Component {
 
@@ -47,7 +45,6 @@ export default class _DashboardAnalisys extends Component {
             })
             return acc;
         }, { checked: 0, total: 0 });
-        console.log(todosCount);
         if (todosCount.checked / todosCount.total > 0.75) todosCount.colorClass = 'todos-green';
         if (todosCount.checked / todosCount.total <= 0.5) todosCount.colorClass = 'todos-red';
         return { numOfMembers, archivedCardsCount, unarchivedCardsCount, todosCount };
@@ -65,7 +62,6 @@ export default class _DashboardAnalisys extends Component {
 
     cardsByMembers = (board) => {
         if (!board.members) return;
-        console.log('board', board);
         const cardsByMembersMap = board.members.reduce((acc, member) => {
             let memberCardsCount = 0;
             for (let i = 0; i < board.groups.length; i++) {
@@ -155,7 +151,6 @@ export default class _DashboardAnalisys extends Component {
         return !board
             ? <div>Loading...</div>
             : <div className="page-container" style={{ backgroundImage: `url(${board?.style?.bgImg})` }}>
-
                 <div className="fade-analisys"></div>
                 <h3 className="analysis-title"> {board.title} : Data Analysis</h3>
                 <div className="home-nav"></div>
@@ -168,7 +163,6 @@ export default class _DashboardAnalisys extends Component {
                                 {dashboardNumbers.unarchivedCardsCount}
                                 <span className="total">{` (${dashboardNumbers.archivedCardsCount} archived)`}</span>
                             </h3>
-
                         </div>
                         <div>
                             <span>To-Dos Checked</span>
@@ -178,7 +172,6 @@ export default class _DashboardAnalisys extends Component {
                             </h3></div>
                     </div>}
                     <div className="charts">
-
                         {cardsByMembers && <div className="chart-container cards-by-member-container">
                             <h3>Cards Per Member</h3>
                             <div className="data">
@@ -198,10 +191,8 @@ export default class _DashboardAnalisys extends Component {
                             </div>
                         </div>}
                     </div>
-                  
-                   <button className="chart-container-btn"  onClick={() => this.props.history.push(`/board/`)}>Go Back</button>
+                    <button className="chart-container-btn" onClick={() => this.props.history.push(`/board/`)}>Go Back</button>
                 </div>
-              
             </div >
     }
 }

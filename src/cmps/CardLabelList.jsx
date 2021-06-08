@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
 import logo from '../assets/img/loder.gif'
-
+import React, { Component } from 'react'
 import { CardLabel } from './CardLabel'
 
 export class CardLabelList extends Component {
+
     state = {
         labelName: '',
         boardLabels: [],
@@ -14,11 +14,9 @@ export class CardLabelList extends Component {
     colors = ['green', 'yellow', 'orange', 'red', 'purple', 'blue', 'aqua', 'lightgreen',
         'pink', 'deepblue', 'gray']
 
-    // inputRef = React.createRef()
 
     componentDidMount() {
         this.setState({ boardLabels: this.props.boardLabels })
-        // this.inputRef.current.focus()
     }
 
     onClickBoardLabel = (label, isChecked) => {
@@ -33,13 +31,12 @@ export class CardLabelList extends Component {
     }
 
     onClickEdit = (label) => {
-        this.setState({editedLabel: label})
-        this.setState({isEditing: true})
+        this.setState({ editedLabel: label })
+        this.setState({ isEditing: true })
     }
 
     onEditSubmit = (editedLabel) => {
         let { boardLabels } = this.state
-        console.log(editedLabel, boardLabels)
         const labelIdx = boardLabels.findIndex(label => label.id === editedLabel.id)
         boardLabels[labelIdx] = editedLabel
         this.props.onUpdateBoardLabels(boardLabels)
@@ -74,8 +71,8 @@ export class CardLabelList extends Component {
                     <h4>LABELS</h4>
                     {boardLabels.map(label => {
                         return <CardLabel key={label.id} boardLabel={label}
-                            cardLabels={this.props.card.labels} toggleLabel={this.onClickBoardLabel} 
-                            onClickEdit={this.onClickEdit}/>
+                            cardLabels={this.props.card.labels} toggleLabel={this.onClickBoardLabel}
+                            onClickEdit={this.onClickEdit} />
                     })}
                 </div>
             )
@@ -83,7 +80,7 @@ export class CardLabelList extends Component {
             return (
                 <div className={`card-label-list ${this.props.modalLoc}`} onClick={(ev) => { ev.stopPropagation() }}>
                     <div className="card-label-list-header">
-                        <p className="btn-exp-edit-label clickable" onClick={() => this.setState({isEditing: false})}></p>
+                        <p className="btn-exp-edit-label clickable" onClick={() => this.setState({ isEditing: false })}></p>
                         <h3>Change label</h3>
                         <button onClick={this.props.onToggle} className="close-save-edit btn-close-card-label"></button>
                     </div>
@@ -93,12 +90,12 @@ export class CardLabelList extends Component {
                     <h4>Select a color</h4>
                     <div className="label-colors">
                         <div>
-                            {this.colors.map(color => <span className={`label-color ${(color !== 'gray')? color : 'grayColor'} 
+                            {this.colors.map(color => <span className={`label-color ${(color !== 'gray') ? color : 'grayColor'} 
                                 ${color === this.state.editedLabel.color ? 'select' : null}`}
                                 onClick={() => this.onSetColor(color)}>{color === this.state.editedLabel.color ? <p></p> : null}</span>)}
-                                <span className="text-container"><p className="text">No color.</p><p className="text"> This won't show up on the front of cards.</p></span>
+                            <span className="text-container"><p className="text">No color.</p><p className="text"> This won't show up on the front of cards.</p></span>
                         </div>
-                        
+
                     </div>
                     <button className="btn-save" onClick={() => this.onEditSubmit(this.state.editedLabel)}>Save</button>
                 </div>

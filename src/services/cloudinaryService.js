@@ -5,7 +5,6 @@ export const cloudinaryService = {
 
 let lastGetURL
 
-
 function getLastUplode() {
   return lastGetURL
 }
@@ -25,9 +24,7 @@ function uploadImg(ev) {
   })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
       lastGetURL = res.secure_url
-      console.log(lastGetURL)
       return res
     })
     .catch(err => console.error(err))

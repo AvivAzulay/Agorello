@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-// import Checkbox from './Checkbox';
-import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 import { MemberIcon } from './MemberIcon'
-// import { QuickCardEditor } from '../cmps/QuickCardEditor.jsx'
+import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 
 
-// export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate, isQuickCardEditorOpen, toggelQuickEditor }) {
 export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, isQuickCardEditorOpen, toggelQuickEditor }) {
 
     const [previousX, setPreviousX] = useState(null);
@@ -20,7 +17,6 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
         onSaveCard(card, card.currGroup.groupId, action)
     }
 
-
     function handleDrag({ provided }) {
         const { transform } = provided.draggableProps.style;
         const currentXPosition = +transform?.match(/\(.*\px,/g)[0].slice(1, -3);
@@ -30,10 +26,8 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
             setCardPreviewDragClass(className)
             return className;
         }
-
         return cardPreviewDragClass;
     }
-
 
     function countDoneTodos(card) {
         let count = 0
@@ -53,7 +47,6 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
     }
 
     return (
-
         <Draggable
             draggableId={card.id}
             index={index}
@@ -77,27 +70,23 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                             <button className="card-preview-remove-btn" onClick={() => onRemoveCard(card)}></button>
                             <Link to={`/board/${board._id}/${card.id}`} >
                                 <button className="card-preview-edit-icon" onClick={() => toggelQuickEditor()}></button>
-                                {/* {isQuickCardEditorOpen && <QuickCardEditor/>} */}
                                 <div className="test-white-space">{card.title} </div>
-
                                 <div className="card-preview-attachments" >{
                                     card?.attachments?.map((attachment, index) =>
                                         <img className="card-preview-attachments-img" src={attachment} alt="" key={index} />)}
                                 </div>
-
                                 <div className="card-preview-bottom">
                                     <div className="card-preview-bottom-list">
                                         {card?.attachments.length > 0 && <span className="card-attachment-icon"></span>}
                                         {card?.checklist.length > 0 && <>
-                                        <span  className="card-checklist-preview">
-                                            <span className="card-checklist-icon"></span>
-                                            <span>{countDoneTodos(card)}</span>
-                                            <span>/</span>
-                                            <span>{countTodos(card)}</span>
+                                            <span className="card-checklist-preview">
+                                                <span className="card-checklist-icon"></span>
+                                                <span>{countDoneTodos(card)}</span>
+                                                <span>/</span>
+                                                <span>{countTodos(card)}</span>
                                             </span>
                                         </>
                                         }
-
                                         {getActivitiesByCardId(card.id).length !== 0 &&
                                             <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                         {card?.dueDate?.time ? <span onClick={(event) => toggleDueDate(event)} className={card.dueDate.isCompleted ? "card-preview-date checked" : "card-preview-date not-checked"}>
@@ -108,24 +97,20 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                             }</span> : <span></span>}
                                         {card.description && <span className="icon-desription"></span>}
                                     </div>
-
                                     <div className="card-preview-members">{
                                         card.members &&
                                         card.members.map((member, index) =>
-                                            // <div key={index}>{member.fullname.split(' ').map(name => name[0]).slice(0, 2)[0] + member.fullname.split(' ').map(name => name[0]).slice(0, 2)[1]}</div>
                                             <MemberIcon member={member} size={'small'} key={index} />
                                         )}
                                     </div>
 
                                 </div>
                             </Link >
-
                         </div>
                         {provided.placeholder}
                     </div>
                 </div>
-            )
-            }
+            )}
         </Draggable >
     )
 }

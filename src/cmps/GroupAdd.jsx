@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 
 
 export class GroupAdd extends Component {
+
     state = {
         isEditing: false,
         group: {
             title: ''
         }
     }
+
     inputRef = React.createRef()
 
     componentDidUpdate() {
@@ -23,7 +25,6 @@ export class GroupAdd extends Component {
         const { value } = target
         this.setState({ ...this.state, group: { title: value } })
     }
-
 
     onSubmit = (ev) => {
         ev.preventDefault()
@@ -52,7 +53,6 @@ export class GroupAdd extends Component {
                         </div>
                     </form>
                 </div>}
-
         </React.Fragment>
         )
     }

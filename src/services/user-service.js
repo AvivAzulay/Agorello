@@ -48,7 +48,6 @@ async function login(credentials) {
 
 async function signup(userInfo) {
     try {
-        console.log(userInfo);
         const user = await httpService.post('auth/signup', userInfo)
         return _saveLocalUser(user)
     } catch (err) {

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
 import logo from '../assets/img/loder.gif'
-
+import React, { Component } from 'react'
 import { CardMember } from './CardMember'
 
 export class CardMemberList extends Component {
+
     state = {
         memberName: '',
         boardMembers: []
@@ -13,7 +13,6 @@ export class CardMemberList extends Component {
 
     componentDidMount() {
         this.setState({ boardMembers: this.props.boardMembers })
-        // this.inputRef.current.focus()
     }
 
     onClickBoardMember = (member, isChecked) => {
@@ -28,7 +27,6 @@ export class CardMemberList extends Component {
             card.removedMember = member
             this.props.onUpdateCardProps('members', members, 'REMOVE_MEMBER', member)
         }
-
     }
 
     handleChange = (ev) => {
@@ -56,6 +54,5 @@ export class CardMemberList extends Component {
                 })}
             </div>
         )
-
     }
 }

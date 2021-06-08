@@ -1,9 +1,6 @@
-import io from 'socket.io-client'
 import { httpService } from './http-service'
+import io from 'socket.io-client'
 
-export const SOCKET_EMIT_USER_WATCH = 'user-watch';
-export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
-export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 export const socketService = createSocketService()
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
@@ -11,8 +8,8 @@ const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030
 window.socketService = socketService
 
 var socketIsReady = false;
-const socket = io(baseUrl, { reconnection: false })
 
+let socket = io(baseUrl, { reconnection: false })
 
 function createSocketService() {
   const socketService = {

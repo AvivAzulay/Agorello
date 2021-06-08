@@ -1,6 +1,6 @@
 export function Footer() {
-  return (
 
+  return (
     <div className="footer">
       <h2>Meet the Team</h2>
       <div className="presentors-imgs">

@@ -11,19 +11,8 @@ import './App.css'
 
 class _App extends Component {
 
-  state = {
-
-  }
-
   componentDidMount() {
     socketService.setup()
-
-    // const boardId = this.props.match.params.boardId
-    // console.log(boardId);
-    // this.props.loadBoard().then(
-    //   (board) => this.setState({ board })
-    // )
-
   }
 
   onDragEnd = (result) => {
@@ -32,7 +21,6 @@ class _App extends Component {
     if (!destination) return
     if (destination.droppableId === source.droppableId && destination.index === source.index) return
     if (!draggableId) return
-
 
     if (type === 'card') {
       const startGroupIndex = this.props.board.groups.findIndex(group => group.id === source.droppableId)
@@ -73,7 +61,6 @@ class _App extends Component {
 
         const newBoard = { ...this.props.board, groups: newGroups }
 
-
         this.props.updatePosition(newBoard)
         this.props.updateBoard(newBoard)
       }
@@ -98,11 +85,7 @@ class _App extends Component {
   }
 
   render() {
-    // const { board } = this.props
-    // console.log(this.state);
-    // console.log(this.props);
-    // if (!board) return <h1>Loading...</h1>
-    // console.log('Made it');
+
     return (
       <DragDropContext
         onDragEnd={this.onDragEnd}

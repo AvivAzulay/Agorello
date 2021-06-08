@@ -1,12 +1,12 @@
+import { CardAddCheckList } from './CardAddCheckList'
 import { CardMemberList } from './CardMemberList'
 import { CardLabelList } from './CardLabelList'
-import { CardAddCheckList } from './CardAddCheckList'
 import { CardCoverList } from './CardCoverList'
 
-export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleModal, saveActivity,
+export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleModal,
     onUpdateCardProps, boardMembers, boardLabels, onUpdateBoardLabels }) {
-    
-        const DynamicCmp = (props) => {
+
+    const DynamicCmp = (props) => {
         switch (modalType) {
             case 'members':
                 return <CardMemberList {...props} />
@@ -28,7 +28,6 @@ export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleMod
             modalLoc={modalLoc}
             onToggle={onToggleModal}
             boardLabels={boardLabels}
-            saveActivity={saveActivity}
             boardMembers={boardMembers}
             onUpdateCardProps={onUpdateCardProps}
             onUpdateBoardLabels={onUpdateBoardLabels}

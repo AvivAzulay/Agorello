@@ -1,6 +1,6 @@
-import React from 'react'
-import Moment from 'react-moment'
 import { MemberIcon } from './MemberIcon'
+import Moment from 'react-moment'
+import React from 'react'
 
 export function BoardActivitiesList({ activities }) {
     if (!activities) return <></>

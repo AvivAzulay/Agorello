@@ -27,7 +27,6 @@ export class CardAdd extends Component {
     onEnter = (ev) => {
         if (ev.key === 'Enter') {
             const { card } = this.state
-            // No title check
             if (!card.title || card.title.charAt(0) === ' ' || card.title.charAt(0) === '\n') {
                 this.setState({ ...this.state, card: { title: '' } })
                 return
@@ -51,7 +50,6 @@ export class CardAdd extends Component {
         this.props.onSaveCard(this.state.card, this.props.group.id, 'ADD_CARD')
         card.currGroup = {}
         card.currGroup.groupId = this.props.group.id
-        // this.props.onSaveActivity(this.props.board, card, 'ADD_CARD')
     }
 
     render() {
@@ -72,12 +70,10 @@ export class CardAdd extends Component {
                                 <button className="card-add-edit-btn" onClick={this.onSubmit}>Add card</button>
                                 <button className="card-add-exit-btn" onClick={this.onToggleMode}></button>
                             </span>
-
                         </div>
-
                     </form>
-                </div>}
-
+                </div>
+            }
         </React.Fragment>
         )
     }
