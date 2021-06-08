@@ -37,7 +37,6 @@ export default class _DashboardAnalisys extends Component {
         const cards = board.groups.reduce((acc, group) => [...acc, ...group.cards], []);
         const todosCount = cards.reduce((acc, card) => {
             if (!card.checklist) return acc;
-            console.log(card.checklist);
             card.checklist.forEach(checklist => {
                 checklist.todos.forEach(todo => {
                     if (todo.isDone) acc.checked++;
