@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { saveCard, saveActivity } from '../store/action/board.action'
-import { SmartTitleEdit } from './SmartTitleEdit'
-import { CardDescription } from './CardDescription'
-import { CardDetailsMembers } from './CardDetailsMembers'
-import { CardDetailsLabels } from './CardDetailsLabels'
-import { CardDetailsDate } from './CardDetailsDate'
-import { CardDateSetter } from './CardDateSetter'
-import { CardCheckListContainer } from './CardCheckListContainer'
-import { CardActivitiesList } from './CardActivitiesList'
-import { AttachmentsList } from './AttachmentsList'
-import { CardComment } from './CardComment'
-import { UplodeImg } from './UplodeImg'
-import { CardDetailsModal } from './CardDetailsModal'
-import { CardCoverList } from './CardCoverList'
+// import React, { Component } from 'react'
+// import { connect } from 'react-redux'
+// import { saveCard, saveActivity } from '../store/action/board.action'
+// import { SmartTitleEdit } from './SmartTitleEdit'
+// import { CardDescription } from './CardDescription'
+// import { CardDetailsMembers } from './CardDetailsMembers'
+// import { CardDetailsLabels } from './CardDetailsLabels'
+// import { CardDetailsDate } from './CardDetailsDate'
+// import { CardDateSetter } from './CardDateSetter'
+// import { CardCheckListContainer } from './CardCheckListContainer'
+// import { CardActivitiesList } from './CardActivitiesList'
+// import { AttachmentsList } from './AttachmentsList'
+// import { CardComment } from './CardComment'
+// import { UplodeImg } from './UplodeImg'
+// import { CardDetailsModal } from './CardDetailsModal'
+// import { CardCoverList } from './CardCoverList'
 
 
-export class QuickCardEditor extends Component {
+// export class QuickCardEditor extends Component {
   // state = {
   //   card: null,
   //   isCardDueDateShowenRight: false,
@@ -133,4 +133,4 @@ export class QuickCardEditor extends Component {
   //     </div>
   //   )
   // }
-}
+// }

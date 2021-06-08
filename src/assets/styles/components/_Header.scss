@@ -83,9 +83,7 @@
       @include for-mobile-layout(){
         width: 32px;
       }
-      @include for-wide-layout {
       width: 83px;
-      }
       color: white;
       margin-right: 4px;
       span{

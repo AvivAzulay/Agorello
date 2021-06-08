@@ -19,7 +19,6 @@ export class BoardHeader extends Component {
   inputRef = React.createRef()
 
   componentDidMount() {
-    console.log(this.props);
     this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
     // this.inputRef.current.focus()
   }
@@ -108,8 +107,7 @@ export class BoardHeader extends Component {
               placeholder="Board's name..."
               onChange={this.handleChange}
               onKeyPress={this.handleKeyPress}
-              onFocus={(ev) => ev.target.select()}
-            >
+              onFocus={(ev) => ev.target.select()}>
             </input>}
             <input type="search" name="searchTxt" value={this.state.searchTxt} placeholder="Search Cardes..." onChange={this.handleChange} />
             {/* <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} /> */}
@@ -119,7 +117,10 @@ export class BoardHeader extends Component {
             <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
             <button className="about-this-board"> About this Board</button>
             <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
-            <button className="board-analysis" onClick={() => this.props.props.history.push(`/dashboard/${this.props.board._id}`)}> Board Analysis</button>
+            <NavLink to={`/dashboard/${this.props.board._id}`}>
+              <button className="board-analysis"> Board Analysis</button>
+            </NavLink>
+
             <button className="labels"> Labels</button>
             <div className="edit-details-activity-header">
               <span>

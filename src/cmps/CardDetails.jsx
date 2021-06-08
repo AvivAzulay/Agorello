@@ -83,7 +83,7 @@ export class _CardDetails extends Component {
             <div className="edit-details-header">
               <p className="edit-details-header-logo"></p>
               <SmartTitleEdit card={card} saveCard={this.props.saveCard} board={this.props.board} />
-              <button className="close-save-edit" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
+              <button className={card.cover?'close-save-edit-top-cover' :'close-save-edit'} onClick={() => this.props.history.push(`/board/${this.props.board._id}`)} ></button>
             </div>
 
             <div className="edit-body">

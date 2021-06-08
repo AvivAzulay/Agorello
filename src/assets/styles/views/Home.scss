@@ -6,7 +6,13 @@
   padding: 0;
 
   p {
+    @include for-mobile-layout {
+    font-size: 22px;
+    }
+    
     font-size: 32px;
+  
+    
     font-weight: 500;
     color: rgba(61, 71, 77, 0.5);
     letter-spacing: normal;
@@ -26,7 +32,14 @@
   left: 0;
 }
 .home-title {
-  font-size: 80px;
+  @include for-normal-layout {
+    font-size: 80px;
+  }
+   
+  @include for-mobile-layout {
+    font-size: 40px;
+  }
+ 
   font-weight: 700;
   letter-spacing: -2px;
   font-family: Heavy;
@@ -40,10 +53,10 @@
   background-color: #00aaff;
   box-shadow: 0 10px 30px -10px #00aaff;
   color: white;
-  line-height: 72px;
-  height: 72px;
-  padding: 0 40px;
-  font-size: 21px;
+  line-height: 50px;
+  height: 50px;
+  padding:0 20px;
+  font-size: 16px;
   border-radius: 36px;
   -webkit-appearance: none;
   font-family: "Avenir", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -57,7 +70,7 @@
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  width: 300px;
+  
   margin: 50px 0;
   display: flex;
   align-items: center;
@@ -87,7 +100,10 @@
   left: 0;
 }
 .home-subtitle-a {
-  font-size: 32px;
+  font-size: 20px;
+  @include for-wide-layout {
+    font-size: 32px;
+  }
   font-weight: 500;
   line-height: 100%;
   color: rgba(61, 71, 77, 0.5);
@@ -95,9 +111,14 @@
 }
 
 .home-title-a {
-  font-size: 60px;
+  @include for-wide-layout {
+    font-size: 60px;
+   
+    }
+    font-size: 30px;
   font-weight: 700;
   line-height: 110%;
+
   letter-spacing: -1px;
 }
 
@@ -111,9 +132,17 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
-  margin-top: 75px;
+  @include for-normal-layout {
+  margin-top: 130px;
   width: 100%;
   height: calc(100vw / 1440 * 520);
+  }
+  @include for-mobile-layout(){
+    width: 100%;
+  height: calc(70vw);
+  margin-top: 25px;
+  }
+
   justify-content: space-between;
 }
 .home-subtitle {
@@ -124,12 +153,30 @@
   p {
     margin: 0;
     font-family: Light;
+    @include for-mobile-layout{
+      margin-top: 120px;
+    }
   }
 }
 
 .home-pargrafe-a {
   font-family: Light;
+  @include for-mobile-layout{
+    font-size: 12px;
+    margin: 0;
+    padding: 5px;
+    display: none;
+  }
+  
+  @include for-narrow-layout {
+    font-size: 14px;
+   padding-left: 20px;
+   padding-right: 20px;
+  }
+  @include for-normal-layout {
   font-size: 21px;
+  
+  }
   color: rgba(61, 71, 77, 0.5);
   margin-bottom: 40px;
   display: block;
@@ -171,6 +218,26 @@
   padding: 0;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 460px;
-  width: 1660px;
+ 
+  height: calc(80vw *0.277);
+  width: 70vw;
+  @include for-mobile-layout {
+  height: calc(100vw *0.277);
+  width: 100vw;
+}
+
+// @include for-narrow-layout {
+//   height: calc(100vw *0.277);
+//   width: 100vw;
+// }
+}
+
+
+.loader-page{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+
 }

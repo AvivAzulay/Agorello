@@ -15,14 +15,13 @@ export const routes = [
     },
 
     {
-        path: 'dashboard/:boardId?',
-        component: DashboardAnalisys,
-    },
-    {
         path: '/boards/',
         component: Boards,
     },
-
+    {
+        path: '/dashboard/:boardId?',
+        component: DashboardAnalisys,
+    },
     {
         path: '/board/:boardId?/:cardId?',
         // ---> path: '/board/:boardId',

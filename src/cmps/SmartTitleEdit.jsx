@@ -41,8 +41,9 @@ export class SmartTitleEdit extends Component {
         this.setState({ ...this.state, data: { ...this.state.data, title: value } })
     }
 
-    onSubmit = (ev) => {
-        const { prevTitle, data: data, card, group } = this.state
+    onSubmit = () => {
+        // const { prevTitle, data: data, card, group } = this.state
+        const { prevTitle, data, card, group } = this.state
         if (!data.title) {
             this.setState({ ...this.state, data: { ...data, title: prevTitle } })
             this.onToggleMode()
@@ -55,7 +56,7 @@ export class SmartTitleEdit extends Component {
     }
 
     render() {
-        const { group, card, data: data, isEditing } = this.state
+        const { group, card, data } = this.state
 
         if ((!group && !card)) return <div>Loading...</div>
         return (

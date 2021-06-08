@@ -16,7 +16,10 @@ export function CardDetailsModal({ modalType, board, modalLoc, card, onToggleMod
                 return <CardAddCheckList {...props} />
             case 'cover':
                 return <CardCoverList {...props} />
+            default:
+                break
         }
+
     }
     return (
         <DynamicCmp

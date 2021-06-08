@@ -5,19 +5,12 @@ import { BoardHeader } from '../cmps/BoardHeader.jsx'
 import { loadBoard, removeGroup, saveCard, removeCard, saveGroup, updateBoard, saveActivity, updateBoardSockets } from '../store/action/board.action.js'
 import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
+import logo from '../assets/img/loder.gif'
 
+// s
 
 class _BoardApp extends Component {
 
-    ngOnInit() {
-        /** spinner starts on init */
-        this.spinner.show();
-
-        setTimeout(() => {
-            /** spinner ends after 5 seconds */
-            this.spinner.hide();
-        }, 5000);
-    }
     state = {
         currGroupIdx: null,
         isLebelOpen: false,
@@ -114,9 +107,9 @@ class _BoardApp extends Component {
     }
 
     render() {
-        const { board, isQuickCardEditorOpen } = this.props
-        if (!board) return <div>Loading...</div>
-        console.log(board);
+        const { board , isQuickCardEditorOpen} = this.props
+        if (!board) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
+        // console.log(board);
         return (<>
             { (this.props.match.params.cardId) ? <CardDetails cardId={this.props.match.params.cardId} history={this.props.history} /> : <div></div>}
 
@@ -151,8 +144,6 @@ class _BoardApp extends Component {
         )
     }
 }
-
-
 
 function mapStateToProps(state) {
     return {
