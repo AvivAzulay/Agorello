@@ -23,8 +23,8 @@ async function getById(boardId) {
 }
 
 async function updateBoard(board) {
-    const result = await httpService.put(`board/${board._id}`, board)
     socketService.emit('board update', board)
+    const result = await httpService.put(`board/${board._id}`, board)
     return result
 }
 

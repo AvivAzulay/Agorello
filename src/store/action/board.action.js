@@ -6,7 +6,7 @@ export function loadBoard(boardId) {
         try {
             const board = await boardService.getById(boardId)
             dispatch({ type: 'SET_BOARD', board })
-            return board
+            return Promise.resolve(board)
         } catch (err) {
             console.log('BoardActions: err in loadBoard', err)
         }
@@ -174,7 +174,6 @@ function _getNewCardObj(groupId) {
         members: [],
         labels: [],
         attachments: [],
-        members: [],
         checklist: [],
         currGroup: { groupId },
         createdAt: Date.now()
@@ -196,16 +195,16 @@ function _updateActivityList(board, data, action, item) {
         "createdAt": Date.now(),
         "byMember": {
             // Change it to current logged in user
-            "_id": "5f6a2528973d861c5d78c355",
-            "fullname": "puki ben david",
-            "imgUrl": `https://robohash.org/5f6a2528973d861c5d78c355?set=set4`
+            "fullname": "Gad Refaeli",
+            "imgUrl": "https://res.cloudinary.com/taskit-sprint/image/upload/v1622668300/members%20taskit/gad_ljlro4.jpg",
+            "_id": "5f6a2532173d861c5d78c321"
         }
     }
     switch (action) {
         case 'ADD_CARD':
             let group1 = _getGroupById(board, data.currGroup.groupId)
-            activity.txtCard = ` added this card to ${group1.title} `
-            activity.txtBoard = ` added ${data.title} to ${group1.title} `
+            activity.txtCard = `added this card to ${group1.title} `
+            activity.txtBoard = `added ${data.title} to ${group1.title} `
             activity.card = {
                 "id": data.id,
                 "title": data.title,
@@ -296,7 +295,6 @@ function _updateActivityList(board, data, action, item) {
             }
             break
         case 'ATTACHMENT':
-            console.log(data);
             let group10 = _getGroupById(board, item.currGroup.groupId)
             activity.attachment = ` attached ${data.attachments[0]} to this card `
             activity.txtBoard = ` attached ${data.attachments[0]} to ${group10.title} `

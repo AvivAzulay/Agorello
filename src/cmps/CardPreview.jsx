@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Draggable } from 'react-beautiful-dnd'
 import { MemberIcon } from './MemberIcon'
-import { QuickCardEditor } from '../cmps/QuickCardEditor.jsx'
+// import { QuickCardEditor } from '../cmps/QuickCardEditor.jsx'
 
 
-export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate ,isQuickCardEditorOpen, toggelQuickEditor}) {
+// export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, toggleDueDate, isQuickCardEditorOpen, toggelQuickEditor }) {
+export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActivitiesByCardId, onOpenPreviewLabels, isLebelOpen, board, isQuickCardEditorOpen, toggelQuickEditor }) {
 
     const [previousX, setPreviousX] = useState(null);
     const [cardPreviewDragClass, setCardPreviewDragClass] = useState("card-preview-drag-right")

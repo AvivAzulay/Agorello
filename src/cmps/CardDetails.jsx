@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveCard, saveActivity } from '../store/action/board.action'
+import { saveCard, saveActivity, updateBoard } from '../store/action/board.action'
 import { SmartTitleEdit } from './SmartTitleEdit'
 import { CardDescription } from './CardDescription'
 import { CardDetailsMembers } from './CardDetailsMembers'
@@ -33,18 +33,21 @@ export class _CardDetails extends Component {
   onLoadCard = (cardId) => {
     const group = this.props.board.groups.find(group =>
       group.cards.find(card => card.id === cardId))
-    const card = group.cards.find(card => card.id === cardId)
+    const card = group?.cards.find(card => card.id === cardId)
     this.setState({ card })
   }
 
   onUpdateCardProps = (key, value, action, item) => {
     const { card } = this.state
     card[key] = value
-    this.setState({ card }, () => this.onSaveCard(card, action, item))
+    this.setState({ card })
+    this.props.saveCard(card, card.currGroup.groupId, this.props.board, action, item)
   }
 
-  onSaveCard = (card, action, item) => {
-    this.props.saveCard(card, card.currGroup.groupId, this.props.board, action, item)
+  onUpdateBoardLabels = (boardLabels) => {
+    let { board } = this.props
+    board.labels = boardLabels
+    this.props.updateBoard(board)
   }
 
   onToggleDueDateRight = () => {
@@ -251,7 +254,8 @@ export class _CardDetails extends Component {
                     boardMembers={this.props.board.members}
                     onUpdateCardProps={this.onUpdateCardProps}
                     onToggleModal={this.onToggleModal}
-                    boardLabels={this.props.board.labels} />
+                    boardLabels={this.props.board.labels}
+                    onUpdateBoardLabels={this.onUpdateBoardLabels} />
                   }
                 </div>
               </div>
@@ -272,6 +276,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   saveCard,
   saveActivity,
+  updateBoard
 }
 
 export const CardDetails = connect(mapStateToProps, mapDispatchToProps)(_CardDetails)

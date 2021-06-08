@@ -1,7 +1,6 @@
 .card-preview,
 .card-preview-drag-right,
 .card-preview-drag-left{
-  // flex: 0 0 27rem;
   display: flex;
   flex-direction: column;
   background-color: #fbfdff;
@@ -18,7 +17,7 @@
   white-space: normal;
   .card-preview-body{
     padding: 6px 8px 2px;
-position: relative;
+    position: relative;
   }
 }
 

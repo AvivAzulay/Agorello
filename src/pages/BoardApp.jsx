@@ -7,6 +7,9 @@ import { GroupList } from '../cmps/GroupList'
 import { socketService } from '../services/socketService'
 import logo from '../assets/img/loder.gif'
 
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 class _BoardApp extends Component {
 
     state = {
@@ -64,9 +67,9 @@ class _BoardApp extends Component {
     onSaveGroup = (group, board, action) => {
         return this.props.saveGroup(group, board, action)
     }
-    toggelQuickEditor=()=>{
-        const{ isQuickCardEditorOpen }=this.state
-        this.setState({ ...this.state, isQuickCardEditorOpen: !isQuickCardEditorOpen})
+    toggelQuickEditor = () => {
+        const { isQuickCardEditorOpen } = this.state
+        this.setState({ ...this.state, isQuickCardEditorOpen: !isQuickCardEditorOpen })
     }
 
     onRemoveGroup = (group) => {
@@ -116,6 +119,7 @@ class _BoardApp extends Component {
                 <div className="borad-nav-color"></div>
                 <BoardHeader
                     board={board}
+                    props={this.props}
                     onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />
@@ -140,8 +144,6 @@ class _BoardApp extends Component {
         )
     }
 }
-
-
 
 function mapStateToProps(state) {
     return {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ActivitiesFilter } from './ActivitiesFilter.jsx'
 import { BoardActivitiesList } from './BoardActivitiesList.jsx'
+import { NavLink } from 'react-router-dom'
 
 export class BoardHeader extends Component {
 
@@ -28,7 +29,6 @@ export class BoardHeader extends Component {
   toggleMenu = () => {
     const { isMenuOn } = this.state
     this.setState({ ...this.state, isMenuOn: !isMenuOn, isSetBackGround: false })
-
   }
 
   toggleSetBackGround = () => {
@@ -93,50 +93,52 @@ export class BoardHeader extends Component {
     if (!this.props.board) return <div>Loading...</div>
     return (
       <>
-      <div className="borad-nav">
-        <div className="borad-nav-left">
-          {!isEditing && <h1 onClick={this.toggleEdditing}>{this.props.board.title}</h1>}
-          {isEditing && <input
-           className="borad-nav-title-edit"
-           type="text"
-            value={title}
-            ref={this.inputRef}
-            onBlur={this.onSubmit}
-            placeholder="Board's name..."
-            onChange={this.handleChange}
-            onKeyPress={this.handleKeyPress}
-            onFocus={(ev) => ev.target.select()}
-          >
-          </input>}
-          <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} />
+        <div className="borad-nav">
+          <div className="borad-nav-left">
+            {!isEditing && <h1 onClick={this.toggleEdditing}>{this.props.board.title}</h1>}
+            {isEditing && <input
+              className="borad-nav-title-edit"
+              type="text"
+              value={title}
+              ref={this.inputRef}
+              onBlur={this.onSubmit}
+              placeholder="Board's name..."
+              onChange={this.handleChange}
+              onKeyPress={this.handleKeyPress}
+              onFocus={(ev) => ev.target.select()}>
+            </input>}
+            <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} />
+          </div>
+          <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
+          {isMenuOn && !isSetBackGround && <div className="side-menu">
+            <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
+            <button className="about-this-board"> About this Board</button>
+            <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
+            <NavLink to={`/dashboard/${this.props.board._id}`}>
+              <button className="board-analysis"> Board Analysis</button>
+            </NavLink>
+
+            <button className="labels"> Labels</button>
+            <div className="edit-details-activity-header">
+              <span>
+                <p className="edit-details-activity-logo">
+                  <div className="activity-title">Activitys</div>
+                </p>
+                <BoardActivitiesList activities={this.props.board.activities} />
+              </span>
+            </div>
+          </div>}
+
+
+          {isMenuOn && isSetBackGround && <div className="side-menu-background">
+            <div className="side-menu-background-top"><p className="side-menu-back" onClick={this.toggleSetBackGround}></p><h1>Set BackGround</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
+            <div className="thumbnail">
+              {backgroundURLs.map((backgroundURL, index) =>
+                <button key={index} onClick={() => this.props.onSetBackground(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></button>)}
+            </div>
+          </div>}
         </div>
-        <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
-        {isMenuOn && !isSetBackGround && <div className="side-menu">
-          <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
-          <button className="about-this-board"> About this Board</button>
-          <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
-          <button className="board-analysis"> Board Analysis</button>
-          <button className="labels"> Labels</button>
-          <div className="edit-details-activity-header">
-            <span>
-              <p className="edit-details-activity-logo">
-                <div className="activity-title">Activitys</div>
-              </p>
-              <BoardActivitiesList activities={this.props.board.activities} />
-            </span>
-          </div>
-        </div>}
-
-
-        {isMenuOn && isSetBackGround && <div className="side-menu-background">
-          <div className="side-menu-background-top"><p className="side-menu-back" onClick={this.toggleSetBackGround}></p><h1>Set BackGround</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
-          <div className="thumbnail">
-            {backgroundURLs.map((backgroundURL, index) =>
-              <button key={index} onClick={() => this.props.onSetBackground(backgroundURL)} style={{ backgroundImage: `url(${backgroundURL})` }}></button>)}
-          </div>
-        </div>}
-      </div>
-</>
+      </>
     )
   }
 }

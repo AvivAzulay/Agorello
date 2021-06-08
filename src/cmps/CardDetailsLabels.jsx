@@ -1,6 +1,6 @@
 export function CardDetailsLabels(props) {
     let lables = props.labels.map((label, index) => {
-        return <span key={index} className={`label-name ${label.color}`}>{label.name}</span>
+        return <span key={index} className={`label-name ${(label.color !== 'gray')? label.color : 'grayColor'}`}>{label.name}</span>
     })
 
     return (

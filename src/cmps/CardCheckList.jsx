@@ -1,4 +1,3 @@
-import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@material-ui/core'
 import { CardChecklistTodo } from './CardChecklistTodo'
 import React, { Component } from 'react'
@@ -167,14 +166,14 @@ export class CardCheckList extends Component {
                 {((this.state.totalTasks) ? (
                     <div className="checklist-progress">
                         <div className="checklist-progress-numbers">%{this.getPrecentegesCompleted()}</div>
-                        
+
                         <LinearProgress value={this.getPrecentegesCompleted()} borderRadius="5" variant="determinate" />
                     </div>
                 ) : <React.Fragment />)
                 }
 
                 <main className="checklist-main">
-                    {this.props.list.todos.map(todo => <CardChecklistTodo
+                    {this.props?.list?.todos.map(todo => <CardChecklistTodo
                         todo={todo}
                         card={this.props.card}
                         key={todo.id}
