@@ -28,8 +28,9 @@ export function saveCard(card, groupId, board, action = '', item = '') {
             }
             dispatch({ type: 'SET_BOARD', board: newBoard })
             await boardService.updateBoard(newBoard)
-        } catch (err) {
-            console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
+        } catch (err) {    
+            dispatch({ type: 'SET_BOARD', board: board })
+            console.log(`BoardActions: Cannot perform the change, Error in ${card.id ? 'update card' : 'add card'} ${err}`)
         }
     }
 }
@@ -43,11 +44,6 @@ export function boardReducer(state = initialState, action) {
         case 'ADD_BOARD':
             return { ...state, board: action.board, boards: [...state.boards, action.board] }
         case 'SET_BOARD':
-<<<<<<< HEAD
-=======
-            return { ...state, board: action.board }
-        case 'ADD_GROUP':
->>>>>>> af236519f441d97fe69811b866800d7e552d710b
             return { ...state, board: action.board }
         default:
             return state
@@ -57,12 +53,7 @@ export function boardReducer(state = initialState, action) {
 
 // board.service.js
 async function updateBoard(board) {
-<<<<<<< HEAD
     socketService.emit('board update', board)
     const result = await httpService.put(`board/${board._id}`, board)
-=======
-    const result = await httpService.put(`board/${board._id}`, board)
-    socketService.emit('board update', board)
->>>>>>> af236519f441d97fe69811b866800d7e552d710b
     return result
 }

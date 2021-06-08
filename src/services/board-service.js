@@ -14,16 +14,23 @@ async function query(filterBy) {
     return Promise.resolve(boards)
 }
 
-async function getById(boardId, filterBy) {
-    const board = await httpService.get(`board/${boardId}`, filterBy)
+async function getById(boardId, filterBy = '') {
+    const board = await httpService.get(`board/${boardId}`)
     // const board = boards.find(board => board._id === boardId)
-    const newBoard = _deepCloneBoard(board)
+    let newBoard = _deepCloneBoard(board)
+    let lists = newBoard.groups.map(group => {
+        return group.cards.filter(card => card.title.toLowerCase().includes(filterBy.toLowerCase()))
+    })
+    console.log(newBoard);
+    for (let i = 0; i < lists.length; i++ ) {
+      newBoard.groups[i].cards = lists[i]
+    }
     return newBoard
 }
 
 async function updateBoard(board) {
-    socketService.emit('board update', board)
     const result = await httpService.put(`board/${board._id}`, board)
+    socketService.emit('board update', board)
     return result
 }
 

@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-// import { ActivitiesFilter } from './ActivitiesFilter.jsx'
 import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/img/loder.gif'
+
 export class BoardHeader extends Component {
 
   state = {
     title: '',
     board: null,
-    filterBy: '',
+    board: null,
     prevTitle: '',
+    filterBy: '',
     isMenuOn: false,
     isEditing: false,
-    searchTxt: '',
     isSetBackGround: false
   }
 
@@ -41,11 +41,7 @@ export class BoardHeader extends Component {
   handleChange = (ev) => {
     let { name, value } = ev.target
     this.setState({ ...this.state, [name]: value })
-    if (name = 'searchTxt') this.onSetFilter(value)
-  }
-
-  onSetFilter = (filterBy) => {
-    this.props.loadBoard(this.state.board._id, filterBy)
+    if (name = 'filterBy') this.props.onSetFilter(value)
   }
 
   handleKeyPress = (ev) => {
@@ -109,8 +105,7 @@ export class BoardHeader extends Component {
               onKeyPress={this.handleKeyPress}
               onFocus={(ev) => ev.target.select()}>
             </input>}
-            <input type="search" name="searchTxt" value={this.state.searchTxt} placeholder="Search Cardes..." onChange={this.handleChange} />
-            {/* <ActivitiesFilter onSearch={this.onSearch} onSetFilter={this.onSetFilter} /> */}
+            <input type="search" name="filterBy" value={this.state.filterBy} placeholder="Search Cardes..." onChange={this.handleChange} />
           </div>
           <button className="show-menu" onClick={this.toggleMenu} >Show menu</button>
           {isMenuOn && !isSetBackGround && <div className="side-menu">

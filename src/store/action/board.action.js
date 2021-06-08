@@ -6,7 +6,7 @@ export function loadBoard(boardId, filterBy) {
         try {
             const board = await boardService.getById(boardId, filterBy)
             dispatch({ type: 'SET_BOARD', board })
-            return Promise.resolve(board)
+            return board
         } catch (err) {
             console.log('BoardActions: err in loadBoard', err)
         }
@@ -34,7 +34,8 @@ export function saveCard(card, groupId, board, action = '', item = '') {
             dispatch({ type: 'SET_BOARD', board: newBoard })
             await boardService.updateBoard(newBoard)
         } catch (err) {
-            console.log(`BoardActions: err in ${card.id ? 'update card' : 'add card'}${err}`)
+            dispatch({ type: 'SET_BOARD', board: board })
+            console.log(`BoardActions: Cannot perform the change, Error in ${card.id ? 'update card' : 'add card'} ${err}`)
         }
     }
 }
@@ -174,6 +175,7 @@ function _getNewCardObj(groupId) {
         members: [],
         labels: [],
         attachments: [],
+        members: [],
         checklist: [],
         currGroup: { groupId },
         createdAt: Date.now()

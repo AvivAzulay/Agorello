@@ -15,6 +15,7 @@ class _BoardApp extends Component {
         currGroupIdx: null,
         isLebelOpen: false,
         isQuickCardEditorOpen: false,
+        filterBy: ''
     }
 
     async componentDidMount() {
@@ -45,7 +46,7 @@ class _BoardApp extends Component {
     //?!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!??!?!?!?!?//
 
     onLoadBoard = () => {
-        this.props.loadBoard(this.props.match.params.boardId)
+        this.props.loadBoard(this.props.match.params.boardId, this.state.filterBy)
     }
 
     onUpdateBoard = (key, value) => {
@@ -62,6 +63,10 @@ class _BoardApp extends Component {
         this.props.updateBoard(newBoard)
         // socketService.emit('board updated', { newBoard })
     }
+
+    onSetFilter = (filterBy) => {
+        this.props.loadBoard(this.props.match.params.boardId, filterBy)
+      }
 
     onSaveGroup = (group, board, action) => {
         return this.props.saveGroup(group, board, action)
@@ -120,6 +125,8 @@ class _BoardApp extends Component {
                     board={board}
                     props={this.props}
                     loadBoard={this.props.loadBoard}
+                    onSetFilter={this.onSetFilter}
+                    updateBoard={this.props.updateBoard}
                     onUpdateBoard={this.onUpdateBoard}
                     onSetBackground={this.onSetBackground}
                 />
