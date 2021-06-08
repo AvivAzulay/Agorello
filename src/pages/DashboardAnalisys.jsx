@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import { loadBoard } from '../store/action/board.action';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { Doughnut, Bar } from 'react-chartjs-2';
-// import { Doughnut, HorizontalBar, Bar } from 'react-chartjs-2';
-
 
 export default class _DashboardAnalisys extends Component {
-
-
-
 
     getRndHexColor = () => {
         const n = (Math.random() * 0xfffff * 1000000).toString(16);
@@ -195,13 +190,15 @@ export default class _DashboardAnalisys extends Component {
             </div >
     }
 }
+
 const mapStateToProps = state => {
     return {
         board: state.boardModule.board,
     };
-};
+}
+
 const mapDispatchToProps = {
     loadBoard,
-};
+}
 
-export const DashboardAnalisys = connect(mapStateToProps, mapDispatchToProps)(_DashboardAnalisys);
+export const DashboardAnalisys = connect(mapStateToProps, mapDispatchToProps)(_DashboardAnalisys)
