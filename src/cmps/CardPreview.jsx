@@ -34,6 +34,24 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
         return cardPreviewDragClass;
     }
 
+
+    function countDoneTodos(card) {
+        let count = 0
+        card.checklist.forEach(oneList => oneList.todos.forEach(todo => {
+            if (todo.isDone === true)
+                count++
+        }))
+        return count
+    }
+
+    function countTodos(card) {
+        let count = 0
+        card.checklist.forEach(oneList => oneList.todos.forEach(todo => {
+            count++
+        }))
+        return count
+    }
+
     return (
 
         <Draggable
@@ -63,13 +81,21 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                 <div className="test-white-space">{card.title} </div>
 
                                 <div className="card-preview-attachments" >{
-
                                     card?.attachments?.map((attachment, index) =>
                                         <img className="card-preview-attachments-img" src={attachment} alt="" key={index} />)}
                                 </div>
 
                                 <div className="card-preview-bottom">
                                     <div className="card-preview-bottom-list">
+                                        {card?.attachments.length > 0 && <span className="card-attachment-icon"></span>}
+                                        {card?.checklist.length > 0 && <>
+                                            <span className="card-checklist-icon"></span>
+                                            <span>{countDoneTodos(card)}</span>
+                                            <span>/</span>
+                                            <span>{countTodos(card)}</span>
+                                        </>
+                                        }
+
                                         {getActivitiesByCardId(card.id).length !== 0 &&
                                             <span className="card-preview-activities ">{getActivitiesByCardId(card.id).length}</span>}
                                         {card?.dueDate?.time ? <span onClick={(event) => toggleDueDate(event)} className={card.dueDate.isCompleted ? "card-preview-date checked" : "card-preview-date not-checked"}>
