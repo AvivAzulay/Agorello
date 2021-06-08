@@ -16,7 +16,7 @@ export function CardMember(props) {
 
     return (
         <div className="board-member" onClick={onToggleState}>
-           <div>
+           <div className="clickable">
             {/* <span className="user-img-chat-add">{initials}</span> */}
             <MemberIcon member={props.boardMember} size={'large'}/>
             <span>{props.boardMember.fullname}</span>

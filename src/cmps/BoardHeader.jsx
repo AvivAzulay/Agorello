@@ -18,6 +18,7 @@ export class BoardHeader extends Component {
   inputRef = React.createRef()
 
   componentDidMount() {
+    console.log(this.props);
     this.setState({ board: this.props.board, title: this.props.board.title, prevTitle: this.props.board.title })
     // this.inputRef.current.focus()
   }
@@ -29,7 +30,6 @@ export class BoardHeader extends Component {
   toggleMenu = () => {
     const { isMenuOn } = this.state
     this.setState({ ...this.state, isMenuOn: !isMenuOn, isSetBackGround: false })
-
   }
 
   toggleSetBackGround = () => {
@@ -116,7 +116,7 @@ export class BoardHeader extends Component {
             <div className="side-menu-title"><h1>Menu</h1><p className="side-menu-close" onClick={this.toggleMenu}></p></div>
             <button className="about-this-board"> About this Board</button>
             <button className="change-background" onClick={this.toggleSetBackGround}> Change background</button>
-            <button className="board-analysis"> Board Analysis</button>
+            <button className="board-analysis" onClick={() => this.props.props.history.push(`/dashboard/${this.props.board._id}`)}> Board Analysis</button>
             <button className="labels"> Labels</button>
             <div className="edit-details-activity-header">
               <span>

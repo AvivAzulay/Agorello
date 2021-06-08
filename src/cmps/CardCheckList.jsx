@@ -183,7 +183,7 @@ export class CardCheckList extends Component {
                         displayCompleted={this.state.displayCompleted}
                         onUpdateChecklist={this.onUpdateChecklist}
                     />)}
-                    {this.getNewTodoDisplay()}
+                    {/* {this.getNewTodoDisplay()} */}
                     <CardAddTodo onUpdateChecklist={this.onUpdateChecklist} />
                 </main>
 
