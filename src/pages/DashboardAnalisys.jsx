@@ -198,8 +198,10 @@ export default class _DashboardAnalisys extends Component {
                             </div>
                         </div>}
                     </div>
-
+                  
+                   <button className="chart-container-btn"  onClick={() => this.props.history.push(`/board/`)}>Go Back</button>
                 </div>
+              
             </div >
     }
 }
