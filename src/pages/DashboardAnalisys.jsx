@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { loadBoard } from '../store/action/board.action';
 import { connect } from 'react-redux';
-// import { toast } from 'react-toastify';
 import { Doughnut, Bar } from 'react-chartjs-2';
+// import { toast } from 'react-toastify';
 
 export default class _DashboardAnalisys extends Component {
 
