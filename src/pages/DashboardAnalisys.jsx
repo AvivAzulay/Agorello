@@ -3,6 +3,8 @@ import { loadBoard } from '../store/action/board.action';
 import { connect } from 'react-redux';
 import { Doughnut, Bar } from 'react-chartjs-2';
 // import { toast } from 'react-toastify';
+import logo from '../assets/img/loder.gif'
+
 
 export default class _DashboardAnalisys extends Component {
 
@@ -145,7 +147,7 @@ export default class _DashboardAnalisys extends Component {
 
     render() {
         const { board } = this.props;
-        if (!board) return <div>Loading...</div>;
+        if (!board) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
         const dashboardNumbers = this.dashboardNumbers(board);
         const cardsByGroups = this.cardsByGroups(board.groups);
         const cardsByMembers = this.cardsByMembers(board);

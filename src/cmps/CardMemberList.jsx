@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import logo from '../assets/img/loder.gif'
 
 import { CardMember } from './CardMember'
 
@@ -36,7 +37,7 @@ export class CardMemberList extends Component {
 
     render() {
         let { boardMembers } = this.state
-        if (!boardMembers || boardMembers.length === 0) return <h1>Loading...</h1>
+        if (!boardMembers || boardMembers.length === 0) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
         boardMembers = boardMembers.filter(member => member.fullname.toLowerCase().includes(this.state.memberName.toLowerCase()))
         return (
             <div className={`card-member-list ${this.props.modalLoc}`} onClick={(ev) => { ev.stopPropagation() }}>

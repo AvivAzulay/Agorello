@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import logo from '../assets/img/loder.gif'
 export class SmartTitleEdit extends Component {
     state = {
         isEditing: false,
@@ -58,7 +58,7 @@ export class SmartTitleEdit extends Component {
     render() {
         const { group, card, data } = this.state
 
-        if ((!group && !card)) return <div>Loading...</div>
+        if ((!group && !card)) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
         return (
             <input className="edit-details-textarea-header"
                 data="text"

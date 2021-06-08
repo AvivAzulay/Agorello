@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loadBoards, addBoard } from '../store/action/board.action.js'
 import { BoardAdd } from '../cmps/BoardAdd'
+import logo from '../assets/img/loder.gif'
 
 class _Boards extends Component {
   state = {
@@ -29,7 +30,7 @@ class _Boards extends Component {
   }
 
   render() {
-    if (!this.state.boards) return <div>Loading...</div>
+    if (!this.state.boards) return  <div className="loader-page"> <img src={logo} alt="loading..." /></div>
     const TemplateBoards = this.props?.boards?.filter(board => board.isTemplate);
     const NoTemplateBoards = this.props?.boards?.filter(board => !board.isTemplate);
  

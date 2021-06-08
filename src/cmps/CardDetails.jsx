@@ -13,6 +13,8 @@ import { AttachmentsList } from './AttachmentsList'
 import { CardComment } from './CardComment'
 import { UplodeImg } from './UplodeImg'
 import { CardDetailsModal } from './CardDetailsModal'
+import logo from '../assets/img/loder.gif'
+
 
 export class _CardDetails extends Component {
   state = {
@@ -73,7 +75,7 @@ export class _CardDetails extends Component {
   }
   render() {
     const { card } = this.state
-    if (!card) return <><h1>Loading...</h1></>
+    if (!card) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
     return (
       <div className="window-screen" onClick={() => this.props.history.push(`/board/${this.props.board._id}`)}>
         <div className="edit" onClick={this.onCloseModals}>

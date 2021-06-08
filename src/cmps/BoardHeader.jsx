@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ActivitiesFilter } from './ActivitiesFilter.jsx'
 import { BoardActivitiesList } from './BoardActivitiesList.jsx'
 import { NavLink } from 'react-router-dom'
-
+import logo from '../assets/img/loder.gif'
 export class BoardHeader extends Component {
 
   state = {
@@ -90,7 +90,7 @@ export class BoardHeader extends Component {
     ]
 
     const { isMenuOn, isSetBackGround, isEditing, title } = this.state
-    if (!this.props.board) return <div>Loading...</div>
+    if (!this.props.board) return <div className="loader-page"> <img src={logo} alt="loading..." /></div>
     return (
       <>
         <div className="borad-nav">
