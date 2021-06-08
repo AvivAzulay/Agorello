@@ -3,10 +3,18 @@ import { loadBoard } from '../store/action/board.action';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Doughnut, Bar } from 'react-chartjs-2';
+// import { Doughnut, HorizontalBar, Bar } from 'react-chartjs-2';
 
 
 export default class _DashboardAnalisys extends Component {
 
+
+
+
+    getRndHexColor = () => {
+        const n = (Math.random() * 0xfffff * 1000000).toString(16);
+        return '#' + n.slice(0, 6);
+    }
 
     getDataForChart = (mapObject) => {
         const rndClrs = Object.keys(mapObject).map(key => this.getRndHexColor())
@@ -49,15 +57,15 @@ export default class _DashboardAnalisys extends Component {
         return { numOfMembers, archivedCardsCount, unarchivedCardsCount, todosCount };
     }
 
-    //     cardsByGroups = (groups) => {
-    //         if (!groups) return;
-    //         const cardsByGroupsMap = groups.reduce((acc, group) => {
-    //             const unArchivedCards = group.cards.filter(card => !card.archivedAt)
-    //             acc[group.title] = unArchivedCards.length;
-    //             return acc;
-    //         }, {});
-    //         return this.getDataForChart(cardsByGroupsMap);
-    //     }
+    cardsByGroups = (groups) => {
+        if (!groups) return;
+        const cardsByGroupsMap = groups.reduce((acc, group) => {
+            const unArchivedCards = group.cards.filter(card => !card.archivedAt)
+            acc[group.title] = unArchivedCards.length;
+            return acc;
+        }, {});
+        return this.getDataForChart(cardsByGroupsMap);
+    }
 
     cardsByMembers = (board) => {
         if (!board.members) return;
@@ -139,8 +147,8 @@ export default class _DashboardAnalisys extends Component {
             }
         }
 
-
     }
+
     render() {
         const { board } = this.props;
         if (!board) return <div>Loading...</div>;
