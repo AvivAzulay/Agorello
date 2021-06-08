@@ -2,7 +2,6 @@ import { MemberIcon } from './MemberIcon'
 import React, { Component } from 'react'
 import Moment from 'react-moment'
 
-
 export class CardActivitiesList extends Component {
 
     render() {
