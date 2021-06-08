@@ -64,6 +64,16 @@ export class BoardHeader extends Component {
 
   render() {
     const backgroundURLs = [
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190383/background%20for%20Taskit/new%20backgrond/underwater-landscape_rjewvj.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190400/background%20for%20Taskit/new%20backgrond/phi-phi-island-ocean-thailand_ethdby.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190403/background%20for%20Taskit/new%20backgrond/skiers-ski-lift-mountain-resort-with-sky-mountains_sdskrm.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190411/background%20for%20Taskit/new%20backgrond/kirkjufell-sunrise-iceland-beautiful-landscape_arpirx.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190431/background%20for%20Taskit/new%20backgrond/young-man-arms-outstretched-by-sea-sunrise-enjoying-freedom-life-people-travel-wellbeing-concept_cxydma.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190435/background%20for%20Taskit/new%20backgrond/winter-dark-forest-snowy-landscape-with-fir-trees_c4fm2u.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190446/background%20for%20Taskit/new%20backgrond/beautiful-emerald-lake-yoho-national-park-british-columbia-canada_k3vy9c.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190445/background%20for%20Taskit/new%20backgrond/multicolored-large-balloons-sky-against-backdrop-beautiful-sunset_uauvt3.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190448/background%20for%20Taskit/new%20backgrond/dark-abstract-winter-forest-background_btyspx.jpg",
+      "https://res.cloudinary.com/taskit-sprint/image/upload/v1623190450/background%20for%20Taskit/new%20backgrond/godafoss-waterfall-sunset-winter-iceland_wjm5fe.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319331/background%20for%20Taskit/background_3_vbexy0.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319332/background%20for%20Taskit/background_20_quuo0j.jpg",
       "https://res.cloudinary.com/taskit-sprint/image/upload/v1622319336/background%20for%20Taskit/background_5_ymjrkv.jpg",

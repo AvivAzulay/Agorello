@@ -259,6 +259,7 @@
   content: "\e917";
   font-size: 20px;
   color: #5e6c84;
+ line-height: 23px;
 }
 
 .card-preview-activities {
@@ -283,11 +284,17 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.card-container{
-
-  // margin:-4px ;
+  align-items: center;
+  gap:3px;
+  .card-checklist-preview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span{
+      font-size: 14px;
+      margin-left: 2px;
+    }
+  }
 
 }
 

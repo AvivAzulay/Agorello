@@ -89,10 +89,12 @@ export function CardPreview({ onRemoveCard, card, index, onSaveCard, getActiviti
                                     <div className="card-preview-bottom-list">
                                         {card?.attachments.length > 0 && <span className="card-attachment-icon"></span>}
                                         {card?.checklist.length > 0 && <>
+                                        <span  className="card-checklist-preview">
                                             <span className="card-checklist-icon"></span>
                                             <span>{countDoneTodos(card)}</span>
                                             <span>/</span>
                                             <span>{countTodos(card)}</span>
+                                            </span>
                                         </>
                                         }
 

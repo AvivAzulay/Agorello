@@ -7,17 +7,16 @@
 
   p {
     @include for-mobile-layout {
-    font-size: 22px;
+      font-size: 22px;
     }
-    
+
     font-size: 32px;
-  
-    
+
     font-weight: 500;
     color: rgba(61, 71, 77, 0.5);
     letter-spacing: normal;
     margin: 0;
-    
+
     margin-top: 55px;
     font-family: Light;
   }
@@ -35,11 +34,11 @@
   @include for-normal-layout {
     font-size: 80px;
   }
-   
+
   @include for-mobile-layout {
     font-size: 40px;
   }
- 
+
   font-weight: 700;
   letter-spacing: -2px;
   font-family: Heavy;
@@ -55,7 +54,7 @@
   color: white;
   line-height: 50px;
   height: 70px;
-  padding:0 35px;
+  padding: 0 35px;
   font-size: 25px;
   border-radius: 36px;
   -webkit-appearance: none;
@@ -70,7 +69,7 @@
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  
+
   margin: 55px 0;
   display: flex;
   align-items: center;
@@ -84,8 +83,8 @@
     font-size: 21px;
     color: #69788d;
     color: #f4f5f7;
-  margin-top: 6px;
-  margin-left: 5px;
+    margin-top: 6px;
+    margin-left: 5px;
   }
 }
 
@@ -113,9 +112,8 @@
 .home-title-a {
   @include for-wide-layout {
     font-size: 60px;
-   
-    }
-    font-size: 30px;
+  }
+  font-size: 30px;
   font-weight: 700;
   line-height: 110%;
 
@@ -133,14 +131,14 @@
   background-size: contain;
   position: relative;
   @include for-normal-layout {
-  margin-top: 130px;
-  width: 100%;
-  height: calc(100vw / 1440 * 520);
-  }
-  @include for-mobile-layout(){
+    margin-top: 130px;
     width: 100%;
-  height: calc(70vw);
-  margin-top: 25px;
+    height: calc(100vw / 1440 * 520);
+  }
+  @include for-mobile-layout() {
+    width: 100%;
+    height: calc(70vw);
+    margin-top: 25px;
   }
 
   justify-content: space-between;
@@ -153,7 +151,7 @@
   p {
     margin: 0;
     font-family: Light;
-    @include for-mobile-layout{
+    @include for-mobile-layout {
       margin-top: 120px;
     }
   }
@@ -161,21 +159,20 @@
 
 .home-pargrafe-a {
   font-family: Light;
-  @include for-mobile-layout{
+  @include for-mobile-layout {
     font-size: 12px;
     margin: 0;
     padding: 5px;
     display: none;
   }
-  
+
   @include for-narrow-layout {
     font-size: 14px;
-   padding-left: 20px;
-   padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   @include for-normal-layout {
-  font-size: 21px;
-  
+    font-size: 21px;
   }
   color: rgba(61, 71, 77, 0.5);
   margin-bottom: 40px;
@@ -218,58 +215,54 @@
   padding: 0;
   background-repeat: no-repeat;
   background-size: contain;
- 
-  height: calc(80vw *0.277);
+
+  height: calc(80vw * 0.277);
   width: 70vw;
   @include for-mobile-layout {
-  height: calc(100vw *0.277);
-  width: 100vw;
+    height: calc(100vw * 0.277);
+    width: 100vw;
+  }
+
+  // @include for-narrow-layout {
+  //   height: calc(100vw *0.277);
+  //   width: 100vw;
+  // }
 }
 
-// @include for-narrow-layout {
-//   height: calc(100vw *0.277);
-//   width: 100vw;
-// }
-}
-
-
-.loader-page{
+.loader-page {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) 
-
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 .subheading {
-
+  padding-top: 80px;
   font-size: 32px;
   font-weight: 500;
   line-height: 120%;
-  color: rgba(61,71,77,0.5);
-  letter-spacing: normal;}
-.sub{
+  color: rgba(61, 71, 77, 0.5);
+  letter-spacing: normal;
+}
+.sub {
   margin-bottom: 30px;
   font-size: 60px;
   font-weight: 700;
   line-height: 110%;
-  letter-spacing: -1px; 
+  letter-spacing: -1px;
 }
 
-
-.intro{
+.intro {
   font-size: 21px;
-    color: rgba(61,71,77,0.5);
-    margin-bottom: 40px;
+  color: rgba(61, 71, 77, 0.5);
+  margin-bottom: 40px;
 }
 
-.content{
-
-  max-width: 1170px;
-    position: relative;
-    width: 100%;
-    padding: 0 25px;
-    font-size: 17px;
-   
+.content {
+  width: 70%;
+  padding: 0 25px;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 10px;
 }
